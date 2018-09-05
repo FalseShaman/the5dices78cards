@@ -32,7 +32,6 @@
             $parts = explode('/', $this->path);
             
             $this->view = isset($this->routes[$parts[1]]) ? $parts[1] : 'lost';
-            $this->model = isset($this->routes[$parts[1]][$parts[2]]) ? $parts[2]: 'base';
         }
     }
     

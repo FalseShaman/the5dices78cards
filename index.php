@@ -7,6 +7,7 @@
     $route = new Controller($path);
     $route->createRoute();
     
-    require 'model/'.$route->model.'.php';
+    require 'model/Base.php';
+    
     include_once 'view/'.$route->view.'.php';
 ?>

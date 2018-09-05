@@ -5,7 +5,7 @@
     </head>
 
     <body>
-        Hello there!
+        <?php include('Layout_navbar.php'); ?>
         
         <?php include('Layout_script.php'); ?>
     </body>
