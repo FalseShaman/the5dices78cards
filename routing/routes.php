@@ -4,11 +4,11 @@
     {
         public $path;
         
-        public $name = 'lost';
+        public $name = 'home';
         public $action;
         public $param;
                 
-        function __construct($path = '/404') {
+        function __construct($path = '/') {
             $this->path = $path;
         }
         
@@ -24,6 +24,14 @@
             if (isset($parts[3]) && $parts[3] > '') {
                 $this->param = $parts[3];
             }
+            
+            if (count($parts) > 4) {
+                $this->name = 'lost';
+            }
+        }
+        
+        public function go() {
+            require '../controller/'.$this->name.'.php';
         }
     }
     
