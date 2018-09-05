@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html>
-
     <head>
-        <title>Home</title>
+        <?php include('Layout_head.php'); ?>
     </head>
 
     <body>
         Hello there!
+        
+        <?php include('Layout_script.php'); ?>
     </body>
 
 </html> 

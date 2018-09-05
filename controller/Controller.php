@@ -3,12 +3,26 @@
     class Controller
     {
         public $path;
+        public $view;
+        public $model;
         
-        public $model = 'base';
-        private $modelList = ['home', 'lost'];
-        
-        public $view = 'home';
-        private $viewlList = ['home', 'lost'];
+        public $routes = array(
+            'home' =>
+                array(),
+            'card' => 
+                array(),
+            'deck' => 
+                array(),
+            'spread' => 
+                array(),
+            'memory' => 
+                array(),
+            'profile' => 
+                array(),
+            'lost' =>
+                array()
+            );
+                        
                 
         function __construct($path = '/') {
             $this->path = $path;
@@ -17,21 +31,9 @@
         public function createRoute() {
             $parts = explode('/', $this->path);
             
-            if (isset($parts[2]) && in_array($parts[2], $this->modelList)) {
-                $this->model = $parts[2];
-            } else {
-                $this->model = 'base';
-            }
-            
-            if (isset($parts[1]) && in_array($parts[1], $this->viewlList)) {
-                $this->view = $parts[1];
-            } else {
-                $this->view = 'lost';
-            }
-            
-            if (count($parts) > 3) {
-                $this->model = 'base';
-                $this->view = 'lost';
+            $this->view = isset($this->routes[$parts[1]]) ? $parts[1] : 'lost';
+            if ($this->view != 'lost') {
+                $this->model = isset($this->routes[$parts[1]][$parts[2]]) ? $parts[2]: 'base';
             }
         }
     }
