@@ -12,7 +12,7 @@
     foreach ($route->routes as $view => $data) 
     {
         $navbar .= $route->view == $view ? '<li class="nav-item active">' : '<li class="nav-item">';
-        $navbar .= '<a class="nav-link" href="#">'.ucfirst($view).'</a></li>';
+        $navbar .= '<a class="nav-link" href="/'.$view.'">'.ucfirst($view).'</a></li>';
     }
     
     include_once 'view/'.$route->view.'.php';

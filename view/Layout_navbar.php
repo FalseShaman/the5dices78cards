@@ -1,5 +1,7 @@
 <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
-    <a class="navbar-brand mr-auto mr-lg-0" href="#"><b>5 dices & 78 cards</b></a>
+    <a class="navbar-brand mr-auto mr-lg-0" href="/home">
+        <h2><b>5 dices & 78 cards</b></h2>
+    </a>
 
     <div class="navbar-collapse offcanvas-collapse">
         <ul class="navbar-nav mr-auto">

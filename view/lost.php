@@ -7,7 +7,15 @@
     <body>
         <?php include('Layout_navbar.php'); ?>
         
-        <img src="http://1001goroskop.ru/img/cards/koloda/56.jpg" width="170" height="300" alt="0">
+        <div class="container-fluid">
+            <div class="card" style="width: 15rem;">
+                <img class="card-img-top" src="http://1001goroskop.ru/img/cards/koloda/56.jpg" width="170" height="300" alt="0">
+                <div class="card-body">
+                    <h5 class="card-title">Nothing</h5>
+                    <p class="card-text">What are you looking for?</p>
+                </div>
+            </div>
+        </div>
         
         <?php include('Layout_script.php'); ?>
     </body>
