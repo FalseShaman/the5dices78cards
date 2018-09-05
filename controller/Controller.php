@@ -15,14 +15,14 @@
             $parts = explode('/', $this->path);
             
             if (isset($parts[1]) && $parts[1] > '') {
-                $this->name = $parts[1];
+                $this->view = $parts[1];
             }
             if (isset($parts[2]) && $parts[2] > '') {
-                $this->action = $parts[2];
+                $this->model = $parts[2];
             }
             
             if (count($parts) > 3) {
-                $this->name = 'lost';
+                $this->view = 'lost';
             }
         }
     }
