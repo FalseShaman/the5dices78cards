@@ -15,14 +15,14 @@
         public function getController() {
             $parts = explode('/', $this->path);
             
-            if (isset($parts[0]) && $parts[0] > '') {
-                $this->name = $parts[0];
-            }
             if (isset($parts[1]) && $parts[1] > '') {
-                $this->action = $parts[1];
+                $this->name = $parts[1];
             }
             if (isset($parts[2]) && $parts[2] > '') {
-                $this->param = $parts[2];
+                $this->action = $parts[2];
+            }
+            if (isset($parts[3]) && $parts[3] > '') {
+                $this->param = $parts[3];
             }
         }
     }
