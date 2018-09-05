@@ -1,18 +1,17 @@
 <?php
 
-    class Router
+    class Controller
     {
         public $path;
         
-        public $name = 'home';
-        public $action;
-        public $param;
+        public $view = 'home';
+        public $model = 'base';
                 
         function __construct($path = '/') {
             $this->path = $path;
         }
         
-        public function getController() {
+        public function createRoute() {
             $parts = explode('/', $this->path);
             
             if (isset($parts[1]) && $parts[1] > '') {
@@ -21,11 +20,8 @@
             if (isset($parts[2]) && $parts[2] > '') {
                 $this->action = $parts[2];
             }
-            if (isset($parts[3]) && $parts[3] > '') {
-                $this->param = $parts[3];
-            }
             
-            if (count($parts) > 4) {
+            if (count($parts) > 3) {
                 $this->name = 'lost';
             }
         }

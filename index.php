@@ -2,10 +2,11 @@
 
     $path = $_SERVER[REQUEST_URI];
     
-    require_once('routing/routes.php');
+    require_once('controller/Controller.php');
     
-    $route = new Router($path);
-    $route->getController();
+    $route = new Controller($path);
+    $route->createRoute();
     
-    require 'controller/'.$route->name.'.php';
+    require 'model/'.$route->model.'.php';
+    include_once 'view/'.$route->view.'.php';
 ?>
