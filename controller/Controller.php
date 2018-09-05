@@ -25,16 +25,14 @@
                         
                 
         function __construct($path = '/') {
-            $this->path = $path;
+            $this->path = $path == '/' ? '/home' : $path;
         }
         
         public function createRoute() {
             $parts = explode('/', $this->path);
             
             $this->view = isset($this->routes[$parts[1]]) ? $parts[1] : 'lost';
-            if ($this->view != 'lost') {
-                $this->model = isset($this->routes[$parts[1]][$parts[2]]) ? $parts[2]: 'base';
-            }
+            $this->model = isset($this->routes[$parts[1]][$parts[2]]) ? $parts[2]: 'base';
         }
     }
     
