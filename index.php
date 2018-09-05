@@ -5,5 +5,6 @@
     require_once('routing/routes.php');
     
     $route = new Router($path);
-    echo implode(',', $route->getController());
+    
+    var_dump($route->getController());
 ?>
