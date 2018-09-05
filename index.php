@@ -6,5 +6,6 @@
     
     $route = new Router($path);
     $route->getController();
-    $route->go();
+    
+    require 'controller/'.$route->name.'.php';
 ?>

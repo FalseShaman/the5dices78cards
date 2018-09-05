@@ -29,10 +29,6 @@
                 $this->name = 'lost';
             }
         }
-        
-        public function go() {
-            require '../controller/'.$this->name.'.php';
-        }
     }
     
 ?>
