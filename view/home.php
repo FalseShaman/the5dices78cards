@@ -5,7 +5,18 @@
     </head>
 
     <body>
-        <?php include('Layout_navbar.php'); ?>
+        <div id="wrapper" class="toggled">
+            
+            <?php include('Layout_navbar.php'); ?>
+
+            <div id="page-content-wrapper">
+                <div class="container-fluid">
+                    <div class="container">
+                        Привет путник
+                    </div>
+                </div>
+            </div>
+        </div>
         
         <?php include('Layout_script.php'); ?>
     </body>

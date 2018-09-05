@@ -15,8 +15,8 @@
                         <div class="card" style="width: 13rem;">
                             <img class="card-img-top" src="http://1001goroskop.ru/img/cards/koloda/56.jpg" width="170" height="300" alt="0">
                             <div class="card-body">
-                                <h5 class="card-title">Nothing</h5>
-                                <p class="card-text">What are you looking for?</p>
+                                <h5 class="card-title">Ничего</h5>
+                                <p class="card-text">Что делать?</p>
                             </div>
                         </div>
                     </div>

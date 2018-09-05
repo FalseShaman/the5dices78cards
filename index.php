@@ -3,11 +3,12 @@
     $path = $_SERVER[REQUEST_URI];
     
     require_once('controller/Controller.php');
-    
     $route = new Controller($path);
     $route->createRoute();
     
-    $title = ucfirst($route->view);
+    require_once('model/language.php');
+    $title = isset($translateList[$route->view]) ? $translateList[$route->view] : $translateList['fail'];
+    
     $navbar = '';
     foreach ($route->routes as $view => $data) 
     {
