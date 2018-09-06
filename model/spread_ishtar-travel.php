@@ -23,9 +23,9 @@
         'Жертва Думузи' => array('position' => 7)
     );
     
-    $map = '<div class="col-md-12">';
-//    for ($row=0; $row<$rowCount; $row++)
-//    {
+    $map = '<div class="row">';
+    for ($row=0; $row<$rowCount; $row++)
+    {
         for ($col=0; $col<$colCount; $col++)
         {
             $placeNumber = $col + $col*0;
@@ -53,6 +53,6 @@
             
             $map .= '</div>';
         }
-//    }
+    }
     $map .= '</div>';
 ?>
