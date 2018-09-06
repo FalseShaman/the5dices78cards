@@ -2,15 +2,6 @@
 
     class Spread
     {
-        public $divSize;
-        public $divCount;
-        public $map;
-
-        function __construct($divSize = 1, $divCount = 1) {
-            $this->divSize = $divSize;
-            $this->divCount = $divCount;
-        }
-
         public function getMap($positions) {
             $map = '<div class="row">';
             $cardCount = count($positions);
@@ -20,8 +11,8 @@
                 foreach($positions as $place => $data)
                 {
                     if ($placeNumber == $data['position']) {
-                        $map .= '<p style="text-align: center; font-weight: bold; position: relative; top: 15px; z-index: 5;">'.$place.'</p>';
-                        $map .= '<img src="http://1001goroskop.ru/img/cards/koloda/57.jpg" width="60" height="150" style="position: relative; bottom: 15px;">';
+                        $map .= '<p style="text-align: center; font-weight: bold; position: absolute; top: 15px; z-index: 5;">'.$place.'</p>';
+                        $map .= '<img src="http://1001goroskop.ru/img/cards/koloda/57.jpg" width="60" height="150" style="position: absolute; bottom: 15px;">';
 
                         $cardCount--;
                         break;
