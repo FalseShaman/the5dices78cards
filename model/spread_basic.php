@@ -1,3 +1,3 @@
 <?php
-    $list = scandir('');
+    $list = scandir('/');
 ?>
