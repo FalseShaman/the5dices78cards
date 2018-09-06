@@ -5,6 +5,7 @@
     require_once 'controller/Controller.php';
     $route = new Controller($path);
 
+    $title = $route->getTitle();
     $navbar = $route->getNav();
 
     if ($route->model) {
