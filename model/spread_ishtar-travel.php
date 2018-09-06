@@ -2,7 +2,7 @@
     $rowCount = 5;
     $colCount = 4;
     
-    $divSize = intval(12 / $rowCount);
+    $divSize = intval(12 / $colCount);
     $divCount = $rowCount * $colCount;
     
     $spread = array(
