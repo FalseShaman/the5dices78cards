@@ -16,9 +16,11 @@
         $navbar .= '<a class="nav-link" href="/'.$view.'">'.ucfirst($view).'</a></li>';
     }
 
+var_dump($route->model);
     if ($route->model) {
         require 'model/'.$route->view.'_'.$route->model.'.php';
     }
-    
+
+var_dump('model/'.$route->view.'_'.$route->model.'.php');
     include_once('view/'.$route->view.'.php');
 ?>
