@@ -5,19 +5,14 @@
     </head>
 
     <body>
-        <div id="wrapper" class="toggled">
-            
-            <?php include('Layout_navbar.php'); ?>
+        <div class="container-fluid">
+            <div class="container">
 
-            <div id="page-content-wrapper">
-                <div class="container-fluid">
-                    <div class="container">
-                        <?php //echo $map; ?>
-                    </div>
-                </div>
             </div>
         </div>
-        
+
+        <?php include('Layout_navbar.php'); ?>
+
         <?php include('Layout_script.php'); ?>
     </body>
 
