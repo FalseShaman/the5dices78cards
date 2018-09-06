@@ -11,8 +11,8 @@
                 foreach($positions as $place => $data)
                 {
                     if ($placeNumber == $data['position']) {
-                        $map .= '<span style="text-align: center; font-weight: bold;">'.$place.'</span>';
-                        $map .= '<img src="http://1001goroskop.ru/img/cards/koloda/57.jpg" width="60" height="150" style="position: absolute; bottom: 15px;">';
+                        $map .= '<img src="http://1001goroskop.ru/img/cards/koloda/57.jpg" width="60" height="150">';
+                        $map .= '<span style="text-align: center; font-size: 1.2em;">'.$place.'</span>';
 
                         $cardCount--;
                         break;
