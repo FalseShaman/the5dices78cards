@@ -3,7 +3,7 @@
     $colCount = 4;
     $cardCount = 15;
     
-    $divSize = intdiv(12, $rowCount);
+    $divSize = intval(12 / $rowCount);
     
     $spread = array(
         'Инанна' => array('position' => 1),
