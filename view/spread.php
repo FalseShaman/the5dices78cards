@@ -12,7 +12,7 @@
             <div id="page-content-wrapper">
                 <div class="container-fluid">
                     <div class="container">
-                        <?php echo $map; ?>
+                        <?php //echo $map; ?>
                     </div>
                 </div>
             </div>
