@@ -32,6 +32,10 @@
             $parts = explode('/', $this->path);
             
             $this->view = isset($this->routes[$parts[1]]) ? $parts[1] : 'lost';
+            
+            if (isset($parts[2]) && isset($this->routes[$parts[1]][$parts[2]])) {
+                $this->model = $parts[2];   
+            }
         }
     }
     

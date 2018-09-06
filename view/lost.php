@@ -12,13 +12,6 @@
             <div id="page-content-wrapper">
                 <div class="container-fluid">
                     <div class="container">
-                        <div class="card" style="width: 13rem;">
-                            <img class="card-img-top" src="http://1001goroskop.ru/img/cards/koloda/56.jpg" width="170" height="300" alt="0">
-                            <div class="card-body">
-                                <h5 class="card-title">Ничего</h5>
-                                <p class="card-text">Что делать?</p>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
