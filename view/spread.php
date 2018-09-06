@@ -7,7 +7,7 @@
     <body>
         <div class="container-fluid">
             <div class="container">
-
+                <?php echo $map; ?>
             </div>
         </div>
 

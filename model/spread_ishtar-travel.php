@@ -1,11 +1,8 @@
-<?php 
-    $rowCount = 5;
-    $colCount = 4;
-    
+<?php
     $divSize = intval(12 / $colCount);
     $divCount = $rowCount * $colCount;
     
-    $spread = array(
+    $positions = array(
         'Инанна' => array('position' => 1),
         'Нети' => array('position' => 4),
         'Шугурра' => array('position' => 8),
@@ -22,39 +19,9 @@
         'Новая личность' => array('position' => 3),
         'Жертва Думузи' => array('position' => 7)
     );
-    
-    $map = '<div class="row">';
-    for ($placeNumber=0; $placeNumber<$divCount; $placeNumber++)
-    {
-        $map .= '<div class="col-md-'.$divSize.'" id="cardPlace'.$placeNumber.'">';
 
-        $placeFound = false;
-        foreach($spread as $place => $data)
-        {
-            if ($placeNumber == $data['position']) {
-                $map .= '<div class="card" style="width: 11rem;">
-                            <img class="card-img-top" src="http://1001goroskop.ru/img/cards/koloda/57.jpg" width="85" height="150" alt="0">
-                            <div class="card-body">
-                                <h5 class="card-title">'.$place.'</h5>
-                                <p class="card-text">...</p>
-                            </div>
-                        </div>';
+    require 'Spread.php';
+    $spread = new Spread($divSize, $divCount);
 
-                $placeFound = true;
-            }
-        }
-
-        if (!$placeFound) {
-            $map .= '<div class="card" style="width: 11rem;">
-                            <img class="card-img-top" src="" width="85" height="150" alt="0">
-                            <div class="card-body">
-                                <h5 class="card-title"></h5>
-                                <p class="card-text"></p>
-                            </div>
-                        </div>';
-        }
-
-        $map .= '</div>';
-    }
-    $map .= '</div>';
+    $map = $spread->getMap($positions);
 ?>
