@@ -12,7 +12,7 @@
             <div id="page-content-wrapper">
                 <div class="container-fluid">
                     <div class="container">
-                        Привет путник
+                        <?php if (isset($map) && is_string($map)): echo $map; endif; ?>
                     </div>
                 </div>
             </div>
