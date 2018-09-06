@@ -28,7 +28,7 @@
 //    {
         for ($col=0; $col<$colCount; $col++)
         {
-            $placeNumber = $row + $row*$col;
+            $placeNumber = $col + $col*0;
             $map .= '<div class="col-md-'.$divSize.'" id="cardPlace'.$placeNumber.'">';
             
             $placeFound = false;
