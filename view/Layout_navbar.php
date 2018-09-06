@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="position: fixed; top: 0; width: 100%; height: 15%; font-size: 2em;   ">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="position: absolute; top: 0; width: 100%; font-size: 1.7em;   ">
     <ul class="navbar-nav">
         <?php echo $navbar; ?>
     </ul>
