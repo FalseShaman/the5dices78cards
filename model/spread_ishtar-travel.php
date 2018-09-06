@@ -18,7 +18,7 @@
     );
 
     require 'Spread.php';
-    $spread = new Spread($divSize, $divCount);
+    $spread = new Spread();
 
     $map = $spread->getMap($positions);
 ?>

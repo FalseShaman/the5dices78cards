@@ -13,7 +13,7 @@
             'deck' => 
                 array(),
             'spread' => 
-                array('ishtar-travel'),
+                array('ishtar-travel', 'celtic-cross'),
             'memory' => 
                 array(),
             'profile' => 
