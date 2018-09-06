@@ -7,7 +7,8 @@
     <body>
         <div class="container-fluid">
             <div class="container">
-                <?php echo $map; ?>
+                <?php if ($map) { echo $map; } ?>
+                <?php if ($list) { var_dump($list); } ?>
             </div>
         </div>
 

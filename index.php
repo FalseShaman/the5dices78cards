@@ -10,6 +10,8 @@
 
     if ($route->model) {
         require 'model/'.$route->view.'_'.$route->model.'.php';
+    } else {
+        require 'model/'.$route->view.'_basic.php';
     }
 
     include_once('view/'.$route->view.'.php');

@@ -12,7 +12,7 @@
                 {
                     if ($placeNumber == $data['position']) {
                         $map .= '<img src="http://1001goroskop.ru/img/cards/koloda/57.jpg" width="70" height="150" style="margin-top: 15px">';
-                        $map .= '<span style="text-align: center; font-size: 0.8em; word-break: break-all;">'.$place.'</span>';
+                        $map .= '<p style="text-align: center; font-size: 0.8em; word-break: break-all;">'.$place.'</p>';
 
                         $cardCount--;
                         break;
