@@ -2,7 +2,6 @@
 
     class Controller
     {
-        public $path;
         public $view;
         public $model;
         
@@ -26,11 +25,10 @@
                 
         function __construct($path = '/') {
             if ($path == '/') {
-                $this->path = '/';
                 $this->view = 'news';
                 $this->model = 'basic';
             } else {
-                $parts = explode('/', $this->path);
+                $parts = explode('/', $path);
 
                 $this->view = isset($this->routes[$parts[1]]) ? $parts[1] : 'lost';
 
@@ -67,7 +65,8 @@
                 'spread' => 'Расклад',
                 'memory' => 'Память',
                 'profile' => 'Профиль',
-                'lost' => 'Не найдена'
+                'lost' => 'Не найдена',
+                'fail' => 'Перевод не найден'
             );
         }
     }
