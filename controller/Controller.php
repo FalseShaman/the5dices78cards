@@ -14,7 +14,7 @@
             'deck' => 
                 array(),
             'spread' => 
-                array(),
+                array('ishtar-travel'),
             'memory' => 
                 array(),
             'profile' => 
@@ -33,7 +33,7 @@
             
             $this->view = isset($this->routes[$parts[1]]) ? $parts[1] : 'lost';
             
-            if (isset($parts[2]) && isset($this->routes[$parts[1]][$parts[2]])) {
+            if (isset($parts[2]) && in_array($parts[2], $this->routes[$parts[1]])) {
                 $this->model = $parts[2];   
             }
         }
