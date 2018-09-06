@@ -7,7 +7,7 @@
         public $model;
         
         public $routes = array(
-            'home' =>
+            'news' =>
                 array(),
             'card' => 
                 array(),
@@ -25,7 +25,7 @@
                         
                 
         function __construct($path = '/') {
-            $this->path = $path == '/' ? '/home' : $path;
+            $this->path = $path == '/' ? '/news' : $path;
         }
         
         public function createRoute() {

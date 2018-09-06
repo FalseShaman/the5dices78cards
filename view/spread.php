@@ -12,7 +12,7 @@
             <div id="page-content-wrapper">
                 <div class="container-fluid">
                     <div class="container">
-                        <?php if (isset($map) && is_string($map)): echo $map; endif; ?>
+                        <?php echo $map; ?>
                     </div>
                 </div>
             </div>

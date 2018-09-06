@@ -6,21 +6,21 @@
     $divSize = intdiv(12, $rowCount);
     
     $spread = array(
-        'Èíàííà' => array('position' => 1),
-        'Íåòè' => array('position' => 4),
-        'Øóãóððà' => array('position' => 8),
-        'Ìåðíàÿ âåðåâêà' => array('position' => 12),
-        'Ëàçóðíîå îæåðåëüå' => array('position' => 16),
-        'Íóìóç' => array('position' => 17),
-        'Çîëîòûå áðàñëåòû' => array('position' => 18),
-        'Áðîøü ñ æåëàíèåì' => array('position' => 19),
-        'Ìàíòèÿ öàðèöû' => array('position' => 15),
-        'Ýðåøêèãàëü' => array('position' => 11),
-        'Íèíøóáóð' => array('position' => 10),
-        'Æèâàÿ åäà' => array('position' => 13),
-        'Æèâàÿ âîäà' => array('position' => 14),
-        'Íîâàÿ ëè÷íîñòü' => array('position' => 3),
-        'Æåðòâà Äóìóçè' => array('position' => 7)
+        'Ð˜Ð½Ð°Ð½Ð½Ð°' => array('position' => 1),
+        'ÐÐµÑ‚Ð¸' => array('position' => 4),
+        'Ð¨ÑƒÐ³ÑƒÑ€Ñ€Ð°' => array('position' => 8),
+        'ÐœÐµÑ€Ð½Ð°Ñ Ð²ÐµÑ€ÐµÐ²ÐºÐ°' => array('position' => 12),
+        'Ð›Ð°Ð·ÑƒÑ€Ð½Ð¾Ðµ Ð¾Ð¶ÐµÑ€ÐµÐ»ÑŒÐµ' => array('position' => 16),
+        'ÐÑƒÐ¼ÑƒÐ·' => array('position' => 17),
+        'Ð—Ð¾Ð»Ð¾Ñ‚Ñ‹Ðµ Ð±Ñ€Ð°ÑÐ»ÐµÑ‚Ñ‹' => array('position' => 18),
+        'Ð‘Ñ€Ð¾ÑˆÑŒ Ñ Ð¶ÐµÐ»Ð°Ð½Ð¸ÐµÐ¼' => array('position' => 19),
+        'ÐœÐ°Ð½Ñ‚Ð¸Ñ Ñ†Ð°Ñ€Ð¸Ñ†Ñ‹' => array('position' => 15),
+        'Ð­Ñ€ÐµÑˆÐºÐ¸Ð³Ð°Ð»ÑŒ' => array('position' => 11),
+        'ÐÐ¸Ð½ÑˆÑƒÐ±ÑƒÑ€' => array('position' => 10),
+        'Ð–Ð¸Ð²Ð°Ñ ÐµÐ´Ð°' => array('position' => 13),
+        'Ð–Ð¸Ð²Ð°Ñ Ð²Ð¾Ð´Ð°' => array('position' => 14),
+        'ÐÐ¾Ð²Ð°Ñ Ð»Ð¸Ñ‡Ð½Ð¾ÑÑ‚ÑŒ' => array('position' => 3),
+        'Ð–ÐµÑ€Ñ‚Ð²Ð° Ð”ÑƒÐ¼ÑƒÐ·Ð¸' => array('position' => 7)
     );
     
     $map = '';
