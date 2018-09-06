@@ -6,7 +6,7 @@
     $route = new Controller($path);
     $route->createRoute();
     
-    require_once 'model/Language.php';
+    require_once 'model/language.php';
     $title = isset($translateList[$route->view]) ? $translateList[$route->view] : $translateList['fail'];
     
     $navbar = '';
