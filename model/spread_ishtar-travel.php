@@ -1,4 +1,7 @@
 <?php
+    $colCount = 4;
+    $rowCount = 5;
+
     $divSize = intval(12 / $colCount);
     $divCount = $rowCount * $colCount;
     
