@@ -54,4 +54,6 @@
             $map .= '</div>';
         }
     }
+
+    var_dump($map);
 ?>
