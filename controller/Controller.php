@@ -46,7 +46,7 @@
         }
 
         public function getNav() {
-            $translateList = $this->getTranslate();
+            $translateList = getTranslate();
             $navbar = '';
             foreach ($this->pages as $page => $data)
             {
@@ -54,19 +54,6 @@
                 $navbar .= '<a class="nav-link" href="/'.$page.'">'.ucfirst($translateList[$page]).'</a></li>';
             }
             return $navbar;
-        }
-
-        public function getTranslate() {
-            return array(
-                'news' => 'Новости',
-                'card' => 'Аркан',
-                'deck' => 'Колода',
-                'spread' => 'Расклад',
-                'memory' => 'Память',
-                'profile' => 'Профиль',
-                'lost' => 'Не найдена',
-                'fail' => 'Перевод не найден'
-            );
         }
     }
     

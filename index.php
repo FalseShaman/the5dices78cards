@@ -1,5 +1,20 @@
 <?php
 
+    function getTranslate() {
+        return array(
+            'news' => 'Новости',
+            'card' => 'Аркан',
+            'deck' => 'Колода',
+            'spread' => 'Расклад',
+            'memory' => 'Память',
+            'profile' => 'Профиль',
+            'lost' => 'Не найдена',
+            'fail' => 'Перевод не найден',
+            'celtic-cross' => 'Кельтский крест',
+            'ishtar-travel' => 'Путешествие Иштар'
+        );
+    }
+
     $path = $_SERVER[REQUEST_URI];
     
     require_once 'controller/Controller.php';

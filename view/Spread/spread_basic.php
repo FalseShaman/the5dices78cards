@@ -1,11 +1,12 @@
 <?php
     $list = glob(dirname(__FILE__) . "/*.php");
 
-    $content = '';
+    $translateList = getTranslate();
+    $content = '<div class="row">';
     foreach ($list as $li) {
         $spreadName = ltrim(rtrim(end(explode('/', $li)), '.php'), 'spread_');
         if ($spreadName != 'basic') {
-            $content .= $spreadName.'----';
+            $content .= '<a href="'.$spreadName.'"><h3>'.$translateList[$spreadName].'</h3></a>';
         }
     }
 ?>

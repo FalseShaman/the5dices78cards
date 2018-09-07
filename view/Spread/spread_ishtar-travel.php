@@ -17,7 +17,7 @@
         'Жертва Думузи' => array('position' => 14)
     );
 
-    require dirname(__DIR__).'../model/spread.php';
+    require dirname(__DIR__).'/../model/spread.php';
     $spread = new Spread();
     $content = $spread->getMap($positions);
 ?>
