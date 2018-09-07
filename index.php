@@ -39,4 +39,16 @@
         require 'view/'.ucfirst($controller->page).'/'.$controller->page.'_'.$controller->subpage.'.php';
         include_once('view/layout.php');
     }
+
+//if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+// $.ajax({
+//     method: "POST",
+//     url: "/",
+//     data: {},
+//     success: function(response) {
+//         console.log(response);
+//     }
+// });
+//}
+
 ?>
