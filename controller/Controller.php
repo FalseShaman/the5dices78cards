@@ -53,11 +53,6 @@
             }
             return $navbar;
         }
-
-        public function getDeckList() {
-            $list = scandir(dirname(__DIR__).'/gallery/');
-            return $list;
-        }
     }
     
 ?>

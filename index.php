@@ -11,7 +11,15 @@
             'lost' => 'Не найдена',
             'fail' => 'Перевод не найден',
             'celtic-cross' => 'Кельтский крест',
-            'ishtar-travel' => 'Путешествие Иштар'
+            'ishtar-travel' => 'Путешествие Иштар',
+            '78doors' => '78 дверей',
+            'ghosts' => 'Призраки',
+            'lovecraft' => 'Гримуар',
+            'manara' => 'Манара',
+            'nightsun' => 'Ночное солнце',
+            'shamans' => 'Шаманы',
+            'thoth' => 'Кроули',
+            'vargo' => 'Варго'
         );
     }
 
@@ -30,11 +38,5 @@
 
         require 'view/'.ucfirst($controller->page).'/'.$controller->page.'_'.$controller->subpage.'.php';
         include_once('view/layout.php');
-    }
-
-    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-        if ($path == '/getDeckList') {
-            echo json_encode($controller->getDeckList());
-        }
     }
 ?>
