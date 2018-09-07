@@ -10,12 +10,14 @@ $('.deckSelectButton').click(function(){
     deckName = $(this).attr('id');
 });
 $('.arcanaSelectButton').click(function(){
-    cardNumber = $(this).attr('id');
+    cardNumber = parseInt($(this).attr('id'));
 });
 $('.cardSelectButton').click(function(){
-    cardNumber += $(this).attr('id');
+    cardNumber = cardNumber + parseInt($(this).attr('id'));
 });
 $('#putCard').click(function(){
     $('#placeSelector').modal('toggle');
     console.log(deckName+'--'+cardNumber);
+    cardNumber = 0;
+    deckName = 0;
 });
