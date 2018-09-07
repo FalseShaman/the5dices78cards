@@ -4,6 +4,8 @@
     $content = '';
     foreach ($list as $li) {
         $spreadName = ltrim(rtrim(end(explode('/', $li)), '.php'), 'spread_');
-        $content .= $spreadName.'----';
+        if ($spreadName != 'basic') {
+            $content .= $spreadName.'----';
+        }
     }
 ?>

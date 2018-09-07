@@ -12,7 +12,7 @@
     if (!$route->model) {
         $route->model = 'basic';
     }
-    require 'model/'.$route->page.'_'.$route->model.'.php';
+    require 'view/'.ucfirst($route->page).'/'.$route->page.'_'.$route->model.'.php';
 
     include_once('view/layout.php');
 ?>
