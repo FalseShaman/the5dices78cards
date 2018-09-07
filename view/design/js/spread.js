@@ -4,5 +4,5 @@ $.ajax({
     data: { name: "John", location: "Boston" }
 })
     .done(function( msg ) {
-        alert( "Data Saved: " + msg );
+        console.log(msg);
     });
