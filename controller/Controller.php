@@ -3,7 +3,7 @@
     class Controller
     {
         public $page;
-        public $model;
+        public $subpage;
         
         public $pages = array(
             'news' =>
@@ -26,13 +26,13 @@
         function __construct($path = '/') {
             if ($path == '/') {
                 $this->page = 'news';
-                $this->model = 'basic';
+                $this->subpage = 'basic';
             } else {
                 $parts = explode('/', $path);
                 $this->page = isset($this->pages[$parts[1]]) ? $parts[1] : 'lost';
                 if (isset($parts[2])) {
                     if (in_array($parts[2], $this->pages[$parts[1]])) {
-                        $this->model = $parts[2];
+                        $this->subpage = $parts[2];
                     } else {
                         $this->page = 'lost';
                     }
@@ -52,6 +52,11 @@
                 $navbar .= '<a class="nav-link" href="/'.$page.'">'.ucfirst($translateList[$page]).'</a></li>';
             }
             return $navbar;
+        }
+
+        public function getDeckList() {
+            $list = scandir(dirname(__DIR__).'/../gallery/');
+            return $list;
         }
     }
     

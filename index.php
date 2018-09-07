@@ -16,18 +16,25 @@
     }
 
     $path = $_SERVER[REQUEST_URI];
-    
     require_once 'controller/Controller.php';
-    $route = new Controller($path);
+    $controller = new Controller($path);
 
-    $title = $route->getTitle(getTranslate());
-    $navbar = $route->getNav(getTranslate());
-    $content = '';
+    if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+        $title = $controller->getTitle(getTranslate());
+        $navbar = $controller->getNav(getTranslate());
+        $content = '';
 
-    if (!$route->model) {
-        $route->model = 'basic';
+        if (!$controller->subpage) {
+            $controller->subpage = 'basic';
+        }
+
+        require 'view/'.ucfirst($controller->page).'/'.$controller->page.'_'.$controller->subpage.'.php';
+        include_once('view/layout.php');
     }
-    require 'view/'.ucfirst($route->page).'/'.$route->page.'_'.$route->model.'.php';
 
-    include_once('view/layout.php');
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        if ($path == '/getDeckList') {
+            return json_encode($controller->getDeckList());
+        }
+    }
 ?>
