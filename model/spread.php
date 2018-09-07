@@ -45,8 +45,8 @@
                 $majorCardSelector .= '<button type="button" class="btn btn-dark cardSelectButton" id="'.$i.'" style="margin: 10px;">'.$i.'</button>';
             }
             $minorCardSelector = '';
-            for ($i=0;$i<15;$i++) {
-                $minorCardSelector .= '<button type="button" class="btn btn-dark cardSelectButton" id="'.$i.'" style="margin: 10px;">'.$i.'</button>';
+            for ($i=0;$i<14;$i++) {
+                $minorCardSelector .= '<button type="button" class="btn btn-dark cardSelectButton" id="'.$i.'" style="margin: 10px;">'.($i+1).'</button>';
             }
 
             $modal = '<div class="modal fade" id="placeSelector" tabindex="-1" role="dialog" aria-hidden="true"><div class="modal-dialog" role="document"><div class="modal-content">
