@@ -4,7 +4,7 @@
         <?php include('Layout_head.php'); ?>
     </head>
 
-    <body style="background-image: url('/design/background-light.jpg')">
+    <body style="background-image: url('/view/design/background-light.jpg')">
         <div class="container-fluid">
             <div class="container">
                 <?php echo $content; ?>
