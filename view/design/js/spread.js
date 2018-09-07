@@ -11,6 +11,12 @@ $('.deckSelectButton').click(function(){
 });
 
 $('.placeSelectButton').click(function(){
+    placeNumber = 0;
+    cardNumber = 0;
+    $('#arcanaSelector').show();
+    $('#majorSelector').hide();
+    $('#minorSelector').hide();
+    $('#putCard').prop('disabled', true);
     placeNumber = $(this).attr('id');
     $('#placeSelector').modal('toggle');
 });
@@ -28,14 +34,8 @@ $('.cardSelectButton').click(function(){
     cardNumber = cardNumber + parseInt($(this).attr('id'));
 });
 $('#putCard').click(function(){
-    var card = '<img src="/gallery/'+deckName+'/'+cardNumber+'.jpg">';
-    $('#cardPlace').append(card);
-    placeNumber = 0;
-    cardNumber = 0;
-    $('#arcanaSelector').show();
-    $('#majorSelector').hide();
-    $('#minorSelector').hide();
-    $('#putCard').prop('disabled', true);
+    var card = '<img src="/gallery/'+deckName+'/'+cardNumber+'.jpg" width="85" height="150">';
+    $('#cardPlace'+placeNumber).append(card);
     $('#placeSelector').modal('toggle');
     console.log(cardNumber);
 });
