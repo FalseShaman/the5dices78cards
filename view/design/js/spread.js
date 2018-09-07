@@ -1,7 +1,16 @@
+$('.placeSelectButton').click(function(){
+    console.log($(this).attr('id'));
+    $('#placeSelector').modal('toggle');
+});
+$('.deckSelectButton').click(function(){
+    console.log($(this).attr('id'));
+});
+$('.arcanaSelectButton').click(function(){
+    console.log($(this).attr('id'));
+});
 $('.cardSelectButton').click(function(){
     console.log($(this).attr('id'));
-    $('#cardSelector').modal('toggle');
 });
 $('#putCard').click(function(){
-    $('#cardSelector').modal('toggle');
+    $('#placeSelector').modal('toggle');
 });

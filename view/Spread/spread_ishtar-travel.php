@@ -20,17 +20,6 @@
     $translateList = getTranslate();
     require dirname(__DIR__).'/../model/spread.php';
     $spread = new Spread();
-    $deckList = $spread->getDeckList();
     $content = $spread->getMap($positions);
-
-    $content .= '<div class="modal fade" id="cardSelector" tabindex="-1" role="dialog" aria-hidden="true"><div class="modal-dialog" role="document"><div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Выбор карты</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                </div>';
-    $content .= '<div class="modal-body">';
-    foreach ($deckList as $deck) {
-        $content .= '<button type="button" class="btn btn-dark deckSelectButton" id="'.$deck.'">'.$translateList[$deck].'</button>';
-    }
-    $content .= '</div><div class="modal-footer"><button type="button" class="btn btn-success" id="putCard">Положить на стол</button></div></div></div></div>';
+    $content .= $spread->getModal($translateList);
 ?>
