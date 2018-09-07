@@ -11,7 +11,17 @@
             </div>
         </div>
 
-        <?php include('Layout_navbar.php'); ?>
+        <nav class="navbar navbar-dark bg-dark" style="position: absolute; top: 0; width: 10%; font-size: 1.7em;">
+            <ul class="navbar-nav">
+                <?php echo $leftMenu; ?>
+            </ul>
+        </nav>
+
+        <nav class="navbar navbar-dark bg-dark" style="position: absolute; top: 0; right: 0; width: 10%; font-size: 1.5em;">
+            <ul class="navbar-nav">
+                <?php echo $rightMenu; ?>
+            </ul>
+        </nav>
 
         <?php include('Layout_script.php'); ?>
     </body>

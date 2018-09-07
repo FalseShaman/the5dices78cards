@@ -22,4 +22,5 @@
     $spread = new Spread();
     $content = $spread->getMap($positions);
     $content .= $spread->getModal($translateList);
+    $rightMenu = $spread->getDeckList($translateList);
 ?>

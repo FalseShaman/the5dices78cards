@@ -17,7 +17,6 @@ $('.cardSelectButton').click(function(){
 });
 $('#putCard').click(function(){
     $('#placeSelector').modal('toggle');
-    console.log(deckName+'--'+cardNumber);
+    console.log(cardNumber);
     cardNumber = 0;
-    deckName = 0;
 });

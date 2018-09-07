@@ -28,13 +28,6 @@
         }
 
         public function getModal($translateList) {
-            $folder = scandir(dirname(__DIR__).'/gallery/');
-            $deckList = array_diff($folder, array('.', '..'));
-
-            $deckSelector = '';
-            foreach ($deckList as $deck) {
-                $deckSelector .= '<button type="button" class="btn btn-dark deckSelectButton" id="'.$deck.'" style="margin: 10px;">'.$translateList[$deck].'</button>';
-            }
             $arcanaSelector = '<button type="button" class="btn btn-dark arcanaSelectButton" id="0" style="margin: 10px;">Старшие арканы</button>
                                 <button type="button" class="btn btn-dark arcanaSelectButton" id="22" style="margin: 10px;">Жезлы</button>
                                 <button type="button" class="btn btn-dark arcanaSelectButton" id="36" style="margin: 10px;">Кубки</button>
@@ -48,14 +41,12 @@
             for ($i=0;$i<14;$i++) {
                 $minorCardSelector .= '<button type="button" class="btn btn-dark cardSelectButton" id="'.$i.'" style="margin: 10px;">'.($i+1).'</button>';
             }
-
             $modal = '<div class="modal fade" id="placeSelector" tabindex="-1" role="dialog" aria-hidden="true"><div class="modal-dialog" role="document"><div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Выбор карты</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                 </div>
                 <div class="modal-body">
-                    <div id="deckSelector">'.$deckSelector.'</div>
                     <div id="cardSelector">'.$arcanaSelector.'</div>
                     <div id="cardSelector">'.$majorCardSelector.'</div>
                     <div id="cardSelector">'.$minorCardSelector.'</div>
@@ -64,8 +55,17 @@
                     <button type="button" class="btn btn-success" id="putCard">Положить на стол</button>
                 </div>
             </div></div></div>';
-
             return $modal;
+        }
+
+        public function getDeckList($translateList) {
+            $folder = scandir(dirname(__DIR__).'/gallery/');
+            $deckList = array_diff($folder, array('.', '..'));
+            $deckSelector = '';
+            foreach ($deckList as $deck) {
+                $deckSelector .= '<li class="nav-item"><a class="nav-link" href="#" id="'.$deck.'">'.$translateList[$deck].'</a></li>';
+            }
+            return $deckSelector;
         }
     }
 

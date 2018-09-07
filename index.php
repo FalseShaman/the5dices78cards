@@ -29,7 +29,7 @@
 
     if ($_SERVER['REQUEST_METHOD'] == 'GET') {
         $title = $controller->getTitle(getTranslate());
-        $navbar = $controller->getNav(getTranslate());
+        $leftMenu = $controller->getNav(getTranslate());
         $content = '';
 
         if (!$controller->subpage) {
