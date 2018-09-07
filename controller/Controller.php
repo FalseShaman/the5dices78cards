@@ -55,8 +55,8 @@
         }
 
         public function getDeckList() {
-            $list = scandir(dirname(__DIR__).'/../gallery/');
-            return dirname(__DIR__).'/../gallery/';
+            $list = scandir(dirname(__DIR__).'/gallery/');
+            return $list;
         }
     }
     
