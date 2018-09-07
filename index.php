@@ -20,8 +20,8 @@
     require_once 'controller/Controller.php';
     $route = new Controller($path);
 
-    $title = $route->getTitle();
-    $navbar = $route->getNav();
+    $title = $route->getTitle(getTranslate());
+    $navbar = $route->getNav(getTranslate());
     $content = '';
 
     if (!$route->model) {

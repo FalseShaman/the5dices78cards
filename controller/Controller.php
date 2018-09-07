@@ -40,13 +40,11 @@
             }
         }
 
-        public function getTitle() {
-            $translateList = $this->getTranslate();
+        public function getTitle($translateList) {
             return isset($translateList[$this->page]) ? $translateList[$this->page] : $translateList['fail'];
         }
 
-        public function getNav() {
-            $translateList = getTranslate();
+        public function getNav($translateList) {
             $navbar = '';
             foreach ($this->pages as $page => $data)
             {
