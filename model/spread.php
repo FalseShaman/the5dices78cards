@@ -47,12 +47,12 @@
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                 </div>
                 <div class="modal-body">
-                    <div id="cardSelector">'.$arcanaSelector.'</div>
-                    <div id="cardSelector">'.$majorCardSelector.'</div>
-                    <div id="cardSelector">'.$minorCardSelector.'</div>
+                    <div id="arcanaSelector">'.$arcanaSelector.'</div>
+                    <div id="majorSelector" style="display: none;">'.$majorCardSelector.'</div>
+                    <div id="minorSelector" style="display: none;">'.$minorCardSelector.'</div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-success" id="putCard">Положить на стол</button>
+                    <button type="button" class="btn btn-success" id="putCard" disabled>Положить на стол</button>
                 </div>
             </div></div></div>';
             return $modal;
@@ -63,10 +63,9 @@
             $deckList = array_diff($folder, array('.', '..'));
             $deckSelector = '';
             foreach ($deckList as $deck) {
-                $deckSelector .= '<li class="nav-item"><a class="nav-link" href="#" id="'.$deck.'">'.$translateList[$deck].'</a></li>';
+                $deckSelector .= '<li class="nav-item"><button class="btn btn-light deckSelectButton" href="javascript:void(0);" id="'.$deck.'">'.$translateList[$deck].'</button></li>';
             }
             return $deckSelector;
         }
     }
-
 ?>
