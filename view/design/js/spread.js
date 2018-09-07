@@ -28,7 +28,8 @@ $('.cardSelectButton').click(function(){
     cardNumber = cardNumber + parseInt($(this).attr('id'));
 });
 $('#putCard').click(function(){
-
+    var card = '<img src="/gallery/'+deckName+'/'+cardNumber+'.jpg">';
+    $('#cardPlace').append(card);
     placeNumber = 0;
     cardNumber = 0;
     $('#arcanaSelector').show();

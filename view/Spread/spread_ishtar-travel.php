@@ -1,20 +1,20 @@
 <?php
     $positions = array(
-        'Инанна' => array('position' => 1),
-        'Нети' => array('position' => 6),
-        'Шугурра' => array('position' => 12),
-        'Мерная веревка' => array('position' => 24),
-        'Лазурное ожерелье' => array('position' => 30),
-        'Нумуз' => array('position' => 31),
-        'Золотые браслеты' => array('position' => 32),
-        'Брошь с желанием' => array('position' => 33),
-        'Мантия царицы' => array('position' => 28),
-        'Эрешкигаль' => array('position' => 3),
-        'Ниншубур' => array('position' => 10),
-        'Живая вода' => array('position' => 20),
-        'Живая еда' => array('position' => 21),
-        'Новая личность' => array('position' => 2),
-        'Жертва Думузи' => array('position' => 8)
+        1 => array('number' => 1, 'name' => 'Инанна'),
+        6 => array('number' => 2, 'name' => 'Нети'),
+        12 => array('number' => 3, 'name' => 'Шугурра'),
+        18 => array('number' => 4, 'name' => 'Мерная веревка'),
+        24 => array('number' => 5, 'name' => 'Лазурное ожерелье'),
+        25 => array('number' => 6, 'name' => 'Нумуз'),
+        26 => array('number' => 7, 'name' => 'Золотые браслеты'),
+        27 => array('number' => 8, 'name' => 'Брошь с желанием'),
+        28 => array('number' => 9, 'name' => 'Мантия царицы'),
+        3 => array('number' => 10, 'name' => 'Эрешкигаль'),
+        10 => array('number' => 11, 'name' => 'Ниншубур'),
+        15 => array('number' => 12, 'name' => 'Живая вода'),
+        16 => array('number' => 13, 'name' => 'Живая еда'),
+        2 => array('number' => 14, 'name' => 'Новая личность'),
+        8 => array('number' => 15, 'name' => 'Жертва Думузи')
     );
 
     $translateList = getTranslate();

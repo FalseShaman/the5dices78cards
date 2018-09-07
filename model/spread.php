@@ -15,9 +15,9 @@
                 $map .= '<div class="col-md-2" id="cardPlace'.$placeNumber.'" style="border: solid 1px; border-radius: 7px; height: 250px;">';
                 foreach($positions as $place => $data)
                 {
-                    if ($placeNumber == $data['position']) {
+                    if ($placeNumber == $place) {
                         $cardCounter++;
-                        $map .= '<button type="button" class="btn btn-warning placeSelectButton" id="'.$placeNumber.'" style="width: 100%; margin-top: 10px;" disabled>'.$place.' ('.$cardCounter.')</button>';
+                        $map .= '<button type="button" class="btn btn-warning placeSelectButton" id="'.$placeNumber.'" style="width: 100%; margin-top: 10px;" disabled>'.$data['name'].' ('.$data['number'].')</button>';
                         break;
                     }
                 }
