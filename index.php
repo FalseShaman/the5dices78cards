@@ -7,6 +7,7 @@
 
     $title = $route->getTitle();
     $navbar = $route->getNav();
+    $content = '';
 
     if ($route->model) {
         require 'model/'.$route->view.'_'.$route->model.'.php';
@@ -14,5 +15,5 @@
         require 'model/'.$route->view.'_basic.php';
     }
 
-    include_once('view/'.$route->view.'.php');
+    include_once('view/layout.php');
 ?>

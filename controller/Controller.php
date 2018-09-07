@@ -2,10 +2,10 @@
 
     class Controller
     {
-        public $view;
+        public $page;
         public $model;
         
-        public $routes = array(
+        public $pages = array(
             'news' =>
                 array(),
             'card' => 
@@ -25,16 +25,16 @@
                 
         function __construct($path = '/') {
             if ($path == '/') {
-                $this->view = 'news';
+                $this->page = 'news';
                 $this->model = 'basic';
             } else {
                 $parts = explode('/', $path);
-                $this->view = isset($this->routes[$parts[1]]) ? $parts[1] : 'lost';
+                $this->page = isset($this->pages[$parts[1]]) ? $parts[1] : 'lost';
                 if (isset($parts[2])) {
-                    if (in_array($parts[2], $this->routes[$parts[1]])) {
+                    if (in_array($parts[2], $this->pages[$parts[1]])) {
                         $this->model = $parts[2];
                     } else {
-                        $this->view = 'lost';
+                        $this->page = 'lost';
                     }
                 }
             }
@@ -42,16 +42,16 @@
 
         public function getTitle() {
             $translateList = $this->getTranslate();
-            return isset($translateList[$this->view]) ? $translateList[$this->view] : $translateList['fail'];
+            return isset($translateList[$this->page]) ? $translateList[$this->page] : $translateList['fail'];
         }
 
         public function getNav() {
             $translateList = $this->getTranslate();
             $navbar = '';
-            foreach ($this->routes as $view => $data)
+            foreach ($this->pages as $page => $data)
             {
-                $navbar .= $this->view == $view ? '<li class="nav-item active">' : '<li class="nav-item">';
-                $navbar .= '<a class="nav-link" href="/'.$view.'">'.ucfirst($translateList[$view]).'</a></li>';
+                $navbar .= $this->page == $page ? '<li class="nav-item active">' : '<li class="nav-item">';
+                $navbar .= '<a class="nav-link" href="/'.$page.'">'.ucfirst($translateList[$page]).'</a></li>';
             }
             return $navbar;
         }
