@@ -11,8 +11,8 @@
                 foreach($positions as $place => $data)
                 {
                     if ($placeNumber == $data['position']) {
-                        $map .= '<button name="Choose" value="Choice">';
                         $map .= '<p style="text-align: center; font-size: 0.8em; word-break: break-all;">'.$place.'</p>';
+                        $map .= '<button type="button" class="btn btn-light" style="position: absolute; bottom: 10px;">Choose</button>';
 
                         $cardCount--;
                         break;
