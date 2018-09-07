@@ -17,7 +17,7 @@
                 {
                     if ($placeNumber == $data['position']) {
                         $cardCounter++;
-                        $map .= '<button type="button" class="btn btn-warning cardSelectButton" id="cardButton'.$placeNumber.'">'.$place.' ('.$cardCounter.')</button>';
+                        $map .= '<button type="button" class="btn btn-warning cardSelectButton" id="cardButton'.$placeNumber.'" style="width: 100%; margin-top: 10px;">'.$place.' ('.$cardCounter.')</button>';
                         break;
                     }
                 }
@@ -28,7 +28,8 @@
         }
 
         public function getDeckList() {
-            $list = scandir(dirname(__DIR__).'/gallery/');
+            $folder = scandir(dirname(__DIR__).'/gallery/');
+            $list = array_diff($folder, array('.', '..'));
             return $list;
         }
     }

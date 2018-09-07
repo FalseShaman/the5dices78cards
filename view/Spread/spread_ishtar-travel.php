@@ -30,9 +30,7 @@
                 </div>';
     $content .= '<div class="modal-body">';
     foreach ($deckList as $deck) {
-        if ($deck != '.' || $deck != '..') {
-            $content .= '<button type="button" class="btn btn-dark deckSelectButton" id="'.$deck.'">'.$translateList[$deck].'</button>';
-        }
+        $content .= '<button type="button" class="btn btn-dark deckSelectButton" id="'.$deck.'">'.$translateList[$deck].'</button>';
     }
-    $content .= '</div><div class="modal-footer"><button type="button" class="btn btn-success">Положить на стол</button></div></div></div></div>';
+    $content .= '</div><div class="modal-footer"><button type="button" class="btn btn-success" id="putCard">Положить на стол</button></div></div></div></div>';
 ?>
