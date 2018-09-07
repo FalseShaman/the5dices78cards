@@ -17,8 +17,7 @@
                 {
                     if ($placeNumber == $place) {
                         $cardCounter++;
-                        $map .= '<p style="word-break: break-all; color: black; font-size: 1.2em;">'.$data['name'].' ('.$data['number'].')</p>';
-                        $map .= '<button type="button" class="btn btn-warning placeSelectButton" id="'.$placeNumber.'" style="position: absolute; bottom: 0; width: 100%; margin: 10px 0;" disabled>Выбрать</button>';
+                        $map .= '<button type="button" class="btn btn-warning placeSelectButton" id="'.$placeNumber.'" style="width: 100%; margin: 10px 0; padding: 30px 0;" disabled>'.$data['name'].' ('.$data['number'].')</button>';
                         break;
                     }
                 }
@@ -52,9 +51,7 @@
                     <div id="majorSelector" style="display: none;">'.$majorCardSelector.'</div>
                     <div id="minorSelector" style="display: none;">'.$minorCardSelector.'</div>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-success" id="putCard" disabled>Положить на стол</button>
-                </div>
+                <div class="modal-footer"></div>
             </div></div></div>';
             return $modal;
         }
