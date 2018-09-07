@@ -37,7 +37,4 @@
             return json_encode($controller->getDeckList());
         }
     }
-
-$list = scandir(dirname(__DIR__).'/../gallery/');
-    var_dump($list);
 ?>
