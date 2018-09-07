@@ -36,6 +36,7 @@ $('.cardSelectButton').click(function(){
 $('#putCard').click(function(){
     var card = '<img src="/gallery/'+deckName+'/'+cardNumber+'.jpg" width="85" height="150">';
     $('#cardPlace'+placeNumber).append(card);
+    $('#'+placeNumber+'.placeSelectButton').hide();
     $('#placeSelector').modal('toggle');
     console.log(cardNumber);
 });
