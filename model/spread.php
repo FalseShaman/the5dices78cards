@@ -17,7 +17,7 @@
                 {
                     if ($placeNumber == $data['position']) {
                         $cardCounter++;
-                        $map .= '<button type="button" class="btn btn-warning placeSelectButton" id="cardButton'.$placeNumber.'" style="width: 100%; margin-top: 10px;">'.$place.' ('.$cardCounter.')</button>';
+                        $map .= '<button type="button" class="btn btn-warning placeSelectButton" id="'.$placeNumber.'" style="width: 100%; margin-top: 10px;" disabled>'.$place.' ('.$cardCounter.')</button>';
                         break;
                     }
                 }

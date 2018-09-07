@@ -5,8 +5,9 @@ var cardNumber = 0;
 $('.deckSelectButton').click(function(){
     deckName = $(this).attr('id');
     $('.nav-item').children('.btn').removeClass('btn-info');
-    $(this).removeClass('btn-dark');
+    $(this).removeClass('btn-light');
     $(this).addClass('btn-info');
+    $('.placeSelectButton').prop('disabled', false);
 });
 
 $('.placeSelectButton').click(function(){
@@ -21,13 +22,19 @@ $('.arcanaSelectButton').click(function(){
         $('#minorSelector').show();
     }
     $('#arcanaSelector').hide();
-    $('#putCard').prop( "disabled", false );
+    $('#putCard').prop('disabled', false);
 });
 $('.cardSelectButton').click(function(){
     cardNumber = cardNumber + parseInt($(this).attr('id'));
 });
 $('#putCard').click(function(){
+
+    placeNumber = 0;
     cardNumber = 0;
+    $('#arcanaSelector').show();
+    $('#majorSelector').hide();
+    $('#minorSelector').hide();
+    $('#putCard').prop('disabled', true);
     $('#placeSelector').modal('toggle');
     console.log(cardNumber);
 });
