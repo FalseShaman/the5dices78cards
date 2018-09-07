@@ -34,7 +34,7 @@
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if ($path == '/getDeckList') {
-            return $controller->getDeckList();
+            echo json_encode($controller->getDeckList());
         }
     }
 ?>
