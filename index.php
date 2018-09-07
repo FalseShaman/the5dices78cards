@@ -34,7 +34,7 @@
 
 //    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if ($path == '/getDeckList') {
-            return $controller->getDeckList();
+            var_dump($controller->getDeckList());
         }
 //    }
 ?>
