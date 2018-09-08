@@ -17,7 +17,7 @@
                 {
                     if ($placeNumber == $place) {
                         $cardCounter++;
-                        $map .= '<button type="button" class="btn btn-warning placeSelectButton" id="'.$placeNumber.'" style="width: 100%; margin: 10px 0; padding: 30px 0;" disabled><p style="word-break: break-all;">'.$data['name'].' ('.$data['number'].')</p></button>';
+                        $map .= '<button type="button" class="btn btn-success placeSelectButton" id="'.$placeNumber.'" style="width: 100%; margin: 10px 0; padding: 30px 0;" disabled><p style="word-break: break-all;">'.$data['name'].' ('.$data['number'].')</p></button>';
                         break;
                     }
                 }
@@ -28,18 +28,18 @@
         }
 
         public function getModal($translateList) {
-            $arcanaSelector = '<button type="button" class="btn btn-dark arcanaSelectButton" id="0" style="margin: 10px;">Старшие арканы</button>
+            $arcanaSelector = '<button type="button" class="btn btn-dark arcanaSelectButton" id="0" style="margin: 10px;">Старшие арканы</button><br>
                                 <button type="button" class="btn btn-dark arcanaSelectButton" id="22" style="margin: 10px;">Жезлы</button>
                                 <button type="button" class="btn btn-dark arcanaSelectButton" id="36" style="margin: 10px;">Кубки</button>
                                 <button type="button" class="btn btn-dark arcanaSelectButton" id="50" style="margin: 10px;">Мечи</button>
                                 <button type="button" class="btn btn-dark arcanaSelectButton" id="64" style="margin: 10px;">Диски</button>';
             $majorCardSelector = '';
             for ($i=0;$i<22;$i++) {
-                $majorCardSelector .= '<button type="button" class="btn btn-dark cardSelectButton" id="'.$i.'" style="margin: 10px;">'.$i.'</button>';
+                $majorCardSelector .= '<button type="button" class="btn btn-dark cardSelectButton" id="'.$i.'" style="margin: 10px;">'.$translateList['majorArcana'][$i].'</button>';
             }
             $minorCardSelector = '';
-            for ($i=0;$i<14;$i++) {
-                $minorCardSelector .= '<button type="button" class="btn btn-dark cardSelectButton" id="'.$i.'" style="margin: 10px;">'.($i+1).'</button>';
+            for ($i=0;$i<10;$i++) {
+                $minorCardSelector .= '<button type="button" class="btn btn-dark cardSelectButton" id="'.$i.'" style="margin: 10px;">'.$translateList['majorArcana'][$i].'</button>';
             }
             $modal = '<div class="modal fade" id="placeSelector" tabindex="-1" role="dialog" aria-hidden="true"><div class="modal-dialog" role="document"><div class="modal-content">
                 <div class="modal-header">

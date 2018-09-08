@@ -9,6 +9,7 @@ $('.deckSelectButton').click(function(){
     $(this).addClass('btn-info');
     deckName = $(this).attr('id');
     $('.placeSelectButton').prop('disabled', false);
+    $('.placeSelectButton').attr('style', $('.placeSelectButton').attr('style')+' opacity: 0.65;');
 });
 
 $('.placeSelectButton').click(function(){
@@ -33,7 +34,7 @@ $('.arcanaSelectButton').click(function(){
 });
 
 $('.cardSelectButton').click(function(){
-    var rotate = Math.floor((Math.random() * 12));
+    var rotate = 12 - Math.floor((Math.random() * 24));
     cardNumber = arcanaNumber + parseInt($(this).attr('id'));
     var card = '<img class="deskCard" src="/gallery/'+deckName+'/'+cardNumber+'.jpg" width="130" height="200" style="transform: rotate('+rotate+'deg); margin: 20px;">';
     $('#cardPlace'+placeNumber).append(card);
