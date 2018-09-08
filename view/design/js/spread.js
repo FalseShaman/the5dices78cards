@@ -54,7 +54,10 @@ $('.arcanaSelectButton').click(function(){
 $('.cardSelectButton').click(function(){
     cardNumber = arcanaNumber + parseInt($(this).attr('id'));
     var rotate = 12 - Math.floor((Math.random() * 24));
-    $('#'+placeNumber+'.deskCard').attr('src', '/gallery/'+deckName+'/'+cardNumber+'.jpg').attr('style', 'transform: rotate('+rotate+'deg); margin: 20px;').attr('data-card', cardNumber).show();
+    $('#'+placeNumber+'.deskCard').attr('src', '/gallery/'+deckName+'/'+cardNumber+'.jpg');
+    $('#'+placeNumber+'.deskCard').attr('style', 'transform: rotate('+rotate+'deg); margin: 20px;');
+    $('#'+placeNumber+'.deskCard').attr('data-card', cardNumber);
+    $('#'+placeNumber+'.deskCard').show();
     $('#'+placeNumber+'.placeSelectButton').hide();
     $('#placeSelector').modal('toggle');
 });
