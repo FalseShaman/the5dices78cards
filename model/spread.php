@@ -48,7 +48,12 @@
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                 </div>
                 <div class="modal-body">
-                    <div id="arcanaSelector">'.$arcanaSelector.'</div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="placeName" placeholder="Позиция">
+                        <input type="text" class="form-control" name="placeCount" placeholder="Номер">
+                        <button type="button" id="placeNamed" class="btn btn-success">Ок</button>
+                    </div>
+                    <div id="arcanaSelector" style="display: none;">'.$arcanaSelector.'</div>
                     <div id="majorSelector" style="display: none;">'.$majorCardSelector.'</div>
                     <div id="minorSelector" style="display: none;">'.$minorCardSelector.'</div>
                 </div>
