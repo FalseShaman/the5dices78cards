@@ -39,7 +39,7 @@
     $folder = scandir(dirname(__DIR__).'/view/design/background/');
     $backList = array_diff($folder, array('.', '..'));
     $backLine = implode('|', $backList);
-    var_dump($backLine);
+    var_dump(dirname(__DIR__));
 
 
     $path = $_SERVER[REQUEST_URI];
