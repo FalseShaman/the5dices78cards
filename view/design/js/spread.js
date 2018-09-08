@@ -56,12 +56,24 @@ $('.arcanaSelectButton').click(function(){
 $('.cardSelectButton').click(function(){
     cardNumber = arcanaNumber + parseInt($(this).attr('id'));
     var rotate = 12 - Math.floor((Math.random() * 24));
-    $('#cardPlace'+placeNumber+' .deskCard').append('<img class="img-fluid" src="/gallery/'+deckName+'/'+cardNumber+'.jpg" style="margin: 20px; transform: rotate(\'+rotate+\'deg);">')
-    $('#cardPlace'+placeNumber+' .deskCard').attr('style', 'padding: 0; border: 0;');
+    $('#cardPlace'+placeNumber+' .deskCard').attr('src', '/gallery/'+deckName+'/'+cardNumber+'.jpg');
+    $('#cardPlace'+placeNumber+' .deskCard').attr('style', 'transform: rotate('+rotate+'deg); margin: 20px;');
     $('#cardPlace'+placeNumber+' .deskCard').attr('data-card', cardNumber);
-    $('#cardPlace'+placeNumber+' .deskCard').attr('title', placeName+' ('+placeCount+')');
-    $('#cardPlace'+placeNumber+' .deskCard').attr('data-content', placeName+' ('+placeCount+')');
     $('#cardPlace'+placeNumber+' .deskCard').show();
+    $('#cardPlace'+placeNumber+' .deskPosition').text(placeName+' ('+placeCount+')');
+    $('#cardPlace'+placeNumber+' .deskPosition').show();
     $('#cardPlace'+placeNumber+' .placeSelectButton').hide();
     $('#placeSelector').modal('toggle');
+});
+
+$('.clearPosition').click(function(){
+    placeNumber = $(this).attr('data-position');
+
+    $('#cardPlace'+placeNumber+' .deskCard').attr('src', '');
+    $('#cardPlace'+placeNumber+' .deskCard').attr('style', '');
+    $('#cardPlace'+placeNumber+' .deskCard').attr('data-card', '');
+    $('#cardPlace'+placeNumber+' .deskCard').hide();
+    $('#cardPlace'+placeNumber+' .deskPosition').text('');
+    $('#cardPlace'+placeNumber+' .deskPosition').hide();
+    $('#cardPlace'+placeNumber+' .placeSelectButton').show();
 });
