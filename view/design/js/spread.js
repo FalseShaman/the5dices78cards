@@ -33,8 +33,9 @@ $('.arcanaSelectButton').click(function(){
 });
 
 $('.cardSelectButton').click(function(){
+    var rotate = Math.floor((Math.random() * 12));
     cardNumber = arcanaNumber + parseInt($(this).attr('id'));
-    var card = '<img class="deskCard" src="/gallery/'+deckName+'/'+cardNumber+'.jpg" width="100" height="180">';
+    var card = '<img class="deskCard" src="/gallery/'+deckName+'/'+cardNumber+'.jpg" width="130" height="200" style="transform: rotate('+rotate+'deg); margin: 20px;">';
     $('#cardPlace'+placeNumber).append(card);
     $('#'+placeNumber+'.placeSelectButton').hide();
     $('#placeSelector').modal('toggle');

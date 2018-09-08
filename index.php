@@ -25,7 +25,7 @@
     }
 
     $path = $_SERVER[REQUEST_URI];
-    require_once 'controller/Controller.php';
+    require_once 'model/controller.php';
     $controller = new Controller($path);
 
     if ($_SERVER['REQUEST_METHOD'] == 'GET') {
