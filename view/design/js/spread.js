@@ -56,11 +56,11 @@ $('.arcanaSelectButton').click(function(){
 $('.cardSelectButton').click(function(){
     cardNumber = arcanaNumber + parseInt($(this).attr('id'));
     var rotate = 12 - Math.floor((Math.random() * 24));
-    $('#cardPlace'+placeNumber+' .deskCard').attr('src', '/gallery/'+deckName+'/'+cardNumber+'.jpg');
+    $('#cardPlace'+placeNumber+' .deskCard').attr('style', 'width: 130px; height: 200px; transform: rotate('+rotate+'deg); margin: 20px; background-image: url("/gallery/'+deckName+'/'+cardNumber+'.jpg"); background-repeat: no-repeat; background-size: cover;');
     $('#cardPlace'+placeNumber+' .deskCard').attr('data-card', cardNumber);
+    $('#cardPlace'+placeNumber+' .deskCard').attr('title', placeName+' ('+placeCount+')');
+    $('#cardPlace'+placeNumber+' .deskCard').attr('data-content', placeName+' ('+placeCount+')');
     $('#cardPlace'+placeNumber+' .deskCard').show();
     $('#cardPlace'+placeNumber+' .placeSelectButton').hide();
-    $('#cardPlace'+placeNumber+' .cardInfoButton').attr('style', 'transform: rotate('+rotate+'deg); margin: 20px;');
-    $('#cardPlace'+placeNumber+' .cardInfoButton').attr('title', placeName+' ('+placeCount+')');
     $('#placeSelector').modal('toggle');
 });

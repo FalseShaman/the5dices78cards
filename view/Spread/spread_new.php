@@ -12,9 +12,7 @@
     {
         $map .= '<div class="col-md-2" id="cardPlace'.$placeNumber.'" style="border: solid 1px; border-radius: 7px; height: 250px;">
                     <button type="button" data-place="'.$placeNumber.'" class="btn btn-success placeSelectButton" style="width: 100%; margin: 10px 0; padding: 5px 5px;" disabled>Выбрать</button>
-                    <a href="javascript:void(0);" class="cardInfoButton" data-toggle="tooltip" title="">
-                        <img class="img-fluid deskCard" src="" width="130" height="200" style="display: none;">
-                    </a> 
+                    <button type="button" class="btn btn-light deskCard" data-toggle="popover" title="" data-content="" style="display: none;"></button>
                 </div>';
     }
     $map .= '</div>';
