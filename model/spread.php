@@ -18,7 +18,7 @@
                     if ($placeNumber == $place) {
                         $cardCounter++;
                         $map .= '<button type="button" class="btn btn-success placeSelectButton" id="'.$placeNumber.'" style="width: 100%; margin: 10px 0; padding: 5px 5px; white-space: normal;">'.$data['name'].' ('.$data['number'].')</button>';
-                        $map .= '<a href="javascript:void(0);" class="cardInfoButton"><img class="deskCard" id="'.$placeNumber.'" src="" width="130" height="200" data-toggle="tooltip" title="'.$data['name'].' ('.$data['number'].')"></a>';
+                        $map .= '<a href="javascript:void(0);" class="cardInfoButton" data-toggle="tooltip" title="'.$data['name'].' ('.$data['number'].')"><img class="deskCard" id="'.$placeNumber.'" src="" width="130" height="200" style="display: none;"></a>';
                         break;
                     }
                 }
