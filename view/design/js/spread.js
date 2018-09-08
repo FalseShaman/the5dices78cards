@@ -9,7 +9,7 @@ $('.deckSelectButton').click(function(){
     $(this).addClass('btn-info');
     deckName = $(this).attr('id');
     $('.placeSelectButton').prop('disabled', false);
-    $.each($('.deckCard'), function(ind, val){
+    $.each($('.deskCard'), function(ind, val){
         $(val).attr('src', '/gallery/'+deckName+'/'+$(val).attr('data-card')+'.jpg');
     });
 });

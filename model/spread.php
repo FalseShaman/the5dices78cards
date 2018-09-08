@@ -17,7 +17,7 @@
                 {
                     if ($placeNumber == $place) {
                         $cardCounter++;
-                        $map .= '<button type="button" class="btn btn-success placeSelectButton" id="'.$placeNumber.'" style="width: 100%; margin: 10px 0; padding: 5px 5px; white-space: normal;">'.$data['name'].' ('.$data['number'].')</button>';
+                        $map .= '<button type="button" class="btn btn-success placeSelectButton" id="'.$placeNumber.'" style="width: 100%; margin: 10px 0; padding: 5px 5px; white-space: normal;" disabled>'.$data['name'].' ('.$data['number'].')</button>';
                         $map .= '<a href="javascript:void(0);" class="cardInfoButton" data-toggle="tooltip" title="'.$data['name'].' ('.$data['number'].')"><img class="deskCard" id="'.$placeNumber.'" src="" width="130" height="200" style="display: none;"></a>';
                         break;
                     }
@@ -35,11 +35,11 @@
                                 <button type="button" class="btn btn-dark arcanaSelectButton" id="50" style="margin: 10px;">Мечи</button>
                                 <button type="button" class="btn btn-dark arcanaSelectButton" id="64" style="margin: 10px;">Диски</button>';
             $majorCardSelector = '';
-            for ($i=0;$i<22;$i++) {
+            for ($i=0;$i<21;$i++) {
                 $majorCardSelector .= '<button type="button" class="btn btn-dark cardSelectButton" id="'.$i.'" style="margin: 10px;">'.$translateList['majorArcana'][$i].'</button>';
             }
             $minorCardSelector = '';
-            for ($i=0;$i<10;$i++) {
+            for ($i=0;$i<14;$i++) {
                 $minorCardSelector .= '<button type="button" class="btn btn-dark cardSelectButton" id="'.$i.'" style="margin: 10px;">'.$translateList['minorArcana'][$i].'</button>';
             }
             $modal = '<div class="modal fade" id="placeSelector" tabindex="-1" role="dialog" aria-hidden="true"><div class="modal-dialog" role="document"><div class="modal-content">
