@@ -4,7 +4,7 @@
 
     $rightMenu = '';
     foreach ($deckList as $deck) {
-        $rightMenu .= '<li class="nav-item"><button class="btn btn-light deckSelectButton" href="javascript:void(0);" id="'.$deck.'">'.$translateList[$deck].'</button></li>';
+        $rightMenu .= '<li class="nav-item"><button class="btn btn-light deckSelectButton" href="javascript:void(0);" id="'.$deck.'" style="margin-top: 15px;">'.$translateList[$deck].'</button></li>';
     }
 
     $map = '<div class="row">';

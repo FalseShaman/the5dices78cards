@@ -36,10 +36,9 @@
         return array_diff($folder, array('.', '..'));
     }
 
-    $folder = scandir('/view/design/background/');
+    $folder = scandir('app/view/design/background/');
     $backList = array_diff($folder, array('.', '..'));
     $backLine = implode('|', $backList);
-    var_dump($folder);
 
 
     $path = $_SERVER[REQUEST_URI];
