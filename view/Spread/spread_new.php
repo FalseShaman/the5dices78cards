@@ -1,9 +1,7 @@
 <?php
     $translateList = getTranslate();
+    $deckList = getDeckList();
 
-    $folder = scandir(dirname(__DIR__).'/../../gallery/');
-    var_dump($folder);
-    $deckList = array_diff($folder, array('.', '..'));
     $rightMenu = '';
     foreach ($deckList as $deck) {
         $rightMenu .= '<li class="nav-item"><button class="btn btn-light deckSelectButton" href="javascript:void(0);" id="'.$deck.'">'.$translateList[$deck].'</button></li>';
