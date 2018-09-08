@@ -2,6 +2,8 @@
 
     function getTranslate() {
         return array(
+            'new' => 'Новый',
+            'open' => 'Открыть',
             'news' => 'Новости',
             'card' => 'Аркан',
             'deck' => 'Колода',

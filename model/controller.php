@@ -8,15 +8,15 @@
         public $pages = array(
             'news' =>
                 array(),
-            'card' => 
+            'card' =>
                 array(),
-            'deck' => 
+            'deck' =>
                 array(),
-            'spread' => 
-                array('ishtar-travel', 'celtic-cross'),
-            'memory' => 
+            'spread' =>
+                array('new', 'open'),
+            'memory' =>
                 array(),
-            'profile' => 
+            'profile' =>
                 array(),
             'lost' =>
                 array()
@@ -24,18 +24,12 @@
                         
                 
         function __construct($path = '/') {
-            if ($path != '/') {
-                $parts = explode('/', $path);
-                $this->page = isset($this->pages[$parts[1]]) ? $parts[1] : 'lost';
-                if (isset($parts[2])) {
-                    if (in_array($parts[2], $this->pages[$parts[1]])) {
-                        $this->subpage = $parts[2];
-                    } else {
-                        $this->page = 'lost';
-                    }
-                }
+            if ($path == '/open') {
+                $this->page = 'spread';
+                $this->subpage = 'open';
             } else {
-                $this->page = 'news';
+                $this->page = 'spread';
+                $this->subpage = 'new';
             }
         }
 
@@ -45,7 +39,7 @@
 
         public function getNav($translateList) {
             $navbar = '';
-            foreach ($this->pages as $page => $data)
+            foreach ($this->pages['spread'] as $page => $data)
             {
                 $navbar .= $this->page == $page ? '<li class="nav-item active">' : '<li class="nav-item">';
                 $navbar .= '<a class="nav-link" href="/'.$page.'">'.ucfirst($translateList[$page]).'</a></li>';
