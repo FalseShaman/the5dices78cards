@@ -6,7 +6,9 @@
     var backLine = "<?php echo $backLine; ?>";
     $('#changeBack').click(function(){
         var backList = backLine.split('|');
-        var number = Math.floor((Math.random() * backList.length)) - 1;
+        var number = Math.floor((Math.random() * 5)) - 1;
+        console.log(backList);
+        console.log(number);
         $('body').attr('style', 'background-image: url("/view/design/background/'+backList[number]+'"); background-size: 100%;');
     });
 </script>
