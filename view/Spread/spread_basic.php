@@ -9,4 +9,5 @@
             $content .= '<a class="btn btn-info" href="/spread/'.$spreadName.'"><h3>'.$translateList[$spreadName].'</h3></a><br>';
         }
     }
+    $content .= '</div>';
 ?>
