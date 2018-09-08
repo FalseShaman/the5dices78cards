@@ -6,7 +6,7 @@
     foreach ($list as $li) {
         $spreadName = ltrim(rtrim(end(explode('/', $li)), '.php'), 'spread_');
         if ($spreadName != 'basic') {
-            $content .= '<a href="/spread/'.$spreadName.'"><h3>'.$translateList[$spreadName].'</h3></a><br>';
+            $content .= '<a class="btn btn-info" href="/spread/'.$spreadName.'"><h3>'.$translateList[$spreadName].'</h3></a><br>';
         }
     }
 ?>

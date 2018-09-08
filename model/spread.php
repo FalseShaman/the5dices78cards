@@ -17,7 +17,7 @@
                 {
                     if ($placeNumber == $place) {
                         $cardCounter++;
-                        $map .= '<button type="button" class="btn btn-success placeSelectButton" id="'.$placeNumber.'" style="width: 100%; margin: 10px 0; padding: 30px 0;" disabled><p style="word-break: break-all;">'.$data['name'].' ('.$data['number'].')</p></button>';
+                        $map .= '<button type="button" class="btn btn-success placeSelectButton" id="'.$placeNumber.'" style="width: 100%; margin: 10px 0; padding: 5px 5px; opacity: 0.65; white-space: normal;" data-toggle="tooltip" title="'.$data['name'].' ('.$data['number'].')">'.$data['number'].'</button>';
                         break;
                     }
                 }
@@ -39,7 +39,7 @@
             }
             $minorCardSelector = '';
             for ($i=0;$i<10;$i++) {
-                $minorCardSelector .= '<button type="button" class="btn btn-dark cardSelectButton" id="'.$i.'" style="margin: 10px;">'.$translateList['majorArcana'][$i].'</button>';
+                $minorCardSelector .= '<button type="button" class="btn btn-dark cardSelectButton" id="'.$i.'" style="margin: 10px;">'.$translateList['minorArcana'][$i].'</button>';
             }
             $modal = '<div class="modal fade" id="placeSelector" tabindex="-1" role="dialog" aria-hidden="true"><div class="modal-dialog" role="document"><div class="modal-content">
                 <div class="modal-header">
