@@ -13,13 +13,13 @@
             </div>
         </div>
 
-        <nav class="navbar navbar-dark bg-dark" style="position: absolute; top: 5px; left: 5px; width: 10%; border: solid 1px gray; border-radius: 33px; font-size: 1.7em;">
+        <nav class="navbar navbar-dark bg-dark" style="position: absolute; top: 5px; left: 5px; width: 10%; border: solid 1px gray; border-radius: 33px; font-size: 1.3em;">
             <ul class="navbar-nav">
                 <?php echo $leftMenu; ?>
             </ul>
         </nav>
 
-        <nav class="navbar navbar-dark bg-dark" style="position: absolute; top: 5px; right: 5px; width: 10%; border: solid 1px gray; border-radius: 33px; font-size: 1.5em;">
+        <nav class="navbar navbar-dark bg-dark" style="position: absolute; top: 5px; right: 5px; width: 10%; border: solid 1px gray; border-radius: 33px; font-size: 1.1em;">
             <ul class="navbar-nav">
                 <?php echo $rightMenu; ?>
             </ul>
