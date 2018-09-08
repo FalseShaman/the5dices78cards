@@ -4,8 +4,14 @@
 
 <script>
     var backLine = "<?php echo $backLine; ?>";
+    var backList = backLine.split('|');
+
+    $.each(backList, function(ind, val){
+        var pic = new Image();
+        pic.src = '/view/design/background/'+val;
+    });
+
     $('#changeBack').click(function(){
-        var backList = backLine.split('|');
         var number = Math.floor((Math.random() * backList.length));
         $('body').attr('style', 'background-image: url("/view/design/background/'+backList[number]+'"); background-size: 100%;');
     });
