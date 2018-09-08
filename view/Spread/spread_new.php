@@ -11,7 +11,7 @@
     for ($placeNumber=0; $placeNumber < 78; $placeNumber++)
     {
         $map .= '<div class="col-md-2" id="cardPlace'.$placeNumber.'" style="border: solid 1px; border-radius: 7px; height: 250px;">
-                    <button type="button" class="btn btn-success placeSelectButton" style="width: 100%; margin: 10px 0; padding: 5px 5px;" disabled>Выбрать</button>
+                    <button type="button" id="'.$placeNumber.'" class="btn btn-success placeSelectButton" style="width: 100%; margin: 10px 0; padding: 5px 5px;" disabled>Выбрать</button>
                     <a href="javascript:void(0);" class="cardInfoButton" data-toggle="tooltip" title="">
                         <img class="deskCard" src="" width="130" height="200" style="display: none;">
                     </a> 
@@ -41,7 +41,7 @@
                     <div class="modal-body">
                         <div id="positionSelector" class="form-group">
                             <input type="text" id="placeName" class="form-control" placeholder="Позиция">
-                            <input type="text" id="placeCount" class="form-control" placeholder="Номер">
+                            <input type="number" id="placeCount" class="form-control" placeholder="Номер">
                             <button type="button" id="placeNamed" class="form-control btn btn-success">Ок</button>
                         </div>
                         <div id="arcanaSelector" style="display: none;">'.$arcanaSelector.'</div>
