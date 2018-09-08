@@ -42,7 +42,7 @@
             foreach ($this->pages['spread'] as $page)
             {
                 $navbar .= $this->page == $page ? '<li class="nav-item active">' : '<li class="nav-item">';
-                $navbar .= '<a class="nav-link" href="/'.$page.'">'.ucfirst($translateList[$page]).'</a></li>';
+                $navbar .= '<a class="nav-link" href="/spread/'.$page.'">'.ucfirst($translateList[$page]).'</a></li>';
             }
             return $navbar;
         }
