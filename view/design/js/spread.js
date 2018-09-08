@@ -29,7 +29,7 @@ $('.placeSelectButton').click(function(){
     $('#arcanaSelector').hide();
     $('#majorSelector').hide();
     $('#minorSelector').hide();
-    placeNumber = $(this).attr('id');
+    placeNumber = $(this).attr('data-place');
     $('#placeSelector').modal('toggle');
 });
 
@@ -54,10 +54,10 @@ $('.arcanaSelectButton').click(function(){
 $('.cardSelectButton').click(function(){
     cardNumber = arcanaNumber + parseInt($(this).attr('id'));
     var rotate = 12 - Math.floor((Math.random() * 24));
-    $('#'+placeNumber+'.deskCard').attr('src', '/gallery/'+deckName+'/'+cardNumber+'.jpg');
-    $('#'+placeNumber+'.deskCard').attr('style', 'transform: rotate('+rotate+'deg); margin: 20px;');
-    $('#'+placeNumber+'.deskCard').attr('data-card', cardNumber);
-    $('#'+placeNumber+'.deskCard').show();
-    $('#'+placeNumber+'.placeSelectButton').hide();
+    $('#cardPlace'+placeNumber+' .deskCard').attr('src', '/gallery/'+deckName+'/'+cardNumber+'.jpg');
+    $('#cardPlace'+placeNumber+' .deskCard').attr('style', 'transform: rotate('+rotate+'deg); margin: 20px;');
+    $('#cardPlace'+placeNumber+' .deskCard').attr('data-card', cardNumber);
+    $('#cardPlace'+placeNumber+' .deskCard').show();
+    $('#cardPlace'+placeNumber+' .placeSelectButton').hide();
     $('#placeSelector').modal('toggle');
 });
