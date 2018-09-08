@@ -5,7 +5,7 @@
     </head>
 
     <body style="background-image: url('/view/design/background/stone.jpg'); background-size: 100%;">
-        <a href="javascript:void(0);" id="changeBack" style="position: fixed; top: 5px; left: 21%;"><img src="/view/design/change.png" alt="Switch!"></a>
+        <a href="javascript:void(0);" id="changeBack" style="position: fixed; top: 5px; right: 11%;"><img src="/view/design/change.png" width="50" height="50" alt="Switch!"></a>
 
         <div class="container-fluid">
             <div class="container">
@@ -13,13 +13,13 @@
             </div>
         </div>
 
-        <nav class="navbar navbar-dark bg-dark" style="position: absolute; top: 0; width: 10%; font-size: 1.7em;">
+        <nav class="navbar navbar-dark bg-dark" style="position: absolute; top: 5px; left: 5px; width: 10%; border: solid 1px gray; border-radius: 33px; font-size: 1.7em;">
             <ul class="navbar-nav">
                 <?php echo $leftMenu; ?>
             </ul>
         </nav>
 
-        <nav class="navbar navbar-dark bg-dark" style="position: absolute; top: 0; right: 0; width: 10%; font-size: 1.5em;">
+        <nav class="navbar navbar-dark bg-dark" style="position: absolute; top: 5px; right: 5px; width: 10%; border: solid 1px gray; border-radius: 33px; font-size: 1.5em;">
             <ul class="navbar-nav">
                 <?php echo $rightMenu; ?>
             </ul>

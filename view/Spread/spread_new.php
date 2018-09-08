@@ -1,7 +1,7 @@
 <?php
     $translateList = getTranslate();
 
-    $folder = scandir(dirname(__DIR__).'/gallery/');
+    $folder = scandir(dirname(__DIR__).'/../../gallery/');
     var_dump($folder);
     $deckList = array_diff($folder, array('.', '..'));
     $rightMenu = '';
