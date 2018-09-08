@@ -56,12 +56,10 @@ $('.arcanaSelectButton').click(function(){
 $('.cardSelectButton').click(function(){
     cardNumber = arcanaNumber + parseInt($(this).attr('id'));
     var rotate = 12 - Math.floor((Math.random() * 24));
-    $('#cardPlace'+placeNumber+' .deskCard').attr('src', '/gallery/'+deckName+'/'+cardNumber+'.jpg');
-    $('#cardPlace'+placeNumber+' .deskCard').attr('style', 'transform: rotate('+rotate+'deg); margin: 20px;');
-    $('#cardPlace'+placeNumber+' .deskCard').attr('data-card', cardNumber);
-    $('#cardPlace'+placeNumber+' .deskCard').show();
-    $('#cardPlace'+placeNumber+' .deskPosition').text(placeName+' ('+placeCount+')');
-    $('#cardPlace'+placeNumber+' .deskPosition').show();
+    $('#cardPlace'+placeNumber+' .deskCard').attr('src', '/gallery/'+deckName+'/'+cardNumber+'.jpg').attr('style', 'transform: rotate('+rotate+'deg); margin: 20px;').attr('data-card', cardNumber).show();
+    $('#cardPlace'+placeNumber+' .deskPosition').text(placeName+' ('+placeCount+')').show();
+    $('#cardPlace'+placeNumber+' .clearPosition').show();
+    $('#cardPlace'+placeNumber+' .showCard').show();
     $('#cardPlace'+placeNumber+' .placeSelectButton').hide();
     $('#placeSelector').modal('toggle');
 });
@@ -69,11 +67,9 @@ $('.cardSelectButton').click(function(){
 $('.clearPosition').click(function(){
     placeNumber = $(this).attr('data-position');
 
-    $('#cardPlace'+placeNumber+' .deskCard').attr('src', '');
-    $('#cardPlace'+placeNumber+' .deskCard').attr('style', '');
-    $('#cardPlace'+placeNumber+' .deskCard').attr('data-card', '');
-    $('#cardPlace'+placeNumber+' .deskCard').hide();
-    $('#cardPlace'+placeNumber+' .deskPosition').text('');
-    $('#cardPlace'+placeNumber+' .deskPosition').hide();
+    $('#cardPlace'+placeNumber+' .deskCard').attr('src', '').attr('style', '').attr('data-card', '').hide();
+    $('#cardPlace'+placeNumber+' .deskPosition').text('').hide();
+    $('#cardPlace'+placeNumber+' .clearPosition').hide();
+    $('#cardPlace'+placeNumber+' .showCard').hide();
     $('#cardPlace'+placeNumber+' .placeSelectButton').show();
 });
