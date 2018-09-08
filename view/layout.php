@@ -4,7 +4,9 @@
         <?php include('Layout_head.php'); ?>
     </head>
 
-    <body style="background-image: url('/view/design/background/paper.jpg'); background-size: 100%;">
+    <body style="background-image: url('/view/design/background/stone.jpg'); background-size: 100%;">
+        <a href="javascript:void(0);" id="changeBack" style="position: fixed; top: 5px; left: 21%;"><img src="design/change.png" alt="Switch!"></a>
+
         <div class="container-fluid">
             <div class="container">
                 <?php echo $content; ?>

@@ -31,6 +31,11 @@
         );
     }
 
+    $folder = scandir(dirname(__DIR__).'/view/design/background');
+    $backList = array_diff($folder, array('.', '..'));
+    $backLine = implode('|', $backList);
+
+
     $path = $_SERVER[REQUEST_URI];
     require_once 'model/controller.php';
     $controller = new Controller($path);
