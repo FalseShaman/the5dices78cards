@@ -4,7 +4,7 @@
 
     $rightMenu = '';
     foreach ($deckList as $deck) {
-        $rightMenu .= '<li class="nav-item"><button class="btn btn-light deckSelectButton" href="javascript:void(0);" id="'.$deck.'" style="margin-top: 15px;">'.$translateList[$deck].'</button></li>';
+        $rightMenu .= '<li class="nav-item"><button class="btn btn-light deckSelectButton" href="javascript:void(0);" id="'.$deck.'" style="margin: 10px 0;">'.$translateList[$deck].'</button></li>';
     }
 
     $map = '<div class="row">';
@@ -42,7 +42,7 @@
                         <div id="positionSelector" class="form-group">
                             <input type="text" id="placeName" class="form-control" placeholder="Позиция">
                             <input type="text" id="placeCount" class="form-control" placeholder="Номер">
-                            <button type="button" id="placeNamed" class="btn btn-success">Ок</button>
+                            <button type="button" id="placeNamed" class="form-control btn btn-success">Ок</button>
                         </div>
                         <div id="arcanaSelector" style="display: none;">'.$arcanaSelector.'</div>
                         <div id="majorSelector" style="display: none;">'.$majorCardSelector.'</div>

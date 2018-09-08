@@ -22,7 +22,11 @@ $('.placeSelectButton').click(function(){
     placeNumber = 0;
     arcanaNumber = 0;
     cardNumber = 0;
+    placeName = 0;
+    placeCount = 0;
 
+    $('#positionSelector').show();
+    $('#arcanaSelector').hide();
     $('#majorSelector').hide();
     $('#minorSelector').hide();
     placeNumber = $(this).attr('id');
@@ -48,8 +52,8 @@ $('.arcanaSelectButton').click(function(){
 });
 
 $('.cardSelectButton').click(function(){
-    var rotate = 12 - Math.floor((Math.random() * 24));
     cardNumber = arcanaNumber + parseInt($(this).attr('id'));
+    var rotate = 12 - Math.floor((Math.random() * 24));
     $('#'+placeNumber+'.deskCard').attr('src', '/gallery/'+deckName+'/'+cardNumber+'.jpg').attr('style', 'transform: rotate('+rotate+'deg); margin: 20px;').attr('data-card', cardNumber).show();
     $('#'+placeNumber+'.placeSelectButton').hide();
     $('#placeSelector').modal('toggle');

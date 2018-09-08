@@ -32,11 +32,11 @@
     }
 
     function getDeckList() {
-        $folder = scandir(dirname(__DIR__).'app/gallery/');
+        $folder = scandir('/app/gallery/');
         return array_diff($folder, array('.', '..'));
     }
 
-    $folder = scandir('app/view/design/background/');
+    $folder = scandir('/app/view/design/background/');
     $backList = array_diff($folder, array('.', '..'));
     $backLine = implode('|', $backList);
 
