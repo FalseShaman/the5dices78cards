@@ -13,7 +13,7 @@
             'deck' =>
                 array(),
             'spread' =>
-                array('new', 'open'),
+                array('new', 'open', 'save'),
             'memory' =>
                 array(),
             'profile' =>
@@ -21,16 +21,10 @@
             'lost' =>
                 array()
             );
-                        
                 
         function __construct($path = '/') {
-            if ($path == '/open') {
-                $this->page = 'spread';
-                $this->subpage = 'open';
-            } else {
-                $this->page = 'spread';
-                $this->subpage = 'new';
-            }
+            $this->page = 'spread';
+            $this->subpage = 'new';
         }
 
         public function getTitle($translateList) {

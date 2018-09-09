@@ -58,15 +58,15 @@
         include_once('view/layout.php');
     }
 
-//if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-// $.ajax({
-//     method: "POST",
-//     url: "/",
-//     data: {},
-//     success: function(response) {
-//         console.log(response);
-//     }
-// });
-//}
+//    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+//     $.ajax({
+//         method: "POST",
+//         url: "/",
+//         data: {},
+//         success: function(response) {
+//             console.log(response);
+//         }
+//     });
+//    }
 
 ?>

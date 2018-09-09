@@ -12,7 +12,7 @@
     {
         $map .= '<div class="col-md-2" id="cardPlace'.$placeNumber.'" style="border: solid 1px; border-radius: 7px; height: 250px;">
                     <button type="button" data-place="'.$placeNumber.'" class="btn btn-success placeSelectButton" style="width: 100%; margin: 10px 0; padding: 5px 5px;" disabled>Выбрать</button>
-                    <img class="img-rounded deskCard" src="" width="120" height="210" style="display: none;">
+                    <img class="img-rounded deskCard" src="" width="120" height="210" border-radius: 11px; style="display: none;">
                     <p class="deskPosition" style="position: absolute; top: 10px; margin-right: 10px; color: #ffffff; background-color: #000000; opacity: 0.7; word-break: break-all; display: none;"></p>
                     <a href="javascript:void(0);" class="clearPosition" data-position="'.$placeNumber.'" style="position: absolute; top: 5px; left: 5px; display: none;"><img src="/view/design/close.png" width="30" height="30" alt="Clear"></a>
                     <a href="javascript:void(0);" class="showCard" data-position="'.$placeNumber.'" data-status="0" style="position: absolute; bottom: 5px; right: 5px; display: none;"><img src="/view/design/magnify.png" width="30" height="30" alt="Clear"></a>
@@ -26,7 +26,7 @@
                                     <button type="button" class="btn btn-dark arcanaSelectButton" id="50" style="margin: 10px;">Мечи</button>
                                     <button type="button" class="btn btn-dark arcanaSelectButton" id="64" style="margin: 10px;">Диски</button>';
     $majorCardSelector = '';
-    for ($i=0;$i<21;$i++) {
+    for ($i=0;$i<22;$i++) {
         $majorCardSelector .= '<button type="button" class="btn btn-dark cardSelectButton" id="'.$i.'" style="margin: 10px;">'.$translateList['majorArcana'][$i].'</button>';
     }
     $minorCardSelector = '';
@@ -42,7 +42,7 @@
                     <div class="modal-body">
                         <div id="positionSelector" class="form-group">
                             <input type="text" id="placeName" class="form-control" placeholder="Позиция">
-                            <input type="text" id="placeCount" class="form-control" placeholder="Номер">
+                            <textarea id="placeCount" class="form-control"></textarea>
                             <button type="button" id="placeNamed" class="form-control btn btn-success">Ок</button>
                         </div>
                         <div id="arcanaSelector" style="display: none;">'.$arcanaSelector.'</div>
