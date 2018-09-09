@@ -3,7 +3,7 @@ var deckName = 0;
 var arcanaNumber = 0;
 var cardNumber = 0;
 var placeName = 0;
-var placeCount = 0;
+var placeDesc = 0;
 
 $('.deckSelectButton').click(function(){
     $('.nav-item').children('.btn').removeClass('btn-info');
@@ -59,6 +59,7 @@ $('.cardSelectButton').click(function(){
     $('#cardPlace'+placeNumber+' .deskCard').attr('src', '/gallery/'+deckName+'/'+cardNumber+'.jpg').attr('style', 'transform: rotate('+rotate+'deg); margin: 20px;').attr('data-card', cardNumber).show();
     $('#cardPlace'+placeNumber+' .deskPosition').text(placeName+' <br>'+ placeDesc);
     $('#cardPlace'+placeNumber+' .clearPosition').show();
+    $('#cardPlace'+placeNumber+' .editPlace').show();
     $('#cardPlace'+placeNumber+' .showCard').show();
     $('#cardPlace'+placeNumber+' .placeSelectButton').hide();
     $('#placeSelector').modal('toggle');
