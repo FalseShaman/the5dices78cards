@@ -15,8 +15,8 @@
                     <img class="img-rounded deskCard" src="" width="120" height="210" border-radius: 11px; style="display: none;">
                     <p class="deskPosition" style="position: absolute; top: 10px; margin-right: 10px; color: #ffffff; background-color: #000000; opacity: 0.7; word-break: break-all; display: none;"></p>
                     <a href="javascript:void(0);" class="clearPosition" data-position="'.$placeNumber.'" style="position: absolute; top: 5px; left: 5px; display: none;"><img src="/view/design/close.png" width="30" height="30" alt="Clear"></a>
-                    <a href="javascript:void(0);" class="showCard" data-position="'.$placeNumber.'" data-status="0" style="position: absolute; top: 5px; right: 5px; display: none;"><img src="/view/design/magnify.png" width="30" height="30" alt="Clear"></a>
-                    <a href="javascript:void(0);" class="editPlace" data-position="'.$placeNumber.'" data-status="0" style="position: absolute; bottom: 5px; right: 5px; display: none;"><img src="/view/design/edit.png" width="30" height="30" alt="Clear"></a>
+                    <a href="javascript:void(0);" class="showCard" data-position="'.$placeNumber.'" data-status="0" style="position: absolute; bottom: 5px; right: 5px; display: none;"><img src="/view/design/magnify.png" width="30" height="30" alt="Clear"></a>
+                    <a href="javascript:void(0);" class="editPlace" data-position="'.$placeNumber.'" data-status="0" style="position: absolute; top: 5px; right: 5px; display: none;"><img src="/view/design/edit.png" width="30" height="30" alt="Clear"></a>
                 </div>';
     }
     $map .= '</div>';
@@ -43,7 +43,7 @@
                     <div class="modal-body">
                         <div id="positionSelector" class="form-group">
                             <input type="text" id="placeName" class="form-control" placeholder="Позиция">
-                            <textarea id="placeCount" class="form-control"></textarea>
+                            <textarea id="placeDesc" class="form-control"></textarea>
                             <button type="button" id="placeNamed" class="form-control btn btn-success">Ок</button>
                         </div>
                         <div id="arcanaSelector" style="display: none;">'.$arcanaSelector.'</div>
