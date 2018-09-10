@@ -103,7 +103,7 @@ $('#saveSpread').click(function(){
 
     $.ajax({
         method: "POST",
-        url: "/",
+        url: "/save/spread",
         data: {
             name: spreadName,
             map: map
