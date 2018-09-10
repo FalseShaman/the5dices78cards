@@ -81,9 +81,9 @@
 //                           map VARCHAR (250)');
 //    $result = $db->exec('INSERT INTO spread (title, map)
 //                           ("hi", "there"), ("hao", "here")');
-$host        = "ec2-54-217-245-9.eu-west-1.compute.amazonaws.com";
+$host        = "host=ec2-54-217-245-9.eu-west-1.compute.amazonaws.com";
 $port        = "port=5432";
-$dbname      = "daabdc45roinq9";
+$dbname      = "dbname=daabdc45roinq9";
 $credentials = "user=xxruwosifumind password=76c9995e9184ee542182e0e34f3355898b82ec454aea38ff676d298c913d5da6";
 
     $conn = pg_connect( " $url $host $port $dbname $credentials"  );
