@@ -79,8 +79,9 @@
                            id SERIAL,
                            title VARCHAR (200),
                            map VARCHAR (250)');
-    $db->exec('INSERT INTO spread (title, map)
+$result = $db->exec('INSERT INTO spread (title, map)
                            ("hi", "there"), ("hao", "here")');
+var_dump($result); die();
     if ($db) {
         echo "Connected";
     } else {
@@ -93,6 +94,5 @@
         $tableList[] = $row['table_name'];
     }
 
-    var_dump($tableList);
 
 ?>
