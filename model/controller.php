@@ -6,16 +6,12 @@
         public $subpage;
         
         public $pages = array(
-            'news' =>
+            'login' =>
                 array(),
             'card' =>
                 array(),
-            'deck' =>
-                array(),
             'spread' =>
-                array('new', 'open',),
-            'memory' =>
-                array(),
+                array('new', 'open'),
             'profile' =>
                 array(),
             'lost' =>

@@ -42,7 +42,7 @@
     $backLine = implode('|', $backList);
 
 
-    $path = $_SERVER[REQUEST_URI];
+    $path = $_SERVER['REQUEST_URI'];
     require_once 'model/controller.php';
     $controller = new Controller($path);
 
