@@ -90,13 +90,13 @@ $db = new PDO($dsn);
         echo "Not connected";
     }
 
-    $db->query("SELECT table_name 
+    $data = $db->query("SELECT table_name 
                                        FROM information_schema.tables 
                                        WHERE table_schema= 'public' 
                                             AND table_type='BASE TABLE'
                                        ORDER BY table_name");
     $tableList = [];
-    while ($row = $stmt->fetch(\PDO::FETCH_ASSOC)) {
+    while ($row = $data->fetch(\PDO::FETCH_ASSOC)) {
         $tableList[] = $row['table_name'];
     }
 
