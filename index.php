@@ -77,10 +77,29 @@ $dsn = "pgsql:"
 
 $db = new PDO($dsn);
 
-if($db){
-    echo "Connected <br />".$db;
-}else {
-    echo "Not connected";
-}
+    $db->exec('CREATE TABLE IF NOT EXISTS spread (
+                           id SERIAL PRIMARY KEY,
+                           title CHARACTER (200) NOT NULL,
+                           map CHARACTER (250) NOT NULL');
+
+    var_dump($controller->getTables());
+
+    if($db){
+        echo "Connected <br />".$db;
+    }else {
+        echo "Not connected";
+    }
+
+    $db->query("SELECT table_name 
+                                       FROM information_schema.tables 
+                                       WHERE table_schema= 'public' 
+                                            AND table_type='BASE TABLE'
+                                       ORDER BY table_name");
+    $tableList = [];
+    while ($row = $stmt->fetch(\PDO::FETCH_ASSOC)) {
+        $tableList[] = $row['table_name'];
+    }
+
+    var_dump($tableList);
 
 ?>
