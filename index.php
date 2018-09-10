@@ -79,8 +79,8 @@ $conn->query('CREATE TABLE IF NOT EXISTS user (
                 pass VARCHAR(390) NOT NULL,
                 folder VARCHAR(390) NOT NULL,
                 register VARCHAR(390) NOT NULL,
-                last_login VARCHAR(390) NOT NULL),
-                UNIQUE KEY (name)');
+                last_login VARCHAR(390) NOT NULL,
+                UNIQUE KEY (name))');
 if ($conn) {
     echo 'moon';
 }
