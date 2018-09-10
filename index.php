@@ -65,14 +65,13 @@
 //        }
     }
 
-
-$host = "ec2-54-217-245-9.eu-west-1.compute.amazonaws.com";
-$dbname = "postgres://xxruwosifumind:76c9995e9184ee542182e0e34f3355898b82ec454aea38ff676d298c913d5da6@ec2-54-217-245-9.eu-west-1.compute.amazonaws.com:5432/daabdc45roinq9";
-$user = "xxruwosifumind";
-$password = "76c9995e9184ee542182e0e34f3355898b82ec454aea38ff676d298c913d5da6";
-$port = "5432";
-
-$dsn = "pgsql:host=$host;dbname=$dbname;user=$user;port=$port;password=$password";
+$dsn = "pgsql:"
+    . "host=ec2-54-217-245-9.eu-west-1.compute.amazonaws.com;"
+    . "dbname=daabdc45roinq9;"
+    . "user=xxruwosifumind;"
+    . "port=5432;"
+    . "sslmode=require;"
+    . "password=76c9995e9184ee542182e0e34f3355898b82ec454aea38ff676d298c913d5da6";
 
 $db = new PDO($dsn);
 
