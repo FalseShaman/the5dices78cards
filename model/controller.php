@@ -12,8 +12,6 @@
                 array(),
             'spread' =>
                 array('new', 'open'),
-            'profile' =>
-                array(),
             'lost' =>
                 array()
             );

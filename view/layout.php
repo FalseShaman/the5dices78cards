@@ -19,11 +19,13 @@
             </ul>
         </nav>
 
-        <nav class="navbar navbar-dark bg-dark" style="position: absolute; top: 5px; right: 5px; width: 10%; border: solid 1px gray; border-radius: 33px; font-size: 1.1em;">
-            <ul class="navbar-nav">
-                <?php echo $rightMenu; ?>
-            </ul>
-        </nav>
+        <?php if($rightMenu && $rightMenu > ''): ?>
+            <nav class="navbar navbar-dark bg-dark" style="position: absolute; top: 5px; right: 5px; width: 10%; border: solid 1px gray; border-radius: 33px; font-size: 1.1em;">
+                <ul class="navbar-nav">
+                    <?php echo $rightMenu; ?>
+                </ul>
+            </nav>
+        <?php endif; ?>
 
         <?php include('Layout_script.php'); ?>
     </body>

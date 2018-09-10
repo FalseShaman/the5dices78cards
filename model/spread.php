@@ -5,7 +5,8 @@
         CREATE TABLE IF NOT EXISTS spread (
         id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
         title VARCHAR(30) NOT NULL,
-        map VARCHAR(30) NOT NULL)
+        map VARCHAR(30) NOT NULL,
+        user_id INT(6) UNSIGNED NOT NULL)
         */
 
         public function getList() {
