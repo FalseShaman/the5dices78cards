@@ -76,9 +76,9 @@
     $db = new PDO($dsn);
 
     $db->exec('CREATE TABLE IF NOT EXISTS spread (
-                           id SERIAL PRIMARY KEY,
-                           title CHARACTER (200) NOT NULL,
-                           map CHARACTER (250) NOT NULL');
+                           id SERIAL,
+                           title VARCHAR (200),
+                           map VARCHAR (250)');
     $db->exec('INSERT INTO spread (title, map)
                            ("hi", "there"), ("hao", "here")');
     if($db){
