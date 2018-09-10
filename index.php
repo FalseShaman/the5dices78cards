@@ -46,44 +46,23 @@
     require_once 'model/controller.php';
     $controller = new Controller($path);
 
-//    if ($_SERVER['REQUEST_METHOD'] == 'GET') {
-//        $title = $controller->getTitle(getTranslate());
-//        $leftMenu = $controller->getNav(getTranslate());
-//        $content = '';
-//
-//        if (!$controller->subpage) {
-//            $controller->subpage = 'basic';
-//        }
-//
-//        require 'view/'.ucfirst($controller->page).'/'.$controller->page.'_'.$controller->subpage.'.php';
-//        include_once('view/layout.php');
-//    }
+    if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+        $title = $controller->getTitle(getTranslate());
+        $leftMenu = $controller->getNav(getTranslate());
+        $content = '';
 
-//    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-//        if ($path == '/save/spread') {
-//            $controller->saveSpread();
-//        }
-//    }
+        if (!$controller->subpage) {
+            $controller->subpage = 'basic';
+        }
 
-$servername = "b8rg15mwxwynuk9q.chr7pe7iynqr.eu-west-1.rds.amazonaws.com";
-$username = "nujevyt4qcj34azb";
-$password = "a7m9vja0q5lgqcj6";
-$dbname = "ldv471cmnrt1s6aw";
-$port = 3306;
+        require 'view/'.ucfirst($controller->page).'/'.$controller->page.'_'.$controller->subpage.'.php';
+        include_once('view/layout.php');
+    }
 
-$conn = new mysqli($servername, $username, $password, $dbname, $port);
-
-$conn->query('CREATE TABLE IF NOT EXISTS user (
-                id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-                name VARCHAR(390) NOT NULL,
-                pass VARCHAR(390) NOT NULL,
-                folder VARCHAR(390) NOT NULL,
-                register VARCHAR(390) NOT NULL,
-                last_login VARCHAR(390) NOT NULL,
-                UNIQUE KEY (name))');
-if ($conn) {
-    echo 'moon';
-}
-
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        if ($path == '/save/spread') {
+            $controller->saveSpread();
+        }
+    }
 
 ?>
