@@ -45,7 +45,7 @@
 
         public function getNav($translateList) {
             $navbar = '';
-            foreach ($this->pages as $page)
+            foreach ($this->pages as $page => $sub)
             {
                 $navbar .= $this->page == $page ? '<li class="nav-item active">' : '<li class="nav-item">';
                 $navbar .= '<a class="nav-link" href="/'.$page.'">'.ucfirst($translateList[$page]).'</a></li>';
