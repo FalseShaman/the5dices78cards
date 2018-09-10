@@ -79,16 +79,14 @@
                            id SERIAL PRIMARY KEY,
                            title CHARACTER (200) NOT NULL,
                            map CHARACTER (250) NOT NULL');
+    $db->exec('INSERT INTO spread (title, map)
+                           ("hi", "there"), ("hao", "here")');
     if($db){
         echo "Connected";
     }else {
         echo "Not connected";
     }
-    $data = $db->query("SELECT table_name 
-                                       FROM information_schema.tables 
-                                       WHERE table_schema= 'public' 
-                                            AND table_type='BASE TABLE'
-                                       ORDER BY table_name");
+    $data = $db->query("SELECT * FROM spread");
     $tableList = [];
     while ($row = $data->fetch(\PDO::FETCH_ASSOC)) {
         $tableList[] = $row['table_name'];
