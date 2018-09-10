@@ -86,3 +86,30 @@ $('.showCard').click(function(){
         $(this).attr('data-status', 0);
     }
 });
+
+$('#spreadSaverButton').click(function(){
+    $('#spreadSaver').modal('toggle');
+});
+
+$('#saveSpread').click(function(){
+    var spreadName = $('#spreadName').val();
+    var map = '';
+
+    $.each($('.deskCard'), function(ind,val){
+        if($(val).attr('src') > '') {
+            map += ind+'->'+$(val).attr('data-card')+'|';
+        }
+    });
+
+    $.ajax({
+        method: "POST",
+        url: "/",
+        data: {
+            name: spreadName,
+            map: map
+        },
+        success: function(response) {
+            console.log(response);
+        }
+    });
+});

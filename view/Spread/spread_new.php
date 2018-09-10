@@ -14,9 +14,9 @@
                     <button type="button" data-place="'.$placeNumber.'" class="btn btn-success placeSelectButton" style="width: 100%; margin: 10px 0; padding: 5px 5px;" disabled>Выбрать</button>
                     <img class="img-rounded deskCard" src="" width="120" height="210" border-radius: 11px; style="display: none;">
                     <p class="deskPosition" style="position: absolute; top: 10px; margin-right: 10px; color: #ffffff; background-color: #000000; opacity: 0.7; word-break: break-all; display: none;"></p>
-                    <a href="javascript:void(0);" class="clearPosition" data-position="'.$placeNumber.'" style="position: absolute; top: 5px; left: 5px; display: none;"><img src="/view/design/close.png" width="30" height="30" alt="Clear"></a>
-                    <a href="javascript:void(0);" class="showCard" data-position="'.$placeNumber.'" data-status="0" style="position: absolute; bottom: 5px; right: 5px; display: none;"><img src="/view/design/magnify.png" width="30" height="30" alt="Clear"></a>
-                    <a href="javascript:void(0);" class="editPlace" data-position="'.$placeNumber.'" data-status="0" style="position: absolute; top: 5px; right: 5px; display: none;"><img src="/view/design/edit.png" width="30" height="30" alt="Clear"></a>
+                    <a href="javascript:void(0);" class="clearPosition" data-position="'.$placeNumber.'" style="position: absolute; top: 5px; left: 5px; display: none;"><span class="glyphicon glyphicon-remove"></span></a>
+                    <a href="javascript:void(0);" class="editPlace" data-position="'.$placeNumber.'" data-status="0" style="position: absolute; top: 5px; right: 5px; display: none;"><span class="glyphicon glyphicon-pencil"></span></a>
+                    <a href="javascript:void(0);" class="showCard" data-position="'.$placeNumber.'" data-status="0" style="position: absolute; bottom: 5px; right: 5px; display: none;"><span class="glyphicon glyphicon-search"></span></a>
                 </div>';
     }
     $map .= '</div>';
@@ -35,9 +35,9 @@
         $minorCardSelector .= '<button type="button" class="btn btn-dark cardSelectButton" id="'.$i.'" style="margin: 10px;">'.$translateList['minorArcana'][$i].'</button>';
     }
 
-    $modal = '<div class="modal fade" id="placeSelector" tabindex="-1" role="dialog" aria-hidden="true"><div class="modal-dialog" role="document"><div class="modal-content">
+    $placeModal = '<div class="modal fade" id="placeSelector" tabindex="-1" role="dialog" aria-hidden="true"><div class="modal-dialog" role="document"><div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Выбор карты</h5>
+                        <h5 class="modal-title">Выбор карты</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                     </div>
                     <div class="modal-body">
@@ -53,5 +53,22 @@
                     <div class="modal-footer"></div>
                 </div></div></div>';
 
-    $content = $map.$modal;
+    $saveButton = '<button type="button" class="btn btn-dark" id="spreadSaverButton" style="position: fixed; top: 5px; left: 12%;"><span class="glyphicon glyphicon-download-alt"></span></button>';
+
+    $spreadModal = '<div class="modal fade" id="spreadSaver" tabindex="-1" role="dialog" aria-hidden="true"><div class="modal-dialog" role="document"><div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Сохранить расклад</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        </div>
+                        <div class="modal-body">
+                            <div id="positionSelector" class="form-group">
+                                <input type="text" id="spreadName" class="form-control" placeholder="Название раклада">
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" id="saveSpread" class="form-control btn btn-success">Ок</button>
+                        </div>
+                    </div></div></div>';
+
+    $content = $saveButton.$map.$placeModal;
 ?>
