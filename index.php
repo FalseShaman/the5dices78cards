@@ -86,9 +86,10 @@
     }else {
         echo "Not connected";
     }
-    $data = $db->query("SELECT * FROM spread");
-    $tableList = [];
-    while ($row = $data->fetch(\PDO::FETCH_ASSOC)) {
+
+$tableList = [];
+    $result = $db->query('SELECT id, title, map FROM spread');
+    while ($row = $result->fetch(\PDO::FETCH_ASSOC)) {
         $tableList[] = $row['table_name'];
     }
 
