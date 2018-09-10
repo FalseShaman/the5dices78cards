@@ -65,46 +65,36 @@
 //        }
 //    }
 
-    $dsn = "pgsql:"
-        . "host=ec2-54-217-245-9.eu-west-1.compute.amazonaws.com;"
-        . "dbname=daabdc45roinq9;"
-        . "user=xxruwosifumind;"
-        . "port=5432;"
-        . "sslmode=require;"
-        . "password=76c9995e9184ee542182e0e34f3355898b82ec454aea38ff676d298c913d5da6";
+$servername = "b8rg15mwxwynuk9q.chr7pe7iynqr.eu-west-1.rds.amazonaws.com";
+$username = "nujevyt4qcj34azb";
+$password = "a7m9vja0q5lgqcj6";
+$dbname = "ldv471cmnrt1s6aw";
+$port = 3306;
 
-//    $db = new PDO($dsn);
-//
-//    $db->exec('CREATE TABLE spread (
-//                           id SERIAL,
-//                           title VARCHAR (200),
-//                           map VARCHAR (250)');
-//    $result = $db->exec('INSERT INTO spread (title, map)
-//                           ("hi", "there"), ("hao", "here")');
-$host        = "host=ec2-54-217-245-9.eu-west-1.compute.amazonaws.com";
-$port        = "port=5432";
-$dbname      = "dbname=daabdc45roinq9";
-$credentials = "user=xxruwosifumind password=76c9995e9184ee542182e0e34f3355898b82ec454aea38ff676d298c913d5da6";
+$conn = new mysqli($servername, $username, $password, $dbname, $port);
+if ($conn) {
+    echo 'moon';
+}
 
-    $conn = pg_connect( " $url $host $port $dbname $credentials"  );
+$conn->query('CREATE TABLE IF NOT EXISTS spread (
+                        id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+                        title VARCHAR(30) NOT NULL,
+                        map VARCHAR(30) NOT NULL) ');
+if ($conn) {
+    echo 'sun';
+}
 
-//    $query = 'CREATE TABLE spread (
-//                           id SERIAL,
-//                           title VARCHAR (200),
-//                           map VARCHAR (250))';
-//    $result = pg_query($conn,$query);
-//    var_dump(pg_fetch_array ($result));
-//
-//    $query = 'INSERT INTO spread (title, map) VALUES
-//                               ("stop", "never"), ("die", "no")';
-//    $result = pg_query($conn,$query);
-//    var_dump(pg_fetch_array ($result));
-$result = pg_query($conn,'SELECT id, title, map FROM spread WHERE id = 1');
-    var_dump(pg_fetch_array ($result));
-//$tableList = [];
-//    while ($row = $result->fetch(\PDO::FETCH_ASSOC)) {
-//        $tableList[] = $row['table_name'];
-//    }
+$result = $conn->query('CREATE TABLE IF NOT EXISTS spread (
+                        id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+                        title VARCHAR(30) NOT NULL,
+                        map VARCHAR(30) NOT NULL) ');
 
-
+if ($result->num_rows > 0) {
+    // output data of each row
+    while($row = $result->fetch_assoc()) {
+        echo "id: " . $row["id"]. " - Name: " . $row["firstname"]. " " . $row["lastname"]. "<br>";
+    }
+} else {
+    echo "0 results";
+}
 ?>
