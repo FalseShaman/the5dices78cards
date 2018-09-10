@@ -99,7 +99,7 @@ $credentials = "user=xxruwosifumind password=76c9995e9184ee542182e0e34f3355898b8
 //                               ("stop", "never"), ("die", "no")';
 //    $result = pg_query($conn,$query);
 //    var_dump(pg_fetch_array ($result));
-$result = pg_query($conn,'SELECT id, title, map FROM spread');
+$result = pg_query($conn,'SELECT id, title, map FROM spread WHERE id = 1');
     var_dump(pg_fetch_array ($result));
 //$tableList = [];
 //    while ($row = $result->fetch(\PDO::FETCH_ASSOC)) {
