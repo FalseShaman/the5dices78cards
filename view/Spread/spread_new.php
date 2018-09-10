@@ -15,11 +15,11 @@
                     <img class="img-rounded deskCard" src="" width="120" height="210" border-radius: 11px; style="display: none;">
                     <p class="deskPosition" style="position: absolute; top: 10px; margin-right: 10px; color: #ffffff; background-color: #000000; opacity: 0.7; word-break: break-all; display: none;"></p>
                     <button type="button" class="btn btn-default" class="clearPosition" data-position="'.$placeNumber.'" style="position: absolute; top: 5px; left: 5px; display: none;">
-                        <img class="img-responsive" src="design/clear.png"></button>
+                        <img class="img-responsive" src="/view/design/clear.png"></button>
                     <button type="button" class="btn btn-default" class="editPlace" data-position="'.$placeNumber.'" data-status="0" style="position: absolute; top: 5px; right: 5px; display: none;">
-                        <img class="img-responsive" src="design/edit.png"></button>
+                        <img class="img-responsive" src="/view/design/edit.png"></button>
                     <button type="button" class="btn btn-default" class="showCard" data-position="'.$placeNumber.'" data-status="0" style="position: absolute; bottom: 5px; right: 5px; display: none;">
-                        <img class="img-responsive" src="design/show.png"></button>
+                        <img class="img-responsive" src="/view/design/show.png"></button>
                 </div>';
     }
     $map .= '</div>';
@@ -56,7 +56,7 @@
                     <div class="modal-footer"></div>
                 </div></div></div>';
 
-    $saveButton = '<button type="button" class="btn btn-dark" id="spreadSaverButton" style="position: fixed; top: 5px; left: 12%;"><img class="img-responsive" src="design/save.png"></button>';
+    $saveButton = '<button type="button" class="btn btn-dark" id="spreadSaverButton" style="position: fixed; top: 5px; left: 12%;"><img class="img-responsive" src="/view/design/save.png"></button>';
 
     $spreadModal = '<div class="modal fade" id="spreadSaver" tabindex="-1" role="dialog" aria-hidden="true"><div class="modal-dialog" role="document"><div class="modal-content">
                         <div class="modal-header">
