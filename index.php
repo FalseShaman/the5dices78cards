@@ -73,26 +73,38 @@
         . "sslmode=require;"
         . "password=76c9995e9184ee542182e0e34f3355898b82ec454aea38ff676d298c913d5da6";
 
-    $db = new PDO($dsn);
+//    $db = new PDO($dsn);
+//
+//    $db->exec('CREATE TABLE spread (
+//                           id SERIAL,
+//                           title VARCHAR (200),
+//                           map VARCHAR (250)');
+//    $result = $db->exec('INSERT INTO spread (title, map)
+//                           ("hi", "there"), ("hao", "here")');
+$host        = "ec2-54-217-245-9.eu-west-1.compute.amazonaws.com";
+$port        = "port=5432";
+$dbname      = "daabdc45roinq9";
+$credentials = "user=xxruwosifumind password=76c9995e9184ee542182e0e34f3355898b82ec454aea38ff676d298c913d5da6";
 
-    $db->exec('CREATE TABLE spread (
+    $conn = pg_connect( " $url $host $port $dbname $credentials"  );
+    $result = pg_query($conn,$query);
+
+    $query = 'CREATE TABLE spread (
                            id SERIAL,
                            title VARCHAR (200),
-                           map VARCHAR (250)');
-$result = $db->exec('INSERT INTO spread (title, map)
-                           ("hi", "there"), ("hao", "here")');
-var_dump($result); die();
-    if ($db) {
-        echo "Connected";
-    } else {
-        echo "Not connected";
-    }
+                           map VARCHAR (250)';
+    $result = pg_query($conn,$query);
+    var_dump($result);
 
-    $tableList = [];
-    $result = $db->query('SELECT id, title, map FROM spread');
-    while ($row = $result->fetch(\PDO::FETCH_ASSOC)) {
-        $tableList[] = $row['table_name'];
-    }
+    $query = 'INSERT INTO spread (title, map) VALUES 
+                               ("stop", "never"), ("die", "no")';
+    $result = pg_query($conn,$query);
+    var_dump($result);
+
+//$tableList = [];
+//    while ($row = $result->fetch(\PDO::FETCH_ASSOC)) {
+//        $tableList[] = $row['table_name'];
+//    }
 
 
 ?>
