@@ -80,7 +80,7 @@
                            title CHARACTER (200) NOT NULL,
                            map CHARACTER (250) NOT NULL');
     if($db){
-        echo "Connected <br />".$db;
+        echo "Connected";
     }else {
         echo "Not connected";
     }
