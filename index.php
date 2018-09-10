@@ -66,33 +66,20 @@
     }
 
 
-// Соединение, выбор базы данных
-$dbconn = pg_connect("host=ec2-54-217-245-9.eu-west-1.compute.amazonaws.com dbname=daabdc45roinq9 user=xxruwosifumind password=5432")
-or die('Не удалось соединиться: ' . pg_last_error());
+$host = "ec2-54-217-245-9.eu-west-1.compute.amazonaws.com";
+$dbname = "postgres://xxruwosifumind:76c9995e9184ee542182e0e34f3355898b82ec454aea38ff676d298c913d5da6@ec2-54-217-245-9.eu-west-1.compute.amazonaws.com:5432/daabdc45roinq9";
+$user = "xxruwosifumind";
+$password = "76c9995e9184ee542182e0e34f3355898b82ec454aea38ff676d298c913d5da6";
+$port = "5432";
 
-// Выполнение SQL-запроса
-$query = 'CREATE TABLE Spread(
-                       id INT NOT NULL,
-                       title VARCHAR(200) NOT NULL,
-                       map VARCHAR(250) NOT NULL,      
-                       PRIMARY KEY (id)';
-$result = pg_query($query) or die('Ошибка запроса: ' . pg_last_error());
+$dsn = "pgsql:host=$host;dbname=$dbname;user=$user;port=$port;password=$password";
 
-// Вывод результатов в HTML
-echo "<table>\n";
-while ($line = pg_fetch_array($result, null, PGSQL_ASSOC)) {
-    echo "\t<tr>\n";
-    foreach ($line as $col_value) {
-        echo "\t\t<td>$col_value</td>\n";
-    }
-    echo "\t</tr>\n";
+$db = new PDO($dsn);
+
+if($db){
+    echo "Connected <br />".$db;
+}else {
+    echo "Not connected";
 }
-echo "</table>\n";
-
-// Очистка результата
-pg_free_result($result);
-
-// Закрытие соединения
-pg_close($dbconn);
 
 ?>
