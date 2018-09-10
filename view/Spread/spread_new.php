@@ -14,11 +14,12 @@
                     <button type="button" data-place="'.$placeNumber.'" class="btn btn-success placeSelectButton" style="width: 100%; margin: 10px 0; padding: 5px 5px;" disabled>Выбрать</button>
                     <img class="img-rounded deskCard" src="" width="120" height="210" border-radius: 11px; style="display: none;">
                     <p class="deskPosition" style="position: absolute; top: 10px; margin-right: 10px; color: #ffffff; background-color: #000000; opacity: 0.7; word-break: break-all; display: none;"></p>
-                    <button type="button" class="btn btn-default" class="clearPosition" data-position="'.$placeNumber.'" style="position: absolute; top: 5px; left: 5px; display: none;">
+                    
+                    <button type="button" class="btn btn-default clearPosition" data-position="'.$placeNumber.'" style="position: absolute; top: 0px; left: 0px; padding: 0; display: none;">
                         <img class="img-responsive" src="/view/design/clear.png"></button>
-                    <button type="button" class="btn btn-default" class="editPlace" data-position="'.$placeNumber.'" data-status="0" style="position: absolute; top: 5px; right: 5px; display: none;">
+                    <button type="button" class="btn btn-default editPlace" data-position="'.$placeNumber.'" style="position: absolute; top: 0px; right: 0px; padding: 0; display: none;">
                         <img class="img-responsive" src="/view/design/edit.png"></button>
-                    <button type="button" class="btn btn-default" class="showCard" data-position="'.$placeNumber.'" data-status="0" style="position: absolute; bottom: 5px; right: 5px; display: none;">
+                    <button type="button" class="btn btn-default showCard" data-position="'.$placeNumber.'" style="position: absolute; bottom: 0px; right: 0px; padding: 0; display: none;">
                         <img class="img-responsive" src="/view/design/show.png"></button>
                 </div>';
     }
@@ -45,9 +46,9 @@
                     </div>
                     <div class="modal-body">
                         <div id="positionSelector" class="form-group">
-                            <input type="text" id="placeName" class="form-control" placeholder="Позиция">
-                            <textarea id="placeDesc" class="form-control"></textarea>
-                            <button type="button" id="placeNamed" class="form-control btn btn-success">Ок</button>
+                            <input type="text" class="form-control" id="placeName" placeholder="Позиция">
+                            <textarea class="form-control" id="placeDesc"></textarea>
+                            <button type="button" class="form-control btn btn-success" id="placeNamed">Ок</button>
                         </div>
                         <div id="arcanaSelector" style="display: none;">'.$arcanaSelector.'</div>
                         <div id="majorSelector" style="display: none;">'.$majorCardSelector.'</div>

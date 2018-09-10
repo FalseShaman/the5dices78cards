@@ -25,7 +25,7 @@ $('.placeSelectButton').click(function(){
     placeName = 0;
     placeDesc = 0;
     $('#placeName').val('');
-    $('#placeCount').val('');
+    $('#placeDesc').text('');
 
     $('#positionSelector').show();
     $('#arcanaSelector').hide();
@@ -66,25 +66,16 @@ $('.cardSelectButton').click(function(){
 });
 
 $('.clearPosition').click(function(){
-    placeNumber = $(this).attr('data-position');
     $('#cardPlace'+placeNumber+' .deskCard').attr('src', '').attr('style', '').attr('data-card', '').hide();
     $('#cardPlace'+placeNumber+' .deskPosition').text('').hide();
     $('#cardPlace'+placeNumber+' .clearPosition').hide();
+    $('#cardPlace'+placeNumber+' .editPlace').hide();
     $('#cardPlace'+placeNumber+' .showCard').hide();
     $('#cardPlace'+placeNumber+' .placeSelectButton').show();
 });
 
 $('.showCard').click(function(){
-    placeNumber = $(this).attr('data-position');
-    if ($(this).attr('data-status') == 0) {
-        $('#cardPlace'+placeNumber+' .deskPosition').show();
-        $('#cardPlace'+placeNumber+' .clearPosition').hide();
-        $(this).attr('data-status', 1);
-    } else {
-        $('#cardPlace'+placeNumber+' .deskPosition').hide();
-        $('#cardPlace'+placeNumber+' .clearPosition').show();
-        $(this).attr('data-status', 0);
-    }
+    $('#cardPlace'+placeNumber+' .deskPosition').show();
 });
 
 $('#spreadSaverButton').click(function(){
@@ -110,6 +101,7 @@ $('#saveSpread').click(function(){
         },
         success: function(response) {
             console.log(response);
+            $('#spreadName').val('');
         }
     });
 });
