@@ -59,11 +59,13 @@
 //        include_once('view/layout.php');
 //    }
 
-    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+//    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 //        if ($path == '/save/spread') {
 //            $controller->saveSpread();
 //        }
-    }
+//    }
+$data = extract(parse_url($_ENV["DATABASE_URL"]));
+var_dump($data);
 
 $dsn = "pgsql:"
     . "host=ec2-54-217-245-9.eu-west-1.compute.amazonaws.com;"
