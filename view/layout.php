@@ -5,7 +5,7 @@
     </head>
 
     <body style="background-image: url('/view/design/background/stone.jpg'); background-size: 100%;">
-        <button type="button" class="btn btn-default" id="changeBack" style="position: fixed; top: 5px; right: 11%;"><span class="glyphicon glyphicon-refresh" aria-hidden="true"></span></button>
+        <button type="button" class="btn btn-default" id="changeBack" style="position: fixed; top: 5px; right: 11%;"><img class="img-responsive" src="design/refresh.png"></button>
 
         <div class="container-fluid">
             <div class="container">
