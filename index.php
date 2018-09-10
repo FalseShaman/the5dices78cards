@@ -72,27 +72,27 @@ $dbname = "ldv471cmnrt1s6aw";
 $port = 3306;
 
 $conn = new mysqli($servername, $username, $password, $dbname, $port);
-if ($conn) {
-    echo 'moon';
-}
 
 $conn->query('CREATE TABLE IF NOT EXISTS spread (
                         id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
                         title VARCHAR(30) NOT NULL,
                         map VARCHAR(30) NOT NULL) ');
 if ($conn) {
-    echo 'sun';
+    echo 'moon';
 }
 
-$result = $conn->query('CREATE TABLE IF NOT EXISTS spread (
-                        id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-                        title VARCHAR(30) NOT NULL,
-                        map VARCHAR(30) NOT NULL) ');
+$conn->query('INSERT INTO spread (title, map) 
+                      VALUES ("fear", "no"), ("die", "right")');
+if ($conn) {
+    echo 'moon';
+}
+
+$result = $conn->query('SELECT * FROM spread ');
 
 if ($result->num_rows > 0) {
     // output data of each row
     while($row = $result->fetch_assoc()) {
-        echo "id: " . $row["id"]. " - Name: " . $row["firstname"]. " " . $row["lastname"]. "<br>";
+        var_dump($row);
     }
 } else {
     echo "0 results";
