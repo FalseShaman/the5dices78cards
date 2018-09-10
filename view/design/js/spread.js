@@ -37,7 +37,7 @@ $('.placeSelectButton').click(function(){
 
 $('#placeNamed').click(function(){
     placeName = $('#placeName').val();
-    placeDesc = $('#placeCount').val();
+    placeDesc = $('#placeDesc').val();
 
     $('#positionSelector').hide();
     $('#arcanaSelector').show();
@@ -66,6 +66,7 @@ $('.cardSelectButton').click(function(){
 });
 
 $('.clearPosition').click(function(){
+    placeNumber = $(this).attr('data-position');
     $('#cardPlace'+placeNumber+' .deskCard').attr('src', '').attr('style', '').attr('data-card', '').hide();
     $('#cardPlace'+placeNumber+' .deskPosition').text('').hide();
     $('#cardPlace'+placeNumber+' .clearPosition').hide();
@@ -75,6 +76,7 @@ $('.clearPosition').click(function(){
 });
 
 $('.showCard').click(function(){
+    placeNumber = $(this).attr('data-position');
     $('#cardPlace'+placeNumber+' .deskPosition').show();
 });
 
