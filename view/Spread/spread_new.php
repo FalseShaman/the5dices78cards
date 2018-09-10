@@ -7,6 +7,12 @@
         $rightMenu .= '<li class="nav-item"><button class="btn btn-light deckSelectButton" href="javascript:void(0);" id="'.$deck.'" style="margin: 10px 0;">'.$translateList[$deck].'</button></li>';
     }
 
+    $newButton = '<button type="button" class="btn btn-light" id="spreadNewButton" style="position: fixed; top: 5px; left: 12%;"><img class="img-responsive" src="/view/design/new.png"></button>';
+    $openButton = '<button type="button" class="btn btn-light" id="spreadOpenButton" style="position: fixed; top: 60px; left: 12%;"><img class="img-responsive" src="/view/design/open.png"></button>';
+    $saveButton = '<button type="button" class="btn btn-light" id="spreadSaveButton" style="position: fixed; top: 115px; left: 12%;"><img class="img-responsive" src="/view/design/save.png"></button>';
+    $removeButton = '<button type="button" class="btn btn-light" id="spreadRemoveButton" style="position: fixed; top: 170px; left: 12%;"><img class="img-responsive" src="/view/design/remove.png"></button>';
+    $controlPanel .= $newButton.$openButton.$saveButton.$removeButton;
+
     $map = '<div class="row">';
     for ($placeNumber=0; $placeNumber < 78; $placeNumber++)
     {
@@ -58,8 +64,6 @@
                     <div class="modal-footer"></div>
                 </div></div></div>';
 
-    $saveButton = '<button type="button" class="btn btn-dark" id="spreadSaverButton" style="position: fixed; top: 5px; left: 12%;"><img class="img-responsive" src="/view/design/save.png"></button>';
-
     $spreadModal = '<div class="modal fade" id="spreadSaver" tabindex="-1" role="dialog" aria-hidden="true"><div class="modal-dialog" role="document"><div class="modal-content">
                         <div class="modal-header">
                             <h5 class="modal-title">Сохранить расклад</h5>
@@ -75,5 +79,5 @@
                         </div>
                     </div></div></div>';
 
-    $content = $saveButton.$map.$placeModal.$spreadModal;
+    $content = $controlPanel.$map.$placeModal.$spreadModal;
 ?>
