@@ -88,18 +88,19 @@ $credentials = "user=xxruwosifumind password=76c9995e9184ee542182e0e34f3355898b8
 
     $conn = pg_connect( " $url $host $port $dbname $credentials"  );
 
-    $query = 'CREATE TABLE spread (
-                           id SERIAL,
-                           title VARCHAR (200),
-                           map VARCHAR (250))';
-    $result = pg_query($conn,$query);
+//    $query = 'CREATE TABLE spread (
+//                           id SERIAL,
+//                           title VARCHAR (200),
+//                           map VARCHAR (250))';
+//    $result = pg_query($conn,$query);
+//    var_dump(pg_fetch_array ($result));
+//
+//    $query = 'INSERT INTO spread (title, map) VALUES
+//                               ("stop", "never"), ("die", "no")';
+//    $result = pg_query($conn,$query);
+//    var_dump(pg_fetch_array ($result));
+$result = pg_query($conn,'SELECT id, title, map FROM spread');
     var_dump(pg_fetch_array ($result));
-
-    $query = 'INSERT INTO spread (title, map) VALUES 
-                               ("stop", "never"), ("die", "no")';
-    $result = pg_query($conn,$query);
-    var_dump(pg_fetch_array ($result));
-
 //$tableList = [];
 //    while ($row = $result->fetch(\PDO::FETCH_ASSOC)) {
 //        $tableList[] = $row['table_name'];
