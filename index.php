@@ -75,19 +75,19 @@
 
     $db = new PDO($dsn);
 
-    $db->exec('CREATE TABLE IF NOT EXISTS spread (
+    $db->exec('CREATE TABLE spread (
                            id SERIAL,
                            title VARCHAR (200),
                            map VARCHAR (250)');
     $db->exec('INSERT INTO spread (title, map)
                            ("hi", "there"), ("hao", "here")');
-    if($db){
+    if ($db) {
         echo "Connected";
-    }else {
+    } else {
         echo "Not connected";
     }
 
-$tableList = [];
+    $tableList = [];
     $result = $db->query('SELECT id, title, map FROM spread');
     while ($row = $result->fetch(\PDO::FETCH_ASSOC)) {
         $tableList[] = $row['table_name'];
