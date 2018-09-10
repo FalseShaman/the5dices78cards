@@ -92,7 +92,7 @@ $credentials = "user=xxruwosifumind password=76c9995e9184ee542182e0e34f3355898b8
     $query = 'CREATE TABLE spread (
                            id SERIAL,
                            title VARCHAR (200),
-                           map VARCHAR (250)';
+                           map VARCHAR (250))';
     $result = pg_query($conn,$query);
     var_dump($result);
 
