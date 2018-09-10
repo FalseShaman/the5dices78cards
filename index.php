@@ -74,12 +74,13 @@ $port = 3306;
 $conn = new mysqli($servername, $username, $password, $dbname, $port);
 
 $conn->query('CREATE TABLE IF NOT EXISTS user (
-id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-name VARCHAR(390) NOT NULL,
-pass VARCHAR(390) NOT NULL,
-folder VARCHAR(390) NOT NULL,
-register VARCHAR(390) NOT NULL,
-last_login VARCHAR(390) NOT NULL)');
+                id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+                name VARCHAR(390) NOT NULL,
+                pass VARCHAR(390) NOT NULL,
+                folder VARCHAR(390) NOT NULL,
+                register VARCHAR(390) NOT NULL,
+                last_login VARCHAR(390) NOT NULL),
+                UNIQUE KEY (name)');
 if ($conn) {
     echo 'moon';
 }
