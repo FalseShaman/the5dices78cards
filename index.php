@@ -1,5 +1,7 @@
 <?php
     require_once 'model/connection.php';
+    session_set_cookie_params(604800,"/");
+    session_start();
 
     function getTranslate() {
         return array(

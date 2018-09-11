@@ -79,7 +79,10 @@
         }
 
         public function logoutAuth() {
-            return array($_POST['username']);
+            $_SESSION['user'] = 0;
+            header('HTTP/1.1 200 OK');
+            header('Location: http://'.$_SERVER['HTTP_HOST'].'/auth');
+            exit;
         }
 
         public function openSpread() {
