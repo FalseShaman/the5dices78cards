@@ -63,11 +63,11 @@
 
             $result = $connect->db->query('SELECT * FROM user WHERE name = "'.$username.'" AND pass = "'.$pass.'"');
 
-            if (!$result || $result->num_rows == 0) {
-                return false;
-            } else {
+            if ($result && $result->num_rows > 0) {
                 $_SESSION['user'] = $result->fetch_accsoc();
                 return true;
+            } else {
+                return false;
             }
         }
     }
