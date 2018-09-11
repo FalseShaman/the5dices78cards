@@ -71,7 +71,6 @@
             if ($user->getOne()) {
                 return array('status' => 'fail', 'message' => 'Имя занято');
             }
-            $user->save();
             if ($user->save()) {
                 return array('status' => 'done');
             } else {
