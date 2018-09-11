@@ -10,7 +10,7 @@
 
             $conn = new mysqli($servername, $username, $password, $dbname, $port);
             $query = mysqli_real_escape_string($conn, $request);
-            return $query;
+
             $result = $conn->query($query);
 
             if ($result && $type == 1) {
