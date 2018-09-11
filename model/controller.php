@@ -48,6 +48,7 @@
             if ($this->page != 'auth') {
                 $pageList = $this->pages;
                 unset($pageList['auth']);
+                unset($pageList['lost']);
                 foreach ($pageList as $page => $sub)
                 {
                     $navbar .= $this->page == $page ? '<li class="nav-item active">' : '<li class="nav-item">';
