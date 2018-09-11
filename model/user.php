@@ -28,7 +28,7 @@
 
         public function save() {
             $folder = md5($this->pass.$this->username);
-            $insert = connection::runQuery('INSERT INTO user (name, pass, folder, register) VALUES ('.$this->username.', '.$this->pass.', '.$folder.', NOW())');
+            $insert = connection::runQuery('INSERT INTO user (name, pass, folder, register) VALUES ("'.$this->username.'", "'.$this->pass.'", "'.$folder.'", NOW())');
             return $insert;
 //            if ($insert['status']) {
 //                return $this->getOne();
