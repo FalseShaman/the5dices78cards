@@ -50,6 +50,7 @@
                     $navbar .= $this->page == $page ? '<li class="nav-item active">' : '<li class="nav-item">';
                     $navbar .= '<a class="nav-link" href="/'.$page.'">'.ucfirst($translateList[$page]).'</a></li>';
                 }
+                $navbar .= '<li class="nav-item"><a class="nav-link" href="/logout">'.ucfirst($translateList['logout']).'</a></li>';
             }
             return $navbar;
         }

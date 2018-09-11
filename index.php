@@ -11,6 +11,7 @@
             'card' => 'Аркан',
             'spread' => 'Расклад',
             'lost' => 'Не найдена',
+            'logout' => 'Выход',
             'fail' => 'Перевод не найден',
             'celtic-cross' => 'Кельтский крест',
             'ishtar-travel' => 'Путешествие Иштар',
@@ -46,11 +47,9 @@
 
     if ($_SERVER['REQUEST_METHOD'] == 'GET') {
         if (!isset($_SESSION['user'])) {
-            var_dump('eho');
             $controller->page = 'auth';
             $controller->subpage = 'basic';
         }
-        var_dump($_SESSION);
 
         $title = $controller->getTitle(getTranslate());
         $leftMenu = $controller->getNav(getTranslate());
