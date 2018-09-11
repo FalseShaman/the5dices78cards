@@ -1,6 +1,7 @@
 <?php
     session_start();
     require_once 'model/connection.php';
+    var_dump($_SERVER);
 
     function getTranslate() {
         return array(

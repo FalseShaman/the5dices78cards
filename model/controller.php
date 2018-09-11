@@ -80,7 +80,7 @@
         }
 
         public function logoutAuth() {
-            $_SESSION['user'] = 0;
+            unset($_SESSION['user']);
             header('HTTP/1.1 200 OK');
             header('Location: http://'.$_SERVER['HTTP_HOST'].'/auth');
             exit;
