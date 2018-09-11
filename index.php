@@ -49,17 +49,10 @@
 
         require 'view/'.ucfirst($controller->page).'/'.$controller->page.'_'.$controller->subpage.'.php';
         include_once('view/layout.php');
-    } else {
-        var_dump($_SERVER);
     }
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-        return json_encode('lalalalalalalalala');
-//        $action = $controller->subpage != 'basic' ? $controller->subpage.ucfirst($controller->page) : 'urlNotFound';
-//        return json_encode($controller->$action());
+        $action = $controller->subpage != 'basic' ? $controller->subpage.ucfirst($controller->page) : 'urlNotFound';
+        echo json_encode($controller->$action());
     }
-
-    var_dump($_SERVER);
-
-    var_dump($_POST);
 ?>
