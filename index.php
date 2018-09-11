@@ -1,5 +1,7 @@
 <?php
     session_start();
+    $_SESSION['as'] = 'as';
+    var_dump($_SESSION);
     require_once 'model/connection.php';
 
     function getTranslate() {
