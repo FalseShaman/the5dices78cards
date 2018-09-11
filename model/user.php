@@ -65,7 +65,6 @@
 
             if ($result && $result->num_rows > 0) {
                 $_SESSION['user'] = json_encode($result->fetch_assoc());
-                $_SESSION['eho'] = 'la';
                 return true;
             } else {
                 return false;

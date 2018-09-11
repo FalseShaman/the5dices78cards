@@ -1,7 +1,5 @@
 <?php
     session_start();
-    $_SESSION['as'] = 'as';
-    var_dump($_SESSION);
     require_once 'model/connection.php';
 
     function getTranslate() {
@@ -47,10 +45,12 @@
     $controller = new Controller($path);
 
     if ($_SERVER['REQUEST_METHOD'] == 'GET') {
-        if (session_status() != 'PHP_SESSION_ACTIVE' || !isset($_SESSION['user']) || empty($_SESSION['user'])) {
+        if (!isset($_SESSION['user'])) {
+            var_dump('eho');
             $controller->page = 'auth';
             $controller->subpage = 'basic';
         }
+        var_dump($_SESSION);
 
         $title = $controller->getTitle(getTranslate());
         $leftMenu = $controller->getNav(getTranslate());
