@@ -55,15 +55,14 @@
         public function registerAuth() {
             require_once 'user.php';
             $user = new User($_POST['username'], $_POST['pass']);
-            $checkUser = $user->getOne();
-            if (!$checkUser) {
-                return array('status' => 'fail', 'message' => 'Имя занято', 'data' => $checkUser);
+            if ($user->getOne()) {
+                return array('status' => 'fail', 'message' => 'Имя занято');
             }
             $save = $user->save();
             if ($save) {
                 return array('status' => 'done', 'message' => $save['data']);
             } else {
-                return array('status' => 'fail', 'message' => 'Не удалось сохранить', 'data' => $save['data']);
+                return array('status' => 'fail', 'message' => 'Не удалось сохранить');
             }
         }
 
