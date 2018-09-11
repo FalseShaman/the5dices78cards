@@ -1,4 +1,5 @@
 <?php
+    require_once('connection.php');
 
     function getTranslate() {
         return array(

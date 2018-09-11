@@ -1,7 +1,7 @@
 <?php
     class connection {
         /* $type = 1 for SELECT, SHOW, DESCRIBE, EXPLAIN */
-        public static function runQuery($request, $type = 0) {
+        public static function runQuery($query, $type = 0) {
             $servername = "b8rg15mwxwynuk9q.chr7pe7iynqr.eu-west-1.rds.amazonaws.com";
             $username = "nujevyt4qcj34azb";
             $password = "a7m9vja0q5lgqcj6";
@@ -9,8 +9,6 @@
             $port = 3306;
 
             $conn = new mysqli($servername, $username, $password, $dbname, $port);
-            $query = mysqli_real_escape_string($conn, $request);
-
             $result = $conn->query($query);
 
             if ($result && $type == 1) {

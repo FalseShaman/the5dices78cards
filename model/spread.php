@@ -1,5 +1,4 @@
 <?php
-    require_once('connection.php');
     class spread {
         /*
         CREATE TABLE IF NOT EXISTS spread (
@@ -14,6 +13,9 @@
         }
 
         public function save($title, $map, $user_id) {
+            $title = mysqli::real_escape_string($title);
+            $map = mysqli::real_escape_string($map);
+            $user_id = mysqli::real_escape_string($user_id);
             return connection::runQuery('INSERT INTO spread (title, map, user_id) VALUES ("'.$title.'", "'.$map.'", '.$user_id.')');
         }
     }

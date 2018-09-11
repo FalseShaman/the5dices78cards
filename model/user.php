@@ -1,5 +1,4 @@
 <?php
-    require_once('connection.php');
     class user {
         /*
         CREATE TABLE IF NOT EXISTS user (
@@ -23,12 +22,16 @@
         }
 
         public function getOne() {
-            return connection::runQuery('SELECT * FROM user WHERE name = "'.$this->username.'"', 1);
+            $username = mysqli::real_escape_string($this->username);
+            return connection::runQuery('SELECT * FROM user WHERE name = "'.$username.'"', 1);
         }
 
         public function save() {
-            $folder = md5($this->pass.$this->username);
-            $insert = connection::runQuery('INSERT INTO user (name, pass, folder, register) VALUES ("'.$this->username.'", "'.$this->pass.'", "'.$folder.'", NOW())');
+            $username = mysqli::real_escape_string($this->username);
+            $pass = mysqli::real_escape_string($this->pass);
+            $folder = md5($pass.$username);
+            $query = 'INSERT INTO user (name, pass, folder, register) VALUES ("'.$username.'", "'.$pass.'", "'.$folder.'", NOW())';
+            $insert = connection::runQuery($query);
             return $insert;
 //            if ($insert['status']) {
 //                return $this->getOne();
