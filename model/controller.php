@@ -60,7 +60,7 @@
                 return array('status' => 'fail', 'message' => 'Имя занято', 'data' => $checkUser['data']);
             }
             $data = $user->save();
-            return array('status' => 'done', 'message' => '', 'data' => $data);
+            return array('status' => 'done', 'message' => '', 'data' => $checkUser);
         }
 
         public function logoutAuth() {
