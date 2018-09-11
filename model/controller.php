@@ -9,6 +9,8 @@
         public $pages = array(
             'auth' =>
                 array('login', 'register', 'logout'),
+            'profile' =>
+                array('save'),
             'card' =>
                 array(),
             'spread' =>
@@ -39,8 +41,14 @@
         }
 
         public function getNav($translateList) {
+            $pageList = $this->pages;
+            unset($pageList['lost']);
             $navbar = '';
-            foreach ($this->pages as $page => $sub)
+            if (session_status() == 'PHP_SESSION_ACTIVE' && isset($_SESSION['user']) && !empty($_SESSION['user'])) {
+                unset($pageList['auth']);
+                $pageList['profile'] = array();
+            }
+            foreach ($pageList as $page => $sub)
             {
                 $navbar .= $this->page == $page ? '<li class="nav-item active">' : '<li class="nav-item">';
                 $navbar .= '<a class="nav-link" href="/'.$page.'">'.ucfirst($translateList[$page]).'</a></li>';
@@ -49,7 +57,14 @@
         }
 
         public function loginAuth() {
-            return array($_POST['username'], $_POST['pass']);
+            require_once 'user.php';
+            $user = new User($_POST['username'], $_POST['pass']);
+            $userData = $user->auth();
+            if ($userData) {
+                return array('status' => 'done');
+            } else {
+                return array('status' => 'fail', 'message' => 'Ошибка авторизации');
+            }
         }
 
         public function registerAuth() {
@@ -58,9 +73,9 @@
             if ($user->getOne()) {
                 return array('status' => 'fail', 'message' => 'Имя занято');
             }
-            $save = $user->save();
-            if ($save) {
-                return array('status' => 'done', 'message' => $save['data']);
+            $user->save();
+            if ($user->save()) {
+                return array('status' => 'done');
             } else {
                 return array('status' => 'fail', 'message' => 'Не удалось сохранить');
             }

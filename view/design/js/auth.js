@@ -40,7 +40,11 @@ $('#register').click(function(){
             pass: pass
         },
         success: function(response) {
-            console.log(response);
+            if (response.status == 'done') {
+                window.location.replace('/profile');
+            } else {
+                console.log(response.message);
+            }
         }
     });
 });
@@ -55,7 +59,11 @@ $('#login').click(function(){
             pass: pass
         },
         success: function(response) {
-            console.log(response);
+            if (response.status == 'done') {
+                window.location.replace('/profile');
+            } else {
+                console.log(response.message);
+            }
         }
     });
 });

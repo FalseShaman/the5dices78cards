@@ -13,11 +13,11 @@
             $this->db = new mysqli($this->servername, $this->username, $this->password, $this->dbname, $this->port);
         }
 
-        /* $type = 1 for SELECT, SHOW, DESCRIBE, EXPLAIN */
-        public function runQuery($query, $type = 0) {
+        public function runQuery($query) {
             $result = $this->db->query($query);
-
-            if ($result && $type == 1) {
+            if (!$result) {
+                return false;
+            } else {
                 $response = array();
                 if ($result->num_rows > 0) {
                     while($row = $result->fetch_assoc()) {
@@ -27,15 +27,8 @@
                 if (count($response) == 1) {
                     $response = $response[0];
                 }
-                if (!empty($response)) {
-                    return $response;
-                } else {
-                    return false;
-                }
-            } else {
-                return array('status' => $result, 'data' => $query);
+                return $response;
             }
-
         }
     }
 ?>

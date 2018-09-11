@@ -44,6 +44,11 @@
     $controller = new Controller($path);
 
     if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+        if (session_status() != 'PHP_SESSION_ACTIVE' || !isset($_SESSION['user']) || empty($_SESSION['user'])) {
+            $controller->page = 'auth';
+            $controller->subpage = 'basic';
+        }
+
         $title = $controller->getTitle(getTranslate());
         $leftMenu = $controller->getNav(getTranslate());
         $content = '';

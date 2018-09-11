@@ -19,13 +19,13 @@
 
         public function getList() {
             $connect = new connection();
-            return $connect->runQuery('SELECT * FROM user', 1);
+            return $connect->runQuery('SELECT * FROM user');
         }
 
         public function getOne() {
             $connect = new connection();
             $username = $connect->db->real_escape_string($this->username);
-            return $connect->runQuery('SELECT * FROM user WHERE name = "'.$username.'"', 1);
+            return $connect->runQuery('SELECT * FROM user WHERE name = "'.$username.'"');
         }
 
         public function save() {
@@ -33,9 +33,22 @@
             $username = $connect->db->real_escape_string($this->username);
             $pass = $connect->db->real_escape_string($this->pass);
             $folder = md5($pass.$username);
+
             $result = $connect->runQuery('INSERT INTO user (name, pass, folder, register) VALUES ("'.$username.'", "'.$pass.'", "'.$folder.'", NOW())');
-            if ($result['status']) {
-                $result['data'] = $this->getOne();
+            if ($result) {
+                $_SESSION['user'] = $result;
+            }
+            return $result;
+        }
+
+        public function auth() {
+            $connect = new connection();
+            $username = $connect->db->real_escape_string($this->username);
+            $pass = $connect->db->real_escape_string($this->pass);
+
+            $result = $connect->runQuery('SELECT * FROM user WHERE name = "'.$username.'" AND pass = "'.$pass.'"');
+            if ($result) {
+                $_SESSION['user'] = $result;
             }
             return $result;
         }
