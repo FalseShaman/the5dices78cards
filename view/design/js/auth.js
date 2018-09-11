@@ -41,7 +41,7 @@ $('#register').click(function(){
         },
         success: function(response) {
             if (response.status == 'done') {
-                window.location.replace('/profile');
+                window.location.href = '/profile';
             } else {
                 console.log(response.message);
             }
@@ -60,7 +60,7 @@ $('#login').click(function(){
         },
         success: function(response) {
             if (response.status == 'done') {
-                window.location.replace('/profile');
+                window.location.href = '/profile';
             } else {
                 console.log(response.message);
             }

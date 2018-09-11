@@ -64,6 +64,8 @@
             $result = $connect->db->query('SELECT * FROM user WHERE name = "'.$username.'" AND pass = "'.$pass.'"');
 
             if ($result && $result->num_rows > 0) {
+                session_set_cookie_params(604800,"/");
+                session_start();
                 $_SESSION['user'] = json_encode($result->fetch_assoc());
                 return true;
             } else {
