@@ -13,7 +13,7 @@
             </div>
         </div>
 
-        <?php if($rightMenu && $rightMenu > ''): ?>
+        <?php if($leftMenu && $leftMenu > ''): ?>
             <nav class="navbar navbar-dark bg-dark" style="position: absolute; top: 5px; left: 5px; width: 10%; border: solid 1px gray; border-radius: 33px; font-size: 1.3em;">
                 <ul class="navbar-nav">
                     <?php echo $leftMenu; ?>
