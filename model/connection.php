@@ -1,15 +1,21 @@
 <?php
-    class connection {
-        /* $type = 1 for SELECT, SHOW, DESCRIBE, EXPLAIN */
-        public static function runQuery($query, $type = 0) {
-            $servername = "b8rg15mwxwynuk9q.chr7pe7iynqr.eu-west-1.rds.amazonaws.com";
-            $username = "nujevyt4qcj34azb";
-            $password = "a7m9vja0q5lgqcj6";
-            $dbname = "ldv471cmnrt1s6aw";
-            $port = 3306;
+    class connection
+    {
+        protected $servername = "b8rg15mwxwynuk9q.chr7pe7iynqr.eu-west-1.rds.amazonaws.com";
+        protected $username = "nujevyt4qcj34azb";
+        protected $password = "a7m9vja0q5lgqcj6";
+        protected $dbname = "ldv471cmnrt1s6aw";
+        protected $port = 3306;
 
-            $conn = new mysqli($servername, $username, $password, $dbname, $port);
-            $result = $conn->query($query);
+        public $db;
+
+        function __construct() {
+            $this->db = new mysqli($this->servername, $this->username, $this->password, $this->dbname, $this->port);
+        }
+
+        /* $type = 1 for SELECT, SHOW, DESCRIBE, EXPLAIN */
+        public function runQuery($query, $type = 0) {
+            $result = $this->db->query($query);
 
             if ($result && $type == 1) {
                 $response = array();

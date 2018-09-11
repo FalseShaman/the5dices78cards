@@ -9,13 +9,15 @@
         */
 
         public function getList() {
-            return connection::runQuery('SELECT * FROM spread', 1);
+            $connect = new connection();
+            return $connect->runQuery('SELECT * FROM spread', 1);
         }
 
         public function save($title, $map, $user_id) {
-            $title = mysqli::real_escape_string($title);
-            $map = mysqli::real_escape_string($map);
-            $user_id = mysqli::real_escape_string($user_id);
-            return connection::runQuery('INSERT INTO spread (title, map, user_id) VALUES ("'.$title.'", "'.$map.'", '.$user_id.')');
+            $connect = new connection();
+            $title = $connect->db->real_escape_string($title);
+            $map = $connect->db->real_escape_string($map);
+            $user_id = $connect->db->real_escape_string($user_id);
+            return $connect->runQuery('INSERT INTO spread (title, map, user_id) VALUES ("'.$title.'", "'.$map.'", '.$user_id.')');
         }
     }
