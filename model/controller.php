@@ -21,9 +21,9 @@
             $parts = explode('/', $path);
             if ($parts[1] && $parts[1] > '' && isset($this->pages[$parts[1]])) {
                 $this->page = $parts[1];
+                $this->test = array($parts[2], $this->pages[$this->page]);
                 if ($parts[2] && $parts[2] > '' && isset($this->pages[$this->page][$parts[2]])) {
                     $this->subpage = $parts[2];
-                    $this->test = $parts;
                 }
             }
 
