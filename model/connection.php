@@ -26,7 +26,7 @@
                     return false;
                 }
             } else {
-                return array('status' => $result, 'data' => $query);
+                return array('status' => $result, 'data' => $request);
             }
 
         }
