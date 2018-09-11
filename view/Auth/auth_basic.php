@@ -1,15 +1,21 @@
 <?php
-    $content = '<div class="row form-group">
-                    <label for="username" class="col-md-offset-4 col-md-4 form-control">Имя</label>
-                    <input type="text" class="col-md-offset-4 col-md-4 form-control" id="username">
-                    <div class="col-md-4"></div>
+    $content = '<div class="row">
+                    <div class="form-group col-md-4">
+                        <label for="username" class="form-control">Имя</label>
+                        <input type="text" class="form-control" id="username">
+                    </div>
+                    <div class="col-md-8"></div>
                 
-                    <label for="pass" class="col-md-offset-4 col-md-4 form-control">Пароль</label>
-                    <input type="text" class="col-md-offset-4 col-md-2 form-control" id="pass">
-                    <input type="text" class="col-md-2 form-control" id="pass_again">
-                    <div class="col-md-4"></div>
+                    <div class="form-group col-md-4">
+                        <label for="pass" class="form-control">Пароль</label>
+                        <input type="text" class="form-control" id="pass">
+                        <input type="text" class="form-control" id="pass_again">
+                    </div>
+                    <div class="col-md-8"></div>
                 
-                    <button type="button" class="col-md-offset-4 col-md-2 form-control btn btn-success" id="login" disabled>Войти</button>
-                    <button type="button" class="col-md-2 form-control btn btn-info" id="register" disabled>Зарегестрироваться</button>
+                    <div class="form-group col-md-4">
+                        <button type="button" class="form-control btn btn-success" id="login" disabled>Войти</button>
+                        <button type="button" class="form-control btn btn-info" id="register" disabled>Зарегестрироваться</button>
+                    </div>
                 </div>';
 ?>
