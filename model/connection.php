@@ -11,7 +11,6 @@
             $conn = new mysqli($servername, $username, $password, $dbname, $port);
             $query = mysqli_real_escape_string($conn, $request);
             $result = $conn->query($query);
-            return $request;
 
             if ($type == 0) {
                 return $result;
