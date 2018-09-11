@@ -1,5 +1,5 @@
 <?php
-    include('connection.php');
+    require_once('connection.php');
     class spread {
         /*
         CREATE TABLE IF NOT EXISTS spread (

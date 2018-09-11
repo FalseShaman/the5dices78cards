@@ -1,5 +1,5 @@
 <?php
-    include('connection.php');
+    require_once('connection.php');
     class user {
         /*
         CREATE TABLE IF NOT EXISTS user (
@@ -28,7 +28,7 @@
 
         public function save() {
             $folder = md5($this->pass.$this->username);
-            return 'INSERT INTO user (name, pass, folder, register) VALUES ("'.$this->username.'", "'.$this->pass.'", "'.$folder.'", NOW())';
+            return $folder;
 //            $insert = connection::runQuery('INSERT INTO user (name, pass, folder, register) VALUES ('.$this->username.', '.$this->pass.', '.$folder.', NOW())');
 //            if ($insert['status']) {
 //                return $this->getOne();
