@@ -53,7 +53,7 @@
         }
 
         public function registerAuth() {
-            require_once('user.php');
+            require_once 'user.php';
             $user = new User($_POST['username'], $_POST['pass']);
             $checkUser = $user->getOne();
             if ($checkUser['status']) {
