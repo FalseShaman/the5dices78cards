@@ -1,6 +1,7 @@
 <?php
     class connection {
-        public static function runQuery($request) {
+        /* $type = 1 for SELECT, SHOW, DESCRIBE, EXPLAIN */
+        public static function runQuery($request, $type = 0) {
             $servername = "b8rg15mwxwynuk9q.chr7pe7iynqr.eu-west-1.rds.amazonaws.com";
             $username = "nujevyt4qcj34azb";
             $password = "a7m9vja0q5lgqcj6";
@@ -10,15 +11,20 @@
             $conn = new mysqli($servername, $username, $password, $dbname, $port);
             $query = mysqli_real_escape_string($conn, $request);
             $result = $conn->query($query);
+            return $query;
 
-            $response = array();
-            if ($result->num_rows > 0) {
-                while($row = $result->fetch_assoc()) {
-                    $response[] = $row;
+            if ($type == 0) {
+                return $result;
+            } else {
+                $response = array();
+                if ($result->num_rows > 0) {
+                    while($row = $result->fetch_assoc()) {
+                        $response[] = $row;
+                    }
                 }
+                return $response;
             }
 
-            return array($query, $result);
         }
     }
 ?>
