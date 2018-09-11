@@ -32,7 +32,7 @@
             if (!$this->subpage) {
                 $this->subpage = 'basic';
             }
-            $test = $parts;
+            $this->test = $parts;
         }
 
         public function getTitle($translateList) {
