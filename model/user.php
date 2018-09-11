@@ -23,11 +23,11 @@
         }
 
         public function getOne() {
-            return connection::runQuery('SELECT * FROM user WHERE name = '+$this->username, 1);
+            return connection::runQuery('SELECT * FROM user WHERE name = '.$this->username, 1);
         }
 
         public function save() {
             $folder = md5($this->pass.$this->username, true);
-            return connection::runQuery('INSERT INTO user (name, pass, folder, register) VALUES ('+$this->username+', '+$this->pass+', '+$folder+', NOW())');
+            return connection::runQuery('INSERT INTO user (name, pass, folder, register) VALUES ('.$this->username.', '.$this->pass.', '.$folder.', NOW())');
         }
     }
