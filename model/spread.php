@@ -14,6 +14,6 @@
         }
 
         public function save($title, $map, $user_id) {
-            return connection::runQuery('INSERT INTO spread (title, map, user_id) VALUES ('.$title.', '.$map.', '.$user_id.')');
+            return connection::runQuery('INSERT INTO spread (title, map, user_id) VALUES ("'.$title.'", "'.$map.'", '.$user_id.')');
         }
     }

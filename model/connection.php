@@ -19,8 +19,11 @@
                         $response[] = $row;
                     }
                 }
-                $status = !empty($response);
-                return array('status' => $status, 'data' => $response);
+                if (!empty($response)) {
+                    return $response;
+                } else {
+                    return false;
+                }
             } else {
                 return array('status' => $result, 'data' => $query);
             }

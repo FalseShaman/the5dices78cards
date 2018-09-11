@@ -59,6 +59,8 @@
             if ($checkUser['status']) {
                 return array('status' => 'fail', 'message' => 'Имя занято', 'data' => $checkUser['data']);
             }
+            $data = $user->pass.$user->username;
+            return array('status' => 'done', 'message' => '', 'data' => $data);
 
             $data = $user->save();
             return array('status' => 'done', 'message' => '', 'data' => $data);
