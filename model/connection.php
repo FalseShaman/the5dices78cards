@@ -18,7 +18,7 @@
                 }
             }
 
-            return $response;
+            return array($query, $result);
         }
     }
 ?>
