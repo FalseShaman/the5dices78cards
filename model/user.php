@@ -64,7 +64,7 @@
             $result = $connect->db->query('SELECT * FROM user WHERE name = "'.$username.'" AND pass = "'.$pass.'"');
 
             if ($result && $result->num_rows > 0) {
-                $_SESSION['user'] = $result->fetch_assoc();
+                $_SESSION['user'] = json_encode($result->fetch_assoc());
                 return true;
             } else {
                 return false;
