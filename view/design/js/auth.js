@@ -44,6 +44,7 @@ $('#register').click(function(){
                 window.location.href = '/profile';
             } else {
                 $('#errorLabel').text(response.message);
+                $('#errorLabel').show();
             }
         }
     });
@@ -63,6 +64,7 @@ $('#login').click(function(){
                 window.location.href = '/profile';
             } else {
                 $('#errorLabel').text(response.message);
+                $('#errorLabel').show();
             }
         }
     });

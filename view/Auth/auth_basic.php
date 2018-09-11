@@ -19,7 +19,7 @@
                     </div>
                     <div class="col-md-8"></div>
                     <div class="form-group col-md-4">
-                        <label class="form-control" id="errorLabel"></label>
+                        <label class="form-control" id="errorLabel" style="color: red; display: none;"></label>
                     </div>
                 </div>';
 ?>
