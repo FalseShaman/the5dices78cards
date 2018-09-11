@@ -53,7 +53,7 @@
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $action = $controller->subpage != 'basic' ? $controller->subpage.ucfirst($controller->page) : 'urlNotFound';
-        echo $controller->subpage;
+        echo json_encode($controller->test);
 //        echo json_encode($controller->$action());
     }
 ?>

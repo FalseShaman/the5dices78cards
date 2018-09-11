@@ -4,6 +4,7 @@
     {
         public $page;
         public $subpage;
+        public $test;
         
         public $pages = array(
             'auth' =>
@@ -31,7 +32,7 @@
             if (!$this->subpage) {
                 $this->subpage = 'basic';
             }
-            $this->subpage = $parts;
+            $test = $parts;
         }
 
         public function getTitle($translateList) {
