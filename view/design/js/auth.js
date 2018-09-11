@@ -2,26 +2,26 @@ var username;
 var pass;
 var pass_again;
 
-$('#username').change(function(){
+$('#username').keyup(function(){
     username = $(this).val();
-    if (username > '') {
+    if (username.length > 0) {
         $('#login').prop('disabled', false);
     } else {
         $('#login').prop('disabled', true);
     }
 });
-$('#pass').change(function(){
+$('#pass').keyup(function(){
      pass = $(this).val();
-     if (pass > '') {
-         $('#login').prop('disabled', false)
+     if (pass.length > 0) {
+         $('#login').prop('disabled', false);
          if (pass == pass_again) {
-             $('#register').prop('disabled', false)
+             $('#register').prop('disabled', false);
          } else {
-             $('#register').prop('disabled', true)
+             $('#register').prop('disabled', true);
          }
      }
 });
-$('#pass_again').change(function(){
+$('#pass_again').keyup(function(){
     pass_again = $(this).val();
     if (pass_again > '' && pass == pass_again) {
         $('#register').prop('disabled', false);
@@ -33,7 +33,7 @@ $('#pass_again').change(function(){
 $('#register').click(function(){
     $.ajax({
         method: "POST",
-        url: "/register",
+        url: "/auth/register",
         data: {
             username: username,
             pass: pass
@@ -47,7 +47,7 @@ $('#register').click(function(){
 $('#login').click(function(){
     $.ajax({
         method: "POST",
-        url: "/login",
+        url: "/auth/login",
         data: {
             username: username,
             pass: pass
