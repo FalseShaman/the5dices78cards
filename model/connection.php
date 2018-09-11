@@ -12,23 +12,5 @@
         function __construct() {
             $this->db = new mysqli($this->servername, $this->username, $this->password, $this->dbname, $this->port);
         }
-
-        public function runQuery($query) {
-            $result = $this->db->query($query);
-            if (!$result) {
-                return false;
-            } else {
-                $response = array();
-                if ($result->num_rows > 0) {
-                    while($row = $result->fetch_assoc()) {
-                        $response[] = $row;
-                    }
-                }
-                if (count($response) == 1) {
-                    $response = $response[0];
-                }
-                return $response;
-            }
-        }
     }
 ?>
