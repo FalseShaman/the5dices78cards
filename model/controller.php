@@ -56,11 +56,15 @@
             require_once 'user.php';
             $user = new User($_POST['username'], $_POST['pass']);
             $checkUser = $user->getOne();
-            if ($checkUser['status']) {
-                return array('status' => 'fail', 'message' => 'Имя занято', 'data' => $checkUser['data']);
+            if (!$checkUser) {
+                return array('status' => 'fail', 'message' => 'Имя занято', 'data' => $checkUser);
             }
-            $data = $user->save();
-            return array('status' => 'done', 'message' => '', 'data' => $checkUser);
+            $save = $user->save();
+            if ($save) {
+                return array('status' => 'done', 'message' => $save['data']);
+            } else {
+                return array('status' => 'fail', 'message' => 'Не удалось сохранить', 'data' => $save['data']);
+            }
         }
 
         public function logoutAuth() {

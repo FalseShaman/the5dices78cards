@@ -33,6 +33,10 @@
             $username = $connect->db->real_escape_string($this->username);
             $pass = $connect->db->real_escape_string($this->pass);
             $folder = md5($pass.$username);
-            return $connect->runQuery('INSERT INTO user (name, pass, folder, register) VALUES ("'.$username.'", "'.$pass.'", "'.$folder.'", NOW())');
+            $result = $connect->runQuery('INSERT INTO user (name, pass, folder, register) VALUES ("'.$username.'", "'.$pass.'", "'.$folder.'", NOW())');
+            if ($result['status']) {
+                $result['data'] = $this->getOne();
+            }
+            return $result;
         }
     }

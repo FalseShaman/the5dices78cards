@@ -24,6 +24,9 @@
                         $response[] = $row;
                     }
                 }
+                if (count($response) == 1) {
+                    $response = $response[0];
+                }
                 if (!empty($response)) {
                     return $response;
                 } else {
