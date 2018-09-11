@@ -8,8 +8,9 @@
             $port = 3306;
 
             $conn = new mysqli($servername, $username, $password, $dbname, $port);
-            $query = mysqli_real_escape_string($request);
+            $query = mysqli_real_escape_string($conn, $request);
             $result = $conn->query($query);
+
             $response = array();
             if ($result->num_rows > 0) {
                 while($row = $result->fetch_assoc()) {
@@ -17,7 +18,7 @@
                 }
             }
 
-            return $query;
+            return $response;
         }
     }
 ?>
