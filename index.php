@@ -1,7 +1,6 @@
 <?php
     session_start();
     require_once 'model/connection.php';
-    var_dump($_SERVER);
 
     function getTranslate() {
         return array(
@@ -50,6 +49,9 @@
         if (!isset($_SESSION['user'])) {
             $controller->page = 'auth';
             $controller->subpage = 'basic';
+        }
+        if ($controller->page == 'auth' && $controller->subpage == 'logout') {
+            $controller->logoutAuth();
         }
 
         $title = $controller->getTitle(getTranslate());
