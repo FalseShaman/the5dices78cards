@@ -54,9 +54,9 @@
                     <div class="modal-body">
                         <div id="positionSelector" class="form-group">
                             <label for="placeName" class="form-control">Позиция</label>
-                            <input type="text" class="form-control" id="placeName">
+                            <input type="text" class="form-control" id="placeName" autocomplete="off">
                             <label for="placeDesc" class="form-control">Карта</label>
-                            <textarea class="form-control" id="placeDesc"></textarea>
+                            <textarea class="form-control" id="placeDesc" autocomplete="off"></textarea>
                             <button type="button" class="form-control btn btn-success" id="placeNamed">Ок</button>
                         </div>
                         <div id="arcanaSelector" style="display: none;">'.$arcanaSelector.'</div>
@@ -73,7 +73,8 @@
                         </div>
                         <div class="modal-body">
                             <div id="positionSelector" class="form-group">
-                                <input type="text" id="spreadName" class="form-control" placeholder="Название раклада">
+                            <label for="spreadName" class="form-control">Название раклада</label>
+                                <input type="text" id="spreadName" class="form-control" autocomplete="off">
                             </div>
                         </div>
                         <div class="modal-footer">

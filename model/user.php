@@ -7,20 +7,27 @@
         name VARCHAR(390) NOT NULL,
         pass VARCHAR(390) NOT NULL,
         folder VARCHAR(390) NOT NULL,
-        register VARCHAR(390) NOT NULL,
-        last_login VARCHAR(390) NOT NULL)
+        register VARCHAR(390) NOT NULL)
         */
+
+        public $username;
+        public $pass;
+
+        public function __construct($username = '', $pass = '') {
+            $this->username = $username;
+            $this->pass = $pass;
+        }
 
         public function getList() {
             return connection::runQuery('SELECT * FROM user');
         }
 
-        public function getOne($name = '') {
-            connection::runQuery('UPDATE user SET last_login = NOW()');
-            return connection::runQuery('SELECT * FROM user WHERE name = '+$name);
+        public function getOne() {
+            return connection::runQuery('SELECT * FROM user WHERE name = '+$this->username);
         }
 
-        public function save($title, $map, $user_id) {
-            return connection::runQuery('INSERT INTO user (name, pass, folder, register, last_login) VALUES ('+$title+', '+$map+', '+$user_id+', NOW(), NOW())');
+        public function save() {
+            $folder = md5($this->pass.$this->username, true);
+            return connection::runQuery('INSERT INTO user (name, pass, folder, register) VALUES ('+$this->username+', '+$this->pass+', '+$folder+', NOW())');
         }
     }

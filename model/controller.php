@@ -53,7 +53,13 @@
         }
 
         public function registerAuth() {
-            return array($_POST['username'], $_POST['pass']);
+            include('user.php');
+            $user = new User($_POST['username'], $_POST['pass']);
+            if ($user->getOne()) {
+                return array('status' => 'fail', 'message' => 'Имя занято');
+            } else {
+                return array('status' => 'done', 'message' => $user->save());
+            }
         }
 
         public function logoutAuth() {
