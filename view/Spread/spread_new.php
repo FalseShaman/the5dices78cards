@@ -53,7 +53,9 @@
                     </div>
                     <div class="modal-body">
                         <div id="positionSelector" class="form-group">
-                            <input type="text" class="form-control" id="placeName" placeholder="Позиция">
+                            <label for="placeName" class="form-control">Позиция</label>
+                            <input type="text" class="form-control" id="placeName">
+                            <label for="placeDesc" class="form-control">Карта</label>
                             <textarea class="form-control" id="placeDesc"></textarea>
                             <button type="button" class="form-control btn btn-success" id="placeNamed">Ок</button>
                         </div>

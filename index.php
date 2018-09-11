@@ -5,12 +5,9 @@
             'new' => 'Новый',
             'open' => 'Открыть',
             'save' => 'Сохранить',
-            'news' => 'Новости',
+            'auth' => 'Авторизация',
             'card' => 'Аркан',
-            'deck' => 'Колода',
             'spread' => 'Расклад',
-            'memory' => 'Память',
-            'profile' => 'Профиль',
             'lost' => 'Не найдена',
             'fail' => 'Перевод не найден',
             'celtic-cross' => 'Кельтский крест',
@@ -56,9 +53,8 @@
     }
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-        if ($path == '/save/spread') {
-            $controller->saveSpread();
-        }
+        $action = $controller->subpage != 'basic' ? $controller->subpage.ucfirst($controller->page) : 'urlNotFound';
+        return json_encode($controller->$action());
     }
 
 ?>

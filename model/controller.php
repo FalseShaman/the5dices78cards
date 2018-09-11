@@ -6,12 +6,12 @@
         public $subpage;
         
         public $pages = array(
-            'login' =>
-                array(),
+            'auth' =>
+                array('login', 'register', 'logout'),
             'card' =>
                 array(),
             'spread' =>
-                array('new', 'open'),
+                array('open', 'save', 'remove'),
             'lost' =>
                 array()
             );
@@ -47,8 +47,32 @@
             return $navbar;
         }
 
-        public function saveSpread() {
+        public function loginAuth() {
+            return array($_POST['username'], $_POST['pass']);
+        }
 
+        public function registerAuth() {
+            return array($_POST['username'], $_POST['pass']);
+        }
+
+        public function logoutAuth() {
+            return array($_POST['username']);
+        }
+
+        public function openSpread() {
+            return array($_POST['id']);
+        }
+
+        public function saveSpread() {
+            return array($_POST['title'], $_POST['map']);
+        }
+
+        public function removeSpread() {
+            return array($_POST['id'], $_POST['user_id']);
+        }
+
+        public function urlNotFound() {
+            return 'Url not found';
         }
     }
     

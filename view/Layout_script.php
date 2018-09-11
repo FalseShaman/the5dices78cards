@@ -17,4 +17,4 @@
     });
 </script>
 
-<script src="/view/design/js/spread.js"></script>
+<script src="/view/design/js/<?php echo $controller->page; ?>.js"></script>
