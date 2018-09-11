@@ -56,7 +56,7 @@
             include('user.php');
             $user = new User($_POST['username'], $_POST['pass']);
             $checkUser = $user->getOne();
-            if (!$checkUser['status']) {
+            if ($checkUser['status']) {
                 return array('status' => 'fail', 'message' => 'Имя занято', 'data' => $checkUser['data']);
             } else {
                 return array('status' => 'done', 'message' => $user->save(), 'data' => $checkUser['data']);

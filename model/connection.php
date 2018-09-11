@@ -19,9 +19,9 @@
                         $response[] = $row;
                     }
                 }
-                return array('status' => true, 'data' => $response);
+                return array('status' => true, 'data' => $query);
             } else {
-                return array('status' => $result, 'data' => $result);
+                return array('status' => $result, 'data' => $query);
             }
 
         }
