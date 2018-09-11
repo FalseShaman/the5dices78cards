@@ -34,6 +34,7 @@ $('#register').click(function(){
     $.ajax({
         method: "POST",
         url: "/auth/register",
+        dataType: 'json',
         data: {
             username: username,
             pass: pass
@@ -48,6 +49,7 @@ $('#login').click(function(){
     $.ajax({
         method: "POST",
         url: "/auth/login",
+        dataType: 'json',
         data: {
             username: username,
             pass: pass

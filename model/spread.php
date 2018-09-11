@@ -10,7 +10,7 @@
         */
 
         public function getList() {
-            return connection::runQuery('SELECT * FROM spread');
+            return connection::runQuery('SELECT * FROM spread', 1);
         }
 
         public function save($title, $map, $user_id) {

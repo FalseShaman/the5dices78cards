@@ -19,11 +19,11 @@
         }
 
         public function getList() {
-            return connection::runQuery('SELECT * FROM user');
+            return connection::runQuery('SELECT * FROM user', 1);
         }
 
         public function getOne() {
-            return connection::runQuery('SELECT * FROM user WHERE name = '+$this->username);
+            return connection::runQuery('SELECT * FROM user WHERE name = '+$this->username, 1);
         }
 
         public function save() {
