@@ -59,7 +59,7 @@
             if ($checkUser['status']) {
                 return array('status' => 'fail', 'message' => 'Имя занято', 'data' => $checkUser['data']);
             }
-            $folder = md5($user->pass.$user->username, true);
+            $folder = md5($user->pass.$user->username);
             return array('status' => 'done', 'message' => '', 'data' => $folder);
 
             $data = $user->save();
