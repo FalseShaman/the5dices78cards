@@ -12,16 +12,16 @@
             $query = mysqli_real_escape_string($conn, $request);
             $result = $conn->query($query);
 
-            if ($type == 0) {
-                return $result;
-            } else {
+            if ($result && $type == 1) {
                 $response = array();
                 if ($result->num_rows > 0) {
                     while($row = $result->fetch_assoc()) {
                         $response[] = $row;
                     }
                 }
-                return $response;
+                return array('status' => true, 'data' => $response);
+            } else {
+                return array('status' => $result, 'data' => $result);
             }
 
         }
