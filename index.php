@@ -38,7 +38,6 @@
     $backList = array_diff($folder, array('.', '..'));
     $backLine = implode('|', $backList);
 
-
     $path = $_SERVER['REQUEST_URI'];
     require_once 'model/controller.php';
     $controller = new Controller($path);
@@ -53,9 +52,9 @@
     }
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-        return 'lalalalalalalalala';
-        $action = $controller->subpage != 'basic' ? $controller->subpage.ucfirst($controller->page) : 'urlNotFound';
-        return json_encode($controller->$action());
+        return json_encode('lalalalalalalalala');
+//        $action = $controller->subpage != 'basic' ? $controller->subpage.ucfirst($controller->page) : 'urlNotFound';
+//        return json_encode($controller->$action());
     }
 
 ?>
