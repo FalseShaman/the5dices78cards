@@ -43,7 +43,7 @@ $('#register').click(function(){
             if (response.status == 'done') {
                 window.location.href = '/profile';
             } else {
-                console.log(response.message);
+                $('#errorLabel').text(response.message);
             }
         }
     });
@@ -62,7 +62,7 @@ $('#login').click(function(){
             if (response.status == 'done') {
                 window.location.href = '/profile';
             } else {
-                console.log(response.message);
+                $('#errorLabel').text(response.message);
             }
         }
     });

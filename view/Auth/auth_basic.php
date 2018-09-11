@@ -1,13 +1,13 @@
 <?php
     $content = '<div class="row">
                     <div class="form-group col-md-4">
-                        <label for="username" class="form-control">Имя</label>
+                        <label for="username" class="form-control">Имя:</label>
                         <input type="text" class="form-control" id="username" autocomplete="off">
                     </div>
                     <div class="col-md-8"></div>
                 
                     <div class="form-group col-md-4">
-                        <label for="pass" class="form-control">Пароль</label>
+                        <label for="pass" class="form-control">Пароль:</label>
                         <input type="text" class="form-control" id="pass" autocomplete="off">
                         <input type="text" class="form-control" id="pass_again" autocomplete="off">
                     </div>
@@ -15,7 +15,11 @@
                 
                     <div class="form-group col-md-4">
                         <button type="button" class="form-control btn btn-success" id="login" disabled>Войти</button>
-                        <button type="button" class="form-control btn btn-info" id="register" disabled>Зарегестрироваться</button>
+                        <button type="button" class="form-control btn btn-info" id="register" disabled>Зарегистрироваться</button>
+                    </div>
+                    <div class="col-md-8"></div>
+                    <div class="form-group col-md-4">
+                        <label class="form-control" id="errorLabel"></label>
                     </div>
                 </div>';
 ?>
