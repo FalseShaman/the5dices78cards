@@ -41,17 +41,15 @@
         }
 
         public function getNav($translateList) {
-            $pageList = $this->pages;
-            unset($pageList['lost']);
             $navbar = '';
-            if (session_status() == 'PHP_SESSION_ACTIVE' && isset($_SESSION['user']) && !empty($_SESSION['user'])) {
+            if ($this->page != 'auth') {
+                $pageList = $this->pages;
                 unset($pageList['auth']);
-                $pageList['profile'] = array();
-            }
-            foreach ($pageList as $page => $sub)
-            {
-                $navbar .= $this->page == $page ? '<li class="nav-item active">' : '<li class="nav-item">';
-                $navbar .= '<a class="nav-link" href="/'.$page.'">'.ucfirst($translateList[$page]).'</a></li>';
+                foreach ($pageList as $page => $sub)
+                {
+                    $navbar .= $this->page == $page ? '<li class="nav-item active">' : '<li class="nav-item">';
+                    $navbar .= '<a class="nav-link" href="/'.$page.'">'.ucfirst($translateList[$page]).'</a></li>';
+                }
             }
             return $navbar;
         }
