@@ -17,7 +17,7 @@
                 }
             }
 
-            return $response;
+            return $query;
         }
     }
 ?>
