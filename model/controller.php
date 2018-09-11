@@ -58,10 +58,10 @@
             $checkUser = $user->getOne();
             if ($checkUser['status']) {
                 return array('status' => 'fail', 'message' => 'Имя занято', 'data' => $checkUser['data']);
-            } else {
-                //$data = $user->save();
-                return array('status' => 'done', 'message' => '', 'data' => $checkUser['data']);
             }
+
+            $data = $user->save();
+            return array('status' => 'done', 'message' => '', 'data' => $data);
         }
 
         public function logoutAuth() {
