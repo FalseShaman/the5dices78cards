@@ -20,11 +20,13 @@
             $user_id = $connect->db->real_escape_string($this->user_id);
             $result = $connect->db->query('SELECT * FROM spread WHERE user_id = '.$user_id);
 
-            if ($result && $result->num_rows > 0) {
-                return $result->fetch_assoc();
-            } else {
-                return false;
+            $response = array();
+            if ($result->num_rows > 0) {
+                while($row = $result->fetch_assoc()) {
+                    $response[] = $row;
+                }
             }
+            return $response;
         }
 
         public function save($title, $map, $user_id) {

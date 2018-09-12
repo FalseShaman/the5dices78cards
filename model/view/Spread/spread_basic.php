@@ -35,16 +35,20 @@
                                     <button type="button" class="btn btn-dark arcanaSelectButton" id="36" style="margin: 10px;">Кубки</button>
                                     <button type="button" class="btn btn-dark arcanaSelectButton" id="50" style="margin: 10px;">Мечи</button>
                                     <button type="button" class="btn btn-dark arcanaSelectButton" id="64" style="margin: 10px;">Диски</button>';
-    $majorCardSelector = '';
+    $majorArcanaSelector = '';
     for ($i=0;$i<22;$i++) {
         $majorCardSelector .= '<button type="button" class="btn btn-dark cardSelectButton" id="'.$i.'" style="margin: 10px;">'.$translateList['majorArcana'][$i].'</button>';
     }
-    $minorCardSelector = '';
+    $minorArcanaSelector = '';
     for ($i=0;$i<14;$i++) {
         $minorCardSelector .= '<button type="button" class="btn btn-dark cardSelectButton" id="'.$i.'" style="margin: 10px;">'.$translateList['minorArcana'][$i].'</button>';
     }
 
-    $placeModal = file_get_contents('/app/view/modals/placeSaver.html');
+    $placeModel = file_get_contents('/app/view/modals/placeSelector.html');
+    $placeModal = preg_replace('/.$arcanaSelector./', $arcanaSelector, $placeModal);
+    $placeModal = preg_replace('/.$majorArcanaSelector./', $majorArcanaSelector, $placeModal);
+    $placeModal = preg_replace('/.$minorArcanaSelector./', $minorArcanaSelector, $placeModal);
+
     $spreadModal = file_get_contents('/app/view/modals/spreadSaver.html');
 
     $content = $controlPanel.$map.$placeModal.$spreadModal;
