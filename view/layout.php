@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <?php include('Layout_head.php'); ?>
+        <?php include('layout_head.php'); ?>
     </head>
 
     <body style="background-image: url('/view/design/background/stone.jpg'); background-size: 100%;">
-        <button type="button" class="btn btn-default" id="changeBack" style="position: fixed; top: 5px; right: 300px;"><img class="img-responsive" src="/view/design/refresh.png"></button>
+        <button type="button" class="btn btn-default" id="changeBack" style="position: fixed; top: 5px; right: 190px;"><img class="img-responsive" src="/view/design/refresh.png"></button>
 
         <div class="container-fluid">
             <div class="container">
@@ -29,7 +29,7 @@
             </nav>
         <?php endif; ?>
 
-        <?php include('Layout_script.php'); ?>
+        <?php include('layout_script.php'); ?>
     </body>
 
 </html> 
