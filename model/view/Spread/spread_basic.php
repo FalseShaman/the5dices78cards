@@ -7,8 +7,8 @@
         $rightMenu .= '<li class="nav-item"><button class="btn btn-light deckSelectButton" href="javascript:void(0);" id="'.$deck.'" style="margin: 10px 0;">'.$translateList[$deck].'</button></li>';
     }
 
-    $openButton = '<a href="/spread/open" class="btn btn-light" id="spreadOpenButton" style="position: fixed; top: 60px; left: 12%;"><img class="img-responsive" src="/view/design/open.png"></a>';
-    $saveButton = '<button type="button" class="btn btn-light" id="spreadSaverButton" style="position: fixed; top: 115px; left: 12%;"><img class="img-responsive" src="/view/design/save.png"></button>';
+    $openButton = '<a href="/spread/open" class="btn btn-light" id="spreadOpenButton" title="Открыть" style="position: fixed; top: 10px; left: 12%;"><img class="img-responsive" src="/view/design/open.png"></a>';
+    $saveButton = '<button type="button" class="btn btn-light" id="spreadSaverButton" title="Сохранить" style="position: fixed; top: 55px; left: 12%;"><img class="img-responsive" src="/view/design/save.png"></button>';
     $controlPanel .= $openButton.$saveButton;
 
     $map = '<div class="row">';
@@ -44,41 +44,8 @@
         $minorCardSelector .= '<button type="button" class="btn btn-dark cardSelectButton" id="'.$i.'" style="margin: 10px;">'.$translateList['minorArcana'][$i].'</button>';
     }
 
-    $placeModal = '<div class="modal fade" id="placeSelector" tabindex="-1" role="dialog" aria-hidden="true"><div class="modal-dialog" role="document"><div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title">Выбор карты</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    </div>
-                    <div class="modal-body">
-                        <div id="positionSelector" class="form-group">
-                            <label for="placeName" class="form-control">Позиция</label>
-                            <input type="text" class="form-control" id="placeName" autocomplete="off">
-                            <label for="placeDesc" class="form-control">Карта</label>
-                            <textarea class="form-control" id="placeDesc" autocomplete="off"></textarea>
-                            <button type="button" class="form-control btn btn-success" id="placeNamed">Ок</button>
-                        </div>
-                        <div id="arcanaSelector" style="display: none;">'.$arcanaSelector.'</div>
-                        <div id="majorSelector" style="display: none;">'.$majorCardSelector.'</div>
-                        <div id="minorSelector" style="display: none;">'.$minorCardSelector.'</div>
-                    </div>
-                    <div class="modal-footer"></div>
-                </div></div></div>';
-
-    $spreadModal = '<div class="modal fade" id="spreadSaver" tabindex="-1" role="dialog" aria-hidden="true"><div class="modal-dialog" role="document"><div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title">Сохранить расклад</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        </div>
-                        <div class="modal-body">
-                            <div id="positionSelector" class="form-group">
-                            <label for="spreadName" class="form-control">Название раклада</label>
-                                <input type="text" id="spreadName" class="form-control" autocomplete="off">
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" id="saveSpread" class="form-control btn btn-success">Ок</button>
-                        </div>
-                    </div></div></div>';
+    $placeModal = file_get_contents('/app/view/modals/placeSaver.html');
+    $spreadModal = file_get_contents('/app/view/modals/spreadSaver.html');
 
     $content = $controlPanel.$map.$placeModal.$spreadModal;
 ?>
