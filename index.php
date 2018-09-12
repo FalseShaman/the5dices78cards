@@ -60,7 +60,7 @@
         $leftMenu = $controller->getNav(getTranslate());
         $content = '';
 
-        require 'view/'.ucfirst($controller->page).'/'.$controller->page.'_'.$controller->subpage.'.php';
+        require 'model/view/'.ucfirst($controller->page).'/'.$controller->page.'_'.$controller->subpage.'.php';
         include_once('view/layout.php');
     }
 

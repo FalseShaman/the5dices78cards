@@ -7,11 +7,9 @@
         $rightMenu .= '<li class="nav-item"><button class="btn btn-light deckSelectButton" href="javascript:void(0);" id="'.$deck.'" style="margin: 10px 0;">'.$translateList[$deck].'</button></li>';
     }
 
-    $newButton = '<button type="button" class="btn btn-light" id="spreadNewButton" style="position: fixed; top: 5px; left: 12%;"><img class="img-responsive" src="/view/design/new.png"></button>';
-    $openButton = '<button type="button" class="btn btn-light" id="spreadOpenButton" style="position: fixed; top: 60px; left: 12%;"><img class="img-responsive" src="/view/design/open.png"></button>';
-    $saveButton = '<button type="button" class="btn btn-light" id="spreadSaveButton" style="position: fixed; top: 115px; left: 12%;"><img class="img-responsive" src="/view/design/save.png"></button>';
-    $removeButton = '<button type="button" class="btn btn-light" id="spreadRemoveButton" style="position: fixed; top: 170px; left: 12%;"><img class="img-responsive" src="/view/design/remove.png"></button>';
-    $controlPanel .= $newButton.$openButton.$saveButton.$removeButton;
+    $openButton = '<a href="/spread/open" class="btn btn-light" id="spreadOpenButton" style="position: fixed; top: 60px; left: 12%;"><img class="img-responsive" src="/view/design/open.png"></a>';
+    $saveButton = '<button type="button" class="btn btn-light" id="spreadSaverButton" style="position: fixed; top: 115px; left: 12%;"><img class="img-responsive" src="/view/design/save.png"></button>';
+    $controlPanel .= $openButton.$saveButton;
 
     $map = '<div class="row">';
     for ($placeNumber=0; $placeNumber < 78; $placeNumber++)

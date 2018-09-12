@@ -8,9 +8,23 @@
         user_id INT(6) UNSIGNED NOT NULL)
         */
 
+        public $user_id;
+
+        function __construct($username = '', $pass = '') {
+            $this->username = $username;
+            $this->pass = $pass;
+        }
+
         public function getList() {
             $connect = new connection();
-            return $connect->runQuery('SELECT * FROM spread', 1);
+            $user_id = $connect->db->real_escape_string($this->user_id);
+            $result = $connect->db->query('SELECT * FROM spread WHERE user_id = '.$user_id);
+
+            if ($result && $result->num_rows > 0) {
+                return $result->fetch_assoc();
+            } else {
+                return false;
+            }
         }
 
         public function save($title, $map, $user_id) {
