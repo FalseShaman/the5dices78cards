@@ -30,7 +30,7 @@
     }
     $map .= '</div>';
 
-    $arcanaSelector = '<button type="button" class="btn btn-dark arcanaSelectButton" id="0" style="margin: 10px;">Старшие арканы</button><br>
+    $typeArcanaSelector = '<button type="button" class="btn btn-dark arcanaSelectButton" id="0" style="margin: 10px;">Старшие арканы</button><br>
                                     <button type="button" class="btn btn-dark arcanaSelectButton" id="22" style="margin: 10px;">Жезлы</button>
                                     <button type="button" class="btn btn-dark arcanaSelectButton" id="36" style="margin: 10px;">Кубки</button>
                                     <button type="button" class="btn btn-dark arcanaSelectButton" id="50" style="margin: 10px;">Мечи</button>
@@ -45,7 +45,7 @@
     }
 
     $placeModal = file_get_contents('/app/view/modals/placeSelector.html');
-    $placeModal = preg_replace('/arcanaSelector/', $arcanaSelector, $placeModal);
+    $placeModal = preg_replace('/typeArcanaSelector/', $typeArcanaSelector, $placeModal);
     $placeModal = preg_replace('/majorArcanaSelector/', $majorArcanaSelector, $placeModal);
     $placeModal = preg_replace('/minorArcanaSelector/', $minorArcanaSelector, $placeModal);
 
