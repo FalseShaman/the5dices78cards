@@ -45,9 +45,9 @@
     }
 
     $placeModal = file_get_contents('/app/view/modals/placeSelector.html');
-    $placeModal = preg_replace('/.$arcanaSelector./', $arcanaSelector, $placeModal);
-    $placeModal = preg_replace('/.$majorArcanaSelector./', $majorArcanaSelector, $placeModal);
-    $placeModal = preg_replace('/.$minorArcanaSelector./', $minorArcanaSelector, $placeModal);
+    $placeModal = preg_replace('/arcanaSelector/', $arcanaSelector, $placeModal);
+    $placeModal = preg_replace('/majorArcanaSelector/', $majorArcanaSelector, $placeModal);
+    $placeModal = preg_replace('/minorArcanaSelector/', $minorArcanaSelector, $placeModal);
 
     $spreadModal = file_get_contents('/app/view/modals/spreadSaver.html');
 
