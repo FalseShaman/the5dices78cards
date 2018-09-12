@@ -37,11 +37,11 @@
                                     <button type="button" class="btn btn-dark arcanaSelectButton" id="64" style="margin: 10px;">Диски</button>';
     $majorArcanaSelector = '';
     for ($i=0;$i<22;$i++) {
-        $majorCardSelector .= '<button type="button" class="btn btn-dark cardSelectButton" id="'.$i.'" style="margin: 10px;">'.$translateList['majorArcana'][$i].'</button>';
+        $majorArcanaSelector .= '<button type="button" class="btn btn-dark cardSelectButton" id="'.$i.'" style="margin: 10px;">'.$translateList['majorArcana'][$i].'</button>';
     }
     $minorArcanaSelector = '';
     for ($i=0;$i<14;$i++) {
-        $minorCardSelector .= '<button type="button" class="btn btn-dark cardSelectButton" id="'.$i.'" style="margin: 10px;">'.$translateList['minorArcana'][$i].'</button>';
+        $minorArcanaSelector .= '<button type="button" class="btn btn-dark cardSelectButton" id="'.$i.'" style="margin: 10px;">'.$translateList['minorArcana'][$i].'</button>';
     }
 
     $placeModal = file_get_contents('/app/view/modals/placeSelector.html');
