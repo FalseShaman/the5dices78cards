@@ -14,7 +14,7 @@
         for ($placeNumber=0; $placeNumber < 78; $placeNumber++)
         {
             $map .= '<div class="col-md-2" id="cardPlace'.$placeNumber.'" style="border: solid 1px #ffffff; border-radius: 7px; height: 250px;">
-                    <img class="img-rounded arcanaImage" src="" width="120" height="210" style="border-radius: 7px; display: none;">
+                    <img class="img-rounded arcanaImage" src="" width="120" height="210" style="border-radius: 7px; margin-top: 20px; margin-left: 10px; display: none;">
                     <p class="descPosition"></p>
                     
                     <button type="button" class="btn btn-default editPlace" data-position="'.$placeNumber.'" style="position: absolute; top: 0px; right: 0px; padding: 0; opacity: 0.6; display: none;">

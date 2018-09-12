@@ -88,6 +88,7 @@ $('#saveSpread').click(function(){
             map += ind+'->'+$(val).attr('data-arcana')+'|';
         }
     });
+    console.log(map);
 
     $.ajax({
         method: "POST",
@@ -111,7 +112,7 @@ $('#saveSpread').click(function(){
 
 $('.editPlace').click(function(){
     placeNumber = $(this).attr('data-position');
-    $('#placeDesc').val('#cardPlace'+placeNumber+' .descPosition');
+    $('#placeDesc').val($('#cardPlace'+placeNumber+' .descPosition').val());
 
     $('#positionSelector').show();
     $('#placeRenamed').show();
@@ -125,4 +126,5 @@ $('.editPlace').click(function(){
 $('#placeRenamed').click(function(){
     placeDesc = $('#placeDesc').val();
     $('#cardPlace'+placeNumber+' .descPosition').text(placeDesc);
+    $('#placeSelector').modal('toggle');
 });

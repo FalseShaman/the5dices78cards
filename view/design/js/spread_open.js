@@ -16,7 +16,6 @@ $('.spreadSelectButton').click(function(){
             map[ind] = { 'place': memory[0], 'arcana': memory[1], 'title': title }
         }
     });
-    console.log(map);
 
     $.each(map, function(ind, val){
         $('#cardPlace'+val.place+' .arcanaImage').attr('src', '/gallery/egypt/'+val.arcana+'.jpg').show();
