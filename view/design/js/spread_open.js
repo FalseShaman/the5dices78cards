@@ -11,8 +11,10 @@ $('.spreadSelectButton').click(function(){
     var map = [];
     var line = $(this).attr('data-map').split('|');
     $.each(line, function(ind, val){
-        var memory = val.split('->');
-        map[ind] = { 'place': memory[0], 'arcana': memory[1], 'title': title }
+        if (val > '') {
+            var memory = val.split('->');
+            map[ind] = { 'place': memory[0], 'arcana': memory[1], 'title': title }
+        }
     });
     console.log(map);
 

@@ -26,5 +26,7 @@
                 </div>';
         }
         $map .= '</div>';
+
+        $content .= $map;
     }
 ?>
