@@ -28,6 +28,7 @@ $('.placeSelectButton').click(function(){
     $('#placeDesc').text('');
 
     $('#positionSelector').show();
+    $('#placeNamed').show();
     $('#arcanaSelector').hide();
     $('#majorSelector').hide();
     $('#minorSelector').hide();
@@ -40,6 +41,7 @@ $('#placeNamed').click(function(){
     placeDesc = $('#placeDesc').val();
 
     $('#positionSelector').hide();
+    $('#placeNamed').hide();
     $('#arcanaSelector').show();
 });
 
