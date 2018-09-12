@@ -14,8 +14,6 @@
         for ($placeNumber=0; $placeNumber < 78; $placeNumber++)
         {
             $map .= '<div class="col-md-2" id="cardPlace'.$placeNumber.'" style="border: solid 1px #ffffff; border-radius: 7px; height: 250px;">
-                    <button type="button" data-place="'.$placeNumber.'" class="btn btn-success placeSelectButton" style="width: 100%; margin: 10px 0; padding: 5px 5px;" disabled>Выбрать</button>
-                    
                     <img class="img-rounded arcanaImage" src="" width="120" height="210" style="border-radius: 7px; display: none;">
                     <p class="descPosition"></p>
                     

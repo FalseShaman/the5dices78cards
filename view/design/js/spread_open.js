@@ -22,5 +22,6 @@ $('.spreadSelectButton').click(function(){
         $('#cardPlace'+val.place+' .arcanaImage').attr('src', '/gallery/egypt/'+val.arcana+'.jpg').show();
         $('#cardPlace'+val.place+' .descPosition').text(val.title).show();
         $('#cardPlace'+val.place+' .editPlace').show();
+        $('#cardPlace'+val.place+' .showArcana').show();
     });
 });
