@@ -18,7 +18,7 @@
                     <button type="button" data-place="'.$placeNumber.'" class="btn btn-success placeSelectButton" style="width: 100%; margin: 10px 0; padding: 5px 5px;" disabled>Выбрать</button>
                     
                     <img class="img-rounded deskCard" src="" width="120" height="210" style="border-radius: 7px; display: none;">
-                    <p class="deskPosition" style="position: absolute; top: 10px; margin-right: 10px; color: #ffffff; background-color: #000000; opacity: 0.7; word-break: break-all; display: none;"></p>
+                    <p class="deskPosition" style="position: absolute; top: 22%; margin-right: 15px; color: #ffffff; background-color: #000000; opacity: 0.7; word-break: break-all; text-align: center; display: none;"></p>
                     
                     <button type="button" class="btn btn-default clearPosition" data-position="'.$placeNumber.'" style="position: absolute; top: 0px; left: 0px; padding: 0; opacity: 0.6; display: none;">
                         <img class="img-responsive" src="/view/design/clear.png"></button>

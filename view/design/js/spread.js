@@ -25,7 +25,7 @@ $('.placeSelectButton').click(function(){
     placeName = 0;
     placeDesc = 0;
     $('#placeName').val('');
-    $('#placeDesc').text('');
+    $('#placeDesc').val('');
 
     $('#positionSelector').show();
     $('#placeNamed').show();
@@ -59,7 +59,7 @@ $('.cardSelectButton').click(function(){
     cardNumber = arcanaNumber + parseInt($(this).attr('id'));
     var rotate = 12 - Math.floor((Math.random() * 24));
     $('#cardPlace'+placeNumber+' .deskCard').attr('src', '/gallery/'+deckName+'/'+cardNumber+'.jpg').attr('style', 'transform: rotate('+rotate+'deg); margin: 20px;').attr('data-card', cardNumber).show();
-    $('#cardPlace'+placeNumber+' .deskPosition').text(placeName+' <br>'+ placeDesc);
+    $('#cardPlace'+placeNumber+' .deskPosition').text(placeName);
     $('#cardPlace'+placeNumber+' .clearPosition').show();
     $('#cardPlace'+placeNumber+' .editPlace').show();
     $('#cardPlace'+placeNumber+' .showCard').show();
@@ -98,14 +98,19 @@ $('#saveSpread').click(function(){
 
     $.ajax({
         method: "POST",
-        url: "/save/spread",
+        url: "/spread/save",
         data: {
             name: spreadName,
             map: map
         },
         success: function(response) {
-            console.log(response);
-            $('#spreadName').val('');
+            if (response.status == 'done') {
+                $('#spreadName').val('');
+                $('#spreadSaver').modal('toggle');
+            } else {
+                $('#errorLabel').text(response.message);
+                $('#errorLabel').show();
+            }
         }
     });
 });

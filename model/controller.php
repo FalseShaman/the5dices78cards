@@ -95,7 +95,15 @@
         }
 
         public function saveSpread() {
-            return array($_POST['title'], $_POST['map']);
+            $user = json_decode($_SESSION['user']);
+
+            require_once 'spread.php';
+            $spread = new spread($user->id, $_POST['title'], $_POST['map']);
+            if ($spread->save()) {
+                return array('status' => 'done');
+            } else {
+                return array('status' => 'fail', 'message' => 'Не удалось сохранить');
+            }
         }
 
         public function removeSpread() {

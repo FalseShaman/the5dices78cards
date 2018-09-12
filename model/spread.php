@@ -9,10 +9,13 @@
         */
 
         public $user_id;
+        public $title;
+        public $map;
 
-        function __construct($username = '', $pass = '') {
-            $this->username = $username;
-            $this->pass = $pass;
+        function __construct($user_id = '', $title = '', $map = '') {
+            $this->user_id = $user_id;
+            $this->title = $title;
+            $this->map = $map;
         }
 
         public function getList() {
@@ -29,11 +32,12 @@
             return $response;
         }
 
-        public function save($title, $map, $user_id) {
+        public function save() {
             $connect = new connection();
-            $title = $connect->db->real_escape_string($title);
-            $map = $connect->db->real_escape_string($map);
-            $user_id = $connect->db->real_escape_string($user_id);
-            return $connect->runQuery('INSERT INTO spread (title, map, user_id) VALUES ("'.$title.'", "'.$map.'", '.$user_id.')');
+            $user_id = $connect->db->real_escape_string($this->user_id);
+            $title = $connect->db->real_escape_string($this->title);
+            $map = $connect->db->real_escape_string($this->map);
+
+            return $connect->db->query('INSERT INTO spread (title, map, user_id) VALUES ("'.$title.'", "'.$map.'", '.$user_id.')');
         }
     }
