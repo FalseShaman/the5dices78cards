@@ -5,13 +5,15 @@
         <style>
             .descPosition {
                 position: absolute;
-                top: 22%;
+                top: 35%;
                 margin-right: 15px;
                 color: #ffffff;
                 background-color: #000000;
                 word-break: break-all;
                 text-align: center;
                 opacity: 0;
+                width: 80%;
+                height: 30%;
             }
             .descPosition:hover {
                 opacity: 0.7;
