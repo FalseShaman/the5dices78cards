@@ -1,7 +1,7 @@
 var placeNumber = 0;
 var deckName = 0;
 var arcanaNumber = -1;
-var cardNumber = 0;
+var cardNumber = -1;
 var placeDesc = 0;
 
 $('.deckSelectButton').click(function(){
@@ -20,7 +20,7 @@ $('.deckSelectButton').click(function(){
 $('.placeSelectButton').click(function(){
     placeNumber = 0;
     arcanaNumber = -1;
-    cardNumber = 0;
+    cardNumber = -1;
     placeDesc = 0;
     $('#placeDesc').val('');
 
@@ -64,7 +64,7 @@ $('.arcanaSelectButton').click(function(){
 
 $('.clearPosition').click(function(){
     placeNumber = $(this).attr('data-position');
-    $('#cardPlace'+placeNumber+' .arcanaImage').attr('src', '').attr('style', '').attr('data-arcana', 0).hide();
+    $('#cardPlace'+placeNumber+' .arcanaImage').attr('src', '').attr('style', '').attr('data-arcana', -1).hide();
     $('#cardPlace'+placeNumber+' .descPosition').text('');
     $('#cardPlace'+placeNumber+' .clearPosition').hide();
     $('#cardPlace'+placeNumber+' .editPlace').hide();

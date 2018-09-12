@@ -2,10 +2,10 @@ var spread_id = 0;
 
 $('.spreadSelectButton').click(function(){
     if (spread_id != 0) {
-        $('#'+spread_id).removeClass('btn-dark').addClass('btn-light');
+        $('#'+spread_id).removeClass('btn-light').addClass('btn-dark');
     }
     spread_id = $(this).attr('id');
-    $(this).removeClass('btn-light').addClass('btn-dark');
+    $(this).removeClass('btn-dark').addClass('btn-light');
 
     var title = $(this).text();
     var map = [];
@@ -20,7 +20,20 @@ $('.spreadSelectButton').click(function(){
     $.each(map, function(ind, val){
         $('#cardPlace'+val.place+' .arcanaImage').attr('src', '/gallery/egypt/'+val.arcana+'.jpg').show();
         $('#cardPlace'+val.place+' .descPosition').text(val.title).show();
-        $('#cardPlace'+val.place+' .editPlace').show();
         $('#cardPlace'+val.place+' .showArcana').show();
+    });
+});
+
+$('.deckSelectButton').click(function(){
+    $('.nav-item').children('.btn').removeClass('btn-info');
+    $(this).removeClass('btn-light');
+    $(this).addClass('btn-info');
+
+    var deckName = $(this).attr('id');
+
+    $.each($('.arcanaImage'), function(ind, val){
+        if($(val).attr('data-arcana') > -1) {
+            $(val).attr('src', '/gallery/' + deckName + '/' + $(val).attr('data-arcana') + '.jpg');
+        }
     });
 });
