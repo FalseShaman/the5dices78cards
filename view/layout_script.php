@@ -17,4 +17,4 @@
     });
 </script>
 
-<script src="/view/design/js/<?php echo $controller->page; ?>.js"></script>
+<script src="/view/design/js/<?php echo $controller->page; ?>_<?php echo $controller->subpage; ?>.js"></script>

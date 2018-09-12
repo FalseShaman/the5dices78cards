@@ -2,6 +2,21 @@
 <html>
     <head>
         <?php include('layout_head.php'); ?>
+        <style>
+            .descPosition {
+                position: absolute;
+                top: 22%;
+                margin-right: 15px;
+                color: #ffffff;
+                background-color: #000000;
+                word-break: break-all;
+                text-align: center;
+                opacity: 0;
+            }
+            .descPosition:hover {
+                opacity: 0.7;
+            }
+        </style>
     </head>
 
     <body style="background-image: url('/view/design/background/stone.jpg'); background-size: 100%;">
