@@ -1,6 +1,6 @@
-var username;
-var pass;
-var pass_again;
+var username = 0;
+var pass = 0;
+var pass_again = 0;
 
 $('#username').keyup(function(){
     username = $(this).val();
