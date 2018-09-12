@@ -69,7 +69,7 @@ $('.cardSelectButton').click(function(){
 
 $('.clearPosition').click(function(){
     placeNumber = $(this).attr('data-position');
-    $('#cardPlace'+placeNumber+' .deskCard').attr('src', '').attr('style', '').attr('data-card', '').hide();
+    $('#cardPlace'+placeNumber+' .deskCard').attr('src', '').attr('style', '').attr('data-card', 0).hide();
     $('#cardPlace'+placeNumber+' .deskPosition').text('').hide();
     $('#cardPlace'+placeNumber+' .clearPosition').hide();
     $('#cardPlace'+placeNumber+' .editPlace').hide();
@@ -91,7 +91,7 @@ $('#saveSpread').click(function(){
     var map = '';
 
     $.each($('.deskCard'), function(ind,val){
-        if($(val).attr('src') > '') {
+        if($(val).attr('data-card') > 0) {
             map += ind+'->'+$(val).attr('data-card')+'|';
         }
     });
@@ -99,6 +99,7 @@ $('#saveSpread').click(function(){
     $.ajax({
         method: "POST",
         url: "/spread/save",
+        dataType: 'json',
         data: {
             name: spreadName,
             map: map
