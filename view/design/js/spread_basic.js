@@ -1,6 +1,6 @@
 var placeNumber = 0;
 var deckName = 0;
-var arcanaNumber = 0;
+var arcanaNumber = -1;
 var cardNumber = 0;
 var placeName = 0;
 var placeDesc = 0;
@@ -14,13 +14,13 @@ $('.deckSelectButton').click(function(){
 
     $('.placeSelectButton').prop('disabled', false);
     $.each($('.arcanaImage'), function(ind, val){
-        $(val).attr('src', '/gallery/'+deckName+'/'+$(val).attr('data-card')+'.jpg');
+        $(val).attr('src', '/gallery/'+deckName+'/'+$(val).attr('data-arcana')+'.jpg');
     });
 });
 
 $('.placeSelectButton').click(function(){
     placeNumber = 0;
-    arcanaNumber = 0;
+    arcanaNumber = -1;
     cardNumber = 0;
     placeName = 0;
     placeDesc = 0;
@@ -45,7 +45,7 @@ $('#placeNamed').click(function(){
     $('#arcanaSelector').show();
 });
 
-$('.arcanaSelectButton').click(function(){
+$('.typeSelectButton').click(function(){
     arcanaNumber = parseInt($(this).attr('id'));
     if (arcanaNumber == 0) {
         $('#majorSelector').show();
@@ -58,7 +58,7 @@ $('.arcanaSelectButton').click(function(){
 $('.arcanaSelectButton').click(function(){
     cardNumber = arcanaNumber + parseInt($(this).attr('id'));
     var rotate = 12 - Math.floor((Math.random() * 24));
-    $('#cardPlace'+placeNumber+' .arcanaImage').attr('src', '/gallery/'+deckName+'/'+cardNumber+'.jpg').attr('style', 'transform: rotate('+rotate+'deg); margin: 20px;').attr('data-card', cardNumber).show();
+    $('#cardPlace'+placeNumber+' .arcanaImage').attr('src', '/gallery/'+deckName+'/'+cardNumber+'.jpg').attr('style', 'transform: rotate('+rotate+'deg); margin: 20px;').attr('data-arcana', cardNumber).show();
     $('#cardPlace'+placeNumber+' .deskPosition').text(placeName);
     $('#cardPlace'+placeNumber+' .clearPosition').show();
     $('#cardPlace'+placeNumber+' .editPlace').show();
@@ -68,7 +68,7 @@ $('.arcanaSelectButton').click(function(){
 
 $('.clearPosition').click(function(){
     placeNumber = $(this).attr('data-position');
-    $('#cardPlace'+placeNumber+' .arcanaImage').attr('src', '').attr('style', '').attr('data-card', 0).hide();
+    $('#cardPlace'+placeNumber+' .arcanaImage').attr('src', '').attr('style', '').attr('data-arcana', 0).hide();
     $('#cardPlace'+placeNumber+' .deskPosition').text('').hide();
     $('#cardPlace'+placeNumber+' .clearPosition').hide();
     $('#cardPlace'+placeNumber+' .editPlace').hide();
@@ -89,8 +89,8 @@ $('#saveSpread').click(function(){
     var map = '';
 
     $.each($('.arcanaImage'), function(ind,val){
-        if($(val).attr('data-card') > 0) {
-            map += ind+'->'+$(val).attr('data-card')+'|';
+        if($(val).attr('data-arcana') > -1) {
+            map += ind+'->'+$(val).attr('data-arcana')+'|';
         }
     });
 

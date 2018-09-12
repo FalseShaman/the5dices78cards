@@ -29,11 +29,11 @@
     }
     $map .= '</div>';
 
-    $typeArcanaSelector = '<button type="button" class="btn btn-dark arcanaSelectButton" id="0" style="margin: 10px;">Старшие арканы</button><br>
-                                    <button type="button" class="btn btn-dark arcanaSelectButton" id="22" style="margin: 10px;">Жезлы</button>
-                                    <button type="button" class="btn btn-dark arcanaSelectButton" id="36" style="margin: 10px;">Кубки</button>
-                                    <button type="button" class="btn btn-dark arcanaSelectButton" id="50" style="margin: 10px;">Мечи</button>
-                                    <button type="button" class="btn btn-dark arcanaSelectButton" id="64" style="margin: 10px;">Диски</button>';
+    $typeArcanaSelector = '<button type="button" class="btn btn-dark typeSelectButton" id="0" style="margin: 10px;">Старшие арканы</button><br>
+                                    <button type="button" class="btn btn-dark typeSelectButton" id="22" style="margin: 10px;">Жезлы</button>
+                                    <button type="button" class="btn btn-dark typeSelectButton" id="36" style="margin: 10px;">Кубки</button>
+                                    <button type="button" class="btn btn-dark typeSelectButton" id="50" style="margin: 10px;">Мечи</button>
+                                    <button type="button" class="btn btn-dark typeSelectButton" id="64" style="margin: 10px;">Диски</button>';
     $majorArcanaSelector = '';
     for ($i=0;$i<22;$i++) {
         $majorArcanaSelector .= '<button type="button" class="btn btn-dark arcanaSelectButton" id="'.$i.'" style="margin: 10px;">'.$translateList['majorArcana'][$i].'</button>';
