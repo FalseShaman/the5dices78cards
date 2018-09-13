@@ -13,7 +13,7 @@
 
     if (!empty($spreadList)) {
         $leftMenu .= '<li class="nav-item"><hr style="border: 1px solid #ffffff;"></li>';
-        $leftMenu .= '<li class="nav-item"><img class="img-responsive" src="/view/design/show.png"></li>';
+        $leftMenu .= '<li class="nav-item"><img class="img-responsive" src="/view/design/box.png"></li>';
         foreach($spreadList as $li) {
             $leftMenu .= '<li class="nav-item"><button class="btn btn-dark spreadSelectButton" href="javascript:void(0);" id="'.$li['id'].'" data-map="'.$li['map'].'" style="margin: 10px 0;">'.$li['title'].'</button></li>';
         }

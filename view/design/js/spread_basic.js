@@ -10,8 +10,9 @@ $('.deckSelectButton').click(function(){
     $(this).addClass('btn-info');
 
     deckName = $(this).attr('id');
-
     $('.placeSelectButton').prop('disabled', false);
+    $('#spreadSaverButton').show();
+
     $.each($('.arcanaImage'), function(ind, val){
         $(val).attr('src', '/gallery/'+deckName+'/'+$(val).attr('data-arcana')+'.jpg');
     });

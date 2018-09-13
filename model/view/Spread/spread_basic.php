@@ -7,7 +7,7 @@
     }
 
     $openButton = '<a href="/spread/open" class="btn btn-light" id="spreadOpenButton" title="Открыть" style="position: fixed; top: 10px; left: 12%;"><img class="img-responsive" src="/view/design/open.png"></a>';
-    $saveButton = '<button type="button" class="btn btn-light" id="spreadSaverButton" title="Сохранить" style="position: fixed; top: 55px; left: 12%;"><img class="img-responsive" src="/view/design/save.png"></button>';
+    $saveButton = '<button type="button" class="btn btn-light" id="spreadSaverButton" title="Сохранить" style="position: fixed; top: 55px; left: 12%; display: none;"><img class="img-responsive" src="/view/design/save.png"></button>';
     $controlPanel .= $openButton.$saveButton;
 
     $map = '<div class="row">';
