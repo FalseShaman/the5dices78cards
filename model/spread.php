@@ -3,8 +3,8 @@
         /*
         CREATE TABLE IF NOT EXISTS spread (
         id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-        title VARCHAR(30) NOT NULL,
-        map VARCHAR(30) NOT NULL,
+        title VARCHAR(390) NOT NULL,
+        map VARCHAR(390) NOT NULL,
         user_id INT(6) UNSIGNED NOT NULL)
         */
 
@@ -36,7 +36,7 @@
             $connect = new connection();
             $user_id = $connect->db->real_escape_string($this->user_id);
             $title = $connect->db->real_escape_string($this->title);
-            $map = $connect->db->real_escape_string($this->map);
+            $map = json_encode($connect->db->real_escape_string($this->map));
 
             return $connect->db->query('INSERT INTO spread (title, map, user_id) VALUES ("'.$title.'", "'.$map.'", '.$user_id.')');
         }

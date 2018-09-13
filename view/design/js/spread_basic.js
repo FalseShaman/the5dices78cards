@@ -26,6 +26,7 @@ $('.placeSelectButton').click(function(){
 
     $('#positionSelector').show();
     $('#placeNamed').show();
+    $('#placeRenamed').hide();
     $('#arcanaSelector').hide();
     $('#majorSelector').hide();
     $('#minorSelector').hide();
@@ -81,11 +82,12 @@ $('#spreadSaverButton').click(function(){
 
 $('#saveSpread').click(function(){
     var title = $('#spreadTitle').val();
-    var map = '';
+    var map = [];
 
     $.each($('.arcanaImage'), function(ind,val){
         if($(val).attr('data-arcana') > -1) {
-            map += ind+'->'+$(val).attr('data-arcana')+'|';
+            var position = { 'place': ind, 'arcana': $(val).attr('data-arcana'), 'position': $('#cardPlace'+ind+' .descPosition').text() };
+            map[ind] = position;
         }
     });
     console.log(map);
@@ -112,7 +114,7 @@ $('#saveSpread').click(function(){
 
 $('.editPlace').click(function(){
     placeNumber = $(this).attr('data-position');
-    $('#placeDesc').val($('#cardPlace'+placeNumber+' .descPosition').val());
+    $('#placeDesc').val($('#cardPlace'+placeNumber+' .descPosition').text());
 
     $('#positionSelector').show();
     $('#placeRenamed').show();
