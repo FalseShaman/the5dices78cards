@@ -14,9 +14,9 @@ $('.deckSelectButton').click(function(){
 });
 
 $('.spreadSelectButton').click(function(){
-    $(this).removeClass('btn-dark').addClass('btn-light');
+    $(this).attr('style', 'cursor: pointer; color: #ffffff;');
     if (spread_id != 0) {
-        $('#'+spread_id).removeClass('btn-light').addClass('btn-dark');
+        $('#'+spread_id).attr('style', 'cursor: pointer; color: gray;');
     }
 
     spread_id = $(this).attr('id');

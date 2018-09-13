@@ -20,7 +20,7 @@
             foreach ($map as $place) {
                 $leftMenu .= '<span class="place" data-place="'.$place->place.'" data-arcana="'.$place->arcana.'" data-position="'.$place->position.'"></span>';
             }
-            $leftMenu .= '</span><button class="btn btn-dark spreadSelectButton" id="'.$li['id'].'" style="margin: 10px 0;">'.$li['title'].'</button></li>';
+            $leftMenu .= '</span><a href="javascript:void(0);" class="spreadSelectButton" id="'.$li['id'].'" style="margin: 10px 0; cursor: pointer; color: gray;">'.$li['title'].'</a></li>';
         }
 
         $map = '<div class="row">';
