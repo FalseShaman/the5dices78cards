@@ -7,7 +7,7 @@ $spread = new spread(19);
 $spreadList = $spread->getList();
 foreach($spreadList as $li) {
     //$map = json_decode($li['map']);
-    var_dump($li['map']);
+    var_dump(json_decode($li['map']));
 }
 die();
     function getTranslate() {
