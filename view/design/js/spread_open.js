@@ -18,16 +18,14 @@ $('.spreadSelectButton').click(function(){
     if (spread_id != 0) {
         $('#'+spread_id).attr('style', 'cursor: pointer; color: gray;');
     }
-    $('.arcanaImage').attr('data-arcana', -1);
-    $('.arcanaImage').attr('src', '');
+    $('.arcanaImage').attr('data-arcana', -1).attr('src', '').hide();
     $('.descPosition').text('');
     $('.showArcana').hide();
 
     spread_id = $(this).attr('id');
 
     $.each($('#spread'+spread_id+' .place'), function(ind, val){
-        $('#cardPlace'+$(val).attr('data-place')+' .arcanaImage').attr('src', '/gallery/'+deckName+'/'+$(val).attr('data-arcana')+'.jpg').show();
-        $('#cardPlace'+$(val).attr('data-place')+' .arcanaImage').attr('data-arcana', $(val).attr('data-arcana'));
+        $('#cardPlace'+$(val).attr('data-place')+' .arcanaImage').attr('src', '/gallery/'+deckName+'/'+$(val).attr('data-arcana')+'.jpg').attr('data-arcana', $(val).attr('data-arcana')).show();
         $('#cardPlace'+$(val).attr('data-place')+' .descPosition').text($(val).attr('data-position'));
         $('#cardPlace'+$(val).attr('data-place')+' .showArcana').show();
     });
