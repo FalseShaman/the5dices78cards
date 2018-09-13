@@ -16,6 +16,7 @@
         $leftMenu .= '<li class="nav-item"><img class="img-responsive" src="/view/design/box.png"></li>';
         foreach($spreadList as $li) {
             $map = json_decode($li['map']);
+            var_dump($map);
             $leftMenu .= '<li class="nav-item"><span id="spread'.$li['id'].'" style="display: none;">';
             foreach ($map as $place) {
                 $leftMenu .= '<span class="place" data-place="'.$place->place.'" data-arcana="'.$place->arcana.'" data-position="'.$place->position.'"></span>';
