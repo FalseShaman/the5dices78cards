@@ -1,4 +1,17 @@
 var spread_id = 0;
+var deckName = 'ghousts';
+
+$('.deckSelectButton').click(function(){
+    $('.nav-item').children('.btn').removeClass('btn-info');
+    $(this).removeClass('btn-light');
+    $(this).addClass('btn-info');
+
+    deckName = $(this).attr('id');
+
+    $.each($('.arcanaImage'), function(ind, val){
+        $(val).attr('src', '/gallery/'+deckName+'/'+$(val).attr('data-arcana')+'.jpg');
+    });
+});
 
 $('.spreadSelectButton').click(function(){
     if (spread_id != 0) {

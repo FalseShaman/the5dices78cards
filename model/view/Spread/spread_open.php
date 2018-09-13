@@ -1,5 +1,6 @@
 <?php
     $user = json_decode($_SESSION['user']);
+    $translateList = getTranslate();
     $deckList = getDeckList();
 
     foreach ($deckList as $deck) {
@@ -12,6 +13,7 @@
 
     if (!empty($spreadList)) {
         $leftMenu .= '<li class="nav-item"><hr style="color: #ffffff;border: 1px solid #ffffff;"></li>';
+        $leftMenu .= '<li class="nav-item"><h3>Сохраненые расклады</h3></li>';
         foreach($spreadList as $li) {
             $leftMenu .= '<li class="nav-item"><button class="btn btn-dark spreadSelectButton" href="javascript:void(0);" id="'.$li['id'].'" data-map="'.$li['map'].'" style="margin: 10px 0;">'.$li['title'].'</button></li>';
         }
