@@ -36,7 +36,7 @@
             $connect = new connection();
             $user_id = $connect->db->real_escape_string($this->user_id);
             $title = $connect->db->real_escape_string($this->title);
-            $map = json_encode($connect->db->real_escape_string($this->map));
+            $map = $connect->db->real_escape_string(json_encode($this->map));
 
             return $connect->db->query('INSERT INTO spread (title, map, user_id) VALUES ("'.$title.'", "'.$map.'", '.$user_id.')');
         }
