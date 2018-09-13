@@ -5,7 +5,10 @@
 require_once '/app/model/spread.php';
 $spread = new spread(19);
 $spreadList = $spread->getList();
-var_dump($spreadList);
+foreach($spreadList as $li) {
+    $map = json_decode($li['map']);
+    var_dump($map);
+}
 die();
     function getTranslate() {
         return array(
