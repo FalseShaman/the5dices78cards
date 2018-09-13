@@ -4,7 +4,7 @@
     $deckList = getDeckList();
 
     foreach ($deckList as $deck) {
-        $rightMenu .= '<li class="nav-item"><button class="btn btn-light deckSelectButton" href="javascript:void(0);" id="'.$deck.'" style="margin: 10px 0;">'.$translateList[$deck].'</button></li>';
+        $rightMenu .= '<li class="nav-item"><button class="btn btn-light deckSelectButton" id="'.$deck.'" style="margin: 10px 0;">'.$translateList[$deck].'</button></li>';
     }
 
     require_once '/app/model/spread.php';
@@ -15,7 +15,12 @@
         $leftMenu .= '<li class="nav-item"><hr style="border: 1px solid #ffffff;"></li>';
         $leftMenu .= '<li class="nav-item"><img class="img-responsive" src="/view/design/box.png"></li>';
         foreach($spreadList as $li) {
-            $leftMenu .= '<li class="nav-item"><button class="btn btn-dark spreadSelectButton" href="javascript:void(0);" id="'.$li['id'].'" data-map="'.$li['map'].'" style="margin: 10px 0;">'.$li['title'].'</button></li>';
+            $map = json_decode($li['map']);
+            $leftMenu .= '<li class="nav-item"><span id="spread'.$li['id'].'" style="display: none;">';
+            foreach ($map as $place) {
+                $leftMenu .= '<span data-place="'.$place['place'].'" data-arcana="'.$place['arcana'].'" data-position="'.$place['position'].'">';
+            }
+            $leftMenu .= '</span><button class="btn btn-dark spreadSelectButton" id="'.$li['id'].'" style="margin: 10px 0;">'.$li['title'].'</button></li>';
         }
 
         $map = '<div class="row">';

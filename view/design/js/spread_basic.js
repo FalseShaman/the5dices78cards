@@ -88,7 +88,7 @@ $('#saveSpread').click(function(){
     $.each($('.arcanaImage'), function(ind,val){
         if($(val).attr('data-arcana') > -1) {
             var position = { 'place': ind, 'arcana': $(val).attr('data-arcana'), 'position': $('#cardPlace'+ind+' .descPosition').text() };
-            map[ind] = position;
+            map.push(position);
         }
     });
     console.log(map);
