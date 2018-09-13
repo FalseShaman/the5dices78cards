@@ -20,12 +20,10 @@ $('.spreadSelectButton').click(function(){
     spread_id = $(this).attr('id');
     $(this).removeClass('btn-dark').addClass('btn-light');
 
-    var map = jQuery.parseJSON($(this).attr('data-map'));
-
-    $.each(map, function(ind, val){
-        $('#cardPlace'+val.place+' .arcanaImage').attr('src', '/gallery/egypt/'+val.arcana+'.jpg').show();
-        $('#cardPlace'+val.place+' .descPosition').text(val.position).show();
-        $('#cardPlace'+val.place+' .showArcana').show();
+    $.each($('#spread'+spread_id+' .place'), function(ind, val){
+        $('#cardPlace'+$(val).attr('data-place')+' .arcanaImage').attr('src', '/gallery/'+deckName+'/'+$(val).attr('data-arcana')+'.jpg').show();
+        $('#cardPlace'+$(val).attr('data-place')+' .descPosition').text($(val).attr('data-position')).show();
+        $('#cardPlace'+$(val).attr('data-place')+' .showArcana').show();
     });
 });
 
