@@ -4,7 +4,7 @@
         CREATE TABLE IF NOT EXISTS spread (
         id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
         title VARCHAR(390) NOT NULL,
-        map VARCHAR(390) NOT NULL,
+        map TEXT NOT NULL,
         user_id INT(6) UNSIGNED NOT NULL)
         */
 

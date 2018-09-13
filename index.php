@@ -2,14 +2,6 @@
     session_start();
     require_once 'model/connection.php';
 
-require_once '/app/model/spread.php';
-$spread = new spread(19);
-$spreadList = $spread->getList();
-foreach($spreadList as $li) {
-    //$map = json_decode($li['map']);
-    var_dump(json_decode($li['map'], true));
-}
-die();
     function getTranslate() {
         return array(
             'new' => 'Новый',

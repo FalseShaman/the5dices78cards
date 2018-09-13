@@ -14,11 +14,12 @@ $('.deckSelectButton').click(function(){
 });
 
 $('.spreadSelectButton').click(function(){
+    $(this).removeClass('btn-dark').addClass('btn-light');
     if (spread_id != 0) {
         $('#'+spread_id).removeClass('btn-light').addClass('btn-dark');
     }
+
     spread_id = $(this).attr('id');
-    $(this).removeClass('btn-dark').addClass('btn-light');
 
     $.each($('#spread'+spread_id+' .place'), function(ind, val){
         $('#cardPlace'+$(val).attr('data-place')+' .arcanaImage').attr('src', '/gallery/'+deckName+'/'+$(val).attr('data-arcana')+'.jpg').show();
