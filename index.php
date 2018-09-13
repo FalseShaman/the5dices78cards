@@ -2,6 +2,11 @@
     session_start();
     require_once 'model/connection.php';
 
+require_once '/app/model/spread.php';
+$spread = new spread($user->id);
+$spreadList = $spread->getList();
+var_dump($spreadList);
+die();
     function getTranslate() {
         return array(
             'new' => 'Новый',
