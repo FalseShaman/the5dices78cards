@@ -3,7 +3,7 @@
     require_once 'model/connection.php';
 
 require_once '/app/model/spread.php';
-$spread = new spread($user->id);
+$spread = new spread(19);
 $spreadList = $spread->getList();
 var_dump($spreadList);
 die();
