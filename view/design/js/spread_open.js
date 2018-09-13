@@ -22,6 +22,7 @@ $('.spreadSelectButton').click(function(){
 
     $.each($('#spread'+spread_id+' .place'), function(ind, val){
         $('#cardPlace'+$(val).attr('data-place')+' .arcanaImage').attr('src', '/gallery/'+deckName+'/'+$(val).attr('data-arcana')+'.jpg').show();
+        $('#cardPlace'+$(val).attr('data-place')+' .arcanaImage').attr('data-arcana', $(val).attr('data-arcana'));
         $('#cardPlace'+$(val).attr('data-place')+' .descPosition').text($(val).attr('data-position')).show();
         $('#cardPlace'+$(val).attr('data-place')+' .showArcana').show();
     });
