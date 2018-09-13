@@ -16,13 +16,14 @@
         $leftMenu .= '<li class="nav-item"><img class="img-responsive" src="/view/design/box.png"></li>';
         foreach($spreadList as $li) {
             $map = json_decode($li['map']);
-            if (!empty($map) && is_array($map)) {
-                $leftMenu .= '<li class="nav-item"><span id="spread'.$li['id'].'" style="display: none;">';
-                foreach ($map as $place) {
-                    $leftMenu .= '<span class="place" data-place="'.$place->place.'" data-arcana="'.$place->arcana.'" data-position="'.$place->position.'"></span>';
-                }
-                $leftMenu .= '</span><button class="btn btn-dark spreadSelectButton" id="'.$li['id'].'" style="margin: 10px 0;">'.$li['title'].'</button></li>';
-            }
+            var_dump($map);
+//            if (!empty($map) && is_array($map)) {
+//                $leftMenu .= '<li class="nav-item"><span id="spread'.$li['id'].'" style="display: none;">';
+//                foreach ($map as $place) {
+//                    $leftMenu .= '<span class="place" data-place="'.$place->place.'" data-arcana="'.$place->arcana.'" data-position="'.$place->position.'"></span>';
+//                }
+//                $leftMenu .= '</span><button class="btn btn-dark spreadSelectButton" id="'.$li['id'].'" style="margin: 10px 0;">'.$li['title'].'</button></li>';
+//            }
         }
 
         $map = '<div class="row">';
