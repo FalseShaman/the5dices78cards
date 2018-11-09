@@ -18,17 +18,25 @@
             .descPosition:hover {
                 opacity: 0.7;
             }
+            .topPanel {
+                background-color: #000000;
+                border: 2px solid #ffffff;
+            }
+            .greetingWord {
+                font-size: 20px;
+                color: #ffffff;
+            }
         </style>
     </head>
 
     <body style="background-image: url('/view/design/background/stone.jpg'); background-size: 100%;">
-        <button type="button" class="btn btn-default" id="changeBack" style="position: fixed; top: 5px; right: 190px;"><img class="img-responsive" src="/view/design/refresh.png"></button>
 
         <div class="container-fluid">
-            <div class="greeting">
+            <div class="topPanel">
                 <p class="greetingWord">
                     Йау! Здесь можно сохранять структуру своих раскладов, выбирая очередность, положение и описание позиции. Для регистрации используйте любой логин-пароль, которые лучше записать. После сохранения расклада, его можно отредактировать или удалить, используя тот же логин и пароль. ВК для вопросов - /kushtengri.
                 </p>
+                <button type="button" class="btn btn-default" id="changeBack" style="position: fixed; top: 5px; right: 190px;"><img class="img-responsive" src="/view/design/refresh.png"></button>
             </div>
             <div class="container">
                 <?php echo $content; ?>
