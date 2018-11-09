@@ -21,6 +21,8 @@
             .topPanel {
                 background-color: #000000;
                 border: 2px solid #ffffff;
+                border-radius: 5px;
+                margin-bottom: 20px;
             }
             .greetingWord {
                 font-size: 20px;
@@ -36,7 +38,7 @@
                 <p class="greetingWord">
                     Йау! Здесь можно сохранять структуру своих раскладов, выбирая очередность, положение и описание позиции. Для регистрации используйте любой логин-пароль, которые лучше записать. После сохранения расклада, его можно отредактировать или удалить, используя тот же логин и пароль. ВК для вопросов - /kushtengri.
                 </p>
-                <button type="button" class="btn btn-default" id="changeBack" style="position: fixed; top: 5px; right: 190px;"><img class="img-responsive" src="/view/design/refresh.png"></button>
+                <button type="button" class="btn btn-default" id="changeBack" style="float: right; margin-top: 5px;"><img class="img-responsive" src="/view/design/refresh.png"></button>
             </div>
             <div class="container">
                 <?php echo $content; ?>
