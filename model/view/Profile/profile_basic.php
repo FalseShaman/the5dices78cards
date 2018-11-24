@@ -1,7 +1,7 @@
 <?php
     $user = json_decode($_SESSION['user']);
 
-    require_once 'spread.php';
+    require_once '/app/model/spread.php';
     $spread = new spread($user->id);
     $spreadList = $spread->getList();
     foreach ($spreadList as $spreadLi)
