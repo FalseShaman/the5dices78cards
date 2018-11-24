@@ -35,7 +35,7 @@
 
         <div class="container-fluid">
             <div class="topPanel">
-                <h2>ordo draco sacerdos</h2>
+                <h2 style="text-align: center; color: lightgray; font-family: initial;">ordo draco sacerdos</h2>
                 <button type="button" class="btn btn-default" id="changeBack" style="float: right; margin-top: 5px;"><img class="img-responsive" src="/view/design/refresh.png"></button>
             </div>
             <div class="container">
