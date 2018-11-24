@@ -35,9 +35,7 @@
 
         <div class="container-fluid">
             <div class="topPanel">
-                <p class="greetingWord">
-                    ordo draco sacerdos
-                </p>
+                <h2>ordo draco sacerdos</h2>
                 <button type="button" class="btn btn-default" id="changeBack" style="float: right; margin-top: 5px;"><img class="img-responsive" src="/view/design/refresh.png"></button>
             </div>
             <div class="container">
