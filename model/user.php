@@ -5,15 +5,17 @@
         id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
         name VARCHAR(390) NOT NULL,
         pass VARCHAR(390) NOT NULL,
-        folder VARCHAR(390) NOT NULL,
-        register VARCHAR(390) NOT NULL)
+        register VARCHAR(390) NOT NULL,
+        rules VARCHAR(390) NOT NULL,
+        specialization VARCHAR(390) DEFAULT NULL,
+        decks VARCHAR(390) DEFAULT NULL)
         */
 
-        public $username;
+        public $name;
         public $pass;
 
-        function __construct($username = '', $pass = '') {
-            $this->username = $username;
+        function __construct($name = '', $pass = '') {
+            $this->name = $name;
             $this->pass = $pass;
         }
 
@@ -32,8 +34,8 @@
 
         public function getOne() {
             $connect = new connection();
-            $username = $connect->db->real_escape_string($this->username);
-            $result = $connect->db->query('SELECT * FROM user WHERE name = "'.$username.'"');
+            $username = $connect->db->real_escape_string($this->name);
+            $result = $connect->db->query('SELECT * FROM user WHERE name = "'.$name.'"');
 
             if ($result && $result->num_rows > 0) {
                 return $result->fetch_assoc();
@@ -42,13 +44,13 @@
             }
         }
 
-        public function save() {
+        public function create($rules = '') {
             $connect = new connection();
-            $username = $connect->db->real_escape_string($this->username);
+            $name = $connect->db->real_escape_string($this->name);
             $pass = $connect->db->real_escape_string($this->pass);
-            $folder = md5($pass.$username);
+            $rules = $connect->db->real_escape_string($rules);
 
-            $result = $connect->db->query('INSERT INTO user (name, pass, folder, register) VALUES ("'.$username.'", "'.$pass.'", "'.$folder.'", NOW())');
+            $result = $connect->db->query('INSERT INTO user (name, pass, register, rules) VALUES ("'.$name.'", "'.$pass.'", NOW())', "'.$rules.'");
 
             if ($result) {
                 $this->auth();
@@ -58,10 +60,10 @@
 
         public function auth() {
             $connect = new connection();
-            $username = $connect->db->real_escape_string($this->username);
+            $name = $connect->db->real_escape_string($this->name);
             $pass = $connect->db->real_escape_string($this->pass);
 
-            $result = $connect->db->query('SELECT * FROM user WHERE name = "'.$username.'" AND pass = "'.$pass.'"');
+            $result = $connect->db->query('SELECT * FROM user WHERE name = "'.$name.'" AND pass = "'.$pass.'"');
 
             if ($result && $result->num_rows > 0) {
                 $_SESSION['user'] = json_encode($result->fetch_assoc());

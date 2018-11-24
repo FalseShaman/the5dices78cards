@@ -44,7 +44,7 @@
         </div>
 
         <?php if($leftMenu && $leftMenu > ''): ?>
-            <nav class="navbar navbar-dark bg-dark" style="position: absolute; top: 5px; left: 5px; width: 10%; border: solid 1px gray; border-radius: 33px; font-size: 1.3em;">
+            <nav class="navbar navbar-dark bg-dark" style="position: absolute; top: 55px; left: 5px; width: 10%; opacity: 0.7; border: solid 1px gray; border-radius: 33px; font-size: 1.3em;">
                 <ul class="navbar-nav">
                     <?php echo $leftMenu; ?>
                 </ul>
@@ -52,7 +52,7 @@
         <?php endif; ?>
 
         <?php if($rightMenu && $rightMenu > ''): ?>
-            <nav class="navbar navbar-dark bg-dark" style="position: absolute; top: 5px; right: 5px; width: 10%; border: solid 1px gray; border-radius: 33px; font-size: 1.1em;">
+            <nav class="navbar navbar-dark bg-dark" style="position: absolute; top: 55px; right: 5px; width: 15%; opacity: 0.7; border: solid 1px gray; border-radius: 33px; font-size: 1.1em;">
                 <ul class="navbar-nav">
                     <?php echo $rightMenu; ?>
                 </ul>
