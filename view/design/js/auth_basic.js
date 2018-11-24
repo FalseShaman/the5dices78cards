@@ -1,19 +1,11 @@
 var username = 0;
 var pass = 0;
 
-$('#username').keyup(function(){
+$('#name').keyup(function(){
     username = $(this).val();
-    if (username.length > 0 && pass.length > 0) {
-        $('#login').prop('disabled', false);
-    } else {
-        $('#login').prop('disabled', true);
-    }
 });
 $('#pass').keyup(function(){
     pass = $(this).val();
-    if (username.length > 0 && pass.length > 0) {
-        $('#login').prop('disabled', false);
-    }
 });
 
 $('#login').click(function(){
