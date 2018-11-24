@@ -5,7 +5,7 @@
         public $page;
         public $subpage;
         public $test;
-        
+
         public $pages = array(
             'auth' =>
                 array('login', 'register', 'logout'),
@@ -18,7 +18,7 @@
             'lost' =>
                 array()
             );
-                
+
         function __construct($path = '/') {
             if ($path == '/') {
                 $path = '/spread';
@@ -70,19 +70,6 @@
             }
         }
 
-        public function registerAuth() {
-            require_once 'user.php';
-            $user = new User($_POST['username'], $_POST['pass']);
-            if ($user->getOne()) {
-                return array('status' => 'fail', 'message' => 'Имя занято');
-            }
-            if ($user->save()) {
-                return array('status' => 'done');
-            } else {
-                return array('status' => 'fail', 'message' => 'Не удалось сохранить');
-            }
-        }
-
         public function logoutAuth() {
             unset($_SESSION['user']);
             header('HTTP/1.1 200 OK');
@@ -114,5 +101,5 @@
             return 'Url not found';
         }
     }
-    
+
 ?>
