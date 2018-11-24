@@ -8,36 +8,19 @@
             'open' => 'Открыть',
             'save' => 'Сохранить',
             'auth' => 'Авторизация',
-            'card' => 'Аркан',
             'profile' => 'Профиль',
             'spread' => 'Расклад',
             'lost' => 'Не найдена',
             'logout' => 'Выход',
-            'fail' => 'Перевод не найден',
-            'celtic-cross' => 'Кельтский крест',
-            'ishtar-travel' => 'Путешествие Иштар',
-            '78doors' => '78 дверей',
-            'ghosts' => 'Призраки',
-            'lovecraft' => 'Гримуар',
-            'manara' => 'Манара',
-            'nightsun' => 'Ночное солнце',
-            'shamans' => 'Шаманы',
-            'thoth' => 'Кроули',
-            'vargo' => 'Варго',
-            'egypt' => 'Египет',
-            'yearweel' => 'Колесо года',
-            'majorArcana' => array(
-                'Шут', 'Маг', 'Жрица', 'Императрица', 'Император', 'Иерофант', 'Связь', 'Колесница', 'Сила/Правосудие', 'Отшельник', 'Фортуна',
-                'Сила/Правосудие', 'Повешенный', 'Смерть', 'Искусство', 'Дьявол', 'Башня', 'Звезда', 'Луна', 'Солнце', 'Суд', 'Мир'
-            ),
-            'minorArcana' => array(1,2,3,4,5,6,7,8,9,10, 'Слуга', 'Воин', 'Владычица', 'Владыка')
+            'fail' => 'Перевод не найден'
         );
     }
 
-    function getDeckList() {
-        $folder = scandir('/app/gallery/');
-        return array_diff($folder, array('.', '..'));
-    }
+    // DeckUpdate
+    // function getDeckList() {
+    //     $folder = scandir('/app/gallery/');
+    //     return array_diff($folder, array('.', '..'));
+    // }
 
     $folder = scandir('/app/view/design/background/');
     $backList = array_diff($folder, array('.', '..'));

@@ -4,24 +4,21 @@
     {
         public $page;
         public $subpage;
-        public $test;
 
         public $pages = array(
             'auth' =>
-                array('login', 'register', 'logout'),
+                array('login', 'logout'),
             'profile' =>
-                array('save'),
-            'card' =>
-                array(),
+                array('open', 'save'),
             'spread' =>
-                array('open', 'save', 'remove'),
+                array('open', 'save'),
             'lost' =>
                 array()
             );
 
         function __construct($path = '/') {
             if ($path == '/') {
-                $path = '/spread';
+                $path = '/profile';
             }
             $parts = explode('/', $path);
             if ($parts[1] && $parts[1] > '' && isset($this->pages[$parts[1]])) {
@@ -77,24 +74,16 @@
             exit;
         }
 
-        public function openSpread() {
-            return array($_POST['id']);
-        }
-
         public function saveSpread() {
             $user = json_decode($_SESSION['user']);
 
             require_once 'spread.php';
-            $spread = new spread($user->id, $_POST['title'], $_POST['map']);
+            $spread = new spread($user->id, $_POST['title']);
             if ($spread->save()) {
                 return array('status' => 'done');
             } else {
                 return array('status' => 'fail', 'message' => 'Не удалось сохранить');
             }
-        }
-
-        public function removeSpread() {
-            return array($_POST['id'], $_POST['user_id']);
         }
 
         public function urlNotFound() {
