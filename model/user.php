@@ -59,17 +59,11 @@
             $pass = $connect->db->real_escape_string($this->pass);
 
             $result = $connect->db->query('SELECT * FROM user WHERE name = "'.$name.'" AND pass = "'.$pass.'"');
-            $response = array();
-            if ($result->num_rows > 0) {
-                $response = $result->fetch_assoc();
-            }
-            return $response;
 
-            if ($result && $result->num_rows > 0) {
+            if ($result->num_rows > 0) {
                 $_SESSION['user'] = json_encode($result->fetch_assoc());
                 return true;
-            } else {
-                return false;
             }
+            return false;
         }
     }
