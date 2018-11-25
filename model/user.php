@@ -61,11 +61,9 @@
             $result = $connect->db->query('SELECT * FROM user WHERE name = "'.$name.'" AND pass = "'.$pass.'"');
             $response = array();
             if ($result->num_rows > 0) {
-                while($row = $result->fetch_assoc()) {
-                    $response[] = $row;
-                }
+                $response = $result->fetch_assoc();
             }
-            return $result->num_rows;
+            return $response;
 
             if ($result && $result->num_rows > 0) {
                 $_SESSION['user'] = json_encode($result->fetch_assoc());
