@@ -60,10 +60,7 @@
             require_once 'user.php';
             $user = new User($_POST['name'], $_POST['pass']);
             $userData = $user->auth();
-
-            echo json_encode($userData); die();
-
-            if ($userData) {
+            if ($userData->id) {
                 return array('status' => 'done');
             } else {
                 return array('status' => 'fail', 'message' => 'Ошибка авторизации');
