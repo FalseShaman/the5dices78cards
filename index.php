@@ -2,34 +2,25 @@
     session_start();
     require_once 'model/connection.php';
 
-    $connect = new connection();
-    $result = $connect->db->query('CREATE TABLE IF NOT EXISTS spread (
-        id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-        title VARCHAR(390) NOT NULL,
-        user_id INT(6) UNSIGNED NOT NULL)');
-    $result = $connect->db->query('DESCRIBE spread;');
-    $response = array();
-    if ($result->num_rows > 0) {
-        while($row = $result->fetch_assoc()) {
-            $response[] = $row;
-        }
-    }
-    var_dump($response);
-    $result = $connect->db->query(' CREATE TABLE IF NOT EXISTS position (
-        id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-        name VARCHAR(390) NOT NULL,
-        number SMALLINT UNSIGNED NOT NULL,
-        description TEXT NOT NULL,
-        spread_id INT(6) UNSIGNED NOT NULL)');
-    $result = $connect->db->query('DESCRIBE position;');
-    $response = array();
-    if ($result->num_rows > 0) {
-        while($row = $result->fetch_assoc()) {
-            $response[] = $row;
-        }
-    }
-    var_dump($response);
-die();
+    //  PHP don't mind admin
+    //     $connect = new connection();
+    //     $result = $connect->db->query('');
+    //     $result = $connect->db->query('');
+    //     $response = array();
+    //     if ($result->num_rows > 0) {
+    //         while($row = $result->fetch_assoc()) {
+    //             $response[] = $row;
+    //         }
+    //     }
+    //     var_dump($response);
+    // die();
+
+    // User creator
+    require_once 'model/user.php';
+    $user = new user('kush', 'tengri');
+    $user->create('Посох, Мантия, Спелбук, Специализация, Колода, Имя, Ритуал, Словарь, Рост - цена, Развитие - польза, Колода - цель, Орден - тайна');
+
+
     function getTranslate() {
         return array(
             'new' => 'Новый',
