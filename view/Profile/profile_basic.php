@@ -9,8 +9,8 @@
         $rightMenu .= '<li class="nav-item"><button class="btn btn-light" href="javascript:void(0);" id="'.$spreadLi->id.'" style="margin: 10px 0;">'.$spreadLi->title.'</button></li>';
     }
 
-    $openButton = '<button type="button" class="btn btn-light" id="profileEditButton" title="Редактировать" style="position: fixed; top: 10px; right: 12%;"><img class="img-responsive" src="/view/design/edit.png"></button>';
-    $saveButton = '<button type="button" class="btn btn-light" id="profileSaveButton" title="Сохранить" style="position: fixed; top: 55px; right: 12%;"><img class="img-responsive" src="/view/design/save.png"></button>';
+    $openButton = '<button type="button" class="btn btn-light" id="profileEditButton" title="Редактировать" style="position: fixed; top: 55px; right: 12%;"><img class="img-responsive" src="/view/design/edit.png"></button>';
+    $saveButton = '<button type="button" class="btn btn-light" id="profileSaveButton" title="Сохранить" style="position: fixed; top: 105px; right: 12%;"><img class="img-responsive" src="/view/design/save.png"></button>';
     $controlPanel .= $openButton.$saveButton;
 
     $profile = '<div class="row">';
