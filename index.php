@@ -5,7 +5,13 @@
     $connect = new connection();
     $result = $connect->db->query('DROP TABLE user');
     $result = $connect->db->query('SELECT table_name FROM information_schema.tables;');
-    var_dump($result); die();
+    $response = array();
+    if ($result->num_rows > 0) {
+        while($row = $result->fetch_assoc()) {
+            $response[] = $row;
+        }
+    }
+    var_dump($response); die();
 
     function getTranslate() {
         return array(
