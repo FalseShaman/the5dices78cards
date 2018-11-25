@@ -3,7 +3,7 @@
     require_once 'model/connection.php';
 
     $connect = new connection();
-    $result = $connect->db->query('DROP TABLE user');
+    $result = $connect->db->query('DROP TABLE spread');
     $result = $connect->db->query('SELECT table_name FROM information_schema.tables;');
     $response = array();
     if ($result->num_rows > 0) {
