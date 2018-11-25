@@ -63,7 +63,7 @@
             if ($userData) {
                 return array('status' => 'done');
             } else {
-                return array('status' => 'fail', 'message' => 'Ошибка авторизации');
+                return array('status' => 'fail', 'message' => 'Ошибка авторизации'.$user->name.$user->pass);
             }
         }
 
