@@ -58,8 +58,7 @@
             $name = $connect->db->real_escape_string($this->name);
             $pass = $connect->db->real_escape_string($this->pass);
 
-            //$result = $connect->db->query('SELECT * FROM user WHERE name = "'.$name.'" AND pass = "'.$pass.'"');
-            $result = $connect->db->query('SELECT * FROM user');
+            $result = $connect->db->query('SELECT * FROM user WHERE name = "'.$name.'" AND pass = "'.$pass.'"');
             $response = array();
             if ($result->num_rows > 0) {
                 while($row = $result->fetch_assoc()) {
