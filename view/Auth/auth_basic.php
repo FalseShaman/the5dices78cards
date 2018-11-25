@@ -7,7 +7,7 @@
                         <input type="text" class="form-control" id="pass" autocomplete="off" placeholder="pass">
                     </div>
                     <div class="form-group col-md-4">
-                        <button type="button" class="form-control btn btn-info" id="login">Welcome</button>
+                        <button type="button" class="form-control btn btn-info" id="login">Yau!</button>
                     </div>
                     <div class="col-md-8"></div>
                     <div class="form-group col-md-4">
