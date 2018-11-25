@@ -18,7 +18,7 @@
 
         function __construct($path = '/') {
             if ($path == '/') {
-                $path = '/spread';
+                $path = '/profile';
             }
             $parts = explode('/', $path);
             if ($parts[1] && $parts[1] > '' && isset($this->pages[$parts[1]])) {

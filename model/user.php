@@ -49,7 +49,7 @@
             $name = $connect->db->real_escape_string($this->name);
             $pass = $connect->db->real_escape_string($this->pass);
             $rules = $connect->db->real_escape_string($rules);
-            $result = $connect->db->query('INSERT INTO user (name, pass, register, rules) VALUES ("'.$name.'", "'.$pass.'", NOW()), "'.$rules.'"');
+            $result = $connect->db->query('INSERT INTO user (name, pass, register, rules) VALUES ("'.$name.'", "'.$pass.'", NOW(), "'.$rules.'")');
             return $result;
         }
 
