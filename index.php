@@ -3,8 +3,15 @@
     require_once 'model/connection.php';
 
     $connect = new connection();
-    $result = $connect->db->query('DROP TABLE spread');
-    $result = $connect->db->query('SELECT table_name FROM information_schema.tables;');
+    $result = $connect->db->query('CREATE TABLE IF NOT EXISTS user (
+        id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+        name VARCHAR(390) NOT NULL,
+        pass VARCHAR(390) NOT NULL,
+        register VARCHAR(390) NOT NULL,
+        rules VARCHAR(390) NOT NULL,
+        specialization VARCHAR(390) DEFAULT NULL,
+        decks VARCHAR(390) DEFAULT NULL)');
+    $result = $connect->db->query('DESCRIBE user;');
     $response = array();
     if ($result->num_rows > 0) {
         while($row = $result->fetch_assoc()) {
