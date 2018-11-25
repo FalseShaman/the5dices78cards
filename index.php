@@ -2,6 +2,11 @@
     session_start();
     require_once 'model/connection.php';
 
+    $connect = new connection();
+    $result = $connect->db->query('DROP TABLE user');
+    $result = $connect->db->query('SELECT table_name FROM information_schema.tables;');
+    var_dump($result); die();
+
     function getTranslate() {
         return array(
             'new' => 'Новый',
