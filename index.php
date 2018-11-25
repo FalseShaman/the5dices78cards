@@ -16,9 +16,9 @@
     // die();
 
     // User creator
-    require_once 'model/user.php';
-    $user = new user('kush', 'tengri');
-    $user->create('Посох, Мантия, Спелбук, Специализация, Колода, Имя, Ритуал, Словарь, Рост - цена, Развитие - польза, Колода - цель, Орден - тайна');
+    // require_once 'model/user.php';
+    // $user = new user('kush', 'tengri');
+    // $user->create('Посох, Мантия, Спелбук, Специализация, Колода, Имя, Ритуал, Словарь, Рост - цена, Развитие - польза, Колода - цель, Орден - тайна');
 
 
     function getTranslate() {
