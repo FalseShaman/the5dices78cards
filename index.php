@@ -3,23 +3,33 @@
     require_once 'model/connection.php';
 
     $connect = new connection();
-    $result = $connect->db->query('CREATE TABLE IF NOT EXISTS user (
+    $result = $connect->db->query('CREATE TABLE IF NOT EXISTS spread (
         id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-        name VARCHAR(390) NOT NULL,
-        pass VARCHAR(390) NOT NULL,
-        register VARCHAR(390) NOT NULL,
-        rules VARCHAR(390) NOT NULL,
-        specialization VARCHAR(390) DEFAULT NULL,
-        decks VARCHAR(390) DEFAULT NULL)');
-    $result = $connect->db->query('DESCRIBE user;');
+        title VARCHAR(390) NOT NULL,
+        user_id INT(6) UNSIGNED NOT NULL)');
+    $result = $connect->db->query('DESCRIBE spread;');
     $response = array();
     if ($result->num_rows > 0) {
         while($row = $result->fetch_assoc()) {
             $response[] = $row;
         }
     }
-    var_dump($response); die();
-
+    var_dump($response);
+    $result = $connect->db->query(' CREATE TABLE IF NOT EXISTS position (
+        id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+        name VARCHAR(390) NOT NULL,
+        number SMALLINT UNSIGNED NOT NULL,
+        description TEXT NOT NULL,
+        spread_id INT(6) UNSIGNED NOT NULL)');
+    $result = $connect->db->query('DESCRIBE position;');
+    $response = array();
+    if ($result->num_rows > 0) {
+        while($row = $result->fetch_assoc()) {
+            $response[] = $row;
+        }
+    }
+    var_dump($response);
+die();
     function getTranslate() {
         return array(
             'new' => 'Новый',
@@ -61,7 +71,7 @@
         $leftMenu = $controller->getNav(getTranslate());
         $content = '';
 
-        require 'model/view/'.ucfirst($controller->page).'/'.$controller->page.'_'.$controller->subpage.'.php';
+        require 'view/'.ucfirst($controller->page).'/'.$controller->page.'_'.$controller->subpage.'.php';
         include_once('view/layout.php');
     }
 
