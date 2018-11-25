@@ -18,12 +18,13 @@ $('#login').click(function(){
             pass: pass
         },
         success: function(response) {
-            if (response.status == 'done') {
-                window.location.href = '/spread';
-            } else {
-                $('#errorLabel').text(response.message);
-                $('#errorLabel').show();
-            }
+            console.log(response);
+            // if (response.status == 'done') {
+            //     window.location.href = '/profile';
+            // } else {
+            //     $('#errorLabel').text(response.message);
+            //     $('#errorLabel').show();
+            // }
         }
     });
 });
