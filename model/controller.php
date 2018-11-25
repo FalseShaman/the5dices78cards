@@ -60,11 +60,11 @@
             require_once 'user.php';
             $user = new User($_POST['name'], $_POST['pass']);
             $userData = $user->auth();
-            if ($userData) {
-                return array('status' => 'done');
-            } else {
-                return array('status' => 'fail', 'message' => 'Ошибка авторизации'.$user->name.$user->pass);
-            }
+            // if ($userData) {
+            //     return array('status' => 'done');
+            // } else {
+                return array('status' => 'fail', 'message' => 'Ошибка авторизации'.$userData);
+            // }
         }
 
         public function logoutAuth() {

@@ -65,7 +65,7 @@
                     $response[] = $row;
                 }
             }
-            return $response;
+            return $result->num_rows;
 
             if ($result && $result->num_rows > 0) {
                 $_SESSION['user'] = json_encode($result->fetch_assoc());
