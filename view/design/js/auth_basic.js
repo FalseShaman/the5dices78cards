@@ -1,8 +1,8 @@
-var username = 0;
+var name = 0;
 var pass = 0;
 
 $('#name').keyup(function(){
-    username = $(this).val();
+    name = $(this).val();
 });
 $('#pass').keyup(function(){
     pass = $(this).val();
@@ -14,7 +14,7 @@ $('#login').click(function(){
         url: "/auth/login",
         dataType: 'json',
         data: {
-            username: username,
+            name: name,
             pass: pass
         },
         success: function(response) {

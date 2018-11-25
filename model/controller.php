@@ -58,12 +58,12 @@
 
         public function loginAuth() {
             require_once 'user.php';
-            $user = new User($_POST['username'], $_POST['pass']);
+            $user = new User($_POST['name'], $_POST['pass']);
             $userData = $user->auth();
             if ($userData) {
                 return array('status' => 'done');
             } else {
-                return array('status' => 'fail', 'message' => 'Ошибка авторизации');
+                return array('status' => 'fail', 'message' => 'Ошибка авторизации    -    '.$_POST['name'].'      -         '.$_POST['pass']);
             }
         }
 
