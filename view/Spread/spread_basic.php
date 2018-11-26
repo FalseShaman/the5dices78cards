@@ -16,6 +16,6 @@
                 <button class="form-control" id="createSpread">Создать</button>
             </div>';
     
-    $spreadPlace = '<div class="col-md-12" id="newSpreadPlace></div>';
+    $spreadPlace = '<div class="col-md-12" id="newSpreadPlace"></div>';
 
     $content = $form.$spreadPlace;
