@@ -12,6 +12,12 @@
                 array('open', 'save'),
             'spread' =>
                 array('open', 'save'),
+            'story' =>
+                array('open', 'save'),
+            'quest' =>
+                array('open', 'save'),
+            'article' =>
+                array('open', 'save'),
             'lost' =>
                 array()
             );
