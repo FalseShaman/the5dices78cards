@@ -8,7 +8,6 @@
         <div class="container-fluid">
             <div class="topPanel">
                 <h2>ordo draco sacerdos librarium</h2>
-                <button type="button" class="btn btn-default backChangeButton" id="backChangeButton"><img class="img-responsive" src="/view/design/refresh.png"></button>
             </div>
             <div class="container">
                 <?php echo $content; ?>
@@ -26,6 +25,7 @@
         <?php if($rightMenu && $rightMenu > ''): ?>
             <nav class="navbar rightMenu">
                 <ul class="navbar-nav">
+                    <button type="button" class="btn btn-light" id="backChangeButton"><img class="img-responsive" src="/view/design/refresh.png"></button>
                     <?php echo $rightMenu; ?>
                 </ul>
             </nav>

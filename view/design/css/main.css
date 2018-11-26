@@ -16,11 +16,6 @@ body {
 	text-align: center; 
 }
 
-.backChangeButton {
-	float: right; 
-	margin-top: 12px;
-}
-
 .leftMenu {
 	position: absolute;
 	top: 55px;
@@ -35,15 +30,16 @@ body {
 .rightMenu {
 	position: absolute;
 	top: 55px;
-	right: 75px;
-	width: 7%;
-	background: #110101;
+	right: 77px;
+	width: 10%;
+	background: #1a1926;
 	border-radius: 12px;
 	padding: 0 0 0 10px;
+	border: 2px solid #747373;
 }
 .rightMenu button {
 	margin: 10px;
-	border: 3px solid #7A0011;
+	border: 3px solid #3E2B2D;
 	border-radius: 13px;
 }
 
