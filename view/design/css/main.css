@@ -30,7 +30,7 @@ body {
 .rightMenu {
 	position: absolute;
 	top: 55px;
-	right: 77px;
+	right: 11px;
 	width: 10%;
 	background: #1a1926;
 	border-radius: 12px;
@@ -47,19 +47,25 @@ body {
 	font-size: 1.2em;
 	padding-right: 11px;
 }
-.createSpreadForm .textInput {
+.createSpreadForm .nameInput {
 	display: inline-block;
 }
-.createSpreadForm .textInput input {
+.createSpreadForm .nameInput input {
 	display: inline-block;
 	width: 66%;
 }
 .createSpreadForm .numberInput {
 	display: inline-block;
+	margin-left: 11px;
+	float: right;
 }
 .createSpreadForm .numberInput input {
 	width: 66px;
 	display: inline-block;
 	bottom: 2px;
 	position: relative;
+}
+.createSpreadForm .textInput {
+	display: inline-block;
+	width: 100%;
 }

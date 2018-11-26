@@ -2,7 +2,7 @@
     $form = '';
     $form = '<form id="createSpreadForm" class="createSpreadForm"> 
                 <div class="col-md-12">
-                    <div class="textInput">
+                    <div class="nameInput">
                         <label for="title">Название:</label>
                         <input type="text" class="form-control" id="title">
                     </div>
