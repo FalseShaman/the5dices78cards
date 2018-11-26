@@ -22,7 +22,7 @@ $('#history').keyup(function(){
 
 $('#spreadSaveButton').click(function(){
     var write = true;
-    if (title.length) {
+    if (title.length == 0) {
         $('#title').attr('style', 'border: 3px solid #FF6C00;');
         $('label[for="title"]').attr('style', 'color: #FF6C00;');
         write = false;
@@ -37,12 +37,12 @@ $('#spreadSaveButton').click(function(){
         $('label[for="length"]').attr('style', 'color: #FF6C00;');
         write = false;
     }
-    if (specification.length) {
+    if (specification.length == 0) {
         $('#specification').attr('style', 'border: 3px solid #FF6C00;');
         $('label[for="specification"]').attr('style', 'color: #FF6C00;');
         write = false;
     }
-    if (history.length) {
+    if (history.length == 0) {
         $('#history').attr('style', 'border: 3px solid #FF6C00;');
         $('label[for="history"]').attr('style', 'color: #FF6C00;');
         write = false;
