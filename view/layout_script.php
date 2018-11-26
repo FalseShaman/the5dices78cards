@@ -10,9 +10,6 @@
         pic.src = '/view/design/background/'+val;
     });
 
-    var number = Math.floor((Math.random() * backList.length));
-    $('body').attr('style', 'background-image: url("/view/design/background/'+backList[number]+'"); background-size: 100%;');
-
     $('#changeBack').click(function(){
         number = Math.floor((Math.random() * backList.length));
         $('body').attr('style', 'background-image: url("/view/design/background/'+backList[number]+'"); background-size: 100%;');

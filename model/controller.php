@@ -14,9 +14,9 @@
                 array('open', 'save'),
             'story' =>
                 array('open', 'save'),
-            'quest' =>
-                array('open', 'save'),
             'article' =>
+                array('open', 'save'),
+            'quest' =>
                 array('open', 'save'),
             'lost' =>
                 array()

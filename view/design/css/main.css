@@ -1,5 +1,7 @@
 body {
-
+	background-image: url("/view/design/background/stone.jpg");
+	background-size: 100%;
+	color: #ffffff;
 }
 
 .topPanel {
@@ -49,13 +51,22 @@ body {
 	font-size: 2em;
 	padding-right: 11px;
 }
+.createSpreadForm .textInput {
+	display: inline-block;
+	padding-right: 0;
+}
+.createSpreadForm .textInput input {
+	display: inline-block;
+	width: 66%;
+}
 .createSpreadForm .numberInput {
-	width:66px;
+	display: inline-block;
+	padding-left: 77px;
+	padding-right: 0;
+}
+.createSpreadForm .numberInput input {
+	width: 66px;
 	display: inline-block;
 	bottom: 2px;
 	position: relative;
-}
-.createSpreadForm .textInput {
-	display: inline-block;
-	width: 66%;
 }

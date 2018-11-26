@@ -24,7 +24,7 @@
         <?php endif; ?>
 
         <?php if($rightMenu && $rightMenu > ''): ?>
-            <nav class="navbar rightMenu" style="position: absolute; top: 55px; right: 5px; width: 10%; border: solid 1px gray; border-radius: 33px;">
+            <nav class="navbar rightMenu">
                 <ul class="navbar-nav">
                     <?php echo $rightMenu; ?>
                 </ul>
