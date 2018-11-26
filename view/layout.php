@@ -14,22 +14,22 @@
             </div>
         </div>
 
-        <?php if($leftMenu && $leftMenu > ''): ?>
-            <nav class="navbar navbar-dark bg-dark leftMenu">
-                <ul class="navbar-nav">
+        <nav class="navbar navbar-dark bg-dark leftMenu">
+            <ul class="navbar-nav">
+                <?php if($leftMenu && $leftMenu > ''): ?>
                     <?php echo $leftMenu; ?>
-                </ul>
-            </nav>
-        <?php endif; ?>
+                <?php endif; ?>
+            </ul>
+        </nav>
 
-        <?php if($rightMenu && $rightMenu > ''): ?>
-            <nav class="navbar rightMenu">
-                <ul class="navbar-nav">
-                    <button type="button" class="btn btn-light" id="backChangeButton"><img class="img-responsive" src="/view/design/refresh.png"></button>
+        <nav class="navbar rightMenu">
+            <ul class="navbar-nav">
+                <button type="button" class="btn btn-light" id="backChangeButton"><img class="img-responsive" src="/view/design/refresh.png"></button>
+                <?php if($rightMenu && $rightMenu > ''): ?>
                     <?php echo $rightMenu; ?>
-                </ul>
-            </nav>
-        <?php endif; ?>
+                <?php endif; ?>
+            </ul>
+        </nav>
 
         <?php include('layout_script.php'); ?>
     </body>

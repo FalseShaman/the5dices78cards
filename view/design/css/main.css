@@ -49,7 +49,6 @@ body {
 }
 .createSpreadForm .textInput {
 	display: inline-block;
-	padding-right: 0;
 }
 .createSpreadForm .textInput input {
 	display: inline-block;
@@ -57,10 +56,6 @@ body {
 }
 .createSpreadForm .numberInput {
 	display: inline-block;
-	padding-left: 77px;
-	padding-right: 0;
-	position: relative;
-	left: 55px;
 }
 .createSpreadForm .numberInput input {
 	width: 66px;

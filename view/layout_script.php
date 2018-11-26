@@ -10,7 +10,7 @@
         pic.src = '/view/design/background/'+val;
     });
 
-    $('#changeBack').click(function(){
+    $('#backChangeButton').click(function(){
         number = Math.floor((Math.random() * backList.length));
         $('body').attr('style', 'background-image: url("/view/design/background/'+backList[number]+'"); background-size: 100%;');
     });
