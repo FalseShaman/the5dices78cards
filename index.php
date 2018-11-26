@@ -2,7 +2,7 @@
     session_start();
     require_once 'model/connection.php';
 
-    //  PHP don't mind admin
+    //  PHP don't care admin
     //     $connect = new connection();
     //     $result = $connect->db->query('');
     //     $result = $connect->db->query('');
