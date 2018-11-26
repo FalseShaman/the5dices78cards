@@ -17,13 +17,13 @@
                 </div> 
                 <div class="col-md-12">
                     <div class="textInput">
-                        <label for="title">Назначение:</label>
+                        <label for="specification">Назначение:</label>
                         <textarea class="form-control" id="specification"></textarea>                    
                     </div>
                 </div>
                 <div class="col-md-12">
                     <div class="textInput">
-                        <label for="title">История:</label>
+                        <label for="history">История:</label>
                         <textarea class="form-control" id="history"></textarea>                    
                     </div>
                 </div>
