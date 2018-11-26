@@ -1,3 +1,31 @@
 body {
-  font-size: 1.2em;
+
+}
+
+.topPanel {
+	background-color: #000000;
+	border: 2px solid #ffffff;
+	border-radius: 5px;
+	margin-bottom: 20px;
+}
+.topPanel h2 {
+	font-family: initial;
+	color: lightgray; 
+	text-align: center; 
+}
+
+.backChangeButton {
+	float: right; 
+	margin-top: 12px;
+}
+
+.leftMenu {
+	position: absolute;
+	top: 55px;
+	left: 15px;
+	width: 12%;
+	opacity: 0.7;
+	border: solid 1px gray;
+	border-radius: 33px;
+	font-size: 1.2em;
 }

@@ -19,3 +19,7 @@
     $spreadPlace = '<div class="col-md-12" id="newSpreadPlace"></div>';
 
     $content = $form.$spreadPlace;
+
+    $openButton = '<button type="button" class="btn btn-light" id="profileEditButton" title="Редактировать"><img class="img-responsive" src="/view/design/edit.png"></button>';
+    $saveButton = '<button type="button" class="btn btn-light" id="profileSaveButton" title="Сохранить"><img class="img-responsive" src="/view/design/save.png"></button>';
+    $rightMenu = $openButton.$saveButton;

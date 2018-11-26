@@ -2,41 +2,13 @@
 <html>
     <head>
         <?php include('layout_head.php'); ?>
-        <style>
-            .descPosition {
-                position: absolute;
-                top: 35%;
-                margin-right: 15px;
-                color: #ffffff;
-                background-color: #000000;
-                word-break: break-all;
-                text-align: center;
-                opacity: 0;
-                width: 80%;
-                height: 30%;
-            }
-            .descPosition:hover {
-                opacity: 0.7;
-            }
-            .topPanel {
-                background-color: #000000;
-                border: 2px solid #ffffff;
-                border-radius: 5px;
-                margin-bottom: 20px;
-            }
-            .greetingWord {
-                font-size: 20px;
-                color: #ffffff;
-            }
-        </style>
     </head>
 
-    <body style="background-image: url('/view/design/background/stone.jpg'); background-size: 100%;">
-
+    <body>
         <div class="container-fluid">
             <div class="topPanel">
-                <h2 style="text-align: center; color: lightgray; font-family: initial;">ordo draco sacerdos</h2>
-                <button type="button" class="btn btn-default" id="changeBack" style="float: right; margin-top: 5px;"><img class="img-responsive" src="/view/design/refresh.png"></button>
+                <h2>ordo draco sacerdos librarium</h2>
+                <button type="button" class="btn btn-default backChangeButton" id="backChangeButton"><img class="img-responsive" src="/view/design/refresh.png"></button>
             </div>
             <div class="container">
                 <?php echo $content; ?>
@@ -44,7 +16,7 @@
         </div>
 
         <?php if($leftMenu && $leftMenu > ''): ?>
-            <nav class="navbar navbar-dark bg-dark" style="position: absolute; top: 55px; left: 5px; width: 10%; opacity: 0.7; border: solid 1px gray; border-radius: 33px; font-size: 1.3em;">
+            <nav class="navbar navbar-dark bg-dark leftMenu">
                 <ul class="navbar-nav">
                     <?php echo $leftMenu; ?>
                 </ul>
@@ -52,7 +24,7 @@
         <?php endif; ?>
 
         <?php if($rightMenu && $rightMenu > ''): ?>
-            <nav class="navbar navbar-dark bg-dark" style="position: absolute; top: 55px; right: 5px; width: 15%; opacity: 0.7; border: solid 1px gray; border-radius: 33px; font-size: 1.1em;">
+            <nav class="navbar navbar-dark bg-dark" style="position: absolute; top: 55px; right: 5px; width: 10%; border: solid 1px gray; border-radius: 33px;">
                 <ul class="navbar-nav">
                     <?php echo $rightMenu; ?>
                 </ul>
