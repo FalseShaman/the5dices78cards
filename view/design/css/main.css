@@ -126,3 +126,7 @@ body {
 	display: inline-block;
 	width: 100%;
 }
+
+.spreadList {
+	margin: 15px;
+}

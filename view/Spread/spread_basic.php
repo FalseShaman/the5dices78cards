@@ -8,14 +8,13 @@
     $list = '<ul class="list-group spreadList">';
     foreach ($spreadList as $spreadLi)
     {
-        var_dump($spreadLi);
         $list .= '<li class="list-group-item">
-                    <button class="btn btn-default openSpread">'.$spreadLi->title.'</button>
+                    <button class="btn btn-default openSpread" data-id="'.$spreadLi['id'].'">'.$spreadLi['title'].'</button>
                 </li>';
     }
     $list .= '</ul>';
 
-    $form = '<form class="createSpreadForm"> 
+    $form = '<form class="createSpreadForm" style="display: none;"> 
                 <div class="col-md-12">
                     <div class="titleInput">
                         <label for="spreadTitle">Название:</label>
@@ -90,4 +89,4 @@
     $newButton = '<button type="button" class="btn btn-light" id="spreadCreate" title="Создать"><img class="img-responsive" src="/view/design/new.png"></button>';
     $listButton = '<button type="button" class="btn btn-light" id="spreadList" title="Список"><img class="img-responsive" src="/view/design/box.png"></button>';
     $saveButton = '<button type="button" class="btn btn-light" id="spreadSave" title="Сохранить"><img class="img-responsive" src="/view/design/save.png"></button>';
-    $rightMenu = $saveButton;
+    $rightMenu = .$newButton.$listButton.$saveButton;

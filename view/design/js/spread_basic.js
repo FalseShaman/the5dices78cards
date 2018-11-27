@@ -8,6 +8,15 @@ function removeErrors(formClass) {
     $('.'+formClass+' textarea').attr('style', '');
 }
 
+$('#spreadCreate').click(function(){
+    $('.createSpreadForm').show();
+    $('.spreadList').hide();
+});
+$('#spreadList').click(function(){
+    $('.spreadList').show();
+    $('.createSpreadForm').hide();
+});
+
 var spreadId = 0;
 var spreadTitle = '';
 var spreadHeight = 0;
@@ -47,14 +56,6 @@ $('#spreadSave').click(function(){
         setError('spreadLength');
         write = false;
     }
-    if (spreadSpecification.length == 0) {
-        setError('spreadSpecification');
-        write = false;
-    }
-    if (spreadHistory.length == 0) {
-        setError('spreadHistory');
-        write = false;
-    }
 
     if (write) {
         $.ajax({
@@ -88,6 +89,7 @@ $('#spreadSave').click(function(){
     }
 });
 
+var positionId = 0;
 var positionPlace = 0;
 var positionName = '';
 var positionNumber = 0;
@@ -130,6 +132,7 @@ $('#positionSave').click(function(){
             url: "/spread/save",
             dataType: 'json',
             data: {
+                id: positionId,
                 spread: spreadId,
                 place: positionPlace,
                 name: positionName,

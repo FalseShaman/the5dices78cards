@@ -6,8 +6,8 @@
         title VARCHAR(390) NOT NULL,
         height TINYINT UNSIGNED NOT NULL,
         length TINYINT UNSIGNED NOT NULL,
-        specification VARCHAR(660) NOT NULL,
-        history VARCHAR(660) NOT NULL,
+        specification VARCHAR(660) DEFAULT NULL,
+        history VARCHAR(660) DEFAULT NULL,
         user_id INT(6) UNSIGNED NOT NULL)
         */
 
@@ -53,7 +53,7 @@
                                             WHERE id = '.$spread_id.' AND user_id = '.$user_id);
 
             if ($result) {
-                return $spread_id;
+                return $spreadId;
             } else {
                 return false;
             }

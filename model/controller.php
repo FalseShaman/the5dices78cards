@@ -11,7 +11,7 @@
             'profile' =>
                 array('open', 'save'),
             'spread' =>
-                array('open', 'save'),
+                array('open', 'save', 'position'),
             'story' =>
                 array('open', 'save'),
             'article' =>
@@ -91,9 +91,26 @@
             } else {
                 $spreadId = $spread->create();
             }
-            
+
             if ($spreadId) {
                 return array('status' => 'done', 'id' => $spreadId);
+            } else {
+                return array('status' => 'fail', 'message' => 'Не удалось сохранить');
+            }
+        }
+
+        public function positionSpread() {
+            require_once 'position.php';
+            $position = new position($_POST['spread'], $_POST['place'], $_POST['name'], $_POST['number'], $_POST['description'], $_POST['link'], $_POST['card']);
+            
+            if ($_POST['id'] > 0) {
+                $positionId = $position->update();
+            } else {
+                $positionId = $position->create();
+            }
+
+            if ($positionId) {
+                return array('status' => 'done', 'id' => $positionId);
             } else {
                 return array('status' => 'fail', 'message' => 'Не удалось сохранить');
             }
