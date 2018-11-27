@@ -66,13 +66,12 @@ $('#spreadSaveButton').click(function(){
             success: function(response) {
                 if (response.status == 'done') {
                     $('#newSpreadPlace').append('<input type="hidden" id="spreadId" value="'+response.id+'">');
-                    var divHeight = Math.floor(100/spreadHeight);
                     var divWidth = Math.floor(100/spreadLength);
-                    var divCount = Math.floor(100/divHeight) * Math.floor(100/divWidth);
+                    var divCount = spreadHeight * spreadLength;
                     var map = '';
                     for (pos=divCount; pos>0; pos--)
                     {
-                        map += '<div style="width: '+divWidth+'%; height: '+divHeight+'%; border: 2px solid #200772; border-radius: 5px;"><button class="btn btn-info">Выбрать</button></div>'
+                        map += '<div style="width: '+divWidth+'%; border: 2px solid #200772; border-radius: 5px;"><button class="btn btn-info">Выбрать</button></div>'
                     }
                     $('#newSpreadPlace').append(map);  
                 } else {
