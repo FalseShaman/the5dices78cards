@@ -86,4 +86,36 @@ body {
 	width: 50%;
 	font-size: 0.8em;
 	margin-left: 25%;
+	padding: 7px;
+}
+
+.positionModal {
+	background-color: #010408;
+	border: 2px solid #26211d;
+}
+
+.createPositionForm label {
+	padding-right: 11px;
+}
+.createPositionForm .nameInput {
+	display: inline-block;
+}
+.createPositionForm .nameInput input {
+	display: inline-block;
+	width: 66%;
+}
+.createPositionForm .numberInput {
+	display: inline-block;
+	margin-left: 11px;
+	float: right;
+}
+.createPositionForm .numberInput input {
+	width: 66px;
+	display: inline-block;
+	bottom: 2px;
+	position: relative;
+}
+.createPositionForm .textInput {
+	display: inline-block;
+	width: 100%;
 }

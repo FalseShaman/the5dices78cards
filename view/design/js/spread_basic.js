@@ -71,7 +71,7 @@ $('#spreadSave').click(function(){
                     var map = '';
                     for (pos=divCount; pos>0; pos--)
                     {
-                        map += '<div style="width: '+divWidth+'%;"><button class="btn btn-info spreadPosition">Выбрать</button></div>'
+                        map += '<div style="width: '+divWidth+'%;"><button class="btn btn-default spreadPosition">Выбрать</button></div>'
                     }
                     $('#spreadMap').append(map);  
                 } else {
