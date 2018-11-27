@@ -8,6 +8,7 @@
     $list = '<ul class="list-group spreadList">';
     foreach ($spreadList as $spreadLi)
     {
+        var_dump($spreadLi);
         $list .= '<li class="list-group-item">
                     <button class="btn btn-default openSpread">'.$spreadLi->title.'</button>
                 </li>';
