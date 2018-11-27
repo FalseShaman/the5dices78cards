@@ -77,13 +77,13 @@ body {
 }
 .spreadMap div {
 	display: inline-block;
-	border: 2px solid #c0b0f3;
+	border: 2px solid #ffffff;
 	border-radius: 5px; 
-	padding-top: 7%;
+	padding-top: 4%;
+	padding-bottom: 4%;
 }
 .spreadMap button {
 	width: 50%;
 	font-size: 0.8em;
 	margin-left: 25%;
-	margin-bottom: 4%;
 }

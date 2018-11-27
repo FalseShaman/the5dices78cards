@@ -20,7 +20,7 @@ $('#spreadHistory').keyup(function(){
     spreadHistory = $(this).val();
 });
 
-$('#spreadSaveButton').click(function(){
+$('#spreadSave').click(function(){
     var write = true;
     $('label').attr('style', '');
     $('input').attr('style', '');
@@ -71,13 +71,19 @@ $('#spreadSaveButton').click(function(){
                     var map = '';
                     for (pos=divCount; pos>0; pos--)
                     {
-                        map += '<div style="width: '+divWidth+'%;"><button class="btn btn-info">Выбрать</button></div>'
+                        map += '<div style="width: '+divWidth+'%;"><button class="btn btn-info spreadPosition">Выбрать</button></div>'
                     }
-                    $('#newSpreadPlace').append(map);  
+                    $('#spreadMap').append(map);  
                 } else {
-                    $('#newSpreadPlace').append('<h3 style="color: #FF6C00;">'+response.message+'</h3>');
+                    $('#spreadMap').append('<h3 style="color: #FF6C00;">'+response.message+'</h3>');
                 }
             }
         }); 
     }
 });
+
+$('body')
+    .on('click', '.spreadPosition', function(){
+
+    })
+;       

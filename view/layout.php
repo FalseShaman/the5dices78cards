@@ -26,7 +26,7 @@
             <nav class="navbar rightMenu">
                 <ul class="navbar-nav">
                     <?php echo $rightMenu; ?>
-                    <button type="button" class="btn btn-light" id="backChangeButton"><img class="img-responsive" src="/view/design/refresh.png"></button>
+                    <button type="button" class="btn btn-light" id="backChange"><img class="img-responsive" src="/view/design/refresh.png"></button>
                 </ul>
             </nav>
         <?php endif; ?>     
