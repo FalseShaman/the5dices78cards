@@ -22,6 +22,9 @@ $('#spreadHistory').keyup(function(){
 
 $('#spreadSaveButton').click(function(){
     var write = true;
+    $('label').attr('style', '');
+    $('input').attr('style', '');
+    $('textarea').attr('style', '');
     if (spreadTitle.length == 0) {
         $('#spreadTitle').attr('style', 'border: 3px solid #FF6C00;');
         $('label[for="spreadTitle"]').attr('style', 'color: #FF6C00;');
@@ -32,7 +35,7 @@ $('#spreadSaveButton').click(function(){
         $('label[for="spreadHeight"]').attr('style', 'color: #FF6C00;');
         write = false;
     }
-    if (length <= 0) {
+    if (spreadLength <= 0) {
         $('#spreadLength').attr('style', 'border: 3px solid #FF6C00;');
         $('label[for="spreadLength"]').attr('style', 'color: #FF6C00;');
         write = false;
