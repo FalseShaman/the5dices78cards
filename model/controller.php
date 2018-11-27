@@ -85,7 +85,13 @@
 
             require_once 'spread.php';
             $spread = new spread($user->id, $_POST['title'], $_POST['height'], $_POST['length'], $_POST['specification'], $_POST['history']);
-            $spreadId = $spread->save();
+
+            if ($_POST['id'] > 0) {
+                $spreadId = $spread->update();
+            } else {
+                $spreadId = $spread->create();
+            }
+            
             if ($spreadId) {
                 return array('status' => 'done', 'id' => $spreadId);
             } else {

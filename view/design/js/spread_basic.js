@@ -62,6 +62,7 @@ $('#spreadSave').click(function(){
             url: "/spread/save",
             dataType: 'json',
             data: {
+                id: spreadId,
                 title: spreadTitle,
                 height: spreadHeight,
                 length: spreadLength,
@@ -87,7 +88,6 @@ $('#spreadSave').click(function(){
     }
 });
 
-var positionId = 0;
 var positionPlace = 0;
 var positionName = '';
 var positionNumber = 0;

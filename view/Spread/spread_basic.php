@@ -9,7 +9,7 @@
     foreach ($spreadList as $spreadLi)
     {
         $list .= '<li class="list-group-item">
-                    <button class="btn btn-default openSpread">'.$spreadLi->name.'</button>
+                    <button class="btn btn-default openSpread">'.$spreadLi->title.'</button>
                 </li>';
     }
     $list .= '</ul>';

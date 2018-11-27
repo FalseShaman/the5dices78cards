@@ -41,7 +41,25 @@
             return $response;
         }
 
-        public function save() {
+        public function update($spreadId) {
+            $connect = new connection();
+            $spread_id = $connect->db->real_escape_string($spreadId);
+            $user_id = $connect->db->real_escape_string($this->user_id);
+            $title = $connect->db->real_escape_string($this->title);
+            $specification = $connect->db->real_escape_string($this->specification);
+            $history = $connect->db->real_escape_string($this->history);
+
+            $result = $connect->db->query('UPDATE spread SET title = "'.$title.'", specification = "'.$specification.'", history = "'.$history.'" 
+                                            WHERE id = '.$spread_id.' AND user_id = '.$user_id);
+
+            if ($result) {
+                return $spread_id;
+            } else {
+                return false;
+            }
+        }
+
+        public function create() {
             $connect = new connection();
             $user_id = $connect->db->real_escape_string($this->user_id);
             $title = $connect->db->real_escape_string($this->title);
