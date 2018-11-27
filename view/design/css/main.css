@@ -71,3 +71,19 @@ body {
 	display: inline-block;
 	width: 100%;
 }
+
+.spreadMap {
+	margin-top: 20px;
+}
+.spreadMap div {
+	display: inline-block;
+	border: 2px solid #c0b0f3;
+	border-radius: 5px; 
+	padding-top: 7%;
+}
+.spreadMap button {
+	width: 50%;
+	font-size: 0.8em;
+	margin-left: 25%;
+	margin-bottom: 4%;
+}

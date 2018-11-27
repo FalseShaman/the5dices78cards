@@ -29,7 +29,7 @@
                 </div>
             </form>';
     
-    $spreadPlace = '<div class="col-md-12" id="newSpreadPlace"></div>';
+    $spreadPlace = '<div class="col-md-12 spreadMap" id="newSpreadPlace"></div>';
 
     $content = $form.$spreadPlace;
 
