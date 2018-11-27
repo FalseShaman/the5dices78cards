@@ -84,6 +84,6 @@ $('#spreadSave').click(function(){
 
 $('body')
     .on('click', '.spreadPosition', function(){
-
+        $('#positionSelector').modal('toggle');
     })
 ;       

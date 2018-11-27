@@ -78,7 +78,7 @@ body {
 .spreadMap div {
 	display: inline-block;
 	border: 2px solid #ffffff;
-	border-radius: 5px; 
+	border-radius: 33px; 
 	padding-top: 4%;
 	padding-bottom: 4%;
 }
