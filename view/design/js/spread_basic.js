@@ -1,3 +1,14 @@
+function setError(inputId) {
+    $('#'+inputId).attr('style', 'border: 3px solid #FF6C00;');
+    $('label[for="'+inputId+'"]').attr('style', 'color: #FF6C00;');
+}
+function removeErrors(formClass) {
+    $('.'+formClass+' label').attr('style', '');
+    $('.'+formClass+' input').attr('style', '');
+    $('.'+formClass+' textarea').attr('style', '');
+}
+
+var spreadId = 0;
 var spreadTitle = '';
 var spreadHeight = 0;
 var spreadLength = 0;
@@ -22,32 +33,26 @@ $('#spreadHistory').keyup(function(){
 
 $('#spreadSave').click(function(){
     var write = true;
-    $('label').attr('style', '');
-    $('input').attr('style', '');
-    $('textarea').attr('style', '');
+    removeErrors('createSpreadForm');
+
     if (spreadTitle.length == 0) {
-        $('#spreadTitle').attr('style', 'border: 3px solid #FF6C00;');
-        $('label[for="spreadTitle"]').attr('style', 'color: #FF6C00;');
+        setError('spreadTitle');
         write = false;
     }
     if (spreadHeight <= 0) {
-        $('#spreadHeight').attr('style', 'border: 3px solid #FF6C00;');
-        $('label[for="spreadHeight"]').attr('style', 'color: #FF6C00;');
+        setError('spreadHeight');
         write = false;
     }
     if (spreadLength <= 0) {
-        $('#spreadLength').attr('style', 'border: 3px solid #FF6C00;');
-        $('label[for="spreadLength"]').attr('style', 'color: #FF6C00;');
+        setError('spreadLength');
         write = false;
     }
     if (spreadSpecification.length == 0) {
-        $('#spreadSpecification').attr('style', 'border: 3px solid #FF6C00;');
-        $('label[for="spreadSpecification"]').attr('style', 'color: #FF6C00;');
+        setError('spreadSpecification');
         write = false;
     }
     if (spreadHistory.length == 0) {
-        $('#spreadHistory').attr('style', 'border: 3px solid #FF6C00;');
-        $('label[for="spreadHistory"]').attr('style', 'color: #FF6C00;');
+        setError('spreadHistory');
         write = false;
     }
 
@@ -65,15 +70,15 @@ $('#spreadSave').click(function(){
             },
             success: function(response) {
                 if (response.status == 'done') {
-                    $('#newSpreadPlace').append('<input type="hidden" id="spreadId" value="'+response.id+'">');
                     var divWidth = Math.floor(100/spreadLength);
                     var divCount = spreadHeight * spreadLength;
                     var map = '';
                     for (pos=divCount; pos>0; pos--)
                     {
-                        map += '<div style="width: '+divWidth+'%;"><button class="btn btn-default spreadPosition">Выбрать</button></div>'
+                        map += '<div style="width: '+divWidth+'%;" data-place="'+pos+'"><button class="btn btn-default spreadPosition">Выбрать</button></div>'
                     }
                     $('#spreadMap').append(map);  
+                    spreadId = response.id;
                 } else {
                     $('#spreadMap').append('<h3 style="color: #FF6C00;">'+response.message+'</h3>');
                 }
@@ -82,8 +87,72 @@ $('#spreadSave').click(function(){
     }
 });
 
+var positionId = 0;
+var positionPlace = 0;
+var positionName = '';
+var positionNumber = 0;
+var positionDescription = '';
+var positionLink = '';
+var positionCard = '';
+
+$('#positionName').keyup(function(){
+    positionName = $(this).val();
+});
+$('#positionNumber').keyup(function(){
+    positionNumber = $(this).val();
+});
+$('#positionDescription').keyup(function(){
+    positionDescription = $(this).val();
+});
+$('#positionLink').keyup(function(){
+    positionLink = $(this).val();
+});
+$('#positionCard').keyup(function(){
+    positionCard = $(this).val();
+});
+
+$('#positionSave').click(function(){
+    var write = true;
+    removeErrors('createPositionForm');
+
+    if (positionName.length == 0) {
+        setError('positionName');
+        write = false;
+    }
+    if (positionNumber < 0) {
+        setError('positionNumber');
+        write = false;
+    }
+
+    if (write) {
+        $.ajax({
+            method: "POST",
+            url: "/spread/save",
+            dataType: 'json',
+            data: {
+                spread: spreadId,
+                place: positionPlace,
+                name: positionName,
+                number: positionNumber,
+                description: positionDescription,
+                link: positionLink,
+                card: positionCard
+            },
+            success: function(response) {
+                if (response.status == 'done') {
+                    $('#positionSelector').modal('toggle');
+                    $('.spreadPosition[data-place="'+response.id+'"]').attr('data-id', response.id);
+                } else {
+                    $('#positionSave').parent().append('<h3 style="color: #FF6C00;">'+response.message+'</h3>');
+                }
+            }
+        }); 
+    }
+});
+
 $('body')
     .on('click', '.spreadPosition', function(){
+        positionPlace = $(this).attr('data-place');
         $('#positionSelector').modal('toggle');
     })
 ;       

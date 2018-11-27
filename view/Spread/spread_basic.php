@@ -1,8 +1,22 @@
 <?php
-    $form = '';
+    $user = json_decode($_SESSION['user']);
+
+    require_once '/app/model/spread.php';
+    $spread = new spread($user->id);
+    $spreadList = $spread->getList();
+
+    $list = '<ul class="list-group spreadList">';
+    foreach ($spreadList as $spreadLi)
+    {
+        $list .= '<li class="list-group-item">
+                    <button class="btn btn-default openSpread">'.$spreadLi->name.'</button>
+                </li>';
+    }
+    $list .= '</ul>';
+
     $form = '<form class="createSpreadForm"> 
                 <div class="col-md-12">
-                    <div class="nameInput">
+                    <div class="titleInput">
                         <label for="spreadTitle">Название:</label>
                         <input type="text" class="form-control" id="spreadTitle">
                     </div>
@@ -34,11 +48,8 @@
     $positionSelectModal = '<div class="modal fade" id="positionSelector" tabindex="-1" role="dialog" aria-hidden="true">
                                 <div class="modal-dialog" role="document">
                                     <div class="modal-content positionModal">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title">Выбор позиции</h5>
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                        </div>
                                         <div class="modal-body">
+                                            <button type="button" class="close modalClose" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                                             <form class="createPositionForm"> 
                                                 <div class="nameInput">
                                                     <label for="positionName">Имя:</label>
@@ -67,13 +78,15 @@
                                             </form> 
                                         </div>
                                         <div class="modal-footer">
-                                            <button type="button" class="form-control btn btn-success" id="positionSave" style="display: none">Ок</button>
+                                            <button type="button" class="form-control btn btn-info" id="positionSave">Ок</button>
                                         </div>
                                     </div>
                                 </div>
                             </div>';
 
-    $content = $form.$spreadMap.$positionSelectModal;
+    $content = $list.$form.$spreadMap.$positionSelectModal;
 
+    $newButton = '<button type="button" class="btn btn-light" id="spreadCreate" title="Создать"><img class="img-responsive" src="/view/design/new.png"></button>';
+    $listButton = '<button type="button" class="btn btn-light" id="spreadList" title="Список"><img class="img-responsive" src="/view/design/box.png"></button>';
     $saveButton = '<button type="button" class="btn btn-light" id="spreadSave" title="Сохранить"><img class="img-responsive" src="/view/design/save.png"></button>';
     $rightMenu = $saveButton;

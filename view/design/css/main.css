@@ -46,13 +46,19 @@ body {
 	margin: 10px;
 }
 
+.modalClose {
+	position: absolute;
+	right: 1px;
+	top: -9px;
+}
+
 .createSpreadForm label {
 	padding-right: 11px;
 }
-.createSpreadForm .nameInput {
+.createSpreadForm .titleInput {
 	display: inline-block;
 }
-.createSpreadForm .nameInput input {
+.createSpreadForm .titleInput input {
 	display: inline-block;
 	width: 66%;
 }
@@ -99,10 +105,11 @@ body {
 }
 .createPositionForm .nameInput {
 	display: inline-block;
+	width: 68%;
 }
 .createPositionForm .nameInput input {
 	display: inline-block;
-	width: 66%;
+	width: 83%;
 }
 .createPositionForm .numberInput {
 	display: inline-block;
