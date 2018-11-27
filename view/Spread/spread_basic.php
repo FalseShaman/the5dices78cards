@@ -3,28 +3,28 @@
     $form = '<form id="createSpreadForm" class="createSpreadForm"> 
                 <div class="col-md-12">
                     <div class="nameInput">
-                        <label for="title">Название:</label>
-                        <input type="text" class="form-control" id="title">
+                        <label for="spreadTitle">Название:</label>
+                        <input type="text" class="form-control" id="spreadTitle">
                     </div>
                     <div class="numberInput">
-                        <label for="length">Длина:</label>
-                        <input type="number" class="form-control" id="length">
+                        <label for="spreadLength">Длина:</label>
+                        <input type="number" class="form-control" id="spreadLength">
                     </div>
                     <div class="numberInput">
-                        <label for="height">Высота:</label>
-                        <input type="number" class="form-control" id="height">
+                        <label for="spreadHeight">Высота:</label>
+                        <input type="number" class="form-control" id="spreadHeight">
                     </div>
                 </div> 
                 <div class="col-md-12">
                     <div class="textInput">
-                        <label for="specification">Назначение:</label>
-                        <textarea class="form-control" id="specification"></textarea>                    
+                        <label for="spreadSpecification">Назначение:</label>
+                        <textarea class="form-control" id="spreadSpecification"></textarea>                    
                     </div>
                 </div>
                 <div class="col-md-12">
                     <div class="textInput">
-                        <label for="history">История:</label>
-                        <textarea class="form-control" id="history"></textarea>                    
+                        <label for="spreadHistory">История:</label>
+                        <textarea class="form-control" id="spreadHistory"></textarea>                    
                     </div>
                 </div>
             </form>';
