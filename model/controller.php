@@ -84,7 +84,7 @@
             $user = json_decode($_SESSION['user']);
 
             require_once 'spread.php';
-            $spread = new spread($user->id, $_POST['title'], $_POST['height'], $_POST['length']);
+            $spread = new spread($user->id, $_POST['title'], $_POST['height'], $_POST['length'], $_POST['specification'], $_POST['history']);
             $spreadId = $spread->save();
             if ($spreadId) {
                 return array('status' => 'done', 'id' => $spreadId);

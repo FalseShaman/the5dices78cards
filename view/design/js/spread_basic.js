@@ -1,50 +1,50 @@
-var title = '';
-var height = 0;
-var length = 0;
-var specification = '';
-var history = '';
+var spreadTitle = '';
+var spreadHeight = 0;
+var spreadLength = 0;
+var spreadSpecification = '';
+var spreadHistory = '';
 
-$('#title').keyup(function(){
-    title = $(this).val();
+$('#spreadTitle').keyup(function(){
+    spreadTitle = $(this).val();
 });
-$('#height').keyup(function(){
-    height = $(this).val();
+$('#spreadHeight').keyup(function(){
+    spreadHeight = $(this).val();
 });
-$('#length').keyup(function(){
-    length = $(this).val();
+$('#spreadLength').keyup(function(){
+    spreadLength = $(this).val();
 });
-$('#specification').keyup(function(){
-    specification = $(this).val();
+$('#spreadSpecification').keyup(function(){
+    spreadSpecification = $(this).val();
 });
-$('#history').keyup(function(){
-    history = $(this).val();
+$('#spreadHistory').keyup(function(){
+    spreadHistory = $(this).val();
 });
 
 $('#spreadSaveButton').click(function(){
     var write = true;
-    if (title.length == 0) {
-        $('#title').attr('style', 'border: 3px solid #FF6C00;');
-        $('label[for="title"]').attr('style', 'color: #FF6C00;');
+    if (spreadTitle.length == 0) {
+        $('#spreadTitle').attr('style', 'border: 3px solid #FF6C00;');
+        $('label[for="spreadTitle"]').attr('style', 'color: #FF6C00;');
         write = false;
     }
-    if (height <= 0) {
-        $('#height').attr('style', 'border: 3px solid #FF6C00;');
-        $('label[for="height"]').attr('style', 'color: #FF6C00;');
+    if (spreadHeight <= 0) {
+        $('#spreadHeight').attr('style', 'border: 3px solid #FF6C00;');
+        $('label[for="spreadHeight"]').attr('style', 'color: #FF6C00;');
         write = false;
     }
     if (length <= 0) {
-        $('#length').attr('style', 'border: 3px solid #FF6C00;');
-        $('label[for="length"]').attr('style', 'color: #FF6C00;');
+        $('#spreadLength').attr('style', 'border: 3px solid #FF6C00;');
+        $('label[for="spreadLength"]').attr('style', 'color: #FF6C00;');
         write = false;
     }
-    if (specification.length == 0) {
-        $('#specification').attr('style', 'border: 3px solid #FF6C00;');
-        $('label[for="specification"]').attr('style', 'color: #FF6C00;');
+    if (spreadSpecification.length == 0) {
+        $('#spreadSpecification').attr('style', 'border: 3px solid #FF6C00;');
+        $('label[for="spreadSpecification"]').attr('style', 'color: #FF6C00;');
         write = false;
     }
-    if (history.length == 0) {
-        $('#history').attr('style', 'border: 3px solid #FF6C00;');
-        $('label[for="history"]').attr('style', 'color: #FF6C00;');
+    if (spreadHistory.length == 0) {
+        $('#spreadHistory').attr('style', 'border: 3px solid #FF6C00;');
+        $('label[for="spreadHistory"]').attr('style', 'color: #FF6C00;');
         write = false;
     }
 
@@ -54,14 +54,17 @@ $('#spreadSaveButton').click(function(){
             url: "/spread/save",
             dataType: 'json',
             data: {
-                name: name,
-                pass: pass
+                title: spreadTitle,
+                height: spreadHeight,
+                length: spreadLength,
+                specification: spreadSpecification,
+                history: spreadHistory
             },
             success: function(response) {
                 if (response.status == 'done') {
                     $('#newSpreadPlace').append('<input type="hidden" id="spreadId" value="'+response.id+'">');
-                    var divHeight = Math.floor(100/height);
-                    var divWidth = Math.floor(100/length);
+                    var divHeight = Math.floor(100/spreadHeight);
+                    var divWidth = Math.floor(100/spreadLength);
                     var divCount = Math.floor(100/divHeight) * Math.floor(100/divWidth);
                     var map = '';
                     for (pos=divCount; pos>0; pos--)
