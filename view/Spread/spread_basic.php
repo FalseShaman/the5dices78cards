@@ -1,18 +1,18 @@
 <?php
     $user = json_decode($_SESSION['user']);
 
-    require_once '/app/model/spread.php';
-    $spread = new spread($user->id);
-    $spreadList = $spread->getList();
+    // require_once '/app/model/spread.php';
+    // $spread = new spread($user->id);
+    // $spreadList = $spread->getList();
 
-    $list = '<ul class="list-group spreadList">';
-    foreach ($spreadList as $spreadLi)
-    {
-        $list .= '<li class="list-group-item">
-                    <button class="btn btn-default openSpread" data-id="'.$spreadLi['id'].'">'.$spreadLi['title'].'</button>
-                </li>';
-    }
-    $list .= '</ul>';
+    // $list = '<ul class="list-group spreadList">';
+    // foreach ($spreadList as $spreadLi)
+    // {
+    //     $list .= '<li class="list-group-item">
+    //                 <button class="btn btn-default openSpread" data-id="'.$spreadLi['id'].'">'.$spreadLi['title'].'</button>
+    //             </li>';
+    // }
+    // $list .= '</ul>';
 
     $form = '<form class="createSpreadForm" style="display: none;"> 
                 <div class="col-md-12">
