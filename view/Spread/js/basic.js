@@ -17,7 +17,7 @@ $('#spreadList').click(function(){
 
 $('body')
     .on('click', '.spreadPosition', function(){
-        positionPlace = $(this).attr('data-place');
+        var positionPlace = $(this).attr('data-place');
         $('#positionSelector').modal('toggle');
     })
 ;       
