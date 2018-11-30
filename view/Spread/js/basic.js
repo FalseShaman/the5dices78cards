@@ -44,19 +44,19 @@ $('body')
     })
 ;       
 
-$.getScript( "create.js", function( data, textStatus, jqxhr ) {
+$.getScript( "view/Spread/js/create.js", function( data, textStatus, jqxhr ) {
   console.log( data ); // Data returned
   console.log( textStatus ); // Success
   console.log( jqxhr.status ); // 200
   console.log( "Load was performed." );
 });
-$.getScript( "list.js", function( data, textStatus, jqxhr ) {
+$.getScript( "view/Spread/js/list.js", function( data, textStatus, jqxhr ) {
   console.log( data ); // Data returned
   console.log( textStatus ); // Success
   console.log( jqxhr.status ); // 200
   console.log( "Load was performed." );
 });
-$.getScript( "position.js", function( data, textStatus, jqxhr ) {
+$.getScript( "view/Spread/js/position.js", function( data, textStatus, jqxhr ) {
   console.log( data ); // Data returned
   console.log( textStatus ); // Success
   console.log( jqxhr.status ); // 200
