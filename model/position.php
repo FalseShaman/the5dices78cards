@@ -30,7 +30,27 @@
             $this->card = $card;
         }
 
-        public function update($positionId) {
+        public function create() {
+            $connect = new connection();
+            $place = $connect->db->real_escape_string($this->place);
+            $name = $connect->db->real_escape_string($this->name);
+            $number = $connect->db->real_escape_string($this->number);
+            $description = $connect->db->real_escape_string($this->description);
+            $link = $connect->db->real_escape_string($this->link);
+            $card = $connect->db->real_escape_string($this->card);
+            $spread_id = $connect->db->real_escape_string($this->spread_id);
+
+            $result = $connect->db->query('INSERT INTO spread (place, name, number, description, link, card, spread_id) 
+                                            VALUES ('.$place.', "'.$name.'", '.$number.', "'.$description.'", "'.$link.'", "'.$card.'", '.$spread_id.')');
+
+            if ($result) {
+                return $connect->db->insert_id;
+            } else {
+                return false;
+            }
+        }
+
+        public function update($positionId = 0) {
             $connect = new connection();
             $position_id = $connect->db->real_escape_string($positionId);
             $spread_id = $connect->db->real_escape_string($this->spread_id);
@@ -51,24 +71,18 @@
             }
         }
 
-        public function create() {
+        public static function getList($spreadId = 0) {
             $connect = new connection();
-            $place = $connect->db->real_escape_string($this->place);
-            $name = $connect->db->real_escape_string($this->name);
-            $number = $connect->db->real_escape_string($this->number);
-            $description = $connect->db->real_escape_string($this->description);
-            $link = $connect->db->real_escape_string($this->link);
-            $card = $connect->db->real_escape_string($this->card);
-            $spread_id = $connect->db->real_escape_string($this->spread_id);
+            $spread_id = $connect->db->real_escape_string($spreadId);
+            $result = $connect->db->query('SELECT * FROM position WHERE spread_id = '.$spread_id);
 
-            $result = $connect->db->query('INSERT INTO spread (place, name, number, description, link, card, spread_id) 
-                                            VALUES ('.$place.', "'.$name.'", '.$number.', "'.$description.'", "'.$link.'", "'.$card.'", '.$spread_id.')');
-
-            if ($result) {
-                return $connect->db->insert_id;
-            } else {
-                return false;
+            $response = array();
+            if ($result->num_rows > 0) {
+                while($row = $result->fetch_assoc()) {
+                    $response[] = $row;
+                }
             }
+            return $response;
         }
     }
 ?>

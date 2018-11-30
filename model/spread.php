@@ -27,21 +27,25 @@
             $this->history = $history;
         }
 
-        public function getList() {
+        public function create() {
             $connect = new connection();
             $user_id = $connect->db->real_escape_string($this->user_id);
-            $result = $connect->db->query('SELECT * FROM spread WHERE user_id = '.$user_id);
+            $title = $connect->db->real_escape_string($this->title);
+            $height = $connect->db->real_escape_string($this->height);
+            $length = $connect->db->real_escape_string($this->length);
+            $specification = $connect->db->real_escape_string($this->specification);
+            $history = $connect->db->real_escape_string($this->history);
 
-            $response = array();
-            if ($result->num_rows > 0) {
-                while($row = $result->fetch_assoc()) {
-                    $response[] = $row;
-                }
+            $result = $connect->db->query('INSERT INTO spread (title, user_id, height, length, specification, history) VALUES ("'.$title.'", '.$user_id.', '.$height.', '.$length.', "'.$specification.'", "'.$history.'")');
+
+            if ($result) {
+                return $connect->db->insert_id;
+            } else {
+                return false;
             }
-            return $response;
         }
 
-        public function update($spreadId) {
+        public function update($spreadId = 0) {
             $connect = new connection();
             $spread_id = $connect->db->real_escape_string($spreadId);
             $user_id = $connect->db->real_escape_string($this->user_id);
@@ -59,21 +63,29 @@
             }
         }
 
-        public function create() {
+        public static function getOne($spreadId = 0) {
             $connect = new connection();
-            $user_id = $connect->db->real_escape_string($this->user_id);
-            $title = $connect->db->real_escape_string($this->title);
-            $height = $connect->db->real_escape_string($this->height);
-            $length = $connect->db->real_escape_string($this->length);
-            $specification = $connect->db->real_escape_string($this->specification);
-            $history = $connect->db->real_escape_string($this->history);
+            $spreadId = $connect->db->real_escape_string($spreadId);
+            $result = $connect->db->query('SELECT * FROM spread WHERE id = '.$spreadId);
 
-            $result = $connect->db->query('INSERT INTO spread (title, user_id, height, length, specification, history) VALUES ("'.$title.'", '.$user_id.', '.$height.', '.$length.', "'.$specification.'", "'.$history.'")');
-
-            if ($result) {
-                return $connect->db->insert_id;
+            if ($result && $result->num_rows > 0) {
+                return $result->fetch_assoc();
             } else {
                 return false;
             }
+        }
+
+        public function getList() {
+            $connect = new connection();
+            $user_id = $connect->db->real_escape_string($this->user_id);
+            $result = $connect->db->query('SELECT * FROM spread WHERE user_id = '.$user_id);
+
+            $response = array();
+            if ($result->num_rows > 0) {
+                while($row = $result->fetch_assoc()) {
+                    $response[] = $row;
+                }
+            }
+            return $response;
         }
     }

@@ -5,7 +5,7 @@
     $spread = new spread($user->id);
     $spreadList = $spread->getList();
 
-    $content = '<div class="col-md-12 spreadMap" id="spreadMap"></div>';
+    $content = '<div class="col-md-12 spreadMap" id="spreadMap">';
     
     inlcude_once '/app/model/Spread/modals/spread_create.php' ;
     include_once '/app/model/Spread/modals/spread_list.php';

@@ -11,7 +11,7 @@
             'profile' =>
                 array(),
             'spread' =>
-                array('save', 'position'),
+                array('get', 'save', 'position'),
             'story' =>
                 array(),
             'article' =>
@@ -97,6 +97,20 @@
             } else {
                 return array('status' => 'fail', 'message' => 'Не удалось сохранить');
             }
+        }
+
+        public function getSpread() {
+            $spreadId = isset($_POST['id']) && $_POST['id'] > 0 ? $_POST['id'] : 0;
+            if ($spreadId > 0) {
+                require_once 'spread.php';
+                $spread = spread::getOne($spreadId);
+
+                require_once 'position.php';
+                $positionList = position::getList($spreadId);
+
+                return array('status' => 'done', 'data' => array('spread' => $spread, 'positionList' => $positionList));  
+            }
+            return array('status' => 'fail', 'message' => 'Пусто');      
         }
 
         public function positionSpread() {

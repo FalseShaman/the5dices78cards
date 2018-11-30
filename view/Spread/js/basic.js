@@ -1,3 +1,7 @@
+var spreadId = 0;
+var positionId = 0;
+var positionPlace = 0;
+
 function setError(inputId) {
     $('#'+inputId).attr('style', 'border: 3px solid #FF6C00;');
     $('label[for="'+inputId+'"]').attr('style', 'color: #FF6C00;');
@@ -7,8 +11,24 @@ function removeErrors(formClass) {
     $('.'+formClass+' input').attr('style', '');
     $('.'+formClass+' textarea').attr('style', '');
 }
+function writeMap(height = 0, length = 0) {
+    if (height > 0 && height < 10 && length > 0 && length < 10) {
+        var divWidth = Math.floor(100/length);
+        var divCount = height * length;
+        var map = '';
+        for (pos=divCount; pos>0; pos--)
+        {
+            map += '<div style="width: '+divWidth+'%;">'+
+                        '<button class="btn btn-default spreadPosition" data-place="'+pos+'" data-id="0">Выбрать</button>'+
+                    '</div>';
+        }
+        $('#spreadMap').append(map);  
+    }
+}
+
 
 $('#spreadCreate').click(function(){
+    spreadId = 0;
     $('#spreadCreator').modal('toggle');
 });
 $('#spreadList').click(function(){
@@ -17,143 +37,28 @@ $('#spreadList').click(function(){
 
 $('body')
     .on('click', '.spreadPosition', function(){
-        var positionPlace = $(this).attr('data-place');
+        positionId = $(this).attr('data-id');
+        positionPlace = $(this).attr('data-place');
+
         $('#positionSelector').modal('toggle');
     })
 ;       
 
-var spreadId = 0;
-var spreadTitle = '';
-var spreadHeight = 0;
-var spreadLength = 0;
-var spreadSpecification = '';
-var spreadHistory = '';
-
-$('#spreadTitle').keyup(function(){
-    spreadTitle = $(this).val();
+$.getScript( "create.js", function( data, textStatus, jqxhr ) {
+  console.log( data ); // Data returned
+  console.log( textStatus ); // Success
+  console.log( jqxhr.status ); // 200
+  console.log( "Load was performed." );
 });
-$('#spreadHeight').keyup(function(){
-    spreadHeight = $(this).val();
+$.getScript( "list.js", function( data, textStatus, jqxhr ) {
+  console.log( data ); // Data returned
+  console.log( textStatus ); // Success
+  console.log( jqxhr.status ); // 200
+  console.log( "Load was performed." );
 });
-$('#spreadLength').keyup(function(){
-    spreadLength = $(this).val();
-});
-$('#spreadSpecification').keyup(function(){
-    spreadSpecification = $(this).val();
-});
-$('#spreadHistory').keyup(function(){
-    spreadHistory = $(this).val();
-});
-
-$('#spreadSave').click(function(){
-    var write = true;
-    removeErrors('createSpreadForm');
-
-    if (spreadTitle.length == 0) {
-        setError('spreadTitle');
-        write = false;
-    }
-    if (spreadHeight <= 0) {
-        setError('spreadHeight');
-        write = false;
-    }
-    if (spreadLength <= 0) {
-        setError('spreadLength');
-        write = false;
-    }
-
-    if (write) {
-        $.ajax({
-            method: "POST",
-            url: "/spread/save",
-            dataType: 'json',
-            data: {
-                id: spreadId,
-                title: spreadTitle,
-                height: spreadHeight,
-                length: spreadLength,
-                specification: spreadSpecification,
-                history: spreadHistory
-            },
-            success: function(response) {
-                if (response.status == 'done') {
-                    var divWidth = Math.floor(100/spreadLength);
-                    var divCount = spreadHeight * spreadLength;
-                    var map = '';
-                    for (pos=divCount; pos>0; pos--)
-                    {
-                        map += '<div style="width: '+divWidth+'%;" data-place="'+pos+'"><button class="btn btn-default spreadPosition">Выбрать</button></div>'
-                    }
-                    $('#spreadMap').append(map);  
-                    spreadId = response.id;
-                } else {
-                    $('#spreadMap').append('<h3 style="color: #FF6C00;">'+response.message+'</h3>');
-                }
-            }
-        }); 
-    }
-});
-
-var positionId = 0;
-var positionPlace = 0;
-var positionName = '';
-var positionNumber = 0;
-var positionDescription = '';
-var positionLink = '';
-var positionCard = '';
-
-$('#positionName').keyup(function(){
-    positionName = $(this).val();
-});
-$('#positionNumber').keyup(function(){
-    positionNumber = $(this).val();
-});
-$('#positionDescription').keyup(function(){
-    positionDescription = $(this).val();
-});
-$('#positionLink').keyup(function(){
-    positionLink = $(this).val();
-});
-$('#positionCard').keyup(function(){
-    positionCard = $(this).val();
-});
-
-$('#positionSave').click(function(){
-    var write = true;
-    removeErrors('createPositionForm');
-
-    if (positionName.length == 0) {
-        setError('positionName');
-        write = false;
-    }
-    if (positionNumber < 0) {
-        setError('positionNumber');
-        write = false;
-    }
-
-    if (write) {
-        $.ajax({
-            method: "POST",
-            url: "/spread/save",
-            dataType: 'json',
-            data: {
-                id: positionId,
-                spread: spreadId,
-                place: positionPlace,
-                name: positionName,
-                number: positionNumber,
-                description: positionDescription,
-                link: positionLink,
-                card: positionCard
-            },
-            success: function(response) {
-                if (response.status == 'done') {
-                    $('#positionSelector').modal('toggle');
-                    $('.spreadPosition[data-place="'+response.id+'"]').attr('data-id', response.id);
-                } else {
-                    $('#positionSave').parent().append('<h3 style="color: #FF6C00;">'+response.message+'</h3>');
-                }
-            }
-        }); 
-    }
+$.getScript( "position.js", function( data, textStatus, jqxhr ) {
+  console.log( data ); // Data returned
+  console.log( textStatus ); // Success
+  console.log( jqxhr.status ); // 200
+  console.log( "Load was performed." );
 });
