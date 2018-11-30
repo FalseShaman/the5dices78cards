@@ -9,13 +9,18 @@ function removeErrors(formClass) {
 }
 
 $('#spreadCreate').click(function(){
-    $('.createSpreadForm').show();
-    $('.spreadList').hide();
+    $('#spreadCreator').modal('toggle');
 });
 $('#spreadList').click(function(){
-    $('.spreadList').show();
-    $('.createSpreadForm').hide();
+    $('#spreadSelector').modal('toggle');     
 });
+
+$('body')
+    .on('click', '.spreadPosition', function(){
+        positionPlace = $(this).attr('data-place');
+        $('#positionSelector').modal('toggle');
+    })
+;       
 
 var spreadId = 0;
 var spreadTitle = '';
@@ -152,10 +157,3 @@ $('#positionSave').click(function(){
         }); 
     }
 });
-
-$('body')
-    .on('click', '.spreadPosition', function(){
-        positionPlace = $(this).attr('data-place');
-        $('#positionSelector').modal('toggle');
-    })
-;       

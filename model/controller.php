@@ -9,15 +9,15 @@
             'auth' =>
                 array('login', 'logout'),
             'profile' =>
-                array('open', 'save'),
+                array(),
             'spread' =>
-                array('open', 'save', 'position'),
+                array('save', 'position'),
             'story' =>
-                array('open', 'save'),
+                array(),
             'article' =>
-                array('open', 'save'),
+                array(),
             'quest' =>
-                array('open', 'save'),
+                array(),
             'lost' =>
                 array()
             );

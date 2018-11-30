@@ -20,7 +20,7 @@ body {
 
 .leftMenu {
 	position: absolute;
-	top: 55px;
+	top: 44px;
 	left: 15px;
 	width: 12%;
 	opacity: 0.7;
@@ -31,9 +31,9 @@ body {
 
 .rightMenu {
 	position: absolute;
-	top: 55px;
+	top: 44px;
 	right: 15px;
-	width: 10%;
+	width: 11%;
 	opacity: 0.7;
 	background: #1a1926;
 	border: 2px solid #747373;
