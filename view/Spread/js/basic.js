@@ -11,6 +11,11 @@ function removeErrors(formClass) {
     $('.'+formClass+' input').attr('style', '');
     $('.'+formClass+' textarea').attr('style', '');
 }
+function writeInfo(title, specification, history) {
+    $('#titleInfo').text(title);
+    $('#specificationInfo').text(specification);
+    $('#historyInfo').text(history);
+}
 function writeMap(height = 0, length = 0) {
     $('#spreadMap').empty();
     if (height > 0 && height < 10 && length > 0 && length < 10) {
@@ -27,9 +32,9 @@ function writeMap(height = 0, length = 0) {
     }
 }
 function putPosition(positionList) {
-  $.each(positionList, function(ind, val){
-    $('button[data-place="'+val['id']+'"]').parent().empty().append('<p>'+val['number']+' ('+val['name']+')</p>');
-  });
+    $.each(positionList, function(ind, val){
+        $('button[data-place="'+val['id']+'"]').parent().empty().append('<p>'+val['number']+' ('+val['name']+')</p>');
+    });
 }
 
 $('#spreadCreate').click(function(){
@@ -49,14 +54,14 @@ $('body')
 ;       
 
 $.getScript( "view/Spread/js/create.js", function( data, textStatus, jqxhr ) {
-  console.log(textStatus+"view/Spread/js/create.js");
-  $('#modalScript').text(data);
+    console.log(textStatus+"view/Spread/js/create.js");
+    $('#modalScript').text(data);
 });
 $.getScript( "view/Spread/js/list.js", function( data, textStatus, jqxhr ) {
-  console.log(textStatus+"view/Spread/js/list.js");
-  $('#modalScript').text(data);
+    console.log(textStatus+"view/Spread/js/list.js");
+    $('#modalScript').text(data);
 });
 $.getScript( "view/Spread/js/position.js", function( data, textStatus, jqxhr ) {
-  console.log(textStatus+"view/Spread/js/position.js");
-  $('#modalScript').text(data);
+    console.log(textStatus+"view/Spread/js/position.js");
+    $('#modalScript').text(data);
 });

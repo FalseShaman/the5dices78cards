@@ -10,6 +10,7 @@ $('body')
             },
             success: function(response) {
                 if (response.status == 'done') {
+                    writeInfo(response.data.spread.title, response.data.spread.specification, response.data.spread.history);
                     writeMap(response.data.spread.height, response.data.spread.length);
                     $('#spreadSelector').modal('toggle');  
                     putPosition(response.data.positionList);

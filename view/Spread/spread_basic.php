@@ -5,7 +5,14 @@
     $spread = new spread($user->id);
     $spreadList = $spread->getList();
 
-    $content = '<div class="col-md-12 spreadMap" id="spreadMap">';
+    $spreadInfo = '<div class="col-md-12 spreadInfo">
+                        <h3 id="titleInfo"></h3>
+                        <hr>
+                        <p id="specificationInfo"></p>
+                        <hr>
+                        <span id="historyInfo"></span>
+                    </div>';
+    $spreadMap = '<div class="col-md-12 spreadMap" id="spreadMap"></div>';
 
     $newButton = '<button type="button" class="btn btn-light" id="spreadCreate" title="Создать"><img class="img-responsive" src="/view/design/new.png"></button>';
     $listButton = '<button type="button" class="btn btn-light" id="spreadList" title="Список"><img class="img-responsive" src="/view/design/open.png"></button>';
