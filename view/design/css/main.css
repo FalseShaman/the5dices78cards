@@ -126,3 +126,24 @@ body {
 .spreadList {
 	margin: 15px;
 }
+
+.chosenPosition {
+	border: 0;
+}
+.showPosition {
+	padding: 2px;
+	background-color: #ff7500;
+	border-radius: 8px;
+.showPosition img {
+	background-color: #9ecffb;
+	border-radius: 15px;
+}
+.editPosition {
+	padding: 2px;
+	background-color: #ff7500;
+	border-radius: 8px;
+}
+.editPosition img {
+	background-color: #9ecffb;
+	border-radius: 15px;
+}

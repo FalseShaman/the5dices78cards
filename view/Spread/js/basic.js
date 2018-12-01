@@ -24,8 +24,9 @@ function writeMap(height = 0, length = 0) {
         var map = '';
         for (pos=divCount; pos>0; pos--)
         {
+            var place = divCount - pos + 1;
             map += '<div style="width: '+divWidth+'%;">'+
-                        '<button class="btn btn-default spreadPosition" data-place="'+pos+'" data-id="0">Выбрать</button>'+
+                        '<button class="btn btn-default spreadPosition" data-place="'+place+'" data-id="0">Выбрать</button>'+
                     '</div>';
         }
         $('#spreadMap').append(map);  
@@ -33,10 +34,11 @@ function writeMap(height = 0, length = 0) {
 }
 function putPosition(positionList) {
     $.each(positionList, function(ind, val){
-        var div = $('button[data-place="'+val['id']+'"]').parent();
-        div.empty();
-        div.append('<button type="button" class="btn btn-light"><img class="img-responsive" src="/view/design/show.png">'+
-            +'</button><button type="button" class="btn btn-light"><img class="img-responsive" src="/view/design/edit.png"></button>');
+        var div = $('button[data-place="'+val['place']+'"]').parent();
+        $(div).addClass('chosenPosition');
+        $(div).empty();
+        $(div).append('<button class="showPosition"><img class="img-responsive" src="/view/design/show.png"></button>');
+        $(div).append('<button class="editPosition"><img class="img-responsive" src="/view/design/edit.png"></button>');
     });
 }
 
