@@ -42,7 +42,8 @@
 
             $result = $connect->db->query('INSERT INTO position (place, name, number, description, link, card, spread_id) 
                                             VALUES ('.$place.', "'.$name.'", '.$number.', "'.$description.'", "'.$link.'", "'.$card.'", '.$spread_id.')');
-
+return 'INSERT INTO position (place, name, number, description, link, card, spread_id) 
+                                            VALUES ('.$place.', "'.$name.'", '.$number.', "'.$description.'", "'.$link.'", "'.$card.'", '.$spread_id.')';
             if ($result) {
                 return $connect->db->insert_id;
             } else {
