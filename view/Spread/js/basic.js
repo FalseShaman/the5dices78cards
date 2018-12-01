@@ -12,6 +12,7 @@ function removeErrors(formClass) {
     $('.'+formClass+' textarea').attr('style', '');
 }
 function writeMap(height = 0, length = 0) {
+    $('#spreadMap').empty();
     if (height > 0 && height < 10 && length > 0 && length < 10) {
         var divWidth = Math.floor(100/length);
         var divCount = height * length;

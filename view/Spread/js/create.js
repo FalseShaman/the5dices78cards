@@ -28,11 +28,11 @@ $('#spreadSave').click(function(){
         setError('spreadTitle');
         write = false;
     }
-    if (spreadHeight <= 0) {
+    if (spreadHeight <= 0 || spreadHeight > 10) {
         setError('spreadHeight');
         write = false;
     }
-    if (spreadLength <= 0) {
+    if (spreadLength <= 0 || spreadLength > 10) {
         setError('spreadLength');
         write = false;
     }
