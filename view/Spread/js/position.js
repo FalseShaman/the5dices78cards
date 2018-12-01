@@ -36,7 +36,7 @@ $('#positionSave').click(function(){
     if (write) {
         $.ajax({
             method: "POST",
-            url: "/spread/save",
+            url: "/spread/position",
             dataType: 'json',
             data: {
                 id: positionId,
