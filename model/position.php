@@ -40,7 +40,7 @@
             $card = $connect->db->real_escape_string($this->card);
             $spread_id = $connect->db->real_escape_string($this->spread_id);
 
-            $result = $connect->db->query('INSERT INTO spread (place, name, number, description, link, card, spread_id) 
+            $result = $connect->db->query('INSERT INTO position (place, name, number, description, link, card, spread_id) 
                                             VALUES ('.$place.', "'.$name.'", '.$number.', "'.$description.'", "'.$link.'", "'.$card.'", '.$spread_id.')');
 
             if ($result) {

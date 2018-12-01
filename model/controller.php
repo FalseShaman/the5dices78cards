@@ -126,7 +126,7 @@
             if ($positionId) {
                 return array('status' => 'done', 'id' => $positionId);
             } else {
-                return array('status' => 'fail', 'message' => 'Не удалось сохранить        '.$_POST['id'].$_POST['spread'].$_POST['place'].$_POST['name'].$_POST['number'].$_POST['description'].$_POST['link'].$_POST['card']);
+                return array('status' => 'fail', 'message' => 'Не удалось сохранить');
             }
         }
 
