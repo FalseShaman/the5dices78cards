@@ -1,4 +1,3 @@
-var positionPlace = $('#positionPlace').val();
 var positionName = $('#positionName').val();
 var positionNumber = $('#positionNumber').val();
 var positionDescription = $('#positionDescription').val();

@@ -33,7 +33,10 @@ function writeMap(height = 0, length = 0) {
 }
 function putPosition(positionList) {
     $.each(positionList, function(ind, val){
-        $('button[data-place="'+val['id']+'"]').parent().empty().append('<p>'+val['number']+' ('+val['name']+')</p>');
+        var div = $('button[data-place="'+val['id']+'"]').parent();
+        div.empty();
+        div.append('<button type="button" class="btn btn-light"><img class="img-responsive" src="/view/design/show.png">'+
+            +'</button><button type="button" class="btn btn-light"><img class="img-responsive" src="/view/design/edit.png"></button>');
     });
 }
 

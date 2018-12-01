@@ -60,6 +60,7 @@
                                     </div>
                                 </div>
                             </div>';
+
     $list = '<ul class="list-group spreadList">';
     if ($spreadList && is_array($spreadList)) {
         foreach ($spreadList as $spreadLi)
@@ -82,6 +83,7 @@
                                     </div>
                                 </div>
                             </div>';
+
     $positionModal = '<div class="modal fade" id="positionSelector" tabindex="-1" role="dialog" aria-hidden="true">
                                 <div class="modal-dialog" role="document">
                                     <div class="modal-content spreadPositionModal">
@@ -120,4 +122,5 @@
                                     </div>
                                 </div>
                             </div>';
+                            
     $modals = $createModal.$listModal.$positionModal;
