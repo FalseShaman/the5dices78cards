@@ -10,8 +10,9 @@ $('body')
             },
             success: function(response) {
                 if (response.status == 'done') {
-                	console.log(response.data);
+                    writeMap(response.data.spread.height, response.data.spread.length);
                     $('#spreadSelector').modal('toggle');  
+                    putPosition(response.data.positionList);
                 }
             }
         }); 

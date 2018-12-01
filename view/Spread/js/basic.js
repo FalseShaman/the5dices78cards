@@ -25,7 +25,11 @@ function writeMap(height = 0, length = 0) {
         $('#spreadMap').append(map);  
     }
 }
-
+function putPosition(positionList) {
+  $.each(positionList, function(ind, val){
+    $('button[data-place="'+val['id']+'"]').parent().empty().append('<p>'+val['number']+' ('+val['name']+')</p>');
+  });
+}
 
 $('#spreadCreate').click(function(){
     spreadId = 0;
