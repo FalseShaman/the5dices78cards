@@ -39,29 +39,27 @@ function putPosition(positionList) {
 
 $('#spreadCreate').click(function(){
     spreadId = 0;
+    $.getScript( "view/Spread/js/create.js", function( data, textStatus, jqxhr ) {
+        console.log(textStatus+'-'+"view/Spread/js/create.js");
+        $('#modalScript').text(data);
+    });
     $('#spreadCreator').modal('toggle');
 });
 $('#spreadList').click(function(){
-    $('#spreadSelector').modal('toggle');     
+    $('#spreadSelector').modal('toggle');   
+    $.getScript( "view/Spread/js/list.js", function( data, textStatus, jqxhr ) {
+        console.log(textStatus+'-'+"view/Spread/js/list.js");
+        $('#modalScript').text(data);
+    });  
 });
-
 $('body')
     .on('click', '.spreadPosition', function(){
         positionId = $(this).attr('data-id');
         positionPlace = $(this).attr('data-place');
         $('#positionSelector').modal('toggle');
+        $.getScript( "view/Spread/js/position.js", function( data, textStatus, jqxhr ) {
+            console.log(textStatus+'-'+"view/Spread/js/position.js");
+            $('#modalScript').text(data);
+        });
     })
 ;       
-
-$.getScript( "view/Spread/js/create.js", function( data, textStatus, jqxhr ) {
-    console.log(textStatus+"view/Spread/js/create.js");
-    $('#modalScript').text(data);
-});
-$.getScript( "view/Spread/js/list.js", function( data, textStatus, jqxhr ) {
-    console.log(textStatus+"view/Spread/js/list.js");
-    $('#modalScript').text(data);
-});
-$.getScript( "view/Spread/js/position.js", function( data, textStatus, jqxhr ) {
-    console.log(textStatus+"view/Spread/js/position.js");
-    $('#modalScript').text(data);
-});
