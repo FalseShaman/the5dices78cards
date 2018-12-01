@@ -130,17 +130,24 @@ body {
 .chosenPosition {
 	border: 0;
 }
+
 .showPosition {
-	padding: 2px;
+	margin: 0;
+	padding: 1%;
 	background-color: #ff7500;
+	border: 1px;
 	border-radius: 8px;
+}
 .showPosition img {
 	background-color: #9ecffb;
 	border-radius: 15px;
 }
+
 .editPosition {
-	padding: 2px;
+	margin: 0;
+	padding: 1%;
 	background-color: #ff7500;
+	border: 1px;
 	border-radius: 8px;
 }
 .editPosition img {

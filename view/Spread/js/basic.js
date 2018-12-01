@@ -22,11 +22,11 @@ function writeMap(height = 0, length = 0) {
         var divWidth = Math.floor(100/length);
         var divCount = height * length;
         var map = '';
+        console.log(divCount);
         for (pos=divCount; pos>0; pos--)
         {
-            var place = divCount - pos + 1;
             map += '<div style="width: '+divWidth+'%;">'+
-                        '<button class="btn btn-default spreadPosition" data-place="'+place+'" data-id="0">Выбрать</button>'+
+                        '<button class="btn btn-default spreadPosition" data-place="'+pos+'" data-id="0">Выбрать</button>'+
                     '</div>';
         }
         $('#spreadMap').append(map);  
