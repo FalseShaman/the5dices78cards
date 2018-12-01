@@ -53,6 +53,7 @@ $('#spreadSave').click(function(){
             success: function(response) {
                 if (response.status == 'done') {
                     spreadId = response.id;
+                    $('#spreadCreator').modal('toggle');
                 } else {
                     $('#spreadMap').append('<h3 style="color: #FF6C00;">'+response.message+'</h3>');
                 }

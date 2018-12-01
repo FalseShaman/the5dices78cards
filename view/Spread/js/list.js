@@ -11,6 +11,7 @@ $('body')
             success: function(response) {
                 if (response.status == 'done') {
                 	console.log(response.data);
+                    $('#spreadSelector').modal('toggle');  
                 }
             }
         }); 

@@ -39,7 +39,6 @@ $('body')
     .on('click', '.spreadPosition', function(){
         positionId = $(this).attr('data-id');
         positionPlace = $(this).attr('data-place');
-
         $('#positionSelector').modal('toggle');
     })
 ;       

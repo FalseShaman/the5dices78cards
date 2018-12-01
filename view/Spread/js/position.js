@@ -53,6 +53,7 @@ $('#positionSave').click(function(){
                 if (response.status == 'done') {
                     $('#positionSelector').modal('toggle');
                     positionId = response.id;
+                    $('#positionSelector').modal('toggle');
                 } else {
                     $('#positionSave').parent().append('<h3 style="color: #FF6C00;">'+response.message+'</h3>');
                 }
