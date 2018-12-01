@@ -31,6 +31,8 @@
             </nav>
         <?php endif; ?>     
 
+        <?php echo $modals; ?>
+                 
         <?php include('layout_script.php'); ?>
     </body>
 

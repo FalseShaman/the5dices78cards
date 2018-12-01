@@ -7,9 +7,9 @@
 
     $content = '<div class="col-md-12 spreadMap" id="spreadMap">';
     
-    include 'model/Spread/modals/spread_create.php' ;
-    include 'model/Spread/modals/spread_list.php';
-    include 'model/Spread/modals/spread_position.php';
+    include('view/Spread/modals/spread_create.php');
+    include('view/Spread/modals/spread_list.php');
+    include('view/Spread/modals/spread_position.php');
 
     $newButton = '<button type="button" class="btn btn-light" id="spreadCreate" title="Создать"><img class="img-responsive" src="/view/design/new.png"></button>';
     $listButton = '<button type="button" class="btn btn-light" id="spreadList" title="Список"><img class="img-responsive" src="/view/design/open.png"></button>';
