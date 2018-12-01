@@ -126,7 +126,7 @@
             if ($positionId) {
                 return array('status' => 'done', 'id' => $positionId);
             } else {
-                return array('status' => 'fail', 'message' => 'Не удалось сохранить');
+                return array('status' => 'fail', 'message' => 'Не удалось сохранить        '.json_encode($position));
             }
         }
 
