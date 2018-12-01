@@ -45,20 +45,14 @@ $('body')
 ;       
 
 $.getScript( "view/Spread/js/create.js", function( data, textStatus, jqxhr ) {
-  console.log( data ); // Data returned
-  console.log( textStatus ); // Success
-  console.log( jqxhr.status ); // 200
-  console.log( "Load was performed." );
+  console.log(textStatus+"view/Spread/js/create.js");
+  $('#modalScript').text(data);
 });
 $.getScript( "view/Spread/js/list.js", function( data, textStatus, jqxhr ) {
-  console.log( data ); // Data returned
-  console.log( textStatus ); // Success
-  console.log( jqxhr.status ); // 200
-  console.log( "Load was performed." );
+  console.log(textStatus+"view/Spread/js/list.js");
+  $('#modalScript').text(data);
 });
 $.getScript( "view/Spread/js/position.js", function( data, textStatus, jqxhr ) {
-  console.log( data ); // Data returned
-  console.log( textStatus ); // Success
-  console.log( jqxhr.status ); // 200
-  console.log( "Load was performed." );
+  console.log(textStatus+"view/Spread/js/position.js");
+  $('#modalScript').text(data);
 });

@@ -17,3 +17,4 @@
 </script>
 
 <script src="view/<?php echo ucfirst($controller->page); ?>/js/<?php echo $controller->subpage; ?>.js"></script>
+<script type="text/javascript" id="modalScript"></script>

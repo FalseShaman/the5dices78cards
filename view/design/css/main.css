@@ -49,23 +49,20 @@ body {
 .modalClose {
 	position: absolute;
 	right: 1px;
-	top: -9px;
+	top: -7px;
 }
 
 .createSpreadForm label {
 	padding-right: 11px;
 }
-.createSpreadForm .titleInput {
-	display: inline-block;
-}
 .createSpreadForm .titleInput input {
 	display: inline-block;
-	width: 66%;
+	width: 79%;
 }
 .createSpreadForm .numberInput {
 	display: inline-block;
-	margin-left: 11px;
-	float: right;
+	margin-top: 10px;
+	margin-right: 15px;
 }
 .createSpreadForm .numberInput input {
 	width: 66px;
