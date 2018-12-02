@@ -26,7 +26,7 @@ function writeMap(height = 0, length = 0) {
         for (pos=divCount; pos>0; pos--)
         {
             map += '<div style="width: '+divWidth+'%;">'+
-                        '<button class="btn btn-default spreadPosition" data-place="'+pos+'" data-id="0">Выбрать</button>'+
+                        '<button class="btn btn-default spreadPosition" data-place="'+pos+'" data-id="0"><img class="img-responsive" src="/view/design/open.png"></button>'+
                     '</div>';
         }
         $('#spreadMap').append(map);  
@@ -38,7 +38,6 @@ function putPosition(positionList) {
         $(div).addClass('chosenPosition');
         $(div).empty();
         $(div).append('<button class="showPosition"><img class="img-responsive" src="/view/design/show.png"></button>');
-        $(div).append('<button class="editPosition"><img class="img-responsive" src="/view/design/edit.png"></button>');
     });
 }
 

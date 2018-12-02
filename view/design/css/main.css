@@ -80,20 +80,15 @@ body {
 }
 .spreadMap div {
 	display: inline-block;
-	border: 2px solid #ffffff;
-	border-radius: 33px; 
-	padding-top: 4%;
-	padding-bottom: 4%;
+	opacity: 0.2;
 }
 .spreadMap button {
-	font-size: 0.8em;
-	margin-left: 25%;
-	padding: 7px;
+	padding: 2px;
 }
-
-.positionModal {
-	background-color: #010408;
-	border: 2px solid #26211d;
+.spreadMap .chosenPosition {
+	border: 2px solid #ffffff;
+	border-radius: 33px; 
+	opacity: 1;
 }
 
 .createPositionForm label {
@@ -125,32 +120,4 @@ body {
 
 .spreadList {
 	margin: 15px;
-}
-
-.chosenPosition {
-	border: 0;
-}
-
-.showPosition {
-	margin: 0;
-	padding: 1%;
-	background-color: #ff7500;
-	border: 1px;
-	border-radius: 8px;
-}
-.showPosition img {
-	background-color: #9ecffb;
-	border-radius: 15px;
-}
-
-.editPosition {
-	margin: 0;
-	padding: 1%;
-	background-color: #ff7500;
-	border: 1px;
-	border-radius: 8px;
-}
-.editPosition img {
-	background-color: #9ecffb;
-	border-radius: 15px;
 }
