@@ -54,10 +54,10 @@
                 unset($pageList['lost']);
                 foreach ($pageList as $page => $sub)
                 {
-                    $navbar .= $this->page == $page ? '<li class="active">' : '<li>';
+                    $navbar .= $this->page == $page ? '<li class="nav-item active">' : '<li class="nav-item">';
                     $navbar .= '<a href="/'.$page.'">'.ucfirst($translateList[$page]).'</a></li>';
                 }
-                $navbar .= '<li><a href="/auth/logout">'.ucfirst($translateList['logout']).'</a></li>';
+                $navbar .= '<li class="nav-item"><a href="/auth/logout">'.ucfirst($translateList['logout']).'</a></li>';
             }
             return $navbar;
         }
