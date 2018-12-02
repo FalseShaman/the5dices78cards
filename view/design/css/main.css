@@ -81,14 +81,16 @@ body {
 .spreadMap div {
 	display: inline-block;
 	opacity: 0.2;
+	padding: 20px 50px;
 }
 .spreadMap button {
 	padding: 2px;
 }
 .spreadMap .chosenPosition {
-	border: 2px solid #ffffff;
-	border-radius: 33px; 
+	border: 2px solid #92bfc5;
+	border-radius: 33px;
 	opacity: 1;
+	padding: 22px 44px;
 }
 
 .createPositionForm label {

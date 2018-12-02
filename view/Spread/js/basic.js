@@ -37,7 +37,7 @@ function putPosition(positionList) {
         var div = $('button[data-place="'+val['place']+'"]').parent();
         $(div).addClass('chosenPosition');
         $(div).empty();
-        $(div).append('<button class="showPosition"><img class="img-responsive" src="/view/design/show.png"></button>');
+        $(div).append('<button class="btn btn-default showPosition"><img class="img-responsive" src="/view/design/show.png"></button>');
     });
 }
 
