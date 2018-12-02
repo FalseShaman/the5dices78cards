@@ -15,9 +15,9 @@
     $spreadMap = '<div class="col-md-12 spreadMap" id="spreadMap"></div>';
 
     $content = $spreadInfo.$spreadMap;
-
-    $newButton = '<button type="button" class="btn btn-light" id="spreadCreate" title="Создать"><img class="img-responsive" src="/view/design/new.png"></button>';
-    $listButton = '<button type="button" class="btn btn-light" id="spreadList" title="Список"><img class="img-responsive" src="/view/design/box.png"></button>';
+    
+    $newButton = '<li><button type="button" class="btn btn-light" id="spreadCreate" title="Создать"><img class="img-responsive" src="/view/design/new.png"></button></li>';
+    $listButton = '<li><button type="button" class="btn btn-light" id="spreadList" title="Список"><img class="img-responsive" src="/view/design/box.png"></button></li>';
     $rightMenu = $newButton.$listButton;
 
     $createModal = '<div class="modal fade" id="spreadCreator" tabindex="-1" role="dialog" aria-hidden="true">
