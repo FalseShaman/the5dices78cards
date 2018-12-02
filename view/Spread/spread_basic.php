@@ -31,6 +31,8 @@
                                                         <label for="spreadTitle">Название:</label>
                                                         <input type="text" class="form-control" id="spreadTitle">
                                                     </div>
+                                                </div>  
+                                                <div class="col-md-12">
                                                     <div class="numberInput">
                                                         <label for="spreadLength">Длина:</label>
                                                         <input type="number" class="form-control" id="spreadLength">
