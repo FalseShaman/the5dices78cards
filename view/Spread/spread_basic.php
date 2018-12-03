@@ -126,7 +126,7 @@
                                     <div class="modal-content infoModal">
                                         <div class="modal-header">
                                             <button type="button" class="close modalClose" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                            <h3 id="infoName"></h3> (<p id="infoNumber"></p>)
+                                            <h3 id="infoName"></h3> <p id="infoNumber"></p>
                                         </div>
                                         <div class="modal-body">
                                             <div class="col-sm-12" id="infoDescription">
