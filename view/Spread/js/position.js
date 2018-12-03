@@ -50,10 +50,17 @@ $('#positionSave').click(function(){
             },
             success: function(response) {
                 if (response.status == 'done') {
-                    $('#positionSelector').modal('toggle');
                     positionId = response.id;
+                    putPosition([['id' => positionId, 'place' => positionPlace]]);
+
                     $('#positionSelector').modal('toggle');
+                    $('#positionName').val('');
+                    $('#positionNumber').val(0);
+                    $('#positionDescription').val('');
+                    $('#positionLink').val('');
+                    $('#positionCard').val('');
                 } else {
+                    $('#positionSave').parent().children('h3').remove();
                     $('#positionSave').parent().append('<h3 style="color: #FF6C00;">'+response.message+'</h3>');
                 }
             }

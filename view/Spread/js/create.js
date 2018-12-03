@@ -55,9 +55,18 @@ $('#spreadSave').click(function(){
                     spreadId = response.id;
                     writeInfo(spreadTitle, spreadSpecification, spreadHistory);
                     writeMap(spreadHeight, spreadLength);
+                    $('.spreadList').append('<li class="list-group-item"><button class="btn btn-default openSpread" data-id="'+spreadId+'">'+spreadTitle+'</button></li>')
+
+
                     $('#spreadCreator').modal('toggle');
+                    $('#spreadTitle').val('');
+                    $('#spreadHeight').val(0);
+                    $('#spreadLength').val(0);
+                    $('#spreadSpecification').val('');
+                    $('#spreadHistory').val('');
                 } else {
-                    $('#spreadMap').append('<h3 style="color: #FF6C00;">'+response.message+'</h3>');
+                    $('#spreadSave').parent().children('h3').remove();
+                    $('#spreadSave').parent().append('<h3 style="color: #FF6C00;">'+response.message+'</h3>');
                 }
             }
         }); 

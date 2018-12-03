@@ -37,7 +37,7 @@ function putPosition(positionList) {
         var div = $('button[data-place="'+val['place']+'"]').parent();
         $(div).addClass('chosenPosition');
         $(div).empty();
-        $(div).append('<button class="btn btn-default showPosition"><img class="img-responsive" src="/view/design/show.png"></button>');
+        $(div).append('<button class="btn btn-default showPosition" data-id="'+val['id']+'"><img class="img-responsive" src="/view/design/show.png"></button>');
     });
 }
 
@@ -56,6 +56,7 @@ $('#spreadList').click(function(){
         $('#modalScript').text(data);
     });  
 });
+
 $('body')
     .on('click', '.spreadPosition', function(){
         positionId = $(this).attr('data-id');
