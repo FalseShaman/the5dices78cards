@@ -46,32 +46,40 @@ function putPosition(positionList) {
 
 $('#spreadCreate').click(function(){
     spreadId = 0;
+
     $.getScript( "view/Spread/js/create.js", function( data, textStatus, jqxhr ) {
-        console.log(textStatus+'-'+"view/Spread/js/create.js");
+        console.log(textStatus+'-'+"create.js");
         $('#modalScript').text(data);
     });
     $('#spreadCreator').modal('toggle');
 });
 $('#spreadList').click(function(){
-    $('#spreadSelector').modal('toggle');   
     $.getScript( "view/Spread/js/list.js", function( data, textStatus, jqxhr ) {
-        console.log(textStatus+'-'+"view/Spread/js/list.js");
+        console.log(textStatus+'-'+"list.js");
         $('#modalScript').text(data);
     });  
+    $('#spreadSelector').modal('toggle');   
 });
 
 $('body')
     .on('click', '.spreadPosition', function(){
         positionId = $(this).attr('data-id');
         positionPlace = $(this).attr('data-place');
-        $('#positionSelector').modal('toggle');
+
         $.getScript( "view/Spread/js/position.js", function( data, textStatus, jqxhr ) {
-            console.log(textStatus+'-'+"view/Spread/js/position.js");
+            console.log(textStatus+'-'+"position.js");
             $('#modalScript').text(data);
         });
+        $('#positionSelector').modal('toggle');
     })
     .on('click', '.showPosition', function(){
-        positionId = $(this).attr('data-id');
-        console.log(positionInfo);
+        info = positionInfo[$(this).attr('data-id')];
+        $('#infoName').text(info.['name']);
+        $('#infoNumber').text(info.['number']);
+        $('#infoDescription').text(info.['description']);
+        $('#infoLink').text(info.['link']);
+        $('#infoCard').text(info.['card']);
+
+        $('#positionInfo').modal('toggle');
     })
 ;       

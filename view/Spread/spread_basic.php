@@ -138,7 +138,7 @@
                                             <div class="col-sm-12" id="infoFrame">
                                             </div>
                                         <div class="modal-footer">
-                                            <button type="button" class="col-sm-6 btn btn-info" id="infoPrev">Предидущая</button>
+                                            <button type="button" class="col-sm-6 btn btn-info" id="infoPrev">Предыдущая</button>
                                             <button type="button" class="col-sm-6 btn btn-info" id="infoNext">Следующая</button>
                                         </div>
                                     </div>
