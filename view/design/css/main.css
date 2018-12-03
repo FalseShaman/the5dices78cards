@@ -27,12 +27,14 @@ body {
 
 .topMenu {
 	position: absolute;
-	top: 36px;
-	height: 40px;
+	top: 33px;
+	height: 33px;
+	border-radius: 33px;
+	border: 1px solid #a0b6b7;
 }
 
 .mainContent {
-	margin-top: 41px;
+	margin-top: 44px;
 }
 
 .createSpread {
