@@ -1,6 +1,7 @@
 var spreadId = 0;
 var positionId = 0;
 var positionPlace = 0;
+var positionInfo = [];
 
 function setError(inputId) {
     $('#'+inputId).attr('style', 'border: 3px solid #FF6C00;');
@@ -34,6 +35,8 @@ function writeMap(height = 0, length = 0) {
 }
 function putPosition(positionList) {
     $.each(positionList, function(ind, val){
+        positionInfo[val['id']] = val;
+
         var div = $('button[data-place="'+val['place']+'"]').parent();
         $(div).addClass('chosenPosition');
         $(div).empty();
@@ -69,6 +72,6 @@ $('body')
     })
     .on('click', '.showPosition', function(){
         positionId = $(this).attr('data-id');
-        
+        console.log(positionInfo);
     })
 ;       
