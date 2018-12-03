@@ -5,6 +5,14 @@ body {
 	font-size: 1em;
 }
 
+.authForm {
+	margin-top: 10px;
+}
+.authForm .error {
+	color: red; 
+	display: none;
+}
+
 .topPanel {
 	background-color: #000000;
 	border: 2px solid #ffffff;
@@ -15,6 +23,24 @@ body {
 	font-family: initial;
 	color: lightgray; 
 	text-align: center; 
+}
+
+.topMenu {
+	position: absolute;
+	right: 66px;
+	top: 36px;
+	height: 40px;
+}
+
+.createSpread {
+	position: absolute;
+	right: 66px;
+	top: 36px;
+}
+.listSpread {
+	position: absolute;
+	right: 6px;
+	top: 36px;
 }
 
 .modalClose {

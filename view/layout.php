@@ -10,7 +10,7 @@
         </div>
 
         <?php if($leftMenu && $leftMenu > ''): ?>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark topMenu">
             <ul class="navbar-nav">
                 <?php echo $leftMenu; ?>
             </ul>
@@ -19,7 +19,6 @@
 
         <?php if($rightMenu && $rightMenu > ''): ?>
             <div class="topPanel">
-                <button type="button" class="btn btn-light" id="backChange"><img class="img-responsive" src="/view/design/refresh.png"></button></li>
                 <?php echo $rightMenu; ?>       
             </div>
         <?php endif; ?>     
