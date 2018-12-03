@@ -2,26 +2,6 @@
     session_start();
     require_once 'model/connection.php';
 
-    //  PHP don't care admin
-    //     $connect = new connection();
-    //     $result = $connect->db->query('');
-    //     $result = $connect->db->query('');
-    //     $response = array();
-    //     if ($result->num_rows > 0) {
-    //         while($row = $result->fetch_assoc()) {
-    //             $response[] = $row;
-    //         }
-    //     }
-    //     var_dump($response);
-    // die();
-
-    // User creator
-    // require_once 'model/user.php';
-    // $user = new user('kush', 'tengri');
-    // $result = $user->create('Посох, Мантия, Спелбук, Специализация, Колода, Имя, Ритуал, Словарь, Рост - цена, Развитие - польза, Колода - цель, Орден - тайна');
-    // var_dump($result); die();
-
-
     function getTranslate() {
         return array(
             'new' => 'Новый',
@@ -38,6 +18,12 @@
             'fail' => 'Перевод не найден'
         );
     }
+
+    $specializationList = array("Начертательная магия", "Вербальная магия", "Предметная магия", 
+                                "Магия крови", "Магия элементов", "Магия высших сил", 
+                                "Магия смерти и жизни", "Магия хаоса и порядка", 
+                                "Магия астрала и снов", "Магия творения", "Магические науки", "Магия пустоты", 
+                                "Магия желаний");
 
     // DeckUpdate
     // function getDeckList() {

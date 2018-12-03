@@ -1,19 +1,22 @@
 <?php
     $user = json_decode($_SESSION['user']);
 
-    $openButton = '<button type="button" class="btn btn-light" id="profileEditButton" title="Редактировать" style="position: fixed; top: 55px; left: 12%;"><img class="img-responsive" src="/view/design/edit.png"></button>';
-    $saveButton = '<button type="button" class="btn btn-light" id="profileSaveButton" title="Сохранить" style="position: fixed; top: 105px; left: 12%;"><img class="img-responsive" src="/view/design/save.png"></button>';
-    $controlPanel .= $openButton.$saveButton;
-
-    $profile = '<div class="row" style="background: #CCCCB4; color: #1B2743; border-radirus: 10px;">';
-    $profile .= '<div class="col-sm-4"><h2>'.$user->name.'</h2></div>';
-    $profile .= '<div class="col-sm-8"><p>'.$user->rules.'</p></div>';
-    $profile .= '<div class="col-sm-2"><p>'.$user->register.'</p></div>';
-    $profile .= '<div class="col-sm-10"></div>';
-    $profile .= '<div class="col-sm-4"><h3>'.$user->specialization.'</h3></div>';
-    $profile .= '<div class="col-sm-8"></div>';
-    $profile .= '<div class="col-sm-4"><p>'.$user->decks.'</p></div>';
-    $profile .= '<div class="col-sm-8"></div>';
-    $profile .= '</div>';
+    $specializationSelect = '<select id="profileSpecialization">';
+    foreach ($specializationList as $key => $specializationLi)
+    {
+        $specializationSelect .= $user->specialization == $specializationLi ? '<option value="'.$key.'" selected>' : '<option value="'.$key.'">';
+        $specializationSelect .= $specializationLi.'</option>';
+    }
+    $specializationSelect .= '</select>';
+    $profile = '<div class="row" style="background: #CCCCB4; color: #1B2743; border-radirus: 10px;">
+                    <div class="col-sm-5"><h2>'.$user->name.'</h2></div>
+                    <div class="col-sm-6"><input type="text" id="profileRules" value="'.$user->rules.'" placeholder="12 кредо"></div>
+                    <div class="col-sm-5"><p>'.$user->register.'</p></div>
+                    <div class="col-sm-6">'.$specializationSelect.'</div>
+                    <div class="col-sm-11"><input type="text" id="profileDecks" value="'.$user->decks.'" placeholder="Используемые колоды"></div>
+                </div>';
 
     $content = $controlPanel.$profile;
+
+    $listButton = '<button type="button" class="btn btn-light" id="saveProfile" title="Сохранить"><img class="img-responsive" src="/view/design/save.png"></button>';
+    $rightMenu = $newButton.$listButton;

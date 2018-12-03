@@ -7,7 +7,10 @@
         pass VARCHAR(390) NOT NULL,
         register VARCHAR(390) NOT NULL,
         rules VARCHAR(390) NOT NULL,
-        specialization VARCHAR(390) DEFAULT NULL,
+        specialization ENUM("Начертательная магия", "Вербальная магия", "Предметная магия", 
+                            "Магия крови", "Магия элементов", "Магия высших сил", 
+                            "Магия смерти и жизни", "Магия хаоса и порядка", "Магия астрала и снов", 
+                            "Магия творения", "Магические науки", "Магия пустоты", "Магия желаний"),
         decks VARCHAR(390) DEFAULT NULL)
         */
 
@@ -42,15 +45,6 @@
             } else {
                 return false;
             }
-        }
-
-        public function create($rules = '') {
-            $connect = new connection();
-            $name = $connect->db->real_escape_string($this->name);
-            $pass = $connect->db->real_escape_string($this->pass);
-            $rules = $connect->db->real_escape_string($rules);
-            $result = $connect->db->query('INSERT INTO user (name, pass, register, rules) VALUES ("'.$name.'", "'.$pass.'", NOW(), "'.$rules.'")');
-            return $result;
         }
 
         public function auth() {
