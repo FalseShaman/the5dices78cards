@@ -27,9 +27,12 @@ body {
 
 .topMenu {
 	position: absolute;
-	right: 66px;
 	top: 36px;
 	height: 40px;
+}
+
+.mainContent {
+	margin-top: 41px;
 }
 
 .createSpread {

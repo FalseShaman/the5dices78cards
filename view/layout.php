@@ -18,13 +18,11 @@
         <?php endif; ?>
 
         <?php if($rightMenu && $rightMenu > ''): ?>
-            <div class="topPanel">
-                <?php echo $rightMenu; ?>       
-            </div>
+            <?php echo $rightMenu; ?>                   
         <?php endif; ?>     
 
         <div class="container-fluid">
-            <div class="container">
+            <div class="container mainContent">
                 <?php echo $content; ?>
             </div>
         </div>
