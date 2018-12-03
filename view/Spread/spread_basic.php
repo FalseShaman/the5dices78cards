@@ -78,8 +78,6 @@
                                             <button type="button" class="close modalClose" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                                             '.$list.'
                                         </div>
-                                        <div class="modal-footer">
-                                        </div>
                                     </div>
                                 </div>
                             </div>';

@@ -51,7 +51,7 @@ $('#positionSave').click(function(){
             success: function(response) {
                 if (response.status == 'done') {
                     positionId = response.id;
-                    putPosition([['id' => positionId, 'place' => positionPlace]]);
+                    putPosition([{'id': positionId, 'place': positionPlace}]);
 
                     $('#positionSelector').modal('toggle');
                     $('#positionName').val('');

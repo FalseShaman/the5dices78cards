@@ -97,6 +97,7 @@ body {
 }
 
 .createPositionForm label {
+	color: #000000;
 	padding-right: 11px;
 }
 .createPositionForm .nameInput {
