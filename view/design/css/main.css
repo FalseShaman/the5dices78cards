@@ -1,5 +1,5 @@
 body {
-	background-image: url("/view/design/background/stone.jpg");
+	background-image: url("/view/design/background/paper.jpg");
 	background-size: 100%;
 	color: #ffffff;
 	font-size: 1em;
@@ -126,4 +126,17 @@ body {
 
 .spreadList {
 	margin: 15px;
+}
+
+.spreadInfo div {
+	display: inline-block;
+}
+.spreadInfo #titleInfo {
+	font-size: 2.22rem;
+}
+.spreadInfo #titleInfo {
+	font-size: 2.22rem;
+}
+.spreadInfo #historyInfo {
+	color: #01010b;
 }
