@@ -6,9 +6,9 @@
     $spreadList = $spread->getList();
 
     $spreadInfo = '<div class="col-md-12 spreadInfo">
-                        <div class="col-md-6"><h3 id="titleInfo"></h3></div>
-                        <div class="col-md-6"><p class="pull-right" id="specificationInfo"></p></div>
-                        <div class="col-md-10" id="historyInfo"></div>
+                        <div class="col-md-4"><h3 id="titleInfo"></h3></div>
+                        <div class="col-md-4"><p class="pull-right" id="historyInfo"></p></div>
+                        <div class="col-md-10" id="specificationInfo"></div>
                     </div>';
     $spreadMap = '<div class="col-md-12 spreadMap" id="spreadMap"></div>';
 

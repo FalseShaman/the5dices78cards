@@ -28,7 +28,8 @@ $('#positionSave').click(function(){
         setError('positionName');
         write = false;
     }
-    if (positionNumber < 0) {
+    console.log(positionNumber);
+    if (positionNumber <= 0) {
         setError('positionNumber');
         write = false;
     }

@@ -10,7 +10,7 @@
         </div>
 
         <?php if($leftMenu && $leftMenu > ''): ?>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark topMenu">
+        <nav class="navbar navbar-expand-sm navbar-dark bg-dark topMenu">
             <ul class="navbar-nav">
                 <?php echo $leftMenu; ?>
             </ul>
