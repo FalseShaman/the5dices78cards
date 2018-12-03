@@ -74,11 +74,11 @@ $('body')
     })
     .on('click', '.showPosition', function(){
         info = positionInfo[$(this).attr('data-id')];
-        $('#infoName').text(info.['name']);
-        $('#infoNumber').text(info.['number']);
-        $('#infoDescription').text(info.['description']);
-        $('#infoLink').text(info.['link']);
-        $('#infoCard').text(info.['card']);
+        $('#infoName').text(info['name']);
+        $('#infoNumber').text(info['number']);
+        $('#infoDescription').text(info['description']);
+        $('#infoLink').text(info['link']);
+        $('#infoCard').text(info['card']);
 
         $('#positionInfo').modal('toggle');
     })
