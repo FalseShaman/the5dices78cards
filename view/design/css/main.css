@@ -134,3 +134,7 @@ body {
 .spreadInfo #historyInfo {
 	color: #01010b;
 }
+
+.infoModal {
+	color: #000000;
+}

@@ -73,7 +73,7 @@ $('body')
         $('#positionSelector').modal('toggle');
     })
     .on('click', '.showPosition', function(){
-        info = positionInfo[$(this).attr('data-id')];
+        var info = positionInfo[$(this).attr('data-id')];
         $('#infoName').text(info['name']);
         $('#infoNumber').text(info['number']);
         $('#infoDescription').text(info['description']);
