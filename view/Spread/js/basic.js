@@ -67,4 +67,8 @@ $('body')
             $('#modalScript').text(data);
         });
     })
+    .on('click', '.showPosition', function(){
+        positionId = $(this).attr('data-id');
+        
+    })
 ;       
