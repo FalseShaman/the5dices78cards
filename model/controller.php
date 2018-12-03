@@ -18,6 +18,8 @@
                 array(),
             'quest' =>
                 array(),
+            'wave' =>
+                array(),
             'lost' =>
                 array()
             );

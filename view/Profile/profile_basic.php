@@ -8,13 +8,14 @@
         $specializationSelect .= $specializationLi.'</option>';
     }
     $specializationSelect .= '</select>';
-    $profile = '<div class="row" style="background: #CCCCB4; color: #1B2743; border-radirus: 10px;">
-                    <div class="col-sm-5"><h2>'.$user->name.'</h2></div>
-                    <div class="col-sm-6"><input type="text" id="profileRules" value="'.$user->rules.'" placeholder="12 кредо"></div>
-                    <div class="col-sm-5"><p>'.$user->register.'</p></div>
-                    <div class="col-sm-6">'.$specializationSelect.'</div>
+    $profile = '<form class="profileForm"> 
+                    <div class="col-sm-5">
+                        <h2>'.$user->name.'</h2>
+                        <div class="col-sm-5">'.$specializationSelect.'</div>
+                    </div>
+                    <div class="col-sm-6"><textarea id="profileRules" placeholder="12 кредо">'.$user->rules.'</textarea></div>
                     <div class="col-sm-11"><input type="text" id="profileDecks" value="'.$user->decks.'" placeholder="Используемые колоды"></div>
-                </div>';
+                </form>';
 
     $content = $controlPanel.$profile;
 

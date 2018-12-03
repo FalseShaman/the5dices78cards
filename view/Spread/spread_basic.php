@@ -14,8 +14,8 @@
 
     $content = $spreadInfo.$spreadMap;
     
-    $newButton = '<button type="button" class="btn btn-light createSpread" id="spreadCreate" title="Создать"><img class="img-responsive" src="/view/design/new.png"></button>';
-    $listButton = '<button type="button" class="btn btn-light listSpread" id="spreadList" title="Список"><img class="img-responsive" src="/view/design/box.png"></button>';
+    $newButton = '<button type="button" class="btn btn-light" id="spreadCreate" title="Создать"><img class="img-responsive" src="/view/design/new.png"></button>';
+    $listButton = '<button type="button" class="btn btn-light" id="spreadList" title="Список"><img class="img-responsive" src="/view/design/box.png"></button>';
     $rightMenu = $newButton.$listButton;
 
     $createModal = '<div class="modal fade" id="spreadCreator" tabindex="-1" role="dialog" aria-hidden="true">

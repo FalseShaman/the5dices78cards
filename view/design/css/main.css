@@ -5,14 +5,6 @@ body {
 	font-size: 1em;
 }
 
-.authForm {
-	margin-top: 10px;
-}
-.authForm .error {
-	color: red; 
-	display: none;
-}
-
 .topPanel {
 	background-color: #000000;
 	border: 2px solid #ffffff;
@@ -23,6 +15,11 @@ body {
 	font-family: initial;
 	color: lightgray; 
 	text-align: center; 
+}
+
+.authForm .error {
+	color: red; 
+	display: none;
 }
 
 .topMenu {
@@ -37,15 +34,25 @@ body {
 	margin-top: 44px;
 }
 
-.createSpread {
+#saveProfile {
+	position: absolute;
+	right: 6px;
+	top: 36px;
+}
+
+#createSpread {
 	position: absolute;
 	right: 66px;
 	top: 36px;
 }
-.listSpread {
+#listSpread {
 	position: absolute;
 	right: 6px;
 	top: 36px;
+}
+
+.profileForm input {
+	width: 100%;
 }
 
 .modalClose {
