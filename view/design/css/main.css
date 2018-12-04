@@ -40,12 +40,12 @@ body {
 	top: 36px;
 }
 
-#createSpread {
+#spreadCreate {
 	position: absolute;
 	right: 66px;
 	top: 36px;
 }
-#listSpread {
+#spreadList {
 	position: absolute;
 	right: 6px;
 	top: 36px;
