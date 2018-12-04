@@ -52,13 +52,13 @@ $('#spreadSave').click(function(){
             },
             success: function(response) {
                 if (response.status == 'done') {
+                    $('#spreadCreator').modal('toggle');
+                    
                     spreadId = response.id;
                     writeInfo(spreadTitle, spreadSpecification, spreadHistory);
                     writeMap(spreadHeight, spreadLength);
                     $('.spreadList').append('<li class="list-group-item"><button class="btn btn-default openSpread" data-id="'+spreadId+'">'+spreadTitle+'</button></li>')
 
-
-                    $('#spreadCreator').modal('toggle');
                     $('#spreadTitle').val('');
                     $('#spreadHeight').val(0);
                     $('#spreadLength').val(0);
