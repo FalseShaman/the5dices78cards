@@ -3,6 +3,7 @@ var positionNumber = $('#positionNumber').val();
 var positionDescription = $('#positionDescription').val();
 var positionLink = $('#positionLink').val();
 var positionCard = $('#positionCard').val();
+var positionFrame = $('#positionFrame').val();
 
 $('#positionName').keyup(function(){
     positionName = $(this).val();
@@ -18,6 +19,9 @@ $('#positionLink').keyup(function(){
 });
 $('#positionCard').keyup(function(){
     positionCard = $(this).val();
+});
+$('#positionFrame').keyup(function(){
+    positionFrame = $(this).val();
 });
 
 $('#positionSave').click(function(){
@@ -47,7 +51,8 @@ $('#positionSave').click(function(){
                 number: positionNumber,
                 description: positionDescription,
                 link: positionLink,
-                card: positionCard
+                card: positionCard,
+                frame: positionFrame
             },
             success: function(response) {
                 if (response.status == 'done') {
@@ -60,6 +65,7 @@ $('#positionSave').click(function(){
                     $('#positionDescription').val('');
                     $('#positionLink').val('');
                     $('#positionCard').val('');
+                    $('#positionFrame').val('');
                 } else {
                     $('#positionSave').parent().children('h3').remove();
                     $('#positionSave').parent().append('<h3 style="color: #FF6C00;">'+response.message+'</h3>');

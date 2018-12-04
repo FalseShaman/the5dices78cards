@@ -129,12 +129,20 @@
                                             <h3 id="infoName"></h3> <p id="infoNumber"></p>
                                         </div>
                                         <div class="modal-body">
+                                            <label for="positionDescription">Собственное значение позиции:</label>
+                                            <hr>
                                             <div class="col-sm-12" id="infoDescription">
                                             </div>
+                                            <label for="positionLink">Связи с позициями в раскладе:</label>
+                                            <hr>
                                             <div class="col-sm-12" id="infoLink">
                                             </div>
+                                            <label for="positionCard">Советы по чтению карты:</label>
+                                            <hr>
                                             <div class="col-sm-12" id="infoCard">
                                             </div>
+                                            <label for="positionFrame">Пример чтения:</label>
+                                            <hr>
                                             <div class="col-sm-12" id="infoFrame">
                                             </div>
                                         <div class="modal-footer">

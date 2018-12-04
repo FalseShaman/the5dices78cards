@@ -79,6 +79,7 @@ $('body')
         $('#infoDescription').text(info['description']);
         $('#infoLink').text(info['link']);
         $('#infoCard').text(info['card']);
+        $('#infoFrame').text(info['frame']);
 
         $('#positionInfo').modal('toggle');
     })

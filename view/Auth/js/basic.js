@@ -19,7 +19,7 @@ $('#login').click(function(){
         },
         success: function(response) {
             if (response.status == 'done') {
-                window.location.href = '/profile';
+                window.location.href = '/spread';
             } else {
                 $('#errorLabel').text(response.message);
                 $('#errorLabel').show();

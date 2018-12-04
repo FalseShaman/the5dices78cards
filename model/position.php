@@ -9,6 +9,7 @@
         description VARCHAR(660) DEFAULT NULL,
         link VARCHAR(660) DEFAULT NULL,
         card VARCHAR(660) DEFAULT NULL,
+        frame VARCHAR(660) DEFAULT NULL,
         spread_id INT(6) UNSIGNED NOT NULL)
         */
 
@@ -19,8 +20,9 @@
         public $description;
         public $link;
         public $card;
+        public $frame;
 
-        public function __construct($spread_id = 0, $place = 0, $name = '', $number = 0, $description = '', $link = '', $card = '') {
+        public function __construct($spread_id = 0, $place = 0, $name = '', $number = 0, $description = '', $link = '', $card = '', $frame = '') {
             $this->spread_id = $spread_id;
             $this->place = $place;
             $this->name = $name;
@@ -28,6 +30,7 @@
             $this->description = $description;
             $this->link = $link;
             $this->card = $card;
+            $this->frame = $frame;
         }
 
         public function create() {
@@ -38,10 +41,11 @@
             $description = $connect->db->real_escape_string($this->description);
             $link = $connect->db->real_escape_string($this->link);
             $card = $connect->db->real_escape_string($this->card);
+            $frame = $connect->db->real_escape_string($this->frame);
             $spread_id = $connect->db->real_escape_string($this->spread_id);
 
-            $result = $connect->db->query('INSERT INTO position (place, name, number, description, link, card, spread_id) 
-                                            VALUES ('.$place.', "'.$name.'", '.$number.', "'.$description.'", "'.$link.'", "'.$card.'", '.$spread_id.')');
+            $result = $connect->db->query('INSERT INTO position (place, name, number, description, link, card, frame, spread_id) 
+                                            VALUES ('.$place.', "'.$name.'", '.$number.', "'.$description.'", "'.$link.'", "'.$card.'", "'.$frame.'", '.$spread_id.')');
             
             if ($result) {
                 return $connect->db->insert_id;
@@ -60,8 +64,9 @@
             $description = $connect->db->real_escape_string($this->description);
             $link = $connect->db->real_escape_string($this->link);
             $card = $connect->db->real_escape_string($this->card);
+            $frame = $connect->db->real_escape_string($this->frame);
 
-            $result = $connect->db->query('UPDATE position SET name = "'.$name.'", number = '.$number.', description = "'.$description.'", link = "'.$link.'", card = "'.$card.'" 
+            $result = $connect->db->query('UPDATE position SET name = "'.$name.'", number = '.$number.', description = "'.$description.'", link = "'.$link.'", card = "'.$card.'", frame = "'.$frame.'" 
                                             WHERE id = '.$position_id.' AND spread_id = '.$spread_id);
 
             if ($result) {

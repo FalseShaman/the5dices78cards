@@ -23,6 +23,7 @@ body {
 }
 
 .topMenu {
+	display: none;
 	position: absolute;
 	top: 33px;
 	height: 33px;
@@ -67,7 +68,7 @@ body {
 }
 .createSpreadForm .titleInput input {
 	display: inline-block;
-	width: 79%;
+	width: 75%;
 }
 .createSpreadForm .numberInput {
 	display: inline-block;
