@@ -39,6 +39,8 @@ $('#positionSave').click(function(){
     }
 
     if (write) {
+        $('#positionSave').prop('disabled', true);
+
         $.ajax({
             method: "POST",
             url: "/spread/position",
@@ -59,7 +61,7 @@ $('#positionSave').click(function(){
                     $('#positionSelector').modal('toggle');
                     
                     positionId = response.id;
-                    putPosition([{'id': positionId, 'place': positionPlace}]);
+                    putPosition([{'id': positionId, 'place': positionPlace, 'name': positionName, 'number': positionNumber, 'description': positionDescription, 'link': positionLink, 'card': positionCard, 'frame': positionFrame}], userId);
 
                     $('#positionName').val('');
                     $('#positionNumber').val(0);

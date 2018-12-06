@@ -1,3 +1,4 @@
+var userId = $('#userId').val();
 var spreadId = 0;
 var positionId = 0;
 var positionPlace = 0;
@@ -33,7 +34,7 @@ function writeMap(height = 0, length = 0) {
         $('#spreadMap').append(map);  
     }
 }
-function putPosition(positionList) {
+function putPosition(positionList, spreadUser) {
     $.each(positionList, function(ind, val){
         positionInfo[val['id']] = val;
 
@@ -41,12 +42,15 @@ function putPosition(positionList) {
         $(div).addClass('chosenPosition');
         $(div).empty();
         $(div).append('<button class="btn btn-default showPosition" data-id="'+val['id']+'"><img class="img-responsive" src="/view/design/show.png"></button>');
+        if (spreadUser == userId) {
+            $(div).append('<button class="btn btn-default editPosition" data-id="'+val['id']+'"><img class="img-responsive" src="/view/design/edit.png"></button>');
+        }
     });
 }
 
 $('#spreadCreate').click(function(){
     spreadId = 0;
-    $('#spreadSave').prop('disabled', false);     
+    $('#spreadSave').prop('disabled', false);   
 
     $.getScript( "view/Spread/js/create.js", function( data, textStatus, jqxhr ) {
         console.log(textStatus+'-'+"create.js");
@@ -66,6 +70,7 @@ $('body')
     .on('click', '.spreadPosition', function(){
         positionId = $(this).attr('data-id');
         positionPlace = $(this).attr('data-place');
+        $('#positionSave').prop('disabled', false);
 
         $.getScript( "view/Spread/js/position.js", function( data, textStatus, jqxhr ) {
             console.log(textStatus+'-'+"position.js");
@@ -83,5 +88,25 @@ $('body')
         $('#infoFrame').text(info['frame']);
 
         $('#positionInfo').modal('toggle');
+    })
+    .on('click', '.spreadPosition', function(){
+        positionId = $(this).attr('data-id');
+        positionPlace = $(this).attr('data-place');
+
+        var info = positionInfo[positionId];
+        $('#positionName').val(info['name']);
+        $('#positionNumber').val(info['number']);
+        $('#positionDescription').val(info['description']);
+        $('#positionLink').val(info['link']);
+        $('#positionCard').val(info['card']);
+        $('#positionFrame').val(info['frame']);
+
+        $('#positionSave').prop('disabled', false);
+
+        $.getScript( "view/Spread/js/position.js", function( data, textStatus, jqxhr ) {
+            console.log(textStatus+'-'+"position.js");
+            $('#modalScript').text(data);
+        });
+        $('#positionSelector').modal('toggle');
     })
 ;       

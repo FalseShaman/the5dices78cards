@@ -14,7 +14,7 @@ $('body')
                     
                     writeInfo(response.data.spread.title, response.data.spread.specification, response.data.spread.history);
                     writeMap(response.data.spread.height, response.data.spread.length);
-                    putPosition(response.data.positionList);
+                    putPosition(response.data.positionList, response.data.spread.user_id);
                 }
             }
         }); 
