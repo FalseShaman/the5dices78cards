@@ -43,7 +43,7 @@ function putPosition(positionList, spreadUser) {
         $(div).empty();
         $(div).append('<button class="btn btn-default showPosition" data-id="'+val['id']+'"><img class="img-responsive" src="/view/design/show.png"></button>');
         if (spreadUser == userId) {
-            $(div).append('<button class="btn btn-default editPosition" data-id="'+val['id']+'"><img class="img-responsive" src="/view/design/edit.png"></button>');
+            $(div).append('<button class="btn btn-default editPosition" data-id="'+val['id']+'" data-place="'+val['place']+'"><img class="img-responsive" src="/view/design/edit.png"></button>');
         }
     });
 }
@@ -67,6 +67,9 @@ $('#spreadList').click(function(){
         $('#modalScript').text(data);
     });  
     $('#spreadSelector').modal('toggle');   
+});
+$('#spreadEdit').click(function(){
+    alert('soon');
 });
 
 $('body')
@@ -96,9 +99,9 @@ $('body')
     .on('click', '.editPosition', function(){
         $('#modalScript').text('');   
         positionId = $(this).attr('data-id');
-        positionPlace = $(this).attr('data-place');
 
         var info = positionInfo[positionId];
+        positionPlace = info['place'];
         $('#positionName').val(info['name']);
         $('#positionNumber').val(info['number']);
         $('#positionDescription').val(info['description']);

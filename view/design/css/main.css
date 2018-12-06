@@ -139,7 +139,9 @@ body {
 	margin: 15px;
 }
 
-
+.spreadInfo div {
+    display: inline-block;
+}
 .spreadInfo #spreadEdit {
     display: inline-block;
     position: absolute;
