@@ -21,6 +21,7 @@ $('#spreadHistory').keyup(function(){
 });
 
 $('#spreadSave').click(function(){
+console.log('button pressed');
     var write = true;
     removeErrors('createSpreadForm');
 
@@ -38,6 +39,7 @@ $('#spreadSave').click(function(){
     }
 
     if (write) {
+console.log('request sended');
         $.ajax({
             method: "POST",
             url: "/spread/save",
@@ -51,6 +53,7 @@ $('#spreadSave').click(function(){
                 history: spreadHistory
             },
             success: function(response) {
+console.log('response getted');
                 if (response.status == 'done') {
                     $('#spreadCreator').modal('toggle');
                     
