@@ -16,7 +16,7 @@
                     </div>';
     $spreadMap = '<div class="col-sm-12 spreadMap" id="spreadMap"></div>';
 
-    $content = $spreadInfo.$spreadMap;
+    $content = $userInfo.$spreadInfo.$spreadMap;
     
     $newButton = '<button type="button" class="btn btn-light" id="spreadCreate" title="Создать"><img class="img-responsive" src="/view/design/new.png"></button>';
     $listButton = '<button type="button" class="btn btn-light" id="spreadList" title="Список"><img class="img-responsive" src="/view/design/box.png"></button>';
