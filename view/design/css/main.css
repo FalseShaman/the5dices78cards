@@ -153,6 +153,9 @@ body {
 .infoModal {
 	color: #000000;
 }
+.infoModal label {
+	font-size: 1.3em;
+}
 .infoModal #infoNumber {
 	text-align: right;
 }

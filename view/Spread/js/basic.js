@@ -93,7 +93,7 @@ $('body')
 
         $('#positionInfo').modal('toggle');
     })
-    .on('click', '.spreadPosition', function(){
+    .on('click', '.editPosition', function(){
         $('#modalScript').text('');   
         positionId = $(this).attr('data-id');
         positionPlace = $(this).attr('data-place');

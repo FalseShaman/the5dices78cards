@@ -8,10 +8,9 @@
 
     $spreadInfo = '<div class="col-sm-12 spreadInfo">
                         <div class="col-sm-6"><h3 id="titleInfo"></h3></div>
-                        <div class="col-sm-5" id="historyInfo">
-                            <button type="button" class="btn btn-light" id="spreadEdit"><img class="img-responsive" src="/view/design/edit.png"></button> 
-                        </div>
+                        <div class="col-sm-5" id="historyInfo"></div>
                         <div class="col-sm-11" id="specificationInfo"></div>
+                        <button type="button" class="btn btn-light" id="spreadEdit"><img class="img-responsive" src="/view/design/edit.png"></button>   
                     </div>';
     $spreadMap = '<div class="col-sm-12 spreadMap" id="spreadMap"></div>';
 
@@ -125,35 +124,27 @@
                     </div>';
 
     $infoModal = '<div class="modal fade" id="positionInfo" tabindex="-1" role="dialog" aria-hidden="true">
-                                <div class="modal-dialog" role="document">
-                                    <div class="modal-content infoModal">
-                                        <div class="modal-header">
-                                            <button type="button" class="close modalClose" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                            <h3 id="infoName"></h3> <p id="infoNumber"></p>
-                                        </div>
-                                        <div class="modal-body">
-                                            <label for="positionDescription">Собственное значение позиции:</label>
-                                            <hr>
-                                            <div class="col-sm-12" id="infoDescription">
-                                            </div>
-                                            <label for="positionLink">Связи с позициями в раскладе:</label>
-                                            <hr>
-                                            <div class="col-sm-12" id="infoLink">
-                                            </div>
-                                            <label for="positionCard">Советы по чтению карты:</label>
-                                            <hr>
-                                            <div class="col-sm-12" id="infoCard">
-                                            </div>
-                                            <label for="positionFrame">Пример чтения:</label>
-                                            <hr>
-                                            <div class="col-sm-12" id="infoFrame">
-                                            </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="col-sm-6 btn btn-info" id="infoPrev">Предыдущая</button>
-                                            <button type="button" class="col-sm-6 btn btn-info" id="infoNext">Следующая</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>';
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content infoModal">
+                            <div class="modal-header">
+                                <button type="button" class="close modalClose" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h3 id="infoName"></h3> <p id="infoNumber"></p>
+                            </div>
+                            <div class="modal-body">
+                                <label for="positionDescription">Собственное значение позиции:</label>
+                                <div class="col-sm-12" id="infoDescription"></div>
+                                <hr>
+                                <label for="positionLink">Связи с позициями в раскладе:</label>
+                                <div class="col-sm-12" id="infoLink"></div>
+                                <hr>
+                                <label for="positionCard">Советы по чтению карты:</label>
+                                <div class="col-sm-12" id="infoCard"></div>
+                                <hr>
+                                <label for="positionFrame">Пример чтения:</label>
+                                <div class="col-sm-12" id="infoFrame"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>';
                             
     $modals = $createModal.$listModal.$positionModal.$infoModal;
