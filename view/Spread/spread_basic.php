@@ -7,11 +7,10 @@
     $spreadList = $spread->getList();
 
     $spreadInfo = '<div class="col-sm-12 spreadInfo">
-                        <div class="col-sm-6">
-                            <h3 id="titleInfo"></h3>
-                            <button type="button" class="btn btn-light" id="spreadEdit"><img class="img-responsive" src="/view/design/edit.png"></button>
+                        <div class="col-sm-6"><h3 id="titleInfo"></h3></div>
+                        <div class="col-sm-5" id="historyInfo">
+                            <button type="button" class="btn btn-light" id="spreadEdit"><img class="img-responsive" src="/view/design/edit.png"></button> 
                         </div>
-                        <div class="col-sm-5" id="historyInfo"></div>
                         <div class="col-sm-11" id="specificationInfo"></div>
                     </div>';
     $spreadMap = '<div class="col-sm-12 spreadMap" id="spreadMap"></div>';

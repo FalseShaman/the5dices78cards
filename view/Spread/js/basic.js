@@ -49,6 +49,7 @@ function putPosition(positionList, spreadUser) {
 }
 
 $('#spreadCreate').click(function(){
+    $('#modalScript').text('');   
     spreadId = 0;
     $('#spreadSave').prop('disabled', false);   
 
@@ -59,6 +60,8 @@ $('#spreadCreate').click(function(){
     $('#spreadCreator').modal('toggle');
 });
 $('#spreadList').click(function(){
+    $('#modalScript').text('');   
+
     $.getScript( "view/Spread/js/list.js", function( data, textStatus, jqxhr ) {
         console.log(textStatus+'-'+"list.js");
         $('#modalScript').text(data);
@@ -68,6 +71,7 @@ $('#spreadList').click(function(){
 
 $('body')
     .on('click', '.spreadPosition', function(){
+        $('#modalScript').text('');   
         positionId = $(this).attr('data-id');
         positionPlace = $(this).attr('data-place');
         $('#positionSave').prop('disabled', false);
@@ -90,6 +94,7 @@ $('body')
         $('#positionInfo').modal('toggle');
     })
     .on('click', '.spreadPosition', function(){
+        $('#modalScript').text('');   
         positionId = $(this).attr('data-id');
         positionPlace = $(this).attr('data-place');
 
