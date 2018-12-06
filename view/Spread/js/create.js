@@ -21,7 +21,6 @@ $('#spreadHistory').keyup(function(){
 });
 
 $('#spreadSave').click(function(){
-    $(this).prop('disabled', true);
     var write = true;
     removeErrors('createSpreadForm');
 
@@ -39,6 +38,8 @@ $('#spreadSave').click(function(){
     }
 
     if (write) {
+        $('#spreadSave').prop('disabled', true);
+        
         $.ajax({
             method: "POST",
             url: "/spread/save",

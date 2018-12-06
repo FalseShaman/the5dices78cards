@@ -46,6 +46,7 @@ function putPosition(positionList) {
 
 $('#spreadCreate').click(function(){
     spreadId = 0;
+    $('#spreadSave').prop('disabled', false);     
 
     $.getScript( "view/Spread/js/create.js", function( data, textStatus, jqxhr ) {
         console.log(textStatus+'-'+"create.js");
