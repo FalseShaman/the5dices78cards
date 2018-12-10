@@ -58,8 +58,6 @@ $('#positionSave').click(function(){
             },
             success: function(response) {
                 if (response.status == 'done') {
-                    $('#positionSelector').modal('toggle');
-                    
                     positionId = response.id;
                     putPosition([{'id': positionId, 'place': positionPlace, 'name': positionName, 'number': positionNumber, 'description': positionDescription, 'link': positionLink, 'card': positionCard, 'frame': positionFrame}], userId);
 
@@ -69,6 +67,7 @@ $('#positionSave').click(function(){
                     $('#positionLink').val('');
                     $('#positionCard').val('');
                     $('#positionFrame').val('');
+                    $('#positionSelector').modal('toggle');
                 } else {
                     $('#positionSave').parent().children('h3').remove();
                     $('#positionSave').parent().append('<h3 style="color: #FF6C00;">'+response.message+'</h3>');

@@ -24,7 +24,7 @@
                         <div class="modal-dialog" role="document">
                             <div class="modal-content createSpreadModal">
                                 <div class="modal-body">
-                                    <button type="button" class="close modalClose" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <button type="button" class="close modalClose" id="spreadCreatorClose" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                                     <form class="createSpreadForm"> 
                                         <div class="col-sm-12">
                                             <div class="titleInput">
@@ -77,7 +77,7 @@
                     <div class="modal-dialog" role="document">
                         <div class="modal-content spreadListModal">
                             <div class="modal-body">
-                                <button type="button" class="close modalClose" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <button type="button" class="close modalClose" id="spreadSelectorClose" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                                 '.$list.'
                             </div>
                         </div>
@@ -88,7 +88,7 @@
                         <div class="modal-dialog" role="document">
                             <div class="modal-content spreadPositionModal">
                                 <div class="modal-body">
-                                    <button type="button" class="close modalClose" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <button type="button" class="close modalClose" id="positionSelectorClose" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                                     <form class="createPositionForm"> 
                                         <div class="nameInput">
                                             <label for="positionName">Имя:</label>
@@ -127,7 +127,7 @@
                     <div class="modal-dialog" role="document">
                         <div class="modal-content infoModal">
                             <div class="modal-header">
-                                <button type="button" class="close modalClose" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <button type="button" class="close modalClose" id="positionInfoClose" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                                 <h3 id="infoName"></h3> <p id="infoNumber"></p>
                             </div>
                             <div class="modal-body">

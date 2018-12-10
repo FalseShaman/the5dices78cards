@@ -8,9 +8,11 @@ $('#spreadTitle').keyup(function(){
     spreadTitle = $(this).val();
 });
 $('#spreadHeight').keyup(function(){
+    $('#spreadHeight').prop('disabled', false);
     spreadHeight = $(this).val();
 });
 $('#spreadLength').keyup(function(){
+    $('#spreadLength').prop('disabled', false);
     spreadLength = $(this).val();
 });
 $('#spreadSpecification').keyup(function(){
@@ -54,18 +56,16 @@ $('#spreadSave').click(function(){
             },
             success: function(response) {
                 if (response.status == 'done') {
-                    $('#spreadCreator').modal('toggle');
-                    
-                    spreadId = response.id;
-                    writeInfo(spreadTitle, spreadSpecification, spreadHistory);
+                    writeInfo(response.id, spreadTitle, spreadSpecification, spreadHistory);
                     writeMap(spreadHeight, spreadLength);
-                    $('.spreadList').append('<li class="list-group-item"><button class="btn btn-default openSpread" data-id="'+spreadId+'">'+spreadTitle+'</button></li>')
 
+                    $('.spreadList').append('<li class="list-group-item"><button class="btn btn-default openSpread" data-id="'+response.id+'">'+spreadTitle+'</button></li>')
                     $('#spreadTitle').val('');
                     $('#spreadHeight').val(0);
                     $('#spreadLength').val(0);
                     $('#spreadSpecification').val('');
                     $('#spreadHistory').val('');
+                    $('#spreadCreator').modal('toggle');
                 } else {
                     $('#spreadSave').parent().children('h3').remove();
                     $('#spreadSave').parent().append('<h3 style="color: #FF6C00;">'+response.message+'</h3>');

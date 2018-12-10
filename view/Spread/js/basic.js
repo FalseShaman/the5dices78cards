@@ -13,10 +13,18 @@ function removeErrors(formClass) {
     $('.'+formClass+' input').attr('style', '');
     $('.'+formClass+' textarea').attr('style', '');
 }
-function writeInfo(title, specification, history) {
+function writeInfo(id, title, specification, history) {
+    spreadId = id;
     $('#titleInfo').text(title);
     $('#specificationInfo').text(specification);
     $('#historyInfo').text(history);
+}
+function editInfo() {
+    $('#spreadTitle').val($('#titleInfo').text());
+    $('#spreadHeight').prop('disabled', true);
+    $('#spreadLength').prop('disabled', true);
+    $('#spreadSpecification').val($('#specificationInfo').text());
+    $('#spreadHistory').val($('#historyInfo').text());
 }
 function writeMap(height = 0, length = 0) {
     $('#spreadMap').empty();
@@ -49,72 +57,78 @@ function putPosition(positionList, spreadUser) {
 }
 
 $('#spreadCreate').click(function(){
-    $('#modalScript').text('');   
     spreadId = 0;
     $('#spreadSave').prop('disabled', false);   
-
-    $.getScript( "view/Spread/js/create.js", function( data, textStatus, jqxhr ) {
-        console.log(textStatus+'-'+"create.js");
-        $('#modalScript').text(data);
-    });
     $('#spreadCreator').modal('toggle');
 });
-$('#spreadList').click(function(){
-    $('#modalScript').text('');   
+$('#spreadCreatorClose').click(function(){
+    $('#spreadCreator').modal('toggle');
+});
 
-    $.getScript( "view/Spread/js/list.js", function( data, textStatus, jqxhr ) {
-        console.log(textStatus+'-'+"list.js");
-        $('#modalScript').text(data);
-    });  
+$('#spreadList').click(function(){
     $('#spreadSelector').modal('toggle');   
 });
+$('#spreadSelectorClose').click(function(){
+    $('#spreadSelector').modal('toggle');
+});
+
 $('#spreadEdit').click(function(){
-    alert('soon');
+    $('#spreadCreator').modal('toggle');
 });
 
 $('body')
     .on('click', '.spreadPosition', function(){
-        $('#modalScript').text('');   
         positionId = $(this).attr('data-id');
         positionPlace = $(this).attr('data-place');
-        $('#positionSave').prop('disabled', false);
 
-        $.getScript( "view/Spread/js/position.js", function( data, textStatus, jqxhr ) {
-            console.log(textStatus+'-'+"position.js");
-            $('#modalScript').text(data);
-        });
+        $('#positionSave').prop('disabled', false);
         $('#positionSelector').modal('toggle');
     })
     .on('click', '.showPosition', function(){
-        var info = positionInfo[$(this).attr('data-id')];
+        positionId = $(this).attr('data-id');
+        var info = positionInfo[positionId];
+
         $('#infoName').text(info['name']);
         $('#infoNumber').text('('+info['number']+')');
         $('#infoDescription').text(info['description']);
         $('#infoLink').text(info['link']);
         $('#infoCard').text(info['card']);
         $('#infoFrame').text(info['frame']);
-
         $('#positionInfo').modal('toggle');
     })
     .on('click', '.editPosition', function(){
-        $('#modalScript').text('');   
         positionId = $(this).attr('data-id');
-
         var info = positionInfo[positionId];
         positionPlace = info['place'];
+
         $('#positionName').val(info['name']);
         $('#positionNumber').val(info['number']);
         $('#positionDescription').val(info['description']);
         $('#positionLink').val(info['link']);
         $('#positionCard').val(info['card']);
         $('#positionFrame').val(info['frame']);
-
         $('#positionSave').prop('disabled', false);
-
-        $.getScript( "view/Spread/js/position.js", function( data, textStatus, jqxhr ) {
-            console.log(textStatus+'-'+"position.js");
-            $('#modalScript').text(data);
-        });
         $('#positionSelector').modal('toggle');
     })
 ;       
+$('#positionSelectorClose').click(function(){
+    $('#positionSelector').modal('toggle');
+});
+$('#positionInfoClose').click(function(){
+    $('#positionInfo').modal('toggle');
+});
+       
+$(document).on('ready', function(){
+    $.getScript( "view/Spread/js/create.js", function( data, textStatus, jqxhr ) {
+        console.log(textStatus+'-'+"create.js");
+        $('#modalCreateScript').text(data);
+    });
+    $.getScript( "view/Spread/js/list.js", function( data, textStatus, jqxhr ) {
+        console.log(textStatus+'-'+"list.js");
+        $('#modalListScript').text(data);
+    });  
+    $.getScript( "view/Spread/js/position.js", function( data, textStatus, jqxhr ) {
+        console.log(textStatus+'-'+"position.js");
+        $('#modalPositionScript').text(data);
+    });
+});
