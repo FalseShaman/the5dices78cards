@@ -10,10 +10,13 @@ $('body')
             },
             success: function(response) {
                 if (response.status == 'done') {
-                    $('#spreadSelector').modal('toggle');  
-                    writeInfo(response.data.spread.id, response.data.spread.title, response.data.spread.specification, response.data.spread.history);
-                    writeMap(response.data.spread.height, response.data.spread.length);
+                    spreadId = id;
+                    spreadData = {'title': response.data.spread.title, 'specification': response.data.spread.specification, 'history': response.data.spread.history, 'height': response.data.spread.height, 'length': response.data.spread.length};
+                    showSpread();
+                    showMap();
                     putPosition(response.data.positionList, response.data.spread.user_id);
+
+                    $('#spreadSelector').modal('toggle');  
                 }
             }
         }); 

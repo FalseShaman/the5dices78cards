@@ -1,5 +1,8 @@
 var userId = $('#userId').val();
+
 var spreadId = 0;
+var spreadData = {};
+
 var positionId = 0;
 var positionPlace = 0;
 var positionInfo = [];
@@ -13,21 +16,25 @@ function removeErrors(formClass) {
     $('.'+formClass+' input').attr('style', '');
     $('.'+formClass+' textarea').attr('style', '');
 }
-function writeInfo(id, title, specification, history) {
-    spreadId = id;
-    $('#titleInfo').text(title);
-    $('#specificationInfo').text(specification);
-    $('#historyInfo').text(history);
+
+function showSpread() {
+    $('#titleInfo').text(spreadData.title);
+    $('#specificationInfo').text(spreadData.specification);
+    $('#historyInfo').text(spreadData.history);
 }
 function editInfo() {
-    $('#spreadTitle').val($('#titleInfo').text());
-    $('#spreadHeight').prop('disabled', true);
-    $('#spreadLength').prop('disabled', true);
-    $('#spreadSpecification').val($('#specificationInfo').text());
-    $('#spreadHistory').val($('#historyInfo').text());
+    $('#spreadTitle').val(spreadData.title);
+    $('#spreadHeight').val(spreadData.height).prop('disabled', true);
+    $('#spreadLength').val(spreadData.length).prop('disabled', true);
+    $('#spreadSpecification').val(spreadData.specification);
+    $('#spreadHistory').val(spreadData.history);
 }
-function writeMap(height = 0, length = 0) {
+
+function showMap() {
     $('#spreadMap').empty();
+
+    var height = spreadData.height;
+    var length = spreadData.length;
     if (height > 0 && height < 10 && length > 0 && length < 10) {
         var divWidth = Math.floor(100/length);
         var divCount = height * length;
@@ -36,10 +43,12 @@ function writeMap(height = 0, length = 0) {
         for (pos=divCount; pos>0; pos--)
         {
             map += '<div style="width: '+divWidth+'%;">'+
-                        '<button class="btn btn-default spreadPosition" data-place="'+pos+'" data-id="0"><img class="img-responsive" src="/view/design/open.png"></button>'+
+                        '<button class="btn btn-default spreadPosition" data-place="'+pos+'" data-id="0"><img class="img-responsive" src="/view/design/refresh.png"></button>'+
                     '</div>';
         }
         $('#spreadMap').append(map);  
+    } else {
+        console.log('broken map size');
     }
 }
 function putPosition(positionList, spreadUser) {
@@ -53,7 +62,13 @@ function putPosition(positionList, spreadUser) {
         if (spreadUser == userId) {
             $(div).append('<button class="btn btn-default editPosition" data-id="'+val['id']+'" data-place="'+val['place']+'"><img class="img-responsive" src="/view/design/edit.png"></button>');
         }
+        $(div).append('<button class="btn btn-default clearPosition" data-id="'+val['id']+'" data-place="'+val['place']+'"><img class="img-responsive" src="/view/design/clear.png"></button>');
     });
+}
+function clearPosition(place) {
+    var div = $('button[data-place="'+place+'"]').parent();
+    $(div).empty();
+    $(div).append('<button class="btn btn-default spreadPosition" data-place="'+place+'" data-id="0"><img class="img-responsive" src="/view/design/refresh.png"></button>');
 }
 
 $('#spreadCreate').click(function(){
@@ -94,6 +109,7 @@ $('body')
         $('#infoLink').text(info['link']);
         $('#infoCard').text(info['card']);
         $('#infoFrame').text(info['frame']);
+
         $('#positionInfo').modal('toggle');
     })
     .on('click', '.editPosition', function(){
@@ -109,6 +125,27 @@ $('body')
         $('#positionFrame').val(info['frame']);
         $('#positionSave').prop('disabled', false);
         $('#positionSelector').modal('toggle');
+    })
+    .on('click', '.clearPosition', function(){
+        positionId = $(this).attr('data-id');
+        positionPlace = $(this).attr('data-place');
+
+        $.ajax({
+            method: "POST",
+            url: "/spread/clear",
+            dataType: 'json',
+            data: {
+                id: positionId
+            },
+            success: function(response) {
+                if (response.status == 'done') {
+                    clearPosition(positionId);
+                    delete positionInfo[positionId];
+
+                    $('#spreadSelector').modal('toggle');  
+                }
+            }
+        }); 
     })
 ;       
 $('#positionSelectorClose').click(function(){
