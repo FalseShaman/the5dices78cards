@@ -118,17 +118,15 @@ $('#positionInfoClose').click(function(){
     $('#positionInfo').modal('toggle');
 });
        
-$(document).on('ready', function(){
-    $.getScript( "view/Spread/js/create.js", function( data, textStatus, jqxhr ) {
-        console.log(textStatus+'-'+"create.js");
-        $('#modalCreateScript').text(data);
-    });
-    $.getScript( "view/Spread/js/list.js", function( data, textStatus, jqxhr ) {
-        console.log(textStatus+'-'+"list.js");
-        $('#modalListScript').text(data);
-    });  
-    $.getScript( "view/Spread/js/position.js", function( data, textStatus, jqxhr ) {
-        console.log(textStatus+'-'+"position.js");
-        $('#modalPositionScript').text(data);
-    });
+$.getScript( "view/Spread/js/create.js", function( data, textStatus, jqxhr ) {
+    console.log(textStatus+'-'+"create.js");
+    $('#modalCreateScript').text(data);
+});
+$.getScript( "view/Spread/js/list.js", function( data, textStatus, jqxhr ) {
+    console.log(textStatus+'-'+"list.js");
+    $('#modalListScript').text(data);
+});  
+$.getScript( "view/Spread/js/position.js", function( data, textStatus, jqxhr ) {
+    console.log(textStatus+'-'+"position.js");
+    $('#modalPositionScript').text(data);
 });
