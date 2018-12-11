@@ -18,6 +18,7 @@ function removeErrors(formClass) {
 }
 
 function showSpread() {
+    $('#spreadEdit').show();
     $('#titleInfo').text(spreadData.title);
     $('#specificationInfo').text(spreadData.specification);
     $('#historyInfo').text(spreadData.history);
