@@ -55,13 +55,13 @@ $('#spreadSave').click(function(){
                 history: spreadHistory
             },
             success: function(response) {
-                if (response.status == 'done') {, spreadTitle, spreadSpecification, spreadHistory
+                if (response.status == 'done') {
                     spreadId = response.id;
                     spreadData = {'title': spreadTitle, 'specification': spreadSpecification, 'history': spreadHistory, 'height': spreadHeight, 'length': spreadLength};
                     showSpread();
                     showMap();
 
-                    $('.spreadList').append('<li class="list-group-item"><button class="btn btn-default openSpread" data-id="'+response.id+'">'+spreadTitle+'</button></li>')
+                    $('.spreadList').append('<li class="list-group-item"><button class="btn btn-default openSpread" data-id="'+response.id+'">'+spreadTitle+'</button></li>');
                     $('#spreadTitle').val('');
                     $('#spreadHeight').val(0);
                     $('#spreadLength').val(0);
