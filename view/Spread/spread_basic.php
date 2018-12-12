@@ -6,83 +6,74 @@
     $spread = new spread($user->id);
     $spreadList = $spread->getList();
 
-    $spreadInfo = '<div class="col-sm-12 spreadInfo">
-                        <div class="col-sm-6"><h3 id="titleInfo"></h3></div>
-                        <div class="col-sm-5" id="historyInfo"></div>
-                        <div class="col-sm-11" id="specificationInfo"></div>
-                        <button type="button" class="btn btn-light" id="spreadEdit" style="display: none;"><img class="img-responsive" src="/view/design/edit.png"></button>   
-                    </div>';
-    $spreadMap = '<div class="col-sm-12 spreadMap" id="spreadMap"></div>';
+    $createButton = '<li class="nav-item"><a class="nav-link" id="createSpread" data-toggle="collapse" href="#spreadForm" role="button" aria-expanded="false" aria-controls="spreadForm">'.ucfirst($translateList['create']).'</a></li>';
+    $openButton = '<li class="nav-item"><a class="nav-link" data-toggle="collapse" href="#spreadList" role="button" aria-expanded="false" aria-controls="spreadList">'.ucfirst($translateList['open']).'</a></li>';
+    $editButton = '<li class="nav-item"><a class="nav-link" id="openSpread" data-toggle="collapse" href="#spreadForm" role="button" aria-expanded="false" aria-controls="spreadForm">'.ucfirst($translateList['edit']).'</a></li>';
+    $rightMenu = $createButton.$openButton.$rightMenu;
 
-    $content = $userInfo.$spreadInfo.$spreadMap;
-    
-    $newButton = '<button type="button" class="btn btn-light" id="spreadCreate" title="Создать"><img class="img-responsive" src="/view/design/new.png"></button>';
-    $listButton = '<button type="button" class="btn btn-light" id="spreadList" title="Список"><img class="img-responsive" src="/view/design/box.png"></button>';
-    $rightMenu = $newButton.$listButton;
-
-    $createModal = '<div class="modal fade" id="spreadCreator" tabindex="-1" role="dialog" aria-hidden="true">
-                        <div class="modal-dialog" role="document">
-                            <div class="modal-content createSpreadModal">
-                                <div class="modal-body">
-                                    <button type="button" class="close modalClose" id="spreadCreatorClose" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                    <form class="createSpreadForm"> 
-                                        <div class="col-sm-12">
-                                            <div class="titleInput">
-                                                <label for="spreadTitle">Название:</label>
-                                                <input type="text" class="form-control" id="spreadTitle">
-                                            </div>
-                                        </div>  
-                                        <div class="col-sm-12">
-                                            <div class="numberInput">
-                                                <label for="spreadLength">Длина:</label>
-                                                <input type="number" class="form-control" id="spreadLength">
-                                            </div>
-                                            <div class="numberInput">
-                                                <label for="spreadHeight">Высота:</label>
-                                                <input type="number" class="form-control" id="spreadHeight">
-                                            </div>
-                                        </div> 
-                                        <div class="col-sm-12">
-                                            <div class="textInput">
-                                                <label for="spreadSpecification">Назначение:</label>
-                                                <textarea class="form-control" id="spreadSpecification"></textarea>                    
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-12">
-                                            <div class="textInput">
-                                                <label for="spreadHistory">История:</label>
-                                                <textarea class="form-control" id="spreadHistory"></textarea>                    
-                                            </div>
-                                        </div>
-                                    </form>
+    $spreadForm = '<div class="collapse" id="spreadForm">
+                        <div class="card card-body">
+                            <form class="createSpreadForm"> 
+                                <div class="col-sm-12">
+                                    <div class="titleInput">
+                                        <label for="spreadTitle">Название:</label>
+                                        <input type="text" class="form-control" id="spreadTitle">
+                                    </div>
+                                </div>  
+                                <div class="col-sm-12">
+                                    <div class="numberInput">
+                                        <label for="spreadLength">Длина:</label>
+                                        <input type="number" class="form-control" id="spreadLength">
+                                    </div>
+                                    <div class="numberInput">
+                                        <label for="spreadHeight">Высота:</label>
+                                        <input type="number" class="form-control" id="spreadHeight">
+                                    </div>
+                                </div> 
+                                <div class="col-sm-12">
+                                    <div class="textInput">
+                                        <label for="spreadSpecification">Назначение:</label>
+                                        <textarea class="form-control" id="spreadSpecification"></textarea>                    
+                                    </div>
                                 </div>
-                                <div class="modal-footer">
+                                <div class="col-sm-12">
+                                    <div class="textInput">
+                                        <label for="spreadHistory">История:</label>
+                                        <textarea class="form-control" id="spreadHistory"></textarea>                    
+                                    </div>
+                                </div>
+                                <div class="col-sm-12">
                                     <button type="button" class="form-control btn btn-info" id="spreadSave">Сохранить</button>
                                 </div>
-                            </div>
+                            </form>
                         </div>
                     </div>';
 
-    $list = '<ul class="list-group spreadList">';
-    if ($spreadList && is_array($spreadList)) {
+    $spreadInfo = '<div class="collapse" id="spreadInfo">
+                        <div class="card card-body col-sm-12">
+                            <div class="col-sm-6"><h3 id="titleInfo"></h3></div>
+                            <div class="col-sm-5" id="historyInfo"></div>
+                            <div class="col-sm-11" id="specificationInfo"></div>
+                        </div>
+                    </div>';
+    $spreadMap = '<div class="collapse" id="spreadMap">
+                        <div class="card card-body col-sm-12">
+                        </div>
+                    </div>';
+
+    $spreadList = '';
+    if ($spreadList && is_array($spreadList) && count($spreadList) > 0) {
+        $spreadList = '<div class="collapse" id="spreadMap">
+                        <div class="card card-body col-sm-12">
+                            <ul class="list-group spreadList">';
         foreach ($spreadList as $spreadLi)
         {
-            $list .= '<li class="list-group-item">
-                        <button class="btn btn-default openSpread" data-id="'.$spreadLi['id'].'">'.$spreadLi['title'].'</button>
-                    </li>';
+            $list .= '<li class="list-group-item"><button class="btn btn-default openSpread" data-id="'.$spreadLi['id'].'">'.$spreadLi['title'].'</button></li>';
         }
-        $list .= '</ul>';
+        $spreadList .= '</ul></div></div>';
     }
-    $listModal = '<div class="modal fade" id="spreadSelector" tabindex="-1" role="dialog" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content spreadListModal">
-                            <div class="modal-body">
-                                <button type="button" class="close modalClose" id="spreadSelectorClose" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                '.$list.'
-                            </div>
-                        </div>
-                    </div>
-                </div>';
+
+    $content = $userInfo.$spreadForm.$spreadInfo.$spreadMap.$spreadList;
 
     $positionModal = '<div class="modal fade" id="positionSelector" tabindex="-1" role="dialog" aria-hidden="true">
                         <div class="modal-dialog" role="document">

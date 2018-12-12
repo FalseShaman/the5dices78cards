@@ -10,15 +10,19 @@
         </div>
 
         <?php if($leftMenu && $leftMenu > ''): ?>
-        <nav class="navbar navbar-expand-sm navbar-dark bg-dark topMenu">
-            <ul class="navbar-nav">
-                <?php echo $leftMenu; ?>
-            </ul>
-        </nav>
+            <nav class="navbar navbar-expand-sm navbar-dark bg-dark leftMenu">
+                <ul class="navbar-nav">
+                    <?php echo $leftMenu; ?>
+                </ul>
+            </nav>
         <?php endif; ?>
 
         <?php if($rightMenu && $rightMenu > ''): ?>
-            <?php echo $rightMenu; ?>                   
+            <nav class="navbar navbar-expand-sm navbar-dark bg-dark rightMenu">
+                <ul class="navbar-nav">
+                    <?php echo $rightMenu; ?>        
+                </ul>
+            </nav>           
         <?php endif; ?>     
 
         <div class="container-fluid">

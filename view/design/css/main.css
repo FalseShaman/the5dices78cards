@@ -13,7 +13,7 @@ body {
 .topPanel h2 {
 	font-size: 1.1em !important;
 	font-family: initial;
-	color: lightgray; 
+	color: #aca6b6;
 	text-align: center; 
 }
 
@@ -22,10 +22,15 @@ body {
 	display: none;
 }
 
-.topMenu {
-	display: none;
-	position: absolute;
-	top: 33px;
+.leftMenu {
+	float: left;
+	height: 33px;
+	border-radius: 33px;
+	border: 1px solid #a0b6b7;
+}
+
+.rightMenu {
+	float: right;
 	height: 33px;
 	border-radius: 33px;
 	border: 1px solid #a0b6b7;
@@ -150,20 +155,6 @@ body {
 
 .spreadList {
 	margin: 15px;
-}
-
-.spreadInfo div {
-    display: inline-block;
-}
-.spreadInfo #spreadEdit {
-    display: inline-block;
-	position: absolute;
-	right: 20px;
-	opacity: 0.7;
-	bottom: 60px;
-}
-.spreadInfo #historyInfo {
-	color: #01010b;
 }
 
 .infoModal {
