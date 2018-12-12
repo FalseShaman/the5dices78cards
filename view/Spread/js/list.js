@@ -10,7 +10,7 @@ $('body')
             },
             success: function(response) {
                 if (response.status == 'done') {
-                    spreadId = id;
+                    spreadId = response.data.spread.id;
                     spreadData = {'title': response.data.spread.title, 'specification': response.data.spread.specification, 'history': response.data.spread.history, 'height': response.data.spread.height, 'length': response.data.spread.length};
                     showSpread();
                     showMap();

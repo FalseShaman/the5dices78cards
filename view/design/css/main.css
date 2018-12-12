@@ -91,7 +91,7 @@ body {
 }
 .spreadMap div {
 	display: inline-block;
-	padding: 20px 50px;
+	padding: 10px 0;
 }
 .spreadMap button {
 	margin-left: auto;
