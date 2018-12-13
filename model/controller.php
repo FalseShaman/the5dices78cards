@@ -114,8 +114,8 @@
             require_once 'position.php';
             $position = new position($_POST['spread'], $_POST['place'], $_POST['name'], $_POST['number'], $_POST['description'], $_POST['link'], $_POST['card'], $_POST['frame']);
             
-            if ($_POST['id'] > 0) {
-                $positionId = $position->update();
+            if (isset($_POST['id']) && $_POST['id'] > 0) {
+                $positionId = $position->update($_POST['id']);
             } else {
                 $positionId = $position->create();
             }

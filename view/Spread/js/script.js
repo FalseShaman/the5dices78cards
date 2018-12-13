@@ -37,6 +37,7 @@ $('#saveSpread').click(function(){
             success: function(response) {
                 if (response.status == 'done') {
                     $('#editSpread').show();
+                    $('#spreadForm').collapse('hide');
 
                     $('.spreadForm').find('input[name="id"]').val(response.id);
                     $('.spreadForm').find('input[name="title"]').val(title);
@@ -75,11 +76,13 @@ $('#clearPosition').click(function(){
     var div = $(this).parent();
     $(div).empty();
     $(div).append('<button class="btn btn-default spreadPosition" data-id="0" data-place="'+place+'"><img class="img-responsive" src="/view/design/refresh.png"></button>');
+    $('#positionInfo').collapse('hide');  
 });
 
 // Position form
 $('#editPosition').click(function(){
-    $('#positionForm').collapse('toggle');
+    $('#positionForm').collapse('show');
+    $('#positionInfo').collapse('hide'); 
 
     var id = $(this).attr('data-id');
     $.ajax({
@@ -108,7 +111,9 @@ $('#editPosition').click(function(){
 
 $('body')
     .on('click', '.putPosition', function(){
-        $('#positionForm').collapse('toggle');
+        $('#positionForm').collapse('show');
+        $('#positionInfo').collapse('hide'); 
+
         $('.positionForm').find('input').val('');
         $('.positionForm').find('textarea').val(''); 
         $('.positionForm').find('input[name="id"]').val(0); 
@@ -158,6 +163,7 @@ $('body')
                         var div = $('button[data-place="'+place+'"]').parent();
                         $(div).empty();
                         $(div).append('<button class="btn btn-default showPosition" data-id="'+response.id+'" data-place="'+place+'"><img class="img-responsive" src="/view/design/show.png"></button>');
+                        $('#positionForm').collapse('hide');
                     } else {
                         $('#savePosition').parent().addClass('error');
                         $('#savePosition').text('Что-то пошло не так');
@@ -169,7 +175,8 @@ $('body')
     })
 // Spread list
     .on('click', '.openSpread', function(){
-        $('#spreadInfo').collapse('toggle');
+        $('#spreadInfo').collapse('show');
+        $('#editSpread').show();
 
         var id = $(this).attr('data-id');
         $.ajax({
@@ -213,7 +220,8 @@ $('body')
     })
 // Position info
     .on('click', '.showPosition', function(){
-        $('#positionInfo').collapse('toggle');  
+        $('#positionInfo').collapse('show');  
+        $('#positionForm').collapse('hide');
 
         var id = $(this).attr('data-id');
         $.ajax({
@@ -227,7 +235,7 @@ $('body')
                 if (response.status == 'done') {
                     $('#editPosition').attr('data-id', response.data.id).attr('data-place', response.data.place);
                     $('#clearPosition').attr('data-id', response.data.id).attr('data-place', response.data.place);
-                    $('#infoName').text(response.data.name+'('+response.data.numbe+')');
+                    $('#infoName').text(response.data.name+'('+response.data.number+')');
                     $('#infoDescription').text(response.data.description);
                     $('#infoLink').text(response.data.link);
                     $('#infoCard').text(response.data.card);
