@@ -2,7 +2,7 @@ var userId = $('#userId').val();
 
 // Spread form
 $('#createSpread').click(function(){
-    $('#spreadForm').collapse();
+    $('#spreadForm').collapse('toggle');
     $('#editSpread').hide();
 
     $('.spreadForm').find('input').val('');
@@ -79,7 +79,7 @@ $('#clearPosition').click(function(){
 
 // Position form
 $('#editPosition').click(function(){
-    $('#positionForm').collapse();
+    $('#positionForm').collapse('toggle');
 
     var id = $(this).attr('data-id');
     $.ajax({
@@ -108,7 +108,7 @@ $('#editPosition').click(function(){
 
 $('body')
     .on('click', '.putPosition', function(){
-        $('#positionForm').collapse();
+        $('#positionForm').collapse('toggle');
         $('.positionForm').find('input').val('');
         $('.positionForm').find('textarea').val(''); 
         $('.positionForm').find('input[name="id"]').val(0); 
@@ -169,7 +169,7 @@ $('body')
     })
 // Spread list
     .on('click', '.openSpread', function(){
-        $('#spreadInfo').collapse();
+        $('#spreadInfo').collapse('toggle');
 
         var id = $(this).attr('data-id');
         $.ajax({
@@ -213,7 +213,7 @@ $('body')
     })
 // Position info
     .on('click', '.showPosition', function(){
-        $('#positionInfo').collapse();  
+        $('#positionInfo').collapse('toggle');  
 
         var id = $(this).attr('data-id');
         $.ajax({
@@ -227,8 +227,7 @@ $('body')
                 if (response.status == 'done') {
                     $('#editPosition').attr('data-id', response.data.id).attr('data-place', response.data.place);
                     $('#clearPosition').attr('data-id', response.data.id).attr('data-place', response.data.place);
-                    $('#infoName').text(response.data.name);
-                    $('#infoNumber').text('('+response.data.number+')');
+                    $('#infoName').text(response.data.name+'('+response.data.numbe+')');
                     $('#infoDescription').text(response.data.description);
                     $('#infoLink').text(response.data.link);
                     $('#infoCard').text(response.data.card);

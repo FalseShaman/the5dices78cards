@@ -21,6 +21,11 @@
 	color: #000000;
 }
 
+.spreadMap div {
+	display: inline-block;
+	width: 11%;
+	margin-top: 10px;
+}
 .spreadMap .showPosition {
 	transform: rotate(270deg);
 	padding: 8px;
@@ -28,4 +33,15 @@
 }
 .spreadMap .putPosition {
 	opacity: 0.5;
+}
+
+#editPosition {
+	position: relative;
+	left: 100%;
+	top: 9%;
+}
+#clearPosition {
+	position: relative;
+	left: 92%;
+	top: 19%;
 }

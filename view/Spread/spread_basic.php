@@ -46,8 +46,8 @@
 
     $spreadInfo = '<div class="collapse" id="spreadInfo">
                         <div class="col-sm-12 spreadInfo">
-                            <div class="col-sm-7"><h3 id="titleInfo"></h3></div>
                             <div class="col-sm-6" id="historyInfo"></div>
+                            <div class="col-sm-7"><h3 id="titleInfo"></h3></div>
                             <div class="col-sm-12" id="specificationInfo"></div>
                             <div class="spreadMap">';                   
         for ($place = 1; $place < 82; $place++) 
@@ -105,9 +105,7 @@
     $positionInfo = '<div class="collapse" id="positionInfo">
                         <button class="btn btn-default" id="editPosition" data-id="0"><img class="img-responsive" src="/view/design/edit.png"></button>
                         <button class="btn btn-default" id="clearPosition" data-id="0" data-place="0"><img class="img-responsive" src="/view/design/clear.png"></button>
-                        <div class="col-sm-12">
-                            <h3 id="infoName"></h3> <p id="infoNumber"></p>
-                        </div>
+                        <div class="col-sm-12"><h3 id="infoName"></h3></div>
                         <label>Собственное значение позиции:</label>
                         <div class="col-sm-12" id="infoDescription"></div>
                         <hr>
