@@ -6,12 +6,14 @@
     $spread = new spread($user->id);
     $spreadMass = $spread->getList();
 
-    $createButton = '<li class="nav-item"><a class="nav-link" id="createSpread" data-toggle="collapse" href="#spreadForm" role="button" aria-expanded="false" aria-controls="spreadForm">Создать</a></li>';
-    $openButton = '<li class="nav-item"><a class="nav-link" data-toggle="collapse" href="#spreadList" role="button" aria-expanded="false" aria-controls="spreadList">Список</a></li>';
-    $editButton = '<li class="nav-item"><a class="nav-link" id="editSpread" data-toggle="collapse" href="#spreadForm" role="button" aria-expanded="false" aria-controls="spreadForm" style="display: none;">Редактировать</a></li>';
-    $rightMenu = $createButton.$openButton.$editButton;
+    $newButton = '<li class="nav-item"><a class="nav-link" id="createSpread" data-toggle="collapse" href="#spreadForm" role="button" aria-expanded="false" aria-controls="spreadForm">Новый</a></li>';
+    $listButton = '<li class="nav-item"><a class="nav-link" data-toggle="collapse" href="#spreadList" role="button" aria-expanded="false" aria-controls="spreadList">Список</a></li>';
+    $spreadButton = '<li class="nav-item"><a class="nav-link" data-toggle="collapse" href="#spreadInfo" role="button" aria-expanded="false" aria-controls="spreadInfo">Раслкад</a></li>';
+    $positionButton = '<li class="nav-item"><a class="nav-link" data-toggle="collapse" href="#positionInfo" role="button" aria-expanded="false" aria-controls="positionInfo">Позиция</a></li>';
+    $rightMenu = $newButton.$listButton.$spreadButton.$positionButton;
 
     $spreadForm = '<div class="collapse" id="spreadForm">
+                        <button class="btn btn-default" id="editSpread"><img class="img-responsive" src="/view/design/edit.png"></button>
                         <form class="spreadForm">
                             <input type="hidden" name="id" value="0">
                             <div class="col-sm-12">
@@ -27,7 +29,7 @@
                                 <textarea class="form-control" name="history"></textarea>    
                             </div>
                             <div class="col-sm-12">
-                                <button type="button" class="form-control btn btn-info" id="saveSpread">Сохранить</button>
+                                <button type="button" class="form-control btn btn-default" id="saveSpread">Сохранить</button>
                             </div>
                         </form>
                     </div>';
@@ -62,6 +64,7 @@
                     </div>';
 
     $spreadInfo = '<div class="collapse" id="spreadInfo">
+                        <input type="hidden" id="spreadId" value="0">
                         <div class="col-sm-12 spreadInfo">
                             <div class="col-sm-6" id="historyInfo"></div>
                             <div class="col-sm-7"><h3 id="titleInfo"></h3></div>
@@ -77,6 +80,7 @@
                         <form class="positionForm"> 
                             <input type="hidden" name="id" value="0">
                             <input type="hidden" name="place" value="0">
+                            <input type="hidden" name="spreadId" value="0">
                             <div class="col-sm-12">
                                 <div class="nameInput">
                                     <label>Имя:</label>
@@ -104,7 +108,7 @@
                                 <textarea class="form-control" name="frame"></textarea>      
                             </div>
                             <div class="col-sm-12">
-                                <button type="button" class="form-control btn btn-info" id="savePosition">Сохранить</button>
+                                <button type="button" class="form-control btn btn-default" id="savePosition">Сохранить</button>
                             </div>
                         </form> 
                     </div>';
