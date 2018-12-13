@@ -89,5 +89,29 @@
             }
             return $response;
         }
+
+        public static function getOne($id = 0) {
+            $connect = new connection();
+            $id = $connect->db->real_escape_string($id);
+            $result = $connect->db->query('SELECT * FROM position WHERE id = '.$id);
+
+            if ($result && $result->num_rows > 0) {
+                return $result->fetch_assoc();
+            } else {
+                return false;
+            }
+        }
+
+        public static function removeOne($id = 0) {
+            $connect = new connection();
+            $id = $connect->db->real_escape_string($id);
+            $result = $connect->db->query('DELETE FROM position WHERE id = '.$id);
+
+            if ($result) {
+                return true;
+            } else {
+                return false;
+            }
+        }
     }
 ?>

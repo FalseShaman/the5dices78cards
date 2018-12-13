@@ -1,0 +1,65 @@
+.error label {
+	color: #FF6C00;
+}
+.error input, .error textarea, .error button {
+	border: 3px solid #FF6C00;
+}
+
+.spreadForm label {
+	color: #000000;
+	padding-right: 11px;
+}
+.spreadForm .titleInput input {
+	display: inline-block;
+	width: 75%;
+}
+.spreadForm .textInput {
+	display: inline-block;
+	width: 100%;
+	margin: 10px 0;
+}
+
+.spreadList li {
+	margin: 12px;
+}
+
+.spreadMap {
+	margin-top: 20px;
+}
+.spreadMap div {
+	display: inline-block;
+	width: 11%;
+	padding: 10px 0;
+}
+.spreadMap button {
+	opacity: 0.7;
+	padding: 2px;
+}
+
+.positionForm label {
+	color: #000000;
+	padding-right: 11px;
+}
+.positionForm .nameInput {
+	display: inline-block;
+	width: 68%;
+}
+.positionForm .nameInput input {
+	display: inline-block;
+	width: 83%;
+}
+.positionForm .numberInput {
+	display: inline-block;
+	margin-left: 11px;
+	float: right;
+}
+.positionForm .numberInput input {
+	width: 66px;
+	display: inline-block;
+	bottom: 2px;
+	position: relative;
+}
+.positionForm .textInput {
+	display: inline-block;
+	width: 100%;
+}

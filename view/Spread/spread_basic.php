@@ -4,138 +4,126 @@
 
     require_once 'model/spread.php';
     $spread = new spread($user->id);
-    $spreadList = $spread->getList();
+    $spreadMass = $spread->getList();
 
-    $createButton = '<li class="nav-item"><a class="nav-link" id="createSpread" data-toggle="collapse" href="#spreadForm" role="button" aria-expanded="false" aria-controls="spreadForm">'.ucfirst($translateList['create']).'</a></li>';
-    $openButton = '<li class="nav-item"><a class="nav-link" data-toggle="collapse" href="#spreadList" role="button" aria-expanded="false" aria-controls="spreadList">'.ucfirst($translateList['open']).'</a></li>';
-    $editButton = '<li class="nav-item"><a class="nav-link" id="openSpread" data-toggle="collapse" href="#spreadForm" role="button" aria-expanded="false" aria-controls="spreadForm">'.ucfirst($translateList['edit']).'</a></li>';
-    $rightMenu = $createButton.$openButton.$rightMenu;
+    $createButton = '<li class="nav-item"><a class="nav-link" id="createSpread" data-toggle="collapse" href="#spreadForm" role="button" aria-expanded="false" aria-controls="spreadForm">Создать</a></li>';
+    $openButton = '<li class="nav-item"><a class="nav-link" data-toggle="collapse" href="#spreadList" role="button" aria-expanded="false" aria-controls="spreadList">Открыть</a></li>';
+    $editButton = '<li class="nav-item"><a class="nav-link" data-toggle="collapse" href="#spreadForm" role="button" aria-expanded="false" aria-controls="spreadForm" disabled>Редактировать</a></li>';
+    $rightMenu = $createButton.$openButton.$editButton;
 
     $spreadForm = '<div class="collapse" id="spreadForm">
                         <div class="card card-body">
-                            <form class="createSpreadForm"> 
-                                <div class="col-sm-12">
-                                    <div class="titleInput">
-                                        <label for="spreadTitle">Название:</label>
-                                        <input type="text" class="form-control" id="spreadTitle">
-                                    </div>
+                            <form class="spreadForm">
+                                <input type="hidden" name="id" value="0">
+                                <div class="col-sm-7 titleInput">
+                                    <label>Название:</label>
+                                    <input type="text" class="form-control" name="title">
                                 </div>  
-                                <div class="col-sm-12">
-                                    <div class="numberInput">
-                                        <label for="spreadLength">Длина:</label>
-                                        <input type="number" class="form-control" id="spreadLength">
-                                    </div>
-                                    <div class="numberInput">
-                                        <label for="spreadHeight">Высота:</label>
-                                        <input type="number" class="form-control" id="spreadHeight">
-                                    </div>
-                                </div> 
-                                <div class="col-sm-12">
-                                    <div class="textInput">
-                                        <label for="spreadSpecification">Назначение:</label>
-                                        <textarea class="form-control" id="spreadSpecification"></textarea>                    
-                                    </div>
+                                <div class="col-sm-12 textInput">
+                                    <label>Назначение:</label>
+                                    <textarea class="form-control" name="specification"></textarea>   
+                                </div>
+                                <div class="col-sm-12 textInput">
+                                    <label>История:</label>
+                                    <textarea class="form-control" name="history"></textarea>    
                                 </div>
                                 <div class="col-sm-12">
-                                    <div class="textInput">
-                                        <label for="spreadHistory">История:</label>
-                                        <textarea class="form-control" id="spreadHistory"></textarea>                    
-                                    </div>
-                                </div>
-                                <div class="col-sm-12">
-                                    <button type="button" class="form-control btn btn-info" id="spreadSave">Сохранить</button>
+                                    <button type="button" class="form-control btn btn-info" id="saveSpread">Сохранить</button>
                                 </div>
                             </form>
                         </div>
                     </div>';
 
-    $spreadInfo = '<div class="collapse" id="spreadInfo">
-                        <div class="card card-body col-sm-12">
-                            <div class="col-sm-6"><h3 id="titleInfo"></h3></div>
-                            <div class="col-sm-5" id="historyInfo"></div>
-                            <div class="col-sm-11" id="specificationInfo"></div>
-                        </div>
-                    </div>';
-    $spreadMap = '<div class="collapse" id="spreadMap">
-                        <div class="card card-body col-sm-12">
-                        </div>
-                    </div>';
-
     $spreadList = '';
-    if ($spreadList && is_array($spreadList) && count($spreadList) > 0) {
-        $spreadList = '<div class="collapse" id="spreadMap">
+    if ($spreadMass && is_array($spreadMass) && count($spreadMass) > 0) {
+        $spreadList = '<div class="collapse" id="spreadList">
                         <div class="card card-body col-sm-12">
                             <ul class="list-group spreadList">';
-        foreach ($spreadList as $spreadLi)
+        foreach ($spreadMass as $spread)
         {
-            $list .= '<li class="list-group-item"><button class="btn btn-default openSpread" data-id="'.$spreadLi['id'].'">'.$spreadLi['title'].'</button></li>';
+            $list .= '<li class="list-group-item"><button class="btn btn-default openSpread" data-id="'.$spread['id'].'">'.$spread['title'].'</button></li>';
         }
         $spreadList .= '</ul></div></div>';
     }
 
-    $content = $userInfo.$spreadForm.$spreadInfo.$spreadMap.$spreadList;
+    $spreadInfo = '<div class="collapse" id="spreadInfo">
+                        <div class="card card-body col-sm-12">
+                            <div class="col-sm-7"><h3 id="titleInfo"></h3></div>
+                            <div class="col-sm-5" id="historyInfo"></div>
+                            <div class="col-sm-8" id="specificationInfo"></div>
+                            <div class="col-sm-3" id="spreadGeometry"></div>
+                            <div class="spreadMap">';                   
+        for ($place = 1; $place < 82; $place++) 
+        {
+            $spreadInfo .= '<div><button class="btn btn-default putPosition" data-place="'.$place.'"><img class="img-responsive" src="/view/design/refresh.png"></button></div>';
+        }
+    $spreadInfo .= '</div></div>';
 
-    $positionModal = '<div class="modal fade" id="positionSelector" tabindex="-1" role="dialog" aria-hidden="true">
-                        <div class="modal-dialog" role="document">
-                            <div class="modal-content spreadPositionModal">
-                                <div class="modal-body">
-                                    <button type="button" class="close modalClose" id="positionSelectorClose" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                    <form class="createPositionForm"> 
-                                        <div class="nameInput">
-                                            <label for="positionName">Имя:</label>
-                                            <input type="text" class="form-control" id="positionName">
-                                        </div>
-                                        <div class="numberInput">
-                                            <label for="positionNumber">Номер:</label>
-                                            <input type="number" class="form-control" id="positionNumber">
-                                        </div>
-                                        <div class="textInput">
-                                            <label for="positionDescription">Собственное значение позиции:</label>
-                                            <textarea class="form-control" id="positionDescription"></textarea>                    
-                                        </div>
-                                        <div class="textInput">
-                                            <label for="positionLink">Связи с позициями в раскладе:</label>
-                                            <textarea class="form-control" id="positionLink"></textarea>                    
-                                        </div>
-                                        <div class="textInput">
-                                            <label for="positionCard">Советы по чтению карты:</label>
-                                            <textarea class="form-control" id="positionCard"></textarea>                    
-                                        </div>
-                                        <div class="textInput">
-                                            <label for="positionFrame">Пример чтения:</label>
-                                            <textarea class="form-control" id="positionFrame"></textarea>                    
-                                        </div>
-                                    </form> 
+    $positionForm = '<div class="collapse" id="positionForm">
+                        <div class="card card-body">
+                            <form class="positionForm"> 
+                                <input type="hidden" name="id" value="0">
+                                <input type="hidden" name="place" value="0">
+                                <div class="col-sm-12">
+                                    <div class="nameInput">
+                                        <label>Имя:</label>
+                                        <input type="text" class="form-control" name="name">
+                                    </div>
+                                    <div class="numberInput">
+                                        <label>Номер:</label>
+                                        <input type="number" class="form-control" name="number">
+                                    </div>              
                                 </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="form-control btn btn-info" id="positionSave">Ок</button>
+                                <div class="col-sm-12">
+                                    <div class="textInput">
+                                        <label>Собственное значение позиции:</label>
+                                        <textarea class="form-control" name="description"></textarea>                    
+                                    </div>              
                                 </div>
-                            </div>
+                                <div class="col-sm-12">
+                                    <div class="textInput">
+                                        <label>Связи с позициями в раскладе:</label>
+                                        <textarea class="form-control" name="link"></textarea>                    
+                                    </div>              
+                                </div>
+                                <div class="col-sm-12">
+                                    <div class="textInput">
+                                        <label>Советы по чтению карты:</label>
+                                        <textarea class="form-control" name="card"></textarea>                    
+                                    </div>              
+                                </div>
+                                <div class="col-sm-12">
+                                    <div class="textInput">
+                                        <label>Пример чтения:</label>
+                                        <textarea class="form-control" name="frame"></textarea>                    
+                                    </div>              
+                                </div>
+                                <div class="col-sm-12">
+                                    <div class="numberInput">
+                                        <button type="button" class="form-control btn btn-info" id="savePosition">Сохранить</button>
+                                    </div>
+                                </div>
+                            </form> 
                         </div>
                     </div>';
 
-    $infoModal = '<div class="modal fade" id="positionInfo" tabindex="-1" role="dialog" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content infoModal">
-                            <div class="modal-header">
-                                <button type="button" class="close modalClose" id="positionInfoClose" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    $positionInfo = '<div class="collapse" id="positionInfo">
+                        <div class="card card-body">
+                            <div class="col-sm-12">
                                 <h3 id="infoName"></h3> <p id="infoNumber"></p>
                             </div>
-                            <div class="modal-body">
-                                <label for="positionDescription">Собственное значение позиции:</label>
-                                <div class="col-sm-12" id="infoDescription"></div>
-                                <hr>
-                                <label for="positionLink">Связи с позициями в раскладе:</label>
-                                <div class="col-sm-12" id="infoLink"></div>
-                                <hr>
-                                <label for="positionCard">Советы по чтению карты:</label>
-                                <div class="col-sm-12" id="infoCard"></div>
-                                <hr>
-                                <label for="positionFrame">Пример чтения:</label>
-                                <div class="col-sm-12" id="infoFrame"></div>
-                            </div>
+                            <label>Собственное значение позиции:</label>
+                            <div class="col-sm-12" id="infoDescription"></div>
+                            <hr>
+                            <label>Связи с позициями в раскладе:</label>
+                            <div class="col-sm-12" id="infoLink"></div>
+                            <hr>
+                            <label>Советы по чтению карты:</label>
+                            <div class="col-sm-12" id="infoCard"></div>
+                            <hr>
+                            <label>Пример чтения:</label>
+                            <div class="col-sm-12" id="infoFrame"></div>
                         </div>
-                    </div>
-                </div>';
+                    </div>';
                             
-    $modals = $createModal.$listModal.$positionModal.$infoModal;
+    $content = $userInfo.$spreadForm.$spreadList.$spreadInfo.$spreadMap.$positionForm.$positionInfo;

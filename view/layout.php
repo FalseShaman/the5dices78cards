@@ -9,7 +9,7 @@
             <h2>ordo draco sacerdos librarium</h2>
         </div>
 
-        <?php if($leftMenu && $leftMenu > ''): ?>
+        <?php if($leftMenu > ''): ?>
             <nav class="navbar navbar-expand-sm navbar-dark bg-dark leftMenu">
                 <ul class="navbar-nav">
                     <?php echo $leftMenu; ?>
@@ -17,7 +17,7 @@
             </nav>
         <?php endif; ?>
 
-        <?php if($rightMenu && $rightMenu > ''): ?>
+        <?php if($rightMenu > ''): ?>
             <nav class="navbar navbar-expand-sm navbar-dark bg-dark rightMenu">
                 <ul class="navbar-nav">
                     <?php echo $rightMenu; ?>        
@@ -30,8 +30,6 @@
                 <?php echo $content; ?>
             </div>
         </div>
-        
-        <?php echo $modals; ?>
                  
         <?php include('layout_script.php'); ?>
     </body>

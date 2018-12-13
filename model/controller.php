@@ -1,17 +1,16 @@
 <?php
-
     class Controller
     {
         public $page;
         public $subpage;
-
+// Page list
         public $pages = array(
             'auth' =>
                 array('login', 'logout'),
             'profile' =>
                 array(),
             'spread' =>
-                array('get', 'save', 'position'),
+                array('get', 'put', 'putPosition', 'getPosition', 'removePosition'),
             'story' =>
                 array(),
             'article' =>
@@ -23,11 +22,13 @@
             'lost' =>
                 array()
             );
-
+// Url reader
         function __construct($path = '/') {
+        // Default page
             if ($path == '/') {
                 $path = '/spread';
             }
+        // Url parts
             $parts = explode('/', $path);
             if ($parts[1] && $parts[1] > '' && isset($this->pages[$parts[1]])) {
                 $this->page = $parts[1];
@@ -35,7 +36,7 @@
                     $this->subpage = $parts[2];
                 }
             }
-
+        // 404
             if (!$this->page) {
                 $this->page = 'lost';
             }
@@ -43,50 +44,43 @@
                 $this->subpage = 'basic';
             }
         }
-
-        public function getTitle($translateList) {
-            return isset($translateList[$this->page]) ? $translateList[$this->page] : $translateList['fail'];
-        }
-
-        public function getNav($translateList) {
+// Main menu
+        public function getMenu() {
             $navbar = '';
-            if ($this->page != 'auth') {
-                $pageList = $this->pages;
-                unset($pageList['auth']);
-                unset($pageList['lost']);
-                foreach ($pageList as $page => $sub)
-                {
-                    $navbar .= $this->page == $page ? '<li class="nav-item active">' : '<li class="nav-item">';
-                    $navbar .= '<a class="nav-link" href="/'.$page.'">'.ucfirst($translateList[$page]).'</a></li>';
-                }
-                $navbar .= '<li class="nav-item"><a class="nav-link" href="/auth/logout">'.ucfirst($translateList['logout']).'</a></li>';
+            $pageList = array('Расклад' => 'spread');
+
+            foreach ($pageList as $name => $page)
+            {
+                $navbar .= $this->page == $page ? '<li class="nav-item active">' : '<li class="nav-item">';
+                $navbar .= '<a class="nav-link" href="/'.$page.'">'.$name.'</a></li>';
             }
+            $navbar .= '<li class="nav-item"><a class="nav-link" href="/auth/logout">Выход</a></li>';
+
             return $navbar;
         }
-
+// Auth
         public function loginAuth() {
             require_once 'user.php';
             $user = new User($_POST['name'], $_POST['pass']);
             $userData = $user->auth();
+
             if ($userData) {
                 return array('status' => 'done');
             } else {
                 return array('status' => 'fail', 'message' => 'Ошибка авторизации');
             }
         }
-
         public function logoutAuth() {
             unset($_SESSION['user']);
             header('HTTP/1.1 200 OK');
             header('Location: http://'.$_SERVER['HTTP_HOST'].'/auth');
             exit;
         }
-
-        public function saveSpread() {
+// Create-Update spread (ajax response)
+        public function putSpread() {
             $user = json_decode($_SESSION['user']);
-
             require_once 'spread.php';
-            $spread = new spread($user->id, $_POST['title'], $_POST['height'], $_POST['length'], $_POST['specification'], $_POST['history']);
+            $spread = new spread($user->id, $_POST['title'], $_POST['specification'], $_POST['history']);
 
             if ($_POST['id'] > 0) {
                 $spreadId = $spread->update();
@@ -97,12 +91,13 @@
             if ($spreadId) {
                 return array('status' => 'done', 'id' => $spreadId);
             } else {
-                return array('status' => 'fail', 'message' => 'Не удалось сохранить');
+                return array('status' => 'fail', 'message' => 'Не удалось сохранить', 'data' => $spread);
             }
         }
-
+// Read spread (ajax response)
         public function getSpread() {
-            $spreadId = isset($_POST['id']) && $_POST['id'] > 0 ? $_POST['id'] : 0;
+            $spreadId = (isset($_POST['id']) && $_POST['id']) > 0 ? $_POST['id'] : 0;
+
             if ($spreadId > 0) {
                 require_once 'spread.php';
                 $spread = spread::getOne($spreadId);
@@ -114,8 +109,8 @@
             }
             return array('status' => 'fail', 'message' => 'Пусто');      
         }
-
-        public function positionSpread() {
+// Create-Update position (ajax response)
+        public function putPositionSpread() {
             require_once 'position.php';
             $position = new position($_POST['spread'], $_POST['place'], $_POST['name'], $_POST['number'], $_POST['description'], $_POST['link'], $_POST['card'], $_POST['frame']);
             
@@ -131,10 +126,29 @@
                 return array('status' => 'fail', 'message' => 'Не удалось сохранить', 'data' => $position);
             }
         }
+// Read position (ajax response)
+        public function getPositionSpread() {
+            $positionId = (isset($_POST['id']) && $_POST['id']) > 0 ? $_POST['id'] : 0;
 
+            if ($positionId > 0) {
+                require_once 'position.php';
+                $position = position::getOne($positionId);
+
+                return array('status' => 'done', 'data' => $position);   
+            }
+            return array('status' => 'fail', 'message' => 'Пусто');
+        }
+// Delete position
+        public function removePositionSpread() {
+            $positionId = (isset($_POST['id']) && $_POST['id']) > 0 ? $_POST['id'] : 0;
+
+            if ($positionId > 0) {
+                require_once 'position.php';
+                $position = position::removeOne($positionId);
+            }
+        }
+// 404
         public function urlNotFound() {
             return 'Url not found';
         }
     }
-
-?>
