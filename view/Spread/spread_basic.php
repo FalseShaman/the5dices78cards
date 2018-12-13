@@ -14,15 +14,15 @@
     $spreadForm = '<div class="collapse" id="spreadForm">
                         <form class="spreadForm">
                             <input type="hidden" name="id" value="0">
-                            <div class="col-sm-7 titleInput">
+                            <div class="col-sm-7">
                                 <label>Название:</label>
                                 <input type="text" class="form-control" name="title">
                             </div>  
-                            <div class="col-sm-12 textInput">
+                            <div class="col-sm-12">
                                 <label>Назначение:</label>
                                 <textarea class="form-control" name="specification"></textarea>   
                             </div>
-                            <div class="col-sm-12 textInput">
+                            <div class="col-sm-12">
                                 <label>История:</label>
                                 <textarea class="form-control" name="history"></textarea>    
                             </div>

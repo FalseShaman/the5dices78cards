@@ -4,3 +4,9 @@
 .error input, .error textarea, .error button {
 	border: 3px solid #FF6C00;
 }
+
+.spreadForm input, .spreadForm textarea {
+	background-color: #0000;
+	color: #ffffff;
+	margin-bottom: 10px;
+}
