@@ -45,3 +45,18 @@
 	left: 92%;
 	top: 50px;
 }
+
+.positionForm input, .positionForm textarea {
+	background-color: #0000;
+	color: #ffffff;
+	margin-bottom: 10px;
+}
+.positionForm .nameInput {
+	display: inline-block;
+	width: 88%;
+}
+.positionForm .numberInput {
+	display: inline-block;
+	float: right;
+	width: 11%;
+}

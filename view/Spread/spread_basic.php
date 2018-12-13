@@ -7,7 +7,7 @@
     $spreadMass = $spread->getList();
 
     $createButton = '<li class="nav-item"><a class="nav-link" id="createSpread" data-toggle="collapse" href="#spreadForm" role="button" aria-expanded="false" aria-controls="spreadForm">Создать</a></li>';
-    $openButton = '<li class="nav-item"><a class="nav-link" data-toggle="collapse" href="#spreadList" role="button" aria-expanded="false" aria-controls="spreadList">Открыть</a></li>';
+    $openButton = '<li class="nav-item"><a class="nav-link" data-toggle="collapse" href="#spreadList" role="button" aria-expanded="false" aria-controls="spreadList">Список</a></li>';
     $editButton = '<li class="nav-item"><a class="nav-link" id="editSpread" data-toggle="collapse" href="#spreadForm" role="button" aria-expanded="false" aria-controls="spreadForm" style="display: none;">Редактировать</a></li>';
     $rightMenu = $createButton.$openButton.$editButton;
 
@@ -44,6 +44,23 @@
         $spreadList .= '</ul></div></div>';
     }
 
+    $positionInfo = '<div class="collapse" id="positionInfo">
+                        <button class="btn btn-default" id="editPosition" data-id="0"><img class="img-responsive" src="/view/design/edit.png"></button>
+                        <button class="btn btn-default" id="clearPosition" data-id="0" data-place="0"><img class="img-responsive" src="/view/design/clear.png"></button>
+                        <div class="col-sm-12"><h3 id="infoName"></h3></div>
+                        <label>Собственное значение позиции:</label>
+                        <div class="col-sm-12" id="infoDescription"></div>
+                        <hr>
+                        <label>Связи с позициями в раскладе:</label>
+                        <div class="col-sm-12" id="infoLink"></div>
+                        <hr>
+                        <label>Советы по чтению карты:</label>
+                        <div class="col-sm-12" id="infoCard"></div>
+                        <hr>
+                        <label>Пример чтения:</label>
+                        <div class="col-sm-12" id="infoFrame"></div>
+                    </div>';
+
     $spreadInfo = '<div class="collapse" id="spreadInfo">
                         <div class="col-sm-12 spreadInfo">
                             <div class="col-sm-6" id="historyInfo"></div>
@@ -71,52 +88,25 @@
                                 </div>              
                             </div>
                             <div class="col-sm-12">
-                                <div class="textInput">
-                                    <label>Собственное значение позиции:</label>
-                                    <textarea class="form-control" name="description"></textarea>                    
-                                </div>              
+                                <label>Собственное значение позиции:</label>
+                                <textarea class="form-control" name="description"></textarea>  
                             </div>
                             <div class="col-sm-12">
-                                <div class="textInput">
-                                    <label>Связи с позициями в раскладе:</label>
-                                    <textarea class="form-control" name="link"></textarea>                    
-                                </div>              
+                                <label>Связи с позициями в раскладе:</label>
+                                <textarea class="form-control" name="link"></textarea>         
                             </div>
                             <div class="col-sm-12">
-                                <div class="textInput">
-                                    <label>Советы по чтению карты:</label>
-                                    <textarea class="form-control" name="card"></textarea>                    
-                                </div>              
+                                <label>Советы по чтению карты:</label>
+                                <textarea class="form-control" name="card"></textarea>         
                             </div>
                             <div class="col-sm-12">
-                                <div class="textInput">
-                                    <label>Пример чтения:</label>
-                                    <textarea class="form-control" name="frame"></textarea>                    
-                                </div>              
+                                <label>Пример чтения:</label>
+                                <textarea class="form-control" name="frame"></textarea>      
                             </div>
                             <div class="col-sm-12">
-                                <div class="numberInput">
-                                    <button type="button" class="form-control btn btn-info" id="savePosition">Сохранить</button>
-                                </div>
+                                <button type="button" class="form-control btn btn-info" id="savePosition">Сохранить</button>
                             </div>
                         </form> 
                     </div>';
-
-    $positionInfo = '<div class="collapse" id="positionInfo">
-                        <button class="btn btn-default" id="editPosition" data-id="0"><img class="img-responsive" src="/view/design/edit.png"></button>
-                        <button class="btn btn-default" id="clearPosition" data-id="0" data-place="0"><img class="img-responsive" src="/view/design/clear.png"></button>
-                        <div class="col-sm-12"><h3 id="infoName"></h3></div>
-                        <label>Собственное значение позиции:</label>
-                        <div class="col-sm-12" id="infoDescription"></div>
-                        <hr>
-                        <label>Связи с позициями в раскладе:</label>
-                        <div class="col-sm-12" id="infoLink"></div>
-                        <hr>
-                        <label>Советы по чтению карты:</label>
-                        <div class="col-sm-12" id="infoCard"></div>
-                        <hr>
-                        <label>Пример чтения:</label>
-                        <div class="col-sm-12" id="infoFrame"></div>
-                    </div>';
                             
-    $content = $userInfo.$spreadForm.$spreadList.$spreadInfo.$spreadMap.$positionForm.$positionInfo;
+    $content = $userInfo.$spreadForm.$spreadList.$positionInfo.$spreadInfo.$positionForm;

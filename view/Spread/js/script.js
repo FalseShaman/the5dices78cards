@@ -40,9 +40,6 @@ $('#saveSpread').click(function(){
                     $('#spreadForm').collapse('hide');
 
                     $('.spreadForm').find('input[name="id"]').val(response.id);
-                    $('.spreadForm').find('input[name="title"]').val(title);
-                    $('.spreadForm').find('input[name="specification"]').val(specification);
-                    $('.spreadForm').find('input[name="history"]').val(history);
 
                     $('#titleInfo').text(title);
                     $('#specificationInfo').text(specification);
@@ -176,6 +173,7 @@ $('body')
 // Spread list
     .on('click', '.openSpread', function(){
         $('#spreadInfo').collapse('show');
+        $('#spreadList').collapse('hide');
         $('#editSpread').show();
 
         var id = $(this).attr('data-id');
@@ -189,6 +187,12 @@ $('body')
             success: function(response) {
                 if (response.status == 'done') {
                     $('#spreadEdit').prop('disabled', false);
+                    $.each($('.showPosition'), function(ind, val){
+                        var place = $(val).attr('data-place');
+                        var div = $(val).parent();
+                        $(div).empty();
+                        $(div).append('<button class="btn btn-default spreadPosition" data-id="0" data-place="'+place+'"><img class="img-responsive" src="/view/design/refresh.png"></button>');
+                    });
 
                     $('.spreadForm').find('input[name="id"]').val(response.data.spread.id);
                     $('.spreadForm').find('input[name="title"]').val(response.data.spread.title);
@@ -201,7 +205,6 @@ $('body')
 
                     $.each(response.data.positionList, function(ind, val){
                         var div = $('button[data-place="'+val['place']+'"]').parent();
-                        $(div).addClass('chosenPosition');
                         $(div).empty();
                         $(div).append('<button class="btn btn-default showPosition" data-id="'+val['id']+'" data-place="'+val['place']+'"><img class="img-responsive" src="/view/design/show.png"></button>');
                         if (response.data.spread.user_id == userId) {
