@@ -2,7 +2,7 @@ var userId = $('#userId').val();
 
 // Spread form
 $('#createSpread').click(function(){
-    $('#spreadEdit').prop('disabled', true);
+    $('#editSpread').hide();
 
     $('.spreadForm').find('input').val('');
     $('.spreadForm').find('textarea').val(''); 
@@ -47,7 +47,6 @@ $('#saveSpread').click(function(){
                     $('#historyInfo').text(history); 
 
                     $('#spreadForm').collapse();
-                    $('#spreadInfo').collapse();
                 } else {
                     $('#saveSpread').parent().addClass('error');
                     $('#saveSpread').text('Что-то пошло не так');

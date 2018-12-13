@@ -8,7 +8,7 @@
 
     $createButton = '<li class="nav-item"><a class="nav-link" id="createSpread" data-toggle="collapse" href="#spreadForm" role="button" aria-expanded="false" aria-controls="spreadForm">Создать</a></li>';
     $openButton = '<li class="nav-item"><a class="nav-link" data-toggle="collapse" href="#spreadList" role="button" aria-expanded="false" aria-controls="spreadList">Открыть</a></li>';
-    $editButton = '<li class="nav-item"><a class="nav-link" data-toggle="collapse" href="#spreadForm" role="button" aria-expanded="false" aria-controls="spreadForm" disabled>Редактировать</a></li>';
+    $editButton = '<li class="nav-item"><a class="nav-link" id="editSpread" data-toggle="collapse" href="#spreadForm" role="button" aria-expanded="false" aria-controls="spreadForm" style="display: none;">Редактировать</a></li>';
     $rightMenu = $createButton.$openButton.$editButton;
 
     $spreadForm = '<div class="collapse" id="spreadForm">
@@ -35,13 +35,13 @@
                     </div>';
 
     $spreadList = '';
-    if ($spreadMass && is_array($spreadMass) && count($spreadMass) > 0) {
+    if (count($spreadMass) > 0) {
         $spreadList = '<div class="collapse" id="spreadList">
                         <div class="card card-body col-sm-12">
                             <ul class="list-group spreadList">';
         foreach ($spreadMass as $spread)
         {
-            $list .= '<li class="list-group-item"><button class="btn btn-default openSpread" data-id="'.$spread['id'].'">'.$spread['title'].'</button></li>';
+            $spreadList .= '<li class="list-group-item"><button class="btn btn-default openSpread" data-id="'.$spread['id'].'">'.$spread['title'].'</button></li>';
         }
         $spreadList .= '</ul></div></div>';
     }
