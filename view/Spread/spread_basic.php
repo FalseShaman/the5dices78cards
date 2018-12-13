@@ -14,7 +14,7 @@
     $spreadForm = '<div class="collapse" id="spreadForm">
                         <form class="spreadForm">
                             <input type="hidden" name="id" value="0">
-                            <div class="col-sm-7">
+                            <div class="col-sm-12">
                                 <label>Название:</label>
                                 <input type="text" class="form-control" name="title">
                             </div>  
@@ -35,7 +35,7 @@
     $spreadList = '';
     if (count($spreadMass) > 0) {
         $spreadList = '<div class="collapse" id="spreadList">
-                        <div class="card card-body col-sm-12">
+                        <div class="col-sm-12">
                             <ul class="list-group spreadList">';
         foreach ($spreadMass as $spread)
         {
@@ -55,7 +55,7 @@
         {
             $spreadInfo .= '<div><button class="btn btn-default putPosition" data-place="'.$place.'"><img class="img-responsive" src="/view/design/refresh.png"></button></div>';
         }
-    $spreadInfo .= '</div></div>';
+    $spreadInfo .= '</div></div></div>';
 
     $positionForm = '<div class="collapse" id="positionForm">
                         <form class="positionForm"> 
