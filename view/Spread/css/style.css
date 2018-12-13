@@ -11,6 +11,21 @@
 	margin-bottom: 10px;
 }
 
-.spreadList {
+.spreadList, .spreadInfo {
 	margin-top: 20px;
+}
+
+.spreadInfo #historyInfo {
+	float: right;
+	text-align: right;
+	color: #000000;
+}
+
+.spreadMap .showPosition {
+	transform: rotate(270deg);
+	padding: 8px;
+	border-radius: 22px;
+}
+.spreadMap .putPosition {
+	opacity: 0.5;
 }
