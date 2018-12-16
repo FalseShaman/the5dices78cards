@@ -43,6 +43,7 @@ $('#saveSpread').click(function(){
             success: function(response) {
                 if (response.status == 'done') {
                     $('#spreadForm').collapse('hide');
+                    $('#spreadInfo').collapse('show');
                     clearTable();
                     $('#spreadId').val(response.id);
 
@@ -54,6 +55,8 @@ $('#saveSpread').click(function(){
                     $('#titleInfo').text(title);
                     $('#specificationInfo').text(specification);
                     $('#historyInfo').text(history); 
+
+                    $('.spreadList').append('<li class="list-group-item"><button class="btn btn-default openSpread" data-id="'+response.id+'">'+title+'</button></li>');
                 } else {
                     $('#saveSpread').parent().addClass('error');
                     $('#saveSpread').text('Что-то пошло не так');
@@ -62,6 +65,11 @@ $('#saveSpread').click(function(){
             }
         }); 
     }
+});
+$('#cancelSpreadForm').click(function(){
+    $('.spreadForm').find('input').val('');
+    $('.spreadForm').find('textarea').val(''); 
+    $('#spreadForm').collapse('hide');
 });
 
 // Position remove
@@ -80,7 +88,7 @@ $('#clearPosition').click(function(){
         }
     }); 
 
-    var div = $(this).parent();
+    var div = $('.showPosition[data-id="'+id+'"]').parent();
     $(div).empty();
     $(div).append('<button class="btn btn-default putPosition" data-id="0" data-place="'+place+'"><img class="img-responsive" src="/view/design/refresh.png"></button>');
     $('#positionInfo').collapse('hide');  
@@ -170,6 +178,12 @@ $('#savePosition').click(function(){
             }
         }); 
     }
+});
+
+$('#cancelPositionForm').click(function(){
+    $('.positionForm').find('input').val('');
+    $('.positionForm').find('textarea').val(''); 
+    $('#positionForm').collapse('hide');
 });
 
 $('body')
