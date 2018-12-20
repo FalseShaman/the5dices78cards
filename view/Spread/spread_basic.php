@@ -37,16 +37,15 @@
 
     $spreadList = '';
     $spreadList = '<div class="collapse" id="spreadList">
-                    <div class="col-sm-12">
-                        <ul class="list-group spreadList">
-                            <li class="list-group-item"><button class="btn btn-default" id="createSpread">Новый</button></li>';
+                    <div class="col-sm-12 spreadList">
+                        <button class="btn btn-info" id="createSpread">Новый</button></li>';
     if (count($spreadMass) > 0) {
         foreach ($spreadMass as $spread)
         {
-            $spreadList .= '<li class="list-group-item"><button class="btn btn-default openSpread" data-id="'.$spread['id'].'">'.$spread['title'].'</button></li>';
+            $spreadList .= '<button class="btn btn-default openSpread" data-id="'.$spread['id'].'">'.$spread['title'].'</button>';
         }
     }
-    $spreadList .= '</ul></div></div>';
+    $spreadList .= '</div></div>';
 
     $positionInfo = '<div class="collapse" id="positionInfo">
                         <button class="btn btn-default" id="editPosition" data-id="0"><img class="img-responsive" src="/view/design/edit.png"></button>

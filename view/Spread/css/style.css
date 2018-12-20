@@ -10,9 +10,16 @@
 	color: #ffffff;
 	margin-bottom: 10px;
 }
+.spreadForm .col-sm-6 {
+	max-width: 49%;
+}
 
 .spreadList, .spreadInfo {
 	margin-top: 20px;
+}
+
+.spreadList button {
+	margin: 0 10px;
 }
 
 .spreadInfo #historyInfo {

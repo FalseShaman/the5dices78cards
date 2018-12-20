@@ -13,6 +13,7 @@ function clearTable() {
 $('#createSpread').click(function(){
     $('#editSpread').hide();
     $('#spreadForm').collapse('show');
+    $('#spreadList').collapse('hide');
 
     $('.spreadForm').find('input').val('');
     $('.spreadForm').find('textarea').val(''); 
