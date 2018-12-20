@@ -10,12 +10,6 @@
 	color: #ffffff;
 	margin-bottom: 10px;
 }
-.spreadForm #editSpread {
-	float: right;
-	position: relative;
-	bottom: 10px;
-	opacity: 0.7;
-}
 
 .spreadList, .spreadInfo {
 	margin-top: 20px;
@@ -27,6 +21,12 @@
 }
 .spreadInfo #specificationInfo {
 	color: #000000;
+}
+.spreadInfo #editSpread {
+	float: right;
+	position: relative;
+	bottom: 10px;
+	opacity: 0.7;
 }
 
 .spreadMap {

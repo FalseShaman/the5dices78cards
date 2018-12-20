@@ -6,15 +6,13 @@
     $spread = new spread($user->id);
     $spreadMass = $spread->getList();
 
-    $newButton = '<li class="nav-item"><a class="nav-link" id="createSpread" data-toggle="collapse" href="#spreadForm" role="button" aria-expanded="false" aria-controls="spreadForm">Новый</a></li>';
     $listButton = '<li class="nav-item"><a class="nav-link" data-toggle="collapse" href="#spreadList" role="button" aria-expanded="false" aria-controls="spreadList">Список</a></li>';
-    $spreadButton = '<li class="nav-item"><a class="nav-link" data-toggle="collapse" href="#spreadInfo" role="button" aria-expanded="false" aria-controls="spreadInfo">Расклад</a></li>';
-    $positionButton = '<li class="nav-item"><a class="nav-link" data-toggle="collapse" href="#positionInfo" role="button" aria-expanded="false" aria-controls="positionInfo">Позиция</a></li>';
-    $rightMenu = $newButton.$listButton.$spreadButton.$positionButton;
+    $spreadButton = '<li class="nav-item"><a class="nav-link" data-toggle="collapse" href="#spreadInfo" role="button" aria-expanded="false" aria-controls="spreadInfo">Стол</a></li>';
+    $positionButton = '<li class="nav-item"><a class="nav-link" data-toggle="collapse" href="#positionInfo" role="button" aria-expanded="false" aria-controls="positionInfo">Карта</a></li>';
+    $rightMenu = $listButton.$spreadButton.$positionButton;
 
     $spreadForm = '<div class="collapse" id="spreadForm">
                         <form class="spreadForm">
-                            <button class="btn btn-default" id="editSpread"><img class="img-responsive" src="/view/design/edit.png"></button>
                             <input type="hidden" name="id" value="0">
                             <div class="col-sm-12">
                                 <label>Название:</label>
@@ -38,16 +36,17 @@
                     </div>';
 
     $spreadList = '';
+    $spreadList = '<div class="collapse" id="spreadList">
+                    <div class="col-sm-12">
+                        <ul class="list-group spreadList">
+                            <li class="list-group-item"><button class="btn btn-default" id="createSpread">Новый</button></li>';
     if (count($spreadMass) > 0) {
-        $spreadList = '<div class="collapse" id="spreadList">
-                        <div class="col-sm-12">
-                            <ul class="list-group spreadList">';
         foreach ($spreadMass as $spread)
         {
             $spreadList .= '<li class="list-group-item"><button class="btn btn-default openSpread" data-id="'.$spread['id'].'">'.$spread['title'].'</button></li>';
         }
-        $spreadList .= '</ul></div></div>';
     }
+    $spreadList .= '</ul></div></div>';
 
     $positionInfo = '<div class="collapse" id="positionInfo">
                         <button class="btn btn-default" id="editPosition" data-id="0"><img class="img-responsive" src="/view/design/edit.png"></button>
@@ -71,6 +70,7 @@
     $spreadInfo = '<div class="collapse" id="spreadInfo">
                         <input type="hidden" id="spreadId" value="0">
                         <div class="col-sm-12 spreadInfo">
+                            <button class="btn btn-default" id="editSpread"><img class="img-responsive" src="/view/design/edit.png"></button>
                             <div class="col-sm-6" id="historyInfo"></div>
                             <div class="col-sm-7"><h3 id="titleInfo"></h3></div>
                             <div class="col-sm-12" id="specificationInfo"></div>

@@ -11,6 +11,9 @@ function clearTable() {
 
 // Spread form
 $('#createSpread').click(function(){
+    $('#editSpread').hide();
+    $('#spreadForm').collapse('show');
+
     $('.spreadForm').find('input').val('');
     $('.spreadForm').find('textarea').val(''); 
     $('.spreadForm').find('input[name="id"]').val(0); 
