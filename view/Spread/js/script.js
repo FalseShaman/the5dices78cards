@@ -59,6 +59,7 @@ $('#saveSpread').click(function(){
                     $('.spreadForm').find('input[name="title"]').val(title); 
                     $('.spreadForm').find('textarea[name="specification"]').val(specification); 
                     $('.spreadForm').find('textarea[name="history"]').val(history); 
+                    console.log(specification+'----'+history);
 
                     $('#titleInfo').text(title);
                     $('#specificationInfo').text(specification);
