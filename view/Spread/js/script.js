@@ -60,7 +60,7 @@ $('#saveSpread').click(function(){
                     $('#specificationInfo').text(specification);
                     $('#historyInfo').text(history); 
 
-                    $('.spreadList').append('<li class="list-group-item"><button class="btn btn-default openSpread" data-id="'+response.id+'">'+title+'</button></li>');
+                    $('.spreadList').append('<button class="btn btn-default openSpread" data-id="'+response.id+'">'+title+'</button>');
                 } else {
                     $('#saveSpread').parent().addClass('error');
                     $('#saveSpread').text('Что-то пошло не так');
