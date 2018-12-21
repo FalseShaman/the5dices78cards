@@ -59,7 +59,6 @@ $('#saveSpread').click(function(){
                     $('.spreadForm').find('input[name="title"]').val(title); 
                     $('.spreadForm').find('textarea[name="specification"]').val(specification); 
                     $('.spreadForm').find('textarea[name="history"]').val(history); 
-                    console.log(specification+'----'+history);
 
                     $('#titleInfo').text(title);
                     $('#specificationInfo').text(specification);
@@ -229,6 +228,7 @@ $('body')
                     $('.spreadForm').find('input[name="title"]').val(response.data.spread.title);
                     $('.spreadForm').find('input[name="specification"]').val(response.data.spread.specification);
                     $('.spreadForm').find('input[name="history"]').val(response.data.spread.history);
+                    console.log(response.data);
 
                     $('#titleInfo').text(response.data.spread.title);
                     $('#specificationInfo').text(response.data.spread.specification);
