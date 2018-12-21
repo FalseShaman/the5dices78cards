@@ -29,7 +29,7 @@
                             <div class="col-sm-6">
                                 <button type="button" class="form-control btn btn-default" id="saveSpread">Сохранить</button>
                             </div>
-                            <div class="col-sm-6">
+                            <div class="col-sm-5">
                                 <button type="button" class="form-control btn btn-default" id="cancelSpreadForm">Отмена</button>
                             </div>
                         </form>
@@ -114,7 +114,7 @@
                             <div class="col-sm-6">
                                 <button type="button" class="form-control btn btn-default" id="savePosition">Сохранить</button>
                             </div>
-                            <div class="col-sm-6">
+                            <div class="col-sm-5">
                                 <button type="button" class="form-control btn btn-default" id="cancelPositionForm">Отмена</button>
                             </div>
                         </form> 

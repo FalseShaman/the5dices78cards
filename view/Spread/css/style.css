@@ -19,7 +19,7 @@
 }
 
 .spreadList button {
-	margin: 0 10px;
+	margin: 0 10px 10px 0;
 }
 
 .spreadInfo #historyInfo {
@@ -31,9 +31,8 @@
 }
 .spreadInfo #editSpread {
 	float: right;
-	position: relative;
-	bottom: 10px;
 	opacity: 0.7;
+	z-index: 5;
 }
 
 .spreadMap {

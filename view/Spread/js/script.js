@@ -19,6 +19,10 @@ $('#createSpread').click(function(){
     $('.spreadForm').find('textarea').val(''); 
     $('.spreadForm').find('input[name="id"]').val(0); 
 });
+$('#editSpread').click(function(){
+    $('#spreadForm').collapse('show');
+    $('#spreadInfo').collapse('hide');
+});
 $('#saveSpread').click(function(){
     var write = true;
     $('.spreadForm').children().removeClass('error');
