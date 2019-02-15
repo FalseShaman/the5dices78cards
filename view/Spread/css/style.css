@@ -81,3 +81,7 @@
 #positionInfo label {
 	color: #000000;
 }
+
+.spreadForm div, .positionForm div {
+	display: inline-block;
+}

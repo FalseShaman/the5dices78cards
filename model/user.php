@@ -6,20 +6,17 @@
         name VARCHAR(390) NOT NULL,
         pass VARCHAR(390) NOT NULL,
         register VARCHAR(390) NOT NULL,
-        rules VARCHAR(390) NOT NULL,
-        specialization ENUM("Начертательная магия", "Вербальная магия", "Предметная магия", 
-                            "Магия крови", "Магия элементов", "Магия высших сил", 
-                            "Магия смерти и жизни", "Магия хаоса и порядка", "Магия астрала и снов", 
-                            "Магия творения", "Магические науки", "Магия пустоты", "Магия желаний"),
-        decks VARCHAR(390) DEFAULT NULL)
+        role ENUM("watcher", "writer", "wizard"))
         */
 
         public $name;
         public $pass;
+        public $role;
 
-        function __construct($name = '', $pass = '') {
+        function __construct($name = '', $pass = '', $role = '') {
             $this->name = $name;
             $this->pass = $pass;
+            $this->role = $role;
         }
 
         public function getList() {

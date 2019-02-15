@@ -7,18 +7,8 @@
         public $pages = array(
             'auth' =>
                 array('login', 'logout'),
-            'profile' =>
-                array(),
             'spread' =>
                 array('get', 'put', 'putPosition', 'getPosition', 'removePosition'),
-            'story' =>
-                array(),
-            'article' =>
-                array(),
-            'quest' =>
-                array(),
-            'wave' =>
-                array(),
             'lost' =>
                 array()
             );
@@ -47,14 +37,14 @@
 // Main menu
         public function getMenu() {
             $navbar = '';
-            $pageList = array('Расклад' => 'spread');
+            $pageList = array('Spread list' => 'spread');
 
             foreach ($pageList as $name => $page)
             {
                 $navbar .= $this->page == $page ? '<li class="nav-item active">' : '<li class="nav-item">';
                 $navbar .= '<a class="nav-link" href="/'.$page.'">'.$name.'</a></li>';
             }
-            $navbar .= '<li class="nav-item"><a class="nav-link" href="/auth/logout">Выход</a></li>';
+            $navbar .= '<li class="nav-item"><a class="nav-link" href="/auth/logout">Logout</a></li>';
 
             return $navbar;
         }
@@ -67,7 +57,7 @@
             if ($userData) {
                 return array('status' => 'done');
             } else {
-                return array('status' => 'fail', 'message' => 'Ошибка авторизации');
+                return array('status' => 'fail', 'message' => 'Ошибка авторизации', 'data' => $user);
             }
         }
         public function logoutAuth() {
@@ -80,7 +70,7 @@
         public function putSpread() {
             $user = json_decode($_SESSION['user']);
             require_once 'spread.php';
-            $spread = new spread($user->id, $_POST['title'], $_POST['specification'], $_POST['history']);
+            $spread = new spread($user->id, $_POST['name'], $_POST['description'], $_POST['geometryCode']);
 
             if (isset($_POST['id']) && $_POST['id'] > 0) {
                 $spreadId = $spread->update($_POST['id']);
@@ -102,17 +92,23 @@
                 require_once 'spread.php';
                 $spread = spread::getOne($spreadId);
 
-                require_once 'position.php';
-                $positionList = position::getList($spreadId);
-
-                return array('status' => 'done', 'data' => array('spread' => $spread, 'positionList' => $positionList));  
+                return array('status' => 'done', 'data' => array('spread' => $spread));  
             }
             return array('status' => 'fail', 'message' => 'Пусто');      
         }
+// Delete spread
+        // public function removeSpread() {
+        //     $spreadId = (isset($_POST['id']) && $_POST['id']) > 0 ? $_POST['id'] : 0;
+
+        //     if ($spreadId > 0) {
+        //         require_once 'spread.php';
+        //         $spread = spread::removeOne($spreadId);
+        //     }
+        // }
 // Create-Update position (ajax response)
         public function putPositionSpread() {
             require_once 'position.php';
-            $position = new position($_POST['spread'], $_POST['place'], $_POST['name'], $_POST['number'], $_POST['description'], $_POST['link'], $_POST['card'], $_POST['frame']);
+            $position = new position($_POST['spread'], $_POST['name'], $_POST['description'], $_POST['number'], $_POST['example']);
             
             if (isset($_POST['id']) && $_POST['id'] > 0) {
                 $positionId = $position->update($_POST['id']);
@@ -139,14 +135,14 @@
             return array('status' => 'fail', 'message' => 'Пусто');
         }
 // Delete position
-        public function removePositionSpread() {
-            $positionId = (isset($_POST['id']) && $_POST['id']) > 0 ? $_POST['id'] : 0;
+        // public function removePositionSpread() {
+        //     $positionId = (isset($_POST['id']) && $_POST['id']) > 0 ? $_POST['id'] : 0;
 
-            if ($positionId > 0) {
-                require_once 'position.php';
-                $position = position::removeOne($positionId);
-            }
-        }
+        //     if ($positionId > 0) {
+        //         require_once 'position.php';
+        //         $position = position::removeOne($positionId);
+        //     }
+        // }
 // 404
         public function urlNotFound() {
             return 'Url not found';

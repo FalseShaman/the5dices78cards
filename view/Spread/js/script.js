@@ -222,13 +222,11 @@ $('body')
                 if (response.status == 'done') {
                     $('#spreadEdit').prop('disabled', false);
                     clearTable();
-                    $('#spreadId').val(response.data.spread.id);
 
                     $('.spreadForm').find('input[name="id"]').val(response.data.spread.id);
                     $('.spreadForm').find('input[name="title"]').val(response.data.spread.title);
-                    $('.spreadForm').find('input[name="specification"]').val(response.data.spread.specification);
-                    $('.spreadForm').find('input[name="history"]').val(response.data.spread.history);
-                    console.log(response.data);
+                    $('.spreadForm').find('textarea[name="specification"]').val(response.data.spread.specification);
+                    $('.spreadForm').find('textarea[name="history"]').val(response.data.spread.history);
 
                     $('#titleInfo').text(response.data.spread.title);
                     $('#specificationInfo').text(response.data.spread.specification);
